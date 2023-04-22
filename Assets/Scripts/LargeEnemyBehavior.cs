@@ -8,9 +8,9 @@ public class LargeEnemyBehavior : MonoBehaviour
     [Range(0, 100)]
     public float swimSpeed;
     public Rigidbody rb;
-    [Range(0, 100)]
+    [Range(0, 5)]
     public float noiseSpeed;
-    [Range(0, 100)]
+    [Range(0, 5)]
     public float noiseScale;
     public float InitialAttackdelay = 5f;
     public float CurrentDelayTime;
