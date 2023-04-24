@@ -16,10 +16,25 @@ public class SubController : MonoBehaviour
     public float minDecentSpeed;
     public float maxDecentSpeed;
 
+    public bool isSub;
+
     public Rigidbody subRigi;
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
+        if(isSub)
+        {
+            SubControl();
+        }
+        else
+        {
+            subRigi.isKinematic = true;
+        }
+    }
+
+    public void SubControl()
+    {
+        subRigi.isKinematic = false;
         //this will ensure that the sub will allways move forward. 0 speed will stop the throttle of the speed.
         subRigi.AddForce(transform.forward * speed);
 
@@ -56,7 +71,7 @@ public class SubController : MonoBehaviour
         //this will cap the speed to the set max speed
         if (speed >= maxSpeed)
         {
-            speed =maxSpeed;
+            speed = maxSpeed;
         }
 
         //This will set the sub speed to zero when the thrust is tunred off
@@ -84,7 +99,6 @@ public class SubController : MonoBehaviour
             subRigi.velocity = Vector3.zero;
             subRigi.angularVelocity = Vector3.zero;
         }
-
 
     }
 }
