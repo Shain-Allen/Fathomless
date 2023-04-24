@@ -12,63 +12,75 @@ public class playerController : MonoBehaviour
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    public LayerMask seaMask; //related to the check
+    public LayerMask groundMask, seaMask;
 
     Vector3 velocity;
-    public bool isGrounded;
-    public bool seaGrounded; //related to the check
+    public bool isGrounded, seaGrounded;
+    public bool Frozen;
+
+    private void Start()
+    {
+        Frozen = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        seaGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, seaMask); //related to the check
-
-        if (isGrounded && velocity.y < 0) 
+        if (Frozen)
         {
-            velocity.y = -2f;
-        } 
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            seaGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, seaMask); //related to the check
 
-        if (seaGrounded && velocity.y < 0) //related to the check
-        {
-            Gravity = -10f;
-            velocity.y = -1.6f;
-        }
-        
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+            if (isGrounded && velocity.y < 0)
+            {
+                Gravity = -27f;
+                velocity.y = -2f;
+            }
 
-        Vector3 move = transform.right * x + transform.forward * z;
+            if (seaGrounded && velocity.y < 0) //related to the check
+            {
+                Gravity = -10f;
+                velocity.y = -1.6f;
+            }
 
-        controller.Move(move * Speed * Time.deltaTime);
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        if (isGrounded) //related to the check
-        {
-            Speed = 5f;
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * Speed * Time.deltaTime);
+
+            if (isGrounded) //related to the check
+            {
+                Speed = 5f;
+            }
+            else
+            {
+                if (seaGrounded)
+                {
+                    Speed = 2.5f;
+                }
+            }
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
+            }
+            else //related to the check
+            {
+                if (Input.GetButtonDown("Jump") && seaGrounded)
+                {
+                    velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity) * 6 / 5;
+                }
+            }
+
+            velocity.y += Gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
         }
         else
         {
-            if (seaGrounded)
-            {
-                Speed = 2.5f;
-            }
-        }
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
         }
-        else //related to the check
-        {
-            if(Input.GetButtonDown("Jump") && seaGrounded)
-            {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity) * 6 / 5;
-            }
-        }
-
-        velocity.y += Gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
     }
 }
