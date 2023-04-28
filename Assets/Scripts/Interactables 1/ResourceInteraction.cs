@@ -8,10 +8,10 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
     bool pickedUp;
     [Range(1f, 15f)]
     public float floatSpeed;
+    public float shrinkSpeed;
 
     public void Interact(GameObject player)
     {
-        print("picked up a resource");
         pickedUp = true;
     }
 
@@ -28,7 +28,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
             transform.position += direction * floatSpeed * Time.deltaTime;
             transform.Rotate(0,250 * Time.deltaTime, 0);
 
-            //transform.localScale = transform.localScale/2;
+            transform.localScale = transform.localScale/shrinkSpeed;
 
             if (direction.magnitude < 0.3)
             {
