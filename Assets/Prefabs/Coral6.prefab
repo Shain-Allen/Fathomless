@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &233597561705734447
+--- !u!1 &792535211675885224
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 609735351068425109}
-  - component: {fileID: 4600968560936842288}
-  - component: {fileID: 1746582804540522746}
+  - component: {fileID: 122853106716132370}
+  - component: {fileID: 3898900851016682423}
+  - component: {fileID: 1296855149872004989}
   m_Layer: 0
   m_Name: Coral6
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &609735351068425109
+--- !u!4 &122853106716132370
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233597561705734447}
+  m_GameObject: {fileID: 792535211675885224}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.96726036, y: 2.787452, z: -12.113613}
+  m_LocalPosition: {x: 6.5663586, y: 0.6244529, z: 16.045933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4600968560936842288
+--- !u!33 &3898900851016682423
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233597561705734447}
-  m_Mesh: {fileID: 992918457684833869, guid: 423624760ea64234893501d9a9d89c44, type: 3}
---- !u!23 &1746582804540522746
+  m_GameObject: {fileID: 792535211675885224}
+  m_Mesh: {fileID: 992918457684833869, guid: ac6b1c35f833b6e459ee2db7ce960396, type: 3}
+--- !u!23 &1296855149872004989
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233597561705734447}
+  m_GameObject: {fileID: 792535211675885224}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,10 +58,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 68a7729b332149e4abe187b1fce2ed99, type: 2}
+  - {fileID: 2100000, guid: 318f42ad42da04948868ccfacac449ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
