@@ -18,6 +18,7 @@ public class playerController : MonoBehaviour
     public bool isGrounded, seaGrounded;
     public bool Frozen;
 
+    public GameObject tpPoint;
     private void Start()
     {
         Frozen = true;
@@ -26,7 +27,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Frozen)
+        if (!Frozen)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             seaGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, seaMask); //related to the check
@@ -65,6 +66,11 @@ public class playerController : MonoBehaviour
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
+            }
+            if (Input.GetButtonDown("P"))
+            {
+                print("returning to sub");
+                transform.position = tpPoint.transform.position;
             }
             else //related to the check
             {
