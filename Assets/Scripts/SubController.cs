@@ -28,7 +28,7 @@ public class SubController : MonoBehaviour
         }
         else
         {
-            subRigi.isKinematic = true;
+            subRigi.isKinematic = false;
         }
     }
 
@@ -47,7 +47,7 @@ public class SubController : MonoBehaviour
         //This will increase the speed of sub
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed += .05f;
+            speed += 3f;
         }
 
         //This will decrease the speed of sub

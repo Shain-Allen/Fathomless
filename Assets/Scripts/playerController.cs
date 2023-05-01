@@ -18,10 +18,16 @@ public class playerController : MonoBehaviour
     public bool isGrounded, seaGrounded;
     public bool Frozen;
 
-    public GameObject tpPoint;
+    public GameObject Sub;
+    public Rigidbody subRb;
+    Vector3 totalMovementDirection;
+    Vector3 previousSubmarineRotation;
+
     private void Start()
     {
-        Frozen = true;
+        Frozen = false;
+        subRb = Sub.GetComponent<Rigidbody>();
+        previousSubmarineRotation = Vector3.zero;
     }
 
     // Update is called once per frame
@@ -67,11 +73,6 @@ public class playerController : MonoBehaviour
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * Gravity);
             }
-            if (Input.GetButtonDown("P"))
-            {
-                print("returning to sub");
-                transform.position = tpPoint.transform.position;
-            }
             else //related to the check
             {
                 if (Input.GetButtonDown("Jump") && seaGrounded)
@@ -82,7 +83,19 @@ public class playerController : MonoBehaviour
 
             velocity.y += Gravity * Time.deltaTime;
 
-            controller.Move(velocity * Time.deltaTime);
+            if (isGrounded)
+            {
+                totalMovementDirection =  controller.velocity + subRb.velocity;
+                float submarineHorizontalRotChange = subRb.rotation.eulerAngles.y - previousSubmarineRotation.y;
+                transform.rotation *= Quaternion.Euler(0, submarineHorizontalRotChange, 0);
+                previousSubmarineRotation = subRb.rotation.eulerAngles;
+
+            }
+            else
+            {
+                totalMovementDirection = controller.velocity;
+            }
+            controller.Move((totalMovementDirection + velocity) * Time.deltaTime);
         }
         else
         {
