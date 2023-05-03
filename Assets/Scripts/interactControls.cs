@@ -6,7 +6,7 @@ public class interactControls : MonoBehaviour
 {
     public Camera MainCamera;
     private RaycastHit raycast;
-    private float raycastRange = 3f;
+    private float raycastRange = 10f;
 
     // Update is called once per frame
     void Update()

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LargeEnemyBehavior : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject Player; 
+    public GameObject damageHandler;
     Vector3 direction;
     [Range(0, 100)]
     public float swimSpeed;
@@ -18,6 +19,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     public float HaltedSpeed = 40f;
     public float HaltTime = 1.5f;
     public float fleeSpeed = 100;
+   
 
     public float enemyHealth = 100;
 
@@ -127,7 +129,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 
         if (dist < 10)
         {
-            //Attack player. needs sub to take damage
+            damageHandler.GetComponent<IHit>()?.Hit();
             currentState = State.Halt;
             StartCoroutine(StartHaltTimer());
         }
@@ -168,7 +170,6 @@ public class LargeEnemyBehavior : MonoBehaviour
     private IEnumerator StartAttackTimer()
     {
         isAttackTimerRunning = true;
-        print("AttackTimer Started");
         InitialAttackdelay = 10f;
         CurrentDelayTime = InitialAttackdelay;
         //yield return new WaitForSeconds() would work here, but with this system we can add to the timer if we want to. More flexible.
@@ -181,7 +182,6 @@ public class LargeEnemyBehavior : MonoBehaviour
             yield return null;
             CurrentDelayTime -= Time.deltaTime;
         }
-        Debug.Log("attack state activated");
         currentState = State.Attack;
         isAttackTimerRunning = false;
     }
@@ -190,9 +190,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     private IEnumerator StartHaltTimer()
     {
         mat.color = Color.white;
-        print("HaltTimer Started");
         yield return new WaitForSeconds(HaltTime);
-        print("HaltTimer ended, pursue state active");
         currentState = State.Pursue;
     }
 }
