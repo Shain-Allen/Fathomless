@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4724518445737635643}
   - component: {fileID: 986784241806210581}
-  - component: {fileID: 7925117214239299501}
   - component: {fileID: 412974326771420170}
   m_Layer: 0
   m_Name: Turret_Camera
@@ -57,15 +56,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028777070862228820}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8335665947815029305}
   m_Father: {fileID: 1029320387694575186}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!20 &986784241806210581
 Camera:
   m_ObjectHideFlags: 0
@@ -109,14 +108,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7925117214239299501
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028777070862228820}
-  m_Enabled: 1
 --- !u!114 &412974326771420170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,8 +259,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8276927563778146997}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.4, z: 0.5}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.329, z: 0.71}
   m_LocalScale: {x: 0.38128, y: 0.38128006, z: 0.38128006}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -387,7 +378,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
+  camera: {fileID: 986784241806210581}
   turretProjectilePrefab: {fileID: 3390001773388347506, guid: fbd0a2049ac56274697ec554b4ecb603,
     type: 3}
   turretBarrel: {fileID: 9070294455695499113}
   fireDelay: 0.5
+  isTurret: 0
