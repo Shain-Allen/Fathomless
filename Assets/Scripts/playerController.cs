@@ -12,35 +12,25 @@ public class playerController : MonoBehaviour
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
-    public LayerMask groundMask, seaMask;
+    public LayerMask groundMask;
+    public LayerMask seaMask; //related to the check
 
     Vector3 velocity;
-    public bool isGrounded, seaGrounded;
+    public bool isGrounded;
+    public bool seaGrounded;
     public bool Frozen;
-
-    public GameObject Sub;
-    public Rigidbody subRb;
-    Vector3 totalMovementDirection;
-    Vector3 previousSubmarineRotation;
-
-    private void Start()
-    {
-        Frozen = false;
-        subRb = Sub.GetComponent<Rigidbody>();
-        previousSubmarineRotation = Vector3.zero;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Frozen)
+        if (Frozen)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             seaGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, seaMask); //related to the check
 
             if (isGrounded && velocity.y < 0)
             {
-                Gravity = -27f;
+                Gravity = -22.5f;
                 velocity.y = -2f;
             }
 
@@ -83,23 +73,12 @@ public class playerController : MonoBehaviour
 
             velocity.y += Gravity * Time.deltaTime;
 
-            if (isGrounded)
-            {
-                totalMovementDirection =  controller.velocity + subRb.velocity;
-                float submarineHorizontalRotChange = subRb.rotation.eulerAngles.y - previousSubmarineRotation.y;
-                transform.rotation *= Quaternion.Euler(0, submarineHorizontalRotChange, 0);
-                previousSubmarineRotation = subRb.rotation.eulerAngles;
-
-            }
-            else
-            {
-                totalMovementDirection = controller.velocity;
-            }
-            controller.Move((totalMovementDirection + velocity) * Time.deltaTime);
+            controller.Move(velocity * Time.deltaTime);
         }
         else
         {
 
         }
     }
+        
 }
