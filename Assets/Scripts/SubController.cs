@@ -36,7 +36,7 @@ public class SubController : MonoBehaviour
     {
         subRigi.isKinematic = false;
         //this will ensure that the sub will allways move forward. 0 speed will stop the throttle of the speed.
-        subRigi.AddForce(transform.forward * speed);
+        subRigi.AddForce(transform.forward * speed, ForceMode.Impulse);
 
         //float rotationX = Input.GetAxis("Vertical") * yRotSpeed;
         float rotationY = Input.GetAxis("Horizontal") * xRotSpeed;
@@ -47,13 +47,13 @@ public class SubController : MonoBehaviour
         //This will increase the speed of sub
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed += 3f;
+            speed += 100f;
         }
 
         //This will decrease the speed of sub
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            speed -= .05f;
+            speed -= 100f;
         }
 
         //Moves sub up

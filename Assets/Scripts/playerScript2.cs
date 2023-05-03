@@ -11,6 +11,8 @@ public class playerScript2 : MonoBehaviour
     public Transform groundCheck;
     public GameObject cam;
     Vector3 velocity;
+
+    public GameObject sub;
     
     // Start is called before the first frame update
     void Start()
@@ -48,12 +50,14 @@ public class playerScript2 : MonoBehaviour
             velocity.Normalize();
             velocity *= Time.deltaTime * speed;
             
-            if (inSub) //gravity if the player is in the sub
+            if (inSub) //gravity if the player is in the sub, and set player to be child of sub
             {
+                transform.SetParent(sub.transform);
                 velocity.y -= gravity * Time.deltaTime;
             }
-            else //gravity otherwise
+            else //gravity otherwise, and remove parent
             {
+                transform.SetParent(null);
                 velocity.y -= gravity * Time.deltaTime / 2;
             }
 
@@ -61,7 +65,7 @@ public class playerScript2 : MonoBehaviour
             {
                 velocity.y += jumpHeight;
             }
-                       
+            print(velocity);
             playerBody.AddForce(velocity, ForceMode.Impulse); //applies impulse force to all movements
         }
         else //if Frozen is true
