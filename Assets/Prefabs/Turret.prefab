@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4724518445737635643
 Transform:
   m_ObjectHideFlags: 0
@@ -378,9 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
-  camera: {fileID: 986784241806210581}
   turretProjectilePrefab: {fileID: 3390001773388347506, guid: fbd0a2049ac56274697ec554b4ecb603,
     type: 3}
   turretBarrel: {fileID: 9070294455695499113}
   fireDelay: 0.5
-  isTurret: 0
