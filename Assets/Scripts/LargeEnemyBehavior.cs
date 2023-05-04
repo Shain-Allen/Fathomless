@@ -84,7 +84,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         toPlayer.Normalize();
         direction = toPlayer * swimSpeed + noise;
         rb.velocity = direction;
-        rb.rotation = Quaternion.LookRotation(direction);
+        rb.rotation = Quaternion.LookRotation(toPlayer);
 
         if (enemyHealth <= 0)
         {
