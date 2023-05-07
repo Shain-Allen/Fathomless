@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 137353059}
   - component: {fileID: 137353062}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: SubCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1179,6 +1179,12 @@ MonoBehaviour:
   maxDecentSpeed: 2
   isSub: 0
   subRigi: {fileID: 1326568220}
+  dampening: 0.5
+  velocityThreshold: 0.1
+  subCam: {fileID: 137353058}
+  mouseSensitivity: 100
+  delayTime: 3
+  delayTimer: 0
 --- !u!54 &1326568220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1193,7 +1199,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!4 &1326568221
 Transform:
@@ -1203,7 +1209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326568218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3147, y: -0.24084, z: 0.055813}
+  m_LocalPosition: {x: -1.3147, y: 0.58, z: 0.055813}
   m_LocalScale: {x: 7.930869, y: 7.930869, z: 7.930869}
   m_ConstrainProportionsScale: 0
   m_Children:
