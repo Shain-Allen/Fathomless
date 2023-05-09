@@ -5,6 +5,7 @@ using UnityEngine;
 public class HatchInteractable : MonoBehaviour, IInteractable
 {
     playerScript2 playerScript2;
+    public Rigidbody playerRb;
     public LayerMask seaMask, subMask;
     public GameObject teleporter;
     public GameObject player;
@@ -12,11 +13,13 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     void Awake()
     {
         playerScript2 = player.GetComponent<playerScript2>();
+        playerRb = player.GetComponent<Rigidbody>();
     }
 
     public void Interact(GameObject player)
     {
         playerScript2.inSub = !playerScript2.inSub;
+        playerRb.velocity = Vector3.zero;
         StartCoroutine("Teleport");
         //TODO: add logic for moving player outside sub
         //player.transform.position = tP.transform.position;
