@@ -5,12 +5,13 @@ using UnityEngine;
 public class playerScript2 : MonoBehaviour
 {
     public Rigidbody playerBody;
-    public float speed, gravity, jumpHeight, groundDistance;
+    public float tereSpeed, aquaSpeed, gravity, jumpHeight, groundDistance;
     public bool Frozen, inSub, isGrounded;
     public LayerMask playerMask;
     public Transform groundCheck;
     public GameObject cam;
     Vector3 direction;
+    public float playerHeightOffset;
 
     public GameObject sub;
     
@@ -27,6 +28,8 @@ public class playerScript2 : MonoBehaviour
         {
             if (!inSub)
             {
+                //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
+                playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
                 transform.SetParent(null);
                 
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~playerMask); //checks to see if the ground check is contacting anything except the player mask
@@ -49,7 +52,7 @@ public class playerScript2 : MonoBehaviour
                 }
 
                 direction.Normalize();
-                direction *= Time.deltaTime * speed;                          
+                direction *= Time.deltaTime * aquaSpeed;                          
                               
                 direction.y -= gravity * Time.deltaTime / (10 / 3);
                 
@@ -62,8 +65,10 @@ public class playerScript2 : MonoBehaviour
             }
             else
             {
-                transform.SetParent(sub.transform);
+                //sets the freeze position constrains, since we're moving with transform. needed for parenting to work.
+                playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 
+                transform.SetParent(sub.transform);
                 if (Input.GetKey(KeyCode.D)) //pressed D
                 {
                     direction += playerBody.transform.right;
@@ -81,8 +86,10 @@ public class playerScript2 : MonoBehaviour
                     direction += -playerBody.transform.forward;
                 }
                 
-                direction *= Time.deltaTime * (speed / 5);
-                transform.localPosition += new Vector3(direction.x, direction.y, direction.z); //applies impulse force to all movements
+                direction *= Time.deltaTime * (tereSpeed / 5);
+                print(direction);
+                transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
+                transform.position += new Vector3(direction.x, transform.localPosition.y, direction.z); //applies impulse force to all movements
             }
             
         }

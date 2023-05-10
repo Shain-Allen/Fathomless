@@ -11,7 +11,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     public bool controlSub;
 
-
     public void Interact(GameObject player)
     {
         print("Engaged pilot controls");
