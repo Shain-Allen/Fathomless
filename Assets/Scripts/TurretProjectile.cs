@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurretProjectile : MonoBehaviour
 {
+    public GameObject obj;
     public Rigidbody projectileRigidbody;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,11 @@ public class TurretProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        projectileRigidbody.velocity = new Vector3(0, 0, 0);
+        GameObject collidedObject = collision.gameObject;
+        this.transform.parent = collidedObject.transform;
+        projectileRigidbody.isKinematic = true;
+        projectileRigidbody.detectCollisions = false;
+        Destroy(obj);
     }
 }
