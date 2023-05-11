@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class playerScript2 : MonoBehaviour
 {
+    public GameObject sub;
     public Rigidbody playerBody;
     public float tereSpeed, aquaSpeed, gravity, jumpHeight, groundDistance;
     public bool Frozen, inSub, isGrounded;
@@ -11,12 +12,12 @@ public class playerScript2 : MonoBehaviour
     Vector3 direction;
     float playerHeightOffset;
 
-    public GameObject sub;
 
     GameObject playerContainer;
     Vector3 initialPos;
     public float spaceRadiusX;
     public float spaceRadiusZ;
+    CapsuleCollider collider;
 
     SubController controller;
 
@@ -25,7 +26,8 @@ public class playerScript2 : MonoBehaviour
     {
         controller = sub.GetComponent<SubController>();
         playerContainer = controller.playerContainer;
-         playerHeightOffset = playerContainer.transform.localPosition.y;
+        collider = GetComponent<CapsuleCollider>();
+        playerHeightOffset = playerContainer.transform.localPosition.y;
         if (spaceRadiusX < 1)
         {
             spaceRadiusX = 1;
@@ -47,6 +49,9 @@ public class playerScript2 : MonoBehaviour
                 //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
                 playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
                 transform.SetParent(null);
+
+                //setting players collider to not be a trigger so that we can use it for physics
+                collider.isTrigger = false;
 
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~playerMask); //checks to see if the ground check is contacting anything except the player mask
 
@@ -86,6 +91,9 @@ public class playerScript2 : MonoBehaviour
             {
                 //sets the freeze position constrains, since we're moving with transform. needed for parenting to work.
                 playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+
+                //setting players collider to be a trigger so it doesn't influence sub movement
+                collider.isTrigger = true;
 
                 transform.SetParent(sub.transform);
                 if (Input.GetKey(KeyCode.D)) //pressed D
