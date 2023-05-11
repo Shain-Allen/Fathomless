@@ -19,6 +19,7 @@ public class SubController : MonoBehaviour
     public bool isSub;
 
     public Rigidbody subRigi;
+    public GameObject Player;
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {

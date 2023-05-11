@@ -10,10 +10,15 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     public GameObject teleporter;
     public GameObject player;
 
+    //added for auto access to player in prefab
+    public SubController controller;
+
     void Awake()
     {
+        player = controller.Player;
         playerScript2 = player.GetComponent<playerScript2>();
         playerRb = player.GetComponent<Rigidbody>();
+       
     }
 
     public void Interact(GameObject player)
