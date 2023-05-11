@@ -14,11 +14,12 @@ public class TurretSystem : MonoBehaviour
     float nextShot = 0.01f;
     public bool isTurret;
 
-    void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
+    void Update()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
         if (isTurret)//checks to see if the player has pressed e on the control pannel
         {
             TurretControl();
+            UpdateCamera();
         }
     }
 
@@ -30,7 +31,6 @@ public class TurretSystem : MonoBehaviour
             FireTurret();
             nextShot = Time.time + fireDelay;
         }
-        UpdateCamera(); 
     }
 
     void UpdateCamera()

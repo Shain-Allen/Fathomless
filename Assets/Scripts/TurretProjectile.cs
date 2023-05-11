@@ -6,19 +6,22 @@ public class TurretProjectile : MonoBehaviour
 {
     public GameObject obj;
     public Rigidbody projectileRigidbody;
+    public float velocityProj = 1000;
+    public bool test = false;
     // Start is called before the first frame update
     void Start()
     {
-        projectileRigidbody.AddForce(transform.forward * 1000);
+        projectileRigidbody.AddForce(transform.forward * velocityProj);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        projectileRigidbody.velocity = new Vector3(0, 0, 0);
-        GameObject collidedObject = collision.gameObject;
-        this.transform.parent = collidedObject.transform;
-        projectileRigidbody.isKinematic = true;
-        projectileRigidbody.detectCollisions = false;
-        Destroy(obj);
+        if (test == false)
+        {
+            GameObject collidedObject = collision.gameObject;
+            obj.transform.parent = collidedObject.transform;
+            projectileRigidbody.isKinematic = true;
+            projectileRigidbody.detectCollisions = false;
+        }
     }
 }
