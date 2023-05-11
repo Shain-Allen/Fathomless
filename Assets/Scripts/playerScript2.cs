@@ -13,14 +13,18 @@ public class playerScript2 : MonoBehaviour
 
     public GameObject sub;
 
-    public GameObject playerContainer;
+    GameObject playerContainer;
     Vector3 initialPos;
     public float spaceRadiusX;
     public float spaceRadiusZ;
 
+    SubController controller;
+
     // Start is called before the first frame update
     void Start()
     {
+        controller = sub.GetComponent<SubController>();
+        playerContainer = controller.playerContainer;
          playerHeightOffset = playerContainer.transform.localPosition.y;
         if (spaceRadiusX < 1)
         {
