@@ -22,6 +22,14 @@ public class playerScript2 : MonoBehaviour
     void Start()
     {
          playerHeightOffset = playerContainer.transform.localPosition.y;
+        if (spaceRadiusX < 1)
+        {
+            spaceRadiusX = 1;
+        }
+        if (spaceRadiusZ < 1)
+        {
+            spaceRadiusZ = 1;
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +45,8 @@ public class playerScript2 : MonoBehaviour
                 transform.SetParent(null);
 
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~playerMask); //checks to see if the ground check is contacting anything except the player mask
+
+                direction = Vector3.zero;
 
                 if (Input.GetKey(KeyCode.D)) //pressed D
                 {
@@ -56,7 +66,8 @@ public class playerScript2 : MonoBehaviour
                 }
 
                 
-                direction *= Time.deltaTime * aquaSpeed;
+                direction.x *= Time.deltaTime * aquaSpeed;
+                direction.z *= Time.deltaTime * aquaSpeed;
 
                 direction.y -= gravity * Time.deltaTime;
                 direction.Normalize();
@@ -64,7 +75,7 @@ public class playerScript2 : MonoBehaviour
                 {
                     direction.y += jumpHeight;
                 }
-                //print(velocity);
+                print(direction);
                 playerBody.AddForce(direction, ForceMode.Impulse); //applies impulse force to all movements
             }
             else
@@ -101,6 +112,10 @@ public class playerScript2 : MonoBehaviour
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
                     transform.position += new Vector3(direction.x, 0f, direction.z);
+                }
+                else if(offset.magnitude > 1.1f)
+                {
+                    transform.position = playerContainer.transform.position;
                 }
             }
 
