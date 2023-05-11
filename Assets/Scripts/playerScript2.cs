@@ -55,11 +55,11 @@ public class playerScript2 : MonoBehaviour
                     direction += -playerBody.transform.forward;
                 }
 
-                direction.Normalize();
+                
                 direction *= Time.deltaTime * aquaSpeed;
 
-                direction.y -= gravity * Time.deltaTime / (10 / 3);
-
+                direction.y -= gravity * Time.deltaTime;
+                direction.Normalize();
                 if (isGrounded && Input.GetButtonDown("Jump")) //if you press space while grounded
                 {
                     direction.y += jumpHeight;
