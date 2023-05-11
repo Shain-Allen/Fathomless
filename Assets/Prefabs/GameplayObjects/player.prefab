@@ -75,7 +75,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436739578571521658}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b5901a03ac15f2f4cbd94e167cb8df30, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1037864328834537662}
-  speed: 50
+  tereSpeed: 20
+  aquaSpeed: 50
   gravity: 70
   jumpHeight: 45
   groundDistance: 0.1
@@ -108,6 +109,9 @@ MonoBehaviour:
   groundCheck: {fileID: 436739578651862692}
   cam: {fileID: 436739578887904527}
   sub: {fileID: 0}
+  playerContainer: {fileID: 0}
+  spaceRadiusX: 0
+  spaceRadiusZ: 0
 --- !u!1 &436739578651862699
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
-  forwardThing: {fileID: 1037864329690558616}
   playerBody: {fileID: 436739578571521654}
 --- !u!114 &436739578887904521
 MonoBehaviour:
