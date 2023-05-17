@@ -4,40 +4,134 @@ using UnityEngine;
 
 public class SubController : MonoBehaviour
 {
-    public GameObject Player;
+
     public float speed;
     public float minSpeed;
     public float maxSpeed;
 
-    public float xRotSpeed;
-    public float yRotSpeed;
+    private float xRotSpeed = 1;
+    private float yRotSpeed = 1;
 
-    public float decentSpeed;
-    public float minDecentSpeed;
-    public float maxDecentSpeed;
+    public float verticalSpeed;
+    public float minVertSpeed;
+    public float maxVertSpeed;
+
+    public bool verMove;
+    public bool moveUp;
+    public bool moveDown;
 
     public bool isSub;
 
     public Rigidbody subRigi;
-    public GameObject playerContainer;
+
+    public GameObject subCam;
+    public float mouseSensitivity = 100f;
+    float xRotation = 0f;
+    float yRotation = 0f;
+
+    public float delayTime;
+    private float delayTimer;
+
+    bool isMoving;
+
+    public float dampening;
+    public float velocityThreshold;
+
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
-        if(isSub)//checks to see if the player has pressed e on the control pannel
+        if (isSub)//checks to see if the player has pressed e on the control pannel
         {
             SubControl();
+            SubCameraControl();
         }
         else
         {
             subRigi.isKinematic = false;
         }
+
+        if(!verMove)
+        {
+            SlowSub();
+
+            if (moveUp == false && moveDown != true)
+            {
+                verticalSpeed -= .3f;
+                if (verticalSpeed <= 0)
+                {
+                    verticalSpeed = 0;
+                }
+            }
+
+            if (moveDown == false && moveUp != true)
+            {
+                verticalSpeed += .3f;
+                if (verticalSpeed >= 0)
+                {
+                    verticalSpeed = 0;
+                }
+            }
+        }
+
+
+        //Debug.Log(subRigi.velocity.magnitude);
     }
 
-    public void SubControl()
+    private void Update()
+    {
+        verticalSubControl();
+    }
+
+    public void SubCameraControl()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        yRotation -= mouseY;
+        xRotation -= mouseX;
+
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        yRotation = Mathf.Clamp(-90, yRotation, 90f);
+
+        /*yRotation = mouseX;*/
+
+
+        subCam.transform.localRotation = Quaternion.Euler(yRotation, -xRotation, 0);
+    }
+
+    public void verticalSubControl()
+    {
+        //Moves sub up
+        if (Input.GetKey(KeyCode.W))
+        {
+            verticalSpeed += 1f;
+            moveUp = true;
+        }
+        else
+        {
+            moveUp = false;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            verticalSpeed -= 1f;
+            moveDown = true;
+        }
+        else
+        {
+            moveDown = false;
+        }
+
+    }
+
+     public void SubControl()
     {
         subRigi.isKinematic = false;
         //this will ensure that the sub will allways move forward. 0 speed will stop the throttle of the speed.
-        subRigi.AddForce(transform.forward * speed, ForceMode.Impulse);
+        subRigi.AddForce(transform.forward * speed);
+
+        subRigi.AddForce(transform.up * verticalSpeed);
 
         //float rotationX = Input.GetAxis("Vertical") * yRotSpeed;
         float rotationY = Input.GetAxis("Horizontal") * xRotSpeed;
@@ -48,26 +142,15 @@ public class SubController : MonoBehaviour
         //This will increase the speed of sub
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed += 100f;
+            speed += 3f;
         }
 
         //This will decrease the speed of sub
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            speed -= 100f;
+            speed -= 5f;
         }
 
-        //Moves sub up
-        if (Input.GetKey(KeyCode.W))
-        {
-            subRigi.AddForce(transform.up * decentSpeed);
-        }
-
-        //moves sub down
-        if (Input.GetKey(KeyCode.S))
-        {
-            subRigi.AddForce(-transform.up * decentSpeed);
-        }
 
         //this will cap the speed to the set max speed
         if (speed >= maxSpeed)
@@ -81,25 +164,54 @@ public class SubController : MonoBehaviour
 
             //right now the sub will stop immediatly, but we can probably find a way to make it gradually stop.
             speed = minSpeed;
-            subRigi.velocity = Vector3.zero;
-            subRigi.angularVelocity = Vector3.zero;
+
+            SlowSub();
+
+
         }
 
         //this will cap the decent speed to the set max decent speed
-        if (decentSpeed >= maxDecentSpeed)
+        if (verticalSpeed >= maxVertSpeed)
         {
-            decentSpeed = maxDecentSpeed;
+            verticalSpeed = maxVertSpeed;
         }
 
-        //This will set the sub decent speed to zero when the thrust is tunred off
-        if (decentSpeed <= minDecentSpeed)
+        if (verticalSpeed >= minVertSpeed)
+        {
+            verticalSpeed = minVertSpeed;
+        }
+        /*//This will set the sub decent speed to zero when the thrust is tunred off
+        if (verticalSpeed <= minVertSpeed)
         {
 
             //right now the sub will stop immediatly, but we can probably find a way to make it gradually stop.
-            decentSpeed = minDecentSpeed;
+            verticalSpeed = minVertSpeed;
             subRigi.velocity = Vector3.zero;
             subRigi.angularVelocity = Vector3.zero;
-        }
+        }*/
+    }
 
+   public void SlowSub()
+    {
+        //lerps the velocity so that the sub will slow down.
+        subRigi.velocity = Vector3.Lerp(subRigi.velocity, Vector3.zero, dampening * Time.deltaTime);
+
+        //gets the speed of the sub and makes sure it will come to a slow stop. Also checks to see if sub is moving.
+        if (subRigi.velocity.magnitude < velocityThreshold && isMoving == true)
+        {
+
+            delayTimer += Time.deltaTime;//this is the delay timer to check is the delay will stop it (needs work)
+
+            if (delayTimer >= delayTime) //will stop sub after delat timer
+            {
+                subRigi.velocity = Vector3.zero;
+                subRigi.angularVelocity = Vector3.zero;
+            }
+
+        }
+        else
+        {
+            delayTimer = 0f;
+        }
     }
 }
