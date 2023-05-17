@@ -20919,6 +20919,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
+--- !u!1 &457331116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341399023634557052, guid: 34f0f5b51303174478fae1227e4193d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 457331115}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &458691247
 GameObject:
   m_ObjectHideFlags: 0
@@ -22501,18 +22507,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e94ed0b7f069bc4eab45eb821923e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   speed: 0
   minSpeed: 0
   maxSpeed: 2
-  xRotSpeed: 2
-  yRotSpeed: 2
-  decentSpeed: 0
-  minDecentSpeed: 0
-  maxDecentSpeed: 1
+  verticalSpeed: 0
+  minVertSpeed: 0
+  maxVertSpeed: 0
   isSub: 0
   subRigi: {fileID: 493383185}
+  subCam: {fileID: 0}
+  subMouseSensitivity: 100
+  delayTime: 0
+  dampening: 0
+  velocityThreshold: 0
+  Player: {fileID: 0}
   playerContainer: {fileID: 0}
+  follow: 0
+  followPoint: {fileID: 0}
+  followSpeed: 0
+  followAnim: {fileID: 0}
 --- !u!135 &493383187
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -51498,18 +51511,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e94ed0b7f069bc4eab45eb821923e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   speed: 0
   minSpeed: 0
   maxSpeed: 2
-  xRotSpeed: 2
-  yRotSpeed: 2
-  decentSpeed: 0
-  minDecentSpeed: 0
-  maxDecentSpeed: 1
+  verticalSpeed: 0
+  minVertSpeed: 0
+  maxVertSpeed: 0
   isSub: 0
   subRigi: {fileID: 1098273659}
+  subCam: {fileID: 0}
+  subMouseSensitivity: 100
+  delayTime: 0
+  dampening: 0
+  velocityThreshold: 0
+  Player: {fileID: 0}
   playerContainer: {fileID: 0}
+  follow: 0
+  followPoint: {fileID: 0}
+  followSpeed: 0
+  followAnim: {fileID: 0}
 --- !u!1 &1100001072
 GameObject:
   m_ObjectHideFlags: 0
@@ -76004,6 +76024,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1545099875}
+    - target: {fileID: 2966577997476776479, guid: dd602e890fbdfeb41a2c5197eb1937db,
+        type: 3}
+      propertyPath: subCam
+      value: 
+      objectReference: {fileID: 457331116}
     - target: {fileID: 2966577997476776479, guid: dd602e890fbdfeb41a2c5197eb1937db,
         type: 3}
       propertyPath: maxSpeed
