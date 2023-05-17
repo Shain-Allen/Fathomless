@@ -16,18 +16,19 @@ public class SubController : MonoBehaviour
     public float minVertSpeed;
     public float maxVertSpeed;
 
-    public bool verMove;
-    public bool moveUp;
-    public bool moveDown;
+    private bool verMove;
+    private bool moveUp;
+    private bool moveDown;
 
     public bool isSub;
 
     public Rigidbody subRigi;
 
     public GameObject subCam;
-    public float mouseSensitivity = 100f;
+    public float subMouseSensitivity = 100f;
     float xRotation = 0f;
     float yRotation = 0f;
+
 
     public float delayTime;
     private float delayTimer;
@@ -36,6 +37,14 @@ public class SubController : MonoBehaviour
 
     public float dampening;
     public float velocityThreshold;
+
+    public GameObject Player;
+    public GameObject playerContainer;
+
+    public bool follow;
+    public GameObject followPoint;
+    public float followSpeed;
+    public Animator followAnim;
 
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
@@ -48,6 +57,26 @@ public class SubController : MonoBehaviour
         else
         {
             subRigi.isKinematic = false;
+        }
+
+        if(followAnim.GetBool("StartAnim") == true)
+        {
+
+            transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
+            transform.LookAt(followPoint.transform);
+
+            float distance = Vector3.Distance(transform.position, followPoint.transform.position);
+            Debug.Log(distance);
+
+            if(distance >= 100)
+            {
+                followSpeed = 2;
+            }
+            if (distance <= 100)
+            {
+                followSpeed = 1;
+            }
+
         }
 
         if(!verMove)
@@ -84,21 +113,25 @@ public class SubController : MonoBehaviour
 
     public void SubCameraControl()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        Cursor.visible = false;
+
+        float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
 
         yRotation -= mouseY;
         xRotation -= mouseX;
 
         //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        yRotation = Mathf.Clamp(-90, yRotation, 90f);
+        //yRotation = Mathf.Clamp(-90, yRotation, 50f);
 
-        /*yRotation = mouseX;*/
+        //yRotation = mouseX;
 
 
         subCam.transform.localRotation = Quaternion.Euler(yRotation, -xRotation, 0);
     }
+
 
     public void verticalSubControl()
     {
