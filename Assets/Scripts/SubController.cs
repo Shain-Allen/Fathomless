@@ -47,6 +47,11 @@ public class SubController : MonoBehaviour
     public Animator followAnim;
 
 
+    private void Start()
+    {
+        
+    }
+
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
         if (isSub)//checks to see if the player has pressed e on the control pannel
