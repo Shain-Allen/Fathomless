@@ -19,7 +19,7 @@ public class playerScript2 : MonoBehaviour
     public float spaceRadiusZ;
     CapsuleCollider collider;
 
-    SubController controller;
+    public SubController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -84,7 +84,6 @@ public class playerScript2 : MonoBehaviour
                 {
                     direction.y += jumpHeight;
                 }
-                print(direction);
                 playerBody.AddForce(direction, ForceMode.Impulse); //applies impulse force to all movements
             }
             else

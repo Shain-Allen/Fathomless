@@ -8,7 +8,7 @@ public class Boid : MonoBehaviour
     List<BoidAgent> agents = new List<BoidAgent>();
     public BoidBehavior behavior;
 
-    [Range(10, 500)]
+    [Range(1, 500)]
     public float startingCount = 250;
     const float agentDensity = 0.08f;
 
@@ -20,6 +20,9 @@ public class Boid : MonoBehaviour
     public float neighborRadius = 1.5f;
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
+
+    public GameObject player;
+    public BoidSpawner spawner;
 
     float squareMaxSpeed;
     float squareNeighborRadius;
@@ -38,11 +41,13 @@ public class Boid : MonoBehaviour
         {
             BoidAgent newAgent = Instantiate(
                 agentPrefab,
-                Random.insideUnitSphere * startingCount * agentDensity,
-                Quaternion.Euler(new Vector3(1,1,1) * Random.Range(0f, 360f)),
+                Random.insideUnitSphere * startingCount * agentDensity + transform.position, Quaternion.Euler(new Vector3(1,1,1) * Random.Range(0f, 360f)),
                 transform
                 );
+            newAgent.player = player;
+            newAgent.boidSpawner = spawner;
             newAgent.name = "Agent " + i;
+            newAgent.Initialize(this);
             agents.Add(newAgent);
         }
     }
@@ -62,22 +67,35 @@ public class Boid : MonoBehaviour
             {
                 move = move.normalized * maxSpeed;
             }
+            if(agent != null)
             agent.Move(move);
+        }
+    }
+    private void FixedUpdate()
+    {
+        if(transform.childCount <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
     List<Transform> GetNearbyObjects(BoidAgent agent)
     {
-        List<Transform> context = new List<Transform>();
-        Collider[] contextColliders = Physics.OverlapSphere(agent.transform.position, neighborRadius);
-        foreach(Collider c in contextColliders)
+        if (agent != null)
         {
-            if (c != agent.AgentCollider)
+            List<Transform> context = new List<Transform>();
+            Collider[] contextColliders = Physics.OverlapSphere(agent.transform.position, neighborRadius);
+            foreach (Collider c in contextColliders)
             {
-                context.Add(c.transform);
+                if (c != agent.AgentCollider)
+                {
+                    context.Add(c.transform);
+                }
             }
+            return context;
         }
-        return context;
+        return null;
+        
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Boid/Behavior/Cohesion")]
-public class CohesionBehavior : BoidBehavior
+public class CohesionBehavior : FilteredSpeciesBehavior
 {
     public override Vector3 CalculateMove(BoidAgent agent, List<Transform> context, Boid boid)
     {
@@ -13,7 +13,8 @@ public class CohesionBehavior : BoidBehavior
             return Vector3.zero;
         }
         Vector3 cohesionMove = Vector3.zero;
-        foreach (Transform item in context)
+        List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
+        foreach (Transform item in filteredContext)
         {
             cohesionMove += item.position;
         }
