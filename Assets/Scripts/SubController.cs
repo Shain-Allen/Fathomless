@@ -64,9 +64,9 @@ public class SubController : MonoBehaviour
             subRigi.isKinematic = false;
         }
 
-        if(followAnim.GetBool("StartAnim") == true)
+        if(follow == true)
         {
-
+            followAnim.SetBool("StartAnim", true);
             transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
             transform.LookAt(followPoint.transform);
 
