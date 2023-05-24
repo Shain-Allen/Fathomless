@@ -10,13 +10,12 @@ public class AnimationToggleManager : MonoBehaviour
 
     public void StartAnimation()
     {
-        Submarine.GetComponent<SubController>().isSub = false;
-        Submarine.GetComponent<Animator>().SetBool("Animate?", true);
+        Submarine.GetComponent<SubController>().follow = true;
         Debug.Log("Starting Animation");
     }
 
     public void EndAnimation()
     {
-        Submarine.GetComponent<SubController>().isSub = false;
+        Submarine.GetComponent<SubController>().follow = false;
     }
 }
