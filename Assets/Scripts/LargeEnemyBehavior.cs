@@ -19,6 +19,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     public float HaltedSpeed = 40f;
     public float HaltTime = 1.5f;
     public float fleeSpeed = 100;
+    public float attackSwimSpeed;
    
 
     public float enemyHealth = 100;
@@ -38,7 +39,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         isAttackTimerRunning = false;
 
         //gets material so we can change the color during the attack state. Makes it look all twitchy and gross. I dont know why. :(
-        mat = transform.GetChild(0).GetComponent<MeshRenderer>().material;
+        //mat = transform.GetChild(0).GetComponent<MeshRenderer>().material;
     }
 
     private void Update()
@@ -84,7 +85,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         toPlayer.Normalize();
         direction = toPlayer * swimSpeed + noise;
         rb.velocity = direction;
-        rb.rotation = Quaternion.LookRotation(toPlayer);
+        rb.rotation = Quaternion.LookRotation(direction);
 
         if (enemyHealth <= 0)
         {
@@ -102,14 +103,14 @@ public class LargeEnemyBehavior : MonoBehaviour
     private void HandleAttackState()
     {
         //change color to attack color
-        mat.color = Color.red;
+        //mat.color = Color.red;
 
         //calculate to player vector, and measure distance
         Vector3 toPlayer = Player.transform.position - transform.position;
         float dist = toPlayer.magnitude;
 
         //swimspeed is 20 as flat value, rather than being dependant on distance.
-        swimSpeed = 200;
+        swimSpeed = attackSwimSpeed;
         //adds noise for more organic movement
         Vector3 noise = new(Mathf.PerlinNoise(Time.time * noiseSpeed, 0), Mathf.PerlinNoise(0, Time.time * noiseSpeed), Mathf.PerlinNoise(Time.time * noiseSpeed, Time.time * noiseSpeed));
         noise -= Vector3.one * 0.5f;
@@ -189,7 +190,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     //after attacking, hold for player to gain distance.
     private IEnumerator StartHaltTimer()
     {
-        mat.color = Color.white;
+        //mat.color = Color.white;
         yield return new WaitForSeconds(HaltTime);
         currentState = State.Pursue;
     }
