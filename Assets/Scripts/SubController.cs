@@ -9,7 +9,7 @@ public class SubController : MonoBehaviour
     public float minSpeed;
     public float maxSpeed;
 
-    private float xRotSpeed = 1;
+    public float xRotSpeed = 1;
     private float yRotSpeed = 1;
 
     public float verticalSpeed;
@@ -51,6 +51,11 @@ public class SubController : MonoBehaviour
     private float downRotSpeed;
     private float upRotSpeed;
 
+    public float animTopFollowSpeed;
+    public float animBottomSpeed;
+
+    private bool resetSubRot;
+
 
     private void Start()
     {
@@ -80,11 +85,11 @@ public class SubController : MonoBehaviour
 
             if(distance >= 100)
             {
-                followSpeed = 2;
+                followSpeed = animTopFollowSpeed;
             }
             if (distance <= 100)
             {
-                followSpeed = 1;
+                followSpeed = animBottomSpeed;
             }
 
 
@@ -92,9 +97,15 @@ public class SubController : MonoBehaviour
             {
                 follow = false;
 
-                ResetRotation(); //will make this learp instead of a snap
+                resetSubRot = true;
+                
             }
         }
+
+        /*if(follow == false)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
+        }*/
 
         if(!verMove)
         {
@@ -126,6 +137,11 @@ public class SubController : MonoBehaviour
     private void Update()
     {
         verticalSubControl();
+
+        if(resetSubRot)
+        {
+            ResetRotation();
+        }
     }
 
     public void SubCameraControl()
@@ -152,10 +168,6 @@ public class SubController : MonoBehaviour
 
     public void verticalSubControl()
     {
-        //this.transform.Rotate(-Vector3.right * upRotSpeed * Time.deltaTime);
-
-        //this.transform.Rotate(Vector3.right * downRotSpeed * Time.deltaTime);
-
         //Moves sub up
         if (Input.GetKey(KeyCode.W))
         {
@@ -238,20 +250,13 @@ public class SubController : MonoBehaviour
         {
             verticalSpeed = minVertSpeed;
         }
-        /*//This will set the sub decent speed to zero when the thrust is tunred off
-        if (verticalSpeed <= minVertSpeed)
-        {
-
-            //right now the sub will stop immediatly, but we can probably find a way to make it gradually stop.
-            verticalSpeed = minVertSpeed;
-            subRigi.velocity = Vector3.zero;
-            subRigi.angularVelocity = Vector3.zero;
-        }*/
     }
 
     public void ResetRotation()
     {
-        this.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
+
+        StartCoroutine(resetRotTimer());
     }
 
     public void SlowSub()
@@ -276,5 +281,11 @@ public class SubController : MonoBehaviour
         {
             delayTimer = 0f;
         }
+    }
+
+    IEnumerator resetRotTimer()
+    {
+        yield return new WaitForSeconds(2f);
+        resetSubRot = false;
     }
 }

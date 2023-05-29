@@ -10,12 +10,18 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public GameObject subCam;
 
     public bool controlSub;
+    public bool canControl;
 
     public void Interact(GameObject player)
     {
         print("Engaged pilot controls");
         //TODO: add logic for changing to sub pilot controls
-        controlSub = true; //turns on sub control when player presses e on control pannel
+
+        if (canControl)
+        {
+            controlSub = true; //turns on sub control when player presses e on control pannel
+        }
+        
     }
 
     private void Update()
