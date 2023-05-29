@@ -46,6 +46,11 @@ public class SubController : MonoBehaviour
     public float followSpeed;
     public Animator followAnim;
 
+    public GameObject endFollowPoint;
+
+    private float downRotSpeed;
+    private float upRotSpeed;
+
 
     private void Start()
     {
@@ -82,6 +87,13 @@ public class SubController : MonoBehaviour
                 followSpeed = 1;
             }
 
+
+            if (this.gameObject.transform.position.z >= endFollowPoint.transform.position.z)
+            {
+                follow = false;
+
+                ResetRotation(); //will make this learp instead of a snap
+            }
         }
 
         if(!verMove)
@@ -140,11 +152,17 @@ public class SubController : MonoBehaviour
 
     public void verticalSubControl()
     {
+        //this.transform.Rotate(-Vector3.right * upRotSpeed * Time.deltaTime);
+
+        //this.transform.Rotate(Vector3.right * downRotSpeed * Time.deltaTime);
+
         //Moves sub up
         if (Input.GetKey(KeyCode.W))
         {
             verticalSpeed += 1f;
             moveUp = true;
+
+            //upRotSpeed += .1f;
         }
         else
         {
@@ -155,6 +173,8 @@ public class SubController : MonoBehaviour
         {
             verticalSpeed -= 1f;
             moveDown = true;
+
+            //downRotSpeed += .1f;
         }
         else
         {
@@ -229,7 +249,12 @@ public class SubController : MonoBehaviour
         }*/
     }
 
-   public void SlowSub()
+    public void ResetRotation()
+    {
+        this.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+    }
+
+    public void SlowSub()
     {
         //lerps the velocity so that the sub will slow down.
         subRigi.velocity = Vector3.Lerp(subRigi.velocity, Vector3.zero, dampening * Time.deltaTime);
