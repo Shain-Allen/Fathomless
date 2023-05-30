@@ -56,7 +56,7 @@ MonoBehaviour:
   CurrentDelayTime: 0
   HaltedSpeed: 40
   HaltTime: 1.5
-  fleeSpeed: 100
+  fleeSpeed: 2
   attackSwimSpeed: 125
   enemyHealth: 100
   currentState: 0
@@ -562,6 +562,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b9afb1c8e43484f91251a5edd30688, type: 3}
+--- !u!1 &5189847564100421470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1468551188479771725, guid: e4b9afb1c8e43484f91251a5edd30688,
+    type: 3}
+  m_PrefabInstance: {fileID: 6658393217961116435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &8496379010489611212
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189847564100421470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.044393707
+  m_Center: {x: 0.0014718629, y: 0.0056408667, z: -0.012231633}
+--- !u!135 &8501672980669829479
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189847564100421470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.034047954
+  m_Center: {x: -4.9024085e-14, y: -0.039767634, z: -0.01112566}
+--- !u!114 &1816711482138002568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189847564100421470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971e9c6ceec812d40ac06bd777523874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6658393218100217363}
 --- !u!1 &5811390141972643394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e4b9afb1c8e43484f91251a5edd30688,

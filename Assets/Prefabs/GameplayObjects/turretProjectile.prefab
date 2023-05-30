@@ -59,8 +59,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3762570438830171261}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -2.5}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: -0, z: -90}
+  m_LocalScale: {x: 3.2374, y: 89.83457, z: 3.2374}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1361750113652500245}
@@ -125,7 +125,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3762570438830171261}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 688297082337329206}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: harpoon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5313094727391032224}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -260,5 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj: {fileID: 3390001773388347506}
   projectileRigidbody: {fileID: 8812073659876745970}
-  velocityProj: 1000
+  velocityProj: 100
   test: 0
+  harpoonDamage: 10
+  subRb: {fileID: 0}

@@ -58,11 +58,5 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     void Update()
     {
-        print(" ");
-        for (int i = 0; i < damagePoint.Length; i++)
-        {
-            print(DamagedSpots[i]);
-        }
-        print(currentlyDamaged);
     }
 }

@@ -13,6 +13,7 @@ public class TurretSystem : MonoBehaviour
     public float fireDelay = 1.0f;
     float nextShot = 0.01f;
     public bool isTurret;
+    public Rigidbody subRb;
 
     void Update()
     {
@@ -46,5 +47,7 @@ public class TurretSystem : MonoBehaviour
     void FireTurret()   
     {
         GameObject turretProjectile = Instantiate(turretProjectilePrefab, turretBarrel.position, turretBarrel.rotation);
+        TurretProjectile proj = turretProjectile.transform.GetChild(0).gameObject.GetComponent<TurretProjectile>();
+        proj.subRb = subRb;
     }
 }

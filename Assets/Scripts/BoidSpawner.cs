@@ -12,7 +12,7 @@ public class BoidSpawner : MonoBehaviour
     float timeValue;
     public float frequency;
     public float playerContainerAntiFishFieldOffset;
-    bool spawning;
+    public bool spawning;
     public GameObject player;
     playerScript2 controller;
     Vector3 spawnPosition;
@@ -21,7 +21,7 @@ public class BoidSpawner : MonoBehaviour
     {
         controller = player.GetComponent<playerScript2>();
         timeValue = Random.value * frequency;
-        spawning = true;
+        //spawning = true;
     }
 
     void Update()
