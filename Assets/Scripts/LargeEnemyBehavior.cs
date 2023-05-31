@@ -5,6 +5,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 {
     public GameObject Player; 
     public GameObject damageHandler;
+    public GameObject bloodEffect;
     Vector3 direction;
     [Range(0, 100)]
     public float swimSpeed;
@@ -65,6 +66,11 @@ public class LargeEnemyBehavior : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void HarpoonHit(float HarpoonDamage)
+    {
+        enemyHealth -= HarpoonDamage;
     }
 
     private void HandlePursueState()

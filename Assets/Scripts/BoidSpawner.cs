@@ -37,7 +37,8 @@ public class BoidSpawner : MonoBehaviour
     public IEnumerator SpawnTimer(float cooldown)
     {
         yield return new WaitForSeconds(cooldown);
-        GameObject Boid = Boids[Random.Range(0, Boids.Length)];
+        int randomValue = Random.Range(0, Boids.Length);
+        GameObject Boid = Boids[randomValue];
         SpawnBoids(Boid);
         spawning = true;
     }
@@ -54,24 +55,32 @@ public class BoidSpawner : MonoBehaviour
     private Vector3 GetRandomSpawnPosition()
     {
         bool validSpawn = false;
+        int attempts = 0;
         while (!validSpawn)
         {
+            
             Vector3 playerPosition = transform.position;
 
             // Calculate the range between deletion distance and spawn distance
-            float spawnRange = exitRange - enterRange;
+            float spawnRange = enterRange;
 
             // some value between 0 and 1 times the range they can spawn in
-            Vector3 randomSpherePoint = Random.insideUnitSphere.normalized * spawnRange;
+            Vector3 randomSpherePoint = Random.onUnitSphere.normalized * spawnRange;
 
             // Add the position vector to the player vector, to position it at the player's position
             spawnPosition = playerPosition + randomSpherePoint;
-
             // Check if spawn position is inside the submarine
-            while (IsInsideSubmarine(spawnPosition) || randomSpherePoint.y < 0)
+            while (IsInsideSubmarine(spawnPosition) || randomSpherePoint.y < player.transform.position.y)
             {
+                attempts++;
+                if (attempts >= 10)
+                {
+                    print("Attempts exceeded, breaking loop to avoid crash");
+                    break;
+                }
                 // If spawn position is inside the submarine, recalculate the spawn offset
-                randomSpherePoint = Random.insideUnitCircle.normalized * spawnRange;
+                randomSpherePoint = Random.onUnitSphere.normalized * spawnRange;
+                print(randomSpherePoint.y);
                 randomSpherePoint = new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.y);
                 spawnPosition = playerPosition + randomSpherePoint;
             }

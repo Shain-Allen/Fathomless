@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeadHitManager : MonoBehaviour
 {
     public LargeEnemyBehavior enemy;
+    GameObject bloodEffect;
     //private void OnCollisionEnter(Collision collision)
     //{
     //    print("Harpoon Hit");
@@ -13,10 +14,16 @@ public class HeadHitManager : MonoBehaviour
     //        enemy.HarpoonHit(collision.gameObject.GetComponent<TurretProjectile>().harpoonDamage);
     //    }
     //}
+    private void Start()
+    {
+        bloodEffect = enemy.bloodEffect;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("harpoon"))
         {
+            GameObject blood = Instantiate(bloodEffect, other.transform);
+            blood.transform.SetParent(transform, true);
             enemy.HarpoonHit(other.gameObject.GetComponent<TurretProjectile>().harpoonDamage);
         }
     }
