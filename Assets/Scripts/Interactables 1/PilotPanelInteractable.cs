@@ -30,6 +30,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             controlSub = false;
+            player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
         }
 
         if(controlSub)//enables sub control
