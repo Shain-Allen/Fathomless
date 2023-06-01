@@ -12,7 +12,7 @@ public class playerScript2 : MonoBehaviour
     Vector3 direction;
     float playerHeightOffset;
 
-
+    private Transform parentTransform;
     GameObject playerContainer;
     Vector3 initialPos;
     public float spaceRadiusX;
@@ -36,12 +36,13 @@ public class playerScript2 : MonoBehaviour
         {
             spaceRadiusZ = 1;
         }
+        parentTransform = sub.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        initialPos = playerContainer.transform.position;
+        initialPos = playerContainer.transform.localPosition;
         if (!Frozen) // if Frozen is false
         {
             if (!inSub)
@@ -97,24 +98,24 @@ public class playerScript2 : MonoBehaviour
                 transform.SetParent(sub.transform);
                 if (Input.GetKey(KeyCode.D)) //pressed D
                 {
-                    direction += playerBody.transform.right;
+                    direction += transform.right;
                 }
                 if (Input.GetKey(KeyCode.A)) //pressed A
                 {
-                    direction += -playerBody.transform.right;
+                    direction += -transform.right;
                 }
                 if (Input.GetKey(KeyCode.W)) //pressed W
                 {
-                    direction += playerBody.transform.forward;
+                    direction += transform.forward;
                 }
                 if (Input.GetKey(KeyCode.S)) //pressed S
                 {
-                    direction += -playerBody.transform.forward;
+                    direction += -transform.forward;
                 }
                 direction *= Time.deltaTime * (tereSpeed / 5);
 
                 //establishes ellipse which represents player movement space
-                Vector3 newPos = transform.position + direction;
+                Vector3 newPos = transform.localPosition + direction;
                 Vector3 offset = newPos - initialPos;
                 offset.x /= spaceRadiusX;
                 offset.z /= spaceRadiusZ;
@@ -122,11 +123,11 @@ public class playerScript2 : MonoBehaviour
                 if (offset.magnitude < 1.0)
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
-                    transform.position += new Vector3(direction.x, 0f, direction.z);
+                    transform.position += new Vector3(direction.x, direction.y, direction.z);
                 }
                 else if(offset.magnitude > 1.1f)
                 {
-                    transform.position = playerContainer.transform.position;
+                    transform.localPosition = playerContainer.transform.position;
                 }
             }
 
@@ -138,11 +139,15 @@ public class playerScript2 : MonoBehaviour
     }
 
     //Draws the ellipse to the scene view
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
+        Gizmos.matrix = parentTransform != null ? parentTransform.localToWorldMatrix : Matrix4x4.identity;
         Gizmos.DrawWireMesh(CreateEllipseMesh(), initialPos);
         Gizmos.matrix = Matrix4x4.identity;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + direction * 50);
     }
     private Mesh CreateEllipseMesh()
     {
