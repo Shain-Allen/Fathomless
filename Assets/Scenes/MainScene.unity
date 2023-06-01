@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2183.4463, g: 2363.588, b: 3653.1328, a: 1}
+  m_IndirectSpecularColor: {r: 2183.4463, g: 2363.5723, b: 3653.1016, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -105882,6 +105882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5646725961132636779}
   - component: {fileID: 5646725961132636780}
+  - component: {fileID: 5646725961132636781}
   m_Layer: 0
   m_Name: Squid_Animation_1.1
   m_TagString: Untagged
@@ -106007,6 +106008,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5646725961132636781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978417077564547281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383c5a9e9a9c4284c924336a14c7dc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5765012486234454303
 Transform:
   m_ObjectHideFlags: 0
