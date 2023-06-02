@@ -80,7 +80,6 @@ public class BoidSpawner : MonoBehaviour
                 }
                 // If spawn position is inside the submarine, recalculate the spawn offset
                 randomSpherePoint = Random.onUnitSphere.normalized * spawnRange;
-                print(randomSpherePoint.y);
                 randomSpherePoint = new Vector3(randomSpherePoint.x, 0f, randomSpherePoint.y);
                 spawnPosition = playerPosition + randomSpherePoint;
             }

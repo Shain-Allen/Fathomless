@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class TurretInteractable : MonoBehaviour, IInteractable
 {
-    public GameObject playerChar;
+    GameObject playerChar;
     public TurretSystem turretScript;
     public GameObject turretCam;
+    public GameObject sub;
 
     public bool controlTurret;
+
+
+    private void Start()
+    {
+        playerChar = sub.GetComponent<SubController>().Player;
+
+    }
 
     public void Interact(GameObject player)
     {

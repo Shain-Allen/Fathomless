@@ -428,6 +428,7 @@ MonoBehaviour:
   speed: 0
   minSpeed: 0
   maxSpeed: 80
+  xRotSpeed: 1
   verticalSpeed: 0
   minVertSpeed: 0
   maxVertSpeed: 0
@@ -445,6 +446,8 @@ MonoBehaviour:
   followSpeed: 0
   followAnim: {fileID: 0}
   endFollowPoint: {fileID: 0}
+  animTopFollowSpeed: 0
+  animBottomSpeed: 0
 --- !u!64 &3682424503574491388
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -811,7 +814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966577998556119745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15.35}
+  m_LocalPosition: {x: 0, y: -1.92, z: -10.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2444,6 +2447,21 @@ PrefabInstance:
       propertyPath: turretScript
       value: 
       objectReference: {fileID: 5369913579866837239}
+    - target: {fileID: 7713229089625793255, guid: bf5772a94e694494c8553a5e405f5600,
+        type: 3}
+      propertyPath: sub
+      value: 
+      objectReference: {fileID: 2732012793675096909}
+    - target: {fileID: 7713229089625793255, guid: bf5772a94e694494c8553a5e405f5600,
+        type: 3}
+      propertyPath: turretCam
+      value: 
+      objectReference: {fileID: 556704365845834488}
+    - target: {fileID: 7713229089625793255, guid: bf5772a94e694494c8553a5e405f5600,
+        type: 3}
+      propertyPath: turretScript
+      value: 
+      objectReference: {fileID: 5369913579866837239}
     - target: {fileID: 8548199938847743131, guid: bf5772a94e694494c8553a5e405f5600,
         type: 3}
       propertyPath: m_Name
@@ -3011,6 +3029,7 @@ MonoBehaviour:
   subScript: {fileID: 2966577997476776479}
   subCam: {fileID: 2966577997739948479}
   controlSub: 0
+  canControl: 0
 --- !u!4 &3360212562338142903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1eb273ea1b38f084fbcadbb2af26addf,

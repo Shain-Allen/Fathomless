@@ -24,7 +24,12 @@ public class EelAnimationHandler : MonoBehaviour
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SideToSideMouthOpen") && (Eel.currentState == LargeEnemyBehavior.State.Attack))
         {
-            animator.SetTrigger("AnimShift");
+            StartCoroutine(AttackTimer());
         }
+    }
+    public IEnumerator AttackTimer()
+    {
+        yield return new WaitForSeconds(2);
+        animator.SetTrigger("AnimShift");
     }
 }
