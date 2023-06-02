@@ -36,6 +36,10 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.01f); //for this long
         playerScript2.transform.position = teleporter.transform.position; //takes player to this position
         yield return new WaitForSeconds(0.01f); //waits this long...
+        if (playerScript2.inSub)
+            player.transform.localRotation = controller.gameObject.transform.rotation;
+        else
+            player.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerScript2.Frozen = false; //to restore player control
     }
 }
