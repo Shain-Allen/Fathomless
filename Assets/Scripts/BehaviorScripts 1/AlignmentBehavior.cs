@@ -20,7 +20,13 @@ public class AlignmentBehavior : FilteredSpeciesBehavior
             {
                 alignmentMove += item.transform.forward;
             }
-            alignmentMove /= context.Count;
+            alignmentMove /= filteredContext.Count;
+            alignmentMove.Normalize();
+            //if (filteredContext.Count != 0)
+            //    alignmentMove /= filteredContext.Count; //context.Count;
+            //else
+            //    alignmentMove /= context.Count;
+            //Debug.Log(alignmentMove);
 
             return alignmentMove;
         }

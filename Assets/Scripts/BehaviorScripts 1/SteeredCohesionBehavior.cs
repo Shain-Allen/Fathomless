@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [CreateAssetMenu(menuName = "Boid/Behavior/SteeredCohesion")]
 public class SteeredCohesionBehavior : FilteredSpeciesBehavior
 {
-    Vector3 currentVelocity;
-    public float agentSmoothTime = 0.5f;
+    public float agentSmoothTime;
     public override Vector3 CalculateMove(BoidAgent agent, List<Transform> context, Boid boid)
     {
         //if no neighbors, return no adjustment
@@ -22,12 +22,22 @@ public class SteeredCohesionBehavior : FilteredSpeciesBehavior
             {
                 cohesionMove += item.position;
             }
-            cohesionMove /= context.Count;
+            cohesionMove /= filteredContext.Count;
+            //cohesionMove.Normalize();
+            //if(filteredContext.Count != 0)
+            //    cohesionMove /= filteredContext.Count; //context.Count;
+            // else
+            //    cohesionMove /= context.Count;
+            //Debug.Log(context.Count);
 
+            //EditorApplication.isPaused = true;
             //create offset from agent position
             cohesionMove -= agent.transform.position;
-            cohesionMove = Vector3.SmoothDamp(agent.transform.forward, cohesionMove, ref currentVelocity, agentSmoothTime);
+            Debug.Log("before: " + cohesionMove);
+            cohesionMove = Vector3.Slerp(agent.transform.forward, cohesionMove, agentSmoothTime);
+            Debug.Log("after: " + cohesionMove);
             return cohesionMove;
+            
         }
         return Vector3.zero;
     }

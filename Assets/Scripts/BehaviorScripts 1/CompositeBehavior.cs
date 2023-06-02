@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [CreateAssetMenu(menuName = "Boid/Behavior/Composite")]
 public class CompositeBehavior : BoidBehavior
@@ -24,7 +25,7 @@ public class CompositeBehavior : BoidBehavior
         for (int i = 0; i < behaviors.Length; i++)
         {
             Vector3 partialMove = behaviors[i].CalculateMove(agent, context, boid) * weights[i];
-
+            //Debug.Log(partialMove);
             if (partialMove != Vector3.zero)
             {
                 if (partialMove.sqrMagnitude > weights[i] * weights[i])
@@ -34,6 +35,7 @@ public class CompositeBehavior : BoidBehavior
                 }
 
                 move += partialMove;
+                //EditorApplication.isPaused = true;
             }
         }
         return move;

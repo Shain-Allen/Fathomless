@@ -226,6 +226,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &915212746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7393049352598216799, guid: dd602e890fbdfeb41a2c5197eb1937db,
+    type: 3}
+  m_PrefabInstance: {fileID: 990674010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &990674010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,6 +671,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: spawning
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -730,6 +741,16 @@ PrefabInstance:
       propertyPath: sub
       value: 
       objectReference: {fileID: 1726123168}
+    - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: inSub
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: playerContainer
+      value: 
+      objectReference: {fileID: 915212746}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
 --- !u!1 &1954961285
