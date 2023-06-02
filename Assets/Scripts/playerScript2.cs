@@ -127,7 +127,7 @@ public class playerScript2 : MonoBehaviour
                 }
                 else if(offset.magnitude > 1.1f)
                 {
-                    transform.localPosition = playerContainer.transform.position;
+                    transform.position = playerContainer.transform.position;
                 }
             }
 
@@ -143,7 +143,7 @@ public class playerScript2 : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.matrix = parentTransform != null ? parentTransform.localToWorldMatrix : Matrix4x4.identity;
-        Gizmos.DrawWireMesh(CreateEllipseMesh(), initialPos);
+        Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
         Gizmos.matrix = Matrix4x4.identity;
 
         Gizmos.color = Color.red;
