@@ -138,12 +138,13 @@ public class playerScript2 : MonoBehaviour
         }
     }
 
+   
     //Draws the ellipse to the scene view
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.matrix = parentTransform != null ? parentTransform.localToWorldMatrix : Matrix4x4.identity;
-        Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
+        Gizmos.DrawWireMesh(CreateEllipseMesh(), initialPos);
         Gizmos.matrix = Matrix4x4.identity;
 
         Gizmos.color = Color.red;
