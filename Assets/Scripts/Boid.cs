@@ -69,7 +69,17 @@ public class Boid : MonoBehaviour
                 move = move.normalized * maxSpeed;
             }
             if(agent != null)
-            agent.Move(move);
+            {
+                if (float.IsNaN(move.x) || float.IsNaN(move.y) || float.IsNaN(move.z))
+                {
+                    Debug.Log("Boid sucks. Obliterating.");
+                    Destroy(agent);
+                }
+                else
+                {
+                    agent.Move(move);
+                }
+            } 
         }
     }
     private void FixedUpdate()
