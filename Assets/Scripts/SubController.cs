@@ -46,7 +46,8 @@ public class SubController : MonoBehaviour
     public float followSpeed;
     public Animator followAnim;
 
-    public GameObject endFollowPoint;
+    public GameObject endFollowPoint_1;
+    public GameObject endFollowPoint_2;
 
     private float downRotSpeed;
     private float upRotSpeed;
@@ -54,7 +55,7 @@ public class SubController : MonoBehaviour
     public float animTopFollowSpeed;
     public float animBottomSpeed;
 
-    private bool resetSubRot;
+    public bool resetSubRot;
 
 
     private void Start()
@@ -67,11 +68,12 @@ public class SubController : MonoBehaviour
         if (isSub)//checks to see if the player has pressed e on the control pannel
         {
             SubControl();
-            SubCameraControl();
+            //SubCameraControl();
         }
         else
         {
             subRigi.isKinematic = false;
+            speed = 0f;
         }
 
         if(follow == true)
@@ -93,13 +95,20 @@ public class SubController : MonoBehaviour
             }
 
 
-            if (this.gameObject.transform.position.z >= endFollowPoint.transform.position.z)
+            /*if (this.gameObject.transform.position.z >= endFollowPoint_1.transform.position.z)
             {
                 follow = false;
 
                 resetSubRot = true;
                 
             }
+            if (this.gameObject.transform.position.z >= endFollowPoint_2.transform.position.z)
+            {
+                follow = false;
+
+                resetSubRot = true;
+
+            }*/
         }
 
         /*if(follow == false)

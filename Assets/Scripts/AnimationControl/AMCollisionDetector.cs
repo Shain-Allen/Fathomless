@@ -7,7 +7,7 @@ public class AMCollisionDetector : MonoBehaviour
     public GameObject AnimationManager;
     public bool HasCollided = false;
     public bool ToggleType = false;
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (HasCollided == false)
         {
@@ -23,6 +23,7 @@ public class AMCollisionDetector : MonoBehaviour
                 AnimationManager.GetComponent<AnimationToggleManager>().EndAnimation();
                 print("Animation Ended");
                 HasCollided = true;
+
             }
         }
     }

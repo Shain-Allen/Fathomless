@@ -21,7 +21,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         {
             controlSub = true; //turns on sub control when player presses e on control pannel
         }
-        
     }
 
     private void Update()
