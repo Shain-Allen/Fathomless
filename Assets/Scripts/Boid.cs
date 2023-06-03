@@ -77,6 +77,11 @@ public class Boid : MonoBehaviour
                 }
                 else
                 {
+                    if (agent.player == null)
+                    {
+                        Debug.Log("Boid is stupid. Obliterating.");
+                        Destroy(agent);
+                    }
                     agent.Move(move);
                 }
             } 
