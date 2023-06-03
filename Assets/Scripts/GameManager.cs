@@ -9,6 +9,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        Scrap = 0;
+        //Scrap = 0;
     }
 }

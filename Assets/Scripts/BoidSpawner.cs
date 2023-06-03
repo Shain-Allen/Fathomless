@@ -70,8 +70,7 @@ public class BoidSpawner : MonoBehaviour
             // Add the position vector to the player vector, to position it at the player's position
             spawnPosition = playerPosition + randomSpherePoint;
             // Check if spawn position is inside the submarine
-            //Debug.Log(randomSpherePoint + player.transform.position);
-            while (IsInsideSubmarine(spawnPosition) || randomSpherePoint.y < player.transform.position.y)
+            while (IsInsideSubmarine(spawnPosition) || spawnPosition.y < player.transform.position.y)
             {
                 attempts++;
                 if (attempts >= 10)

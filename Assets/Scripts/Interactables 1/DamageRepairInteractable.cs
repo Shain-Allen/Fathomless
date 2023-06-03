@@ -11,6 +11,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     public int DamageProtrusionIndex = 0;
     public void Interact(GameObject player)
     {
+        Debug.Log("INTERACTED");
         if (Manager.Scrap >= 1)
         {
             repaired = true;
