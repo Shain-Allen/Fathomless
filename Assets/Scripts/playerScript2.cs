@@ -48,7 +48,7 @@ public class playerScript2 : MonoBehaviour
         {
             if (!inSub)
             {
-                if(!FlashLight.activeSelf)
+                if (!FlashLight.activeSelf)
                     FlashLight.SetActive(true);
                 //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
                 playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
@@ -78,7 +78,7 @@ public class playerScript2 : MonoBehaviour
                     direction += -playerBody.transform.forward;
                 }
 
-                
+
                 direction.x *= Time.deltaTime * aquaSpeed;
                 direction.z *= Time.deltaTime * aquaSpeed;
 
@@ -119,6 +119,22 @@ public class playerScript2 : MonoBehaviour
                 }
                 direction *= Time.deltaTime * (tereSpeed / 5);
 
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    switch (Random.Range(1, 4))
+                    {
+                        case 1:
+                            CanvasController.Instance.DisplayText("Rock.");
+                            break;
+                        case 2:
+                            CanvasController.Instance.DisplayText("Paper.");
+                            break;
+                        case 3:
+                            CanvasController.Instance.DisplayText("Scissiors.");
+                            break;
+                    }
+                }
+
                 //establishes ellipse which represents player movement space
                 Vector3 newPos = transform.localPosition + direction;
                 Vector3 offset = newPos - initialPos;
@@ -130,7 +146,7 @@ public class playerScript2 : MonoBehaviour
                     transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
                     transform.position += new Vector3(direction.x, direction.y, direction.z);
                 }
-                else if(offset.magnitude > 1.1f)
+                else if (offset.magnitude > 1.1f)
                 {
                     transform.position = playerContainer.transform.position;
                 }
@@ -143,7 +159,7 @@ public class playerScript2 : MonoBehaviour
         }
     }
 
-   
+
     //Draws the ellipse to the scene view
     private void OnDrawGizmos()
     {

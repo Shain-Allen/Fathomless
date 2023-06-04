@@ -24,6 +24,7 @@ public class HeadHitManager : MonoBehaviour
         {
             GameObject blood = Instantiate(bloodEffect, other.transform);
             blood.transform.SetParent(transform, true);
+            blood.transform.localScale = Vector3.one;
             enemy.HarpoonHit(other.gameObject.GetComponent<TurretProjectile>().harpoonDamage);
         }
     }

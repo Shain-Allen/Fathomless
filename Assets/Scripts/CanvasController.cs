@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,9 +37,13 @@ public class CanvasController : MonoBehaviour
     private void DrawTextToScreen(string text)
     {
         GameObject entryObject = Instantiate(textEntryPrefab, TextBox.transform);
+        GameObject textContainer = entryObject.transform.GetChild(0).gameObject;
         entryObject.transform.SetParent(TextBox.transform, true);
-        Text textComponent = entryObject.GetComponent<Text>();
+        Vector2 ShiftedDisplacePos = new Vector2(0, textContainer.GetComponent<RectTransform>().anchoredPosition.y);
+        Vector2 ShiftedTextPos = new Vector2(0, textContainer.GetComponent<RectTransform>().anchoredPosition.y + 100 * TextBox.transform.childCount);
+        entryObject.GetComponent<RectTransform>().localPosition = ShiftedTextPos;
+        textContainer.GetComponent<RectTransform>().localPosition = ShiftedTextPos;
+        Text textComponent = textContainer.GetComponent<Text>();
         textComponent.text = text;
-
     }
 }
