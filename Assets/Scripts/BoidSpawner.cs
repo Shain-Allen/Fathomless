@@ -9,6 +9,7 @@ public class BoidSpawner : MonoBehaviour
     public float enterRange;
     //range where boids will disappear (should be in the fog)
     public float exitRange;
+    public float elevationDisplacement;
     float timeValue;
     public float frequency;
     public float playerContainerAntiFishFieldOffset;
@@ -70,7 +71,7 @@ public class BoidSpawner : MonoBehaviour
             // Add the position vector to the player vector, to position it at the player's position
             spawnPosition = playerPosition + randomSpherePoint;
             // Check if spawn position is inside the submarine
-            while (IsInsideSubmarine(spawnPosition) || spawnPosition.y < player.transform.position.y)
+            while (IsInsideSubmarine(spawnPosition) || spawnPosition.y < player.transform.position.y + elevationDisplacement)
             {
                 attempts++;
                 if (attempts >= 10)

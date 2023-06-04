@@ -73,14 +73,14 @@ public class Boid : MonoBehaviour
                 if (float.IsNaN(move.x) || float.IsNaN(move.y) || float.IsNaN(move.z))
                 {
                     Debug.Log("Boid sucks. Obliterating.");
-                    Destroy(agent);
+                    Destroy(agent.gameObject);
                 }
                 else
                 {
                     if (agent.player == null)
                     {
                         Debug.Log("Boid is stupid. Obliterating.");
-                        Destroy(agent);
+                        Destroy(agent.gameObject);
                     }
                     agent.Move(move);
                 }
