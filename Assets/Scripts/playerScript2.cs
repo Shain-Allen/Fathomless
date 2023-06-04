@@ -18,6 +18,7 @@ public class playerScript2 : MonoBehaviour
     public float spaceRadiusX;
     public float spaceRadiusZ;
     CapsuleCollider collider;
+    public GameObject FlashLight;
 
     public SubController controller;
 
@@ -47,6 +48,8 @@ public class playerScript2 : MonoBehaviour
         {
             if (!inSub)
             {
+                if(!FlashLight.activeSelf)
+                    FlashLight.SetActive(true);
                 //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
                 playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
                 transform.SetParent(null);
@@ -89,6 +92,8 @@ public class playerScript2 : MonoBehaviour
             }
             else
             {
+                if (FlashLight.activeSelf)
+                    FlashLight.SetActive(false);
                 //sets the freeze position constrains, since we're moving with transform. needed for parenting to work.
                 playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 

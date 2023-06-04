@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 3277328323015613635}
   - component: {fileID: 1201918215}
   m_Layer: 8
-  m_Name: Spot Light
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,6 +762,7 @@ MonoBehaviour:
   cam: {fileID: 8341399023634557052}
   spaceRadiusX: 3.24
   spaceRadiusZ: 8.78
+  FlashLight: {fileID: 7469742907020895066}
   controller: {fileID: 0}
 --- !u!82 &4467576264458866668
 AudioSource:
