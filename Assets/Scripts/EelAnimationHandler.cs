@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class EelAnimationHandler : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class EelAnimationHandler : MonoBehaviour
     public LargeEnemyBehavior Eel;
     void Start()
     {
-        animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();
+        Eel.CurrentDelayTime = Eel.InitialAttackdelay;
     }
 
 
@@ -16,20 +18,24 @@ public class EelAnimationHandler : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("UpAndDown") && Eel.CurrentDelayTime < Eel.InitialAttackdelay / 2)
         {
-            animator.SetTrigger("AnimShift");
+            animator.SetTrigger("AnimShift1");
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SideToSide") && Eel.CurrentDelayTime < Eel.InitialAttackdelay / 4)
         {
-            animator.SetTrigger("AnimShift");
+            animator.SetTrigger("AnimShift2");
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SideToSideMouthOpen") && (Eel.currentState == LargeEnemyBehavior.State.Attack))
         {
-            StartCoroutine(AttackTimer());
+            animator.SetTrigger("AnimShift3");
         }
-    }
-    public IEnumerator AttackTimer()
-    {
-        yield return new WaitForSeconds(2);
-        animator.SetTrigger("AnimShift");
+        //Added the ability to slow time down to 10% for debugging.
+        //if (Input.GetKey(KeyCode.X))
+        //{
+        //    Time.timeScale = 0.1f;
+        //}
+        //else
+        //{
+        //    Time.timeScale = 1;
+        //}
     }
 }

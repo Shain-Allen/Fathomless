@@ -143,21 +143,7 @@ public class playerScript2 : MonoBehaviour
         {
 
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            switch (Random.Range(1, 4))
-            {
-                case 1:
-                    CanvasController.Instance.DisplayText("Rock.");
-                    break;
-                case 2:
-                    CanvasController.Instance.DisplayText("Paper.");
-                    break;
-                case 3:
-                    CanvasController.Instance.DisplayText("Scissiors.");
-                    break;
-            }
-        }
+        
     }
 
 

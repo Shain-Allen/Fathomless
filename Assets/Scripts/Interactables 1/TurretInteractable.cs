@@ -8,6 +8,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     public TurretSystem turretScript;
     public GameObject turretCam;
     public GameObject sub;
+    public GameObject FakeTurret;
 
     public bool controlTurret;
 
@@ -20,6 +21,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
+        FakeTurret.SetActive(false);
         controlTurret = true;
     }
 
@@ -28,6 +30,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
         if (Input.GetKeyDown(KeyCode.Escape) && controlTurret == true)
         {
+            FakeTurret.SetActive(true);
             controlTurret = false;
         }
 
@@ -37,14 +40,14 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     {
         if (controlTurret)
         {
-            playerChar.transform.GetChild(1).gameObject.SetActive(false);
+            playerChar.SetActive(false);
             turretCam.SetActive(true);
             turretScript.isTurret = true;
         }
 
         if (!controlTurret)
         {
-            playerChar.transform.GetChild(1).gameObject.SetActive(true);
+            playerChar.SetActive(true);
             turretCam.SetActive(false);
             turretScript.isTurret = false;
         }
