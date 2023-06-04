@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 public class TurretSystem : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
@@ -14,16 +14,29 @@ public class TurretSystem : MonoBehaviour
     float nextShot = 0.01f;
     public bool isTurret;
     public Rigidbody subRb;
+    public GameObject VisHarpoon;
 
     void Update()
     {
         if (isTurret)
         {
+            VisualHarpoon();
             TurretControl();
             UpdateCamera();
         }
     }
 
+    void VisualHarpoon()
+    {
+        if (Time.time > nextShot)
+        {
+            VisHarpoon.SetActive(true);
+        }
+        else
+        {
+            VisHarpoon.SetActive(false);
+        }
+    }
     void TurretControl()
     {
         if (Input.GetMouseButton(0) && Time.time > nextShot)
