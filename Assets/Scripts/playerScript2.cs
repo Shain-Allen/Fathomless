@@ -119,21 +119,7 @@ public class playerScript2 : MonoBehaviour
                 }
                 direction *= Time.deltaTime * (tereSpeed / 5);
 
-                if (Input.GetKeyDown(KeyCode.J))
-                {
-                    switch (Random.Range(1, 4))
-                    {
-                        case 1:
-                            CanvasController.Instance.DisplayText("Rock.");
-                            break;
-                        case 2:
-                            CanvasController.Instance.DisplayText("Paper.");
-                            break;
-                        case 3:
-                            CanvasController.Instance.DisplayText("Scissiors.");
-                            break;
-                    }
-                }
+                
 
                 //establishes ellipse which represents player movement space
                 Vector3 newPos = transform.localPosition + direction;
@@ -156,6 +142,21 @@ public class playerScript2 : MonoBehaviour
         else //if Frozen is true
         {
 
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            switch (Random.Range(1, 4))
+            {
+                case 1:
+                    CanvasController.Instance.DisplayText("Rock.");
+                    break;
+                case 2:
+                    CanvasController.Instance.DisplayText("Paper.");
+                    break;
+                case 3:
+                    CanvasController.Instance.DisplayText("Scissiors.");
+                    break;
+            }
         }
     }
 
