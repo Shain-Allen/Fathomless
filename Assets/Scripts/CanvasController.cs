@@ -40,7 +40,7 @@ public class CanvasController : MonoBehaviour
         GameObject textContainer = entryObject.transform.GetChild(0).gameObject;
         entryObject.transform.SetParent(TextBox.transform, true);
         Vector2 ShiftedDisplacePos = new Vector2(0, textContainer.GetComponent<RectTransform>().anchoredPosition.y);
-        Vector2 ShiftedTextPos = new Vector2(0, textContainer.GetComponent<RectTransform>().anchoredPosition.y + 100 * TextBox.transform.childCount);
+        Vector2 ShiftedTextPos = new Vector2(0, textContainer.GetComponent<RectTransform>().anchoredPosition.y + 50 * TextBox.transform.childCount);
         entryObject.GetComponent<RectTransform>().localPosition = ShiftedTextPos;
         textContainer.GetComponent<RectTransform>().localPosition = ShiftedTextPos;
         Text textComponent = textContainer.GetComponent<Text>();
