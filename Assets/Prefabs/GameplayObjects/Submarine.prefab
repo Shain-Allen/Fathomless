@@ -520,7 +520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009507785901304861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -1.14, z: -13.39}
+  m_LocalPosition: {x: -0.1, y: -1.73, z: -14.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -867,8 +867,8 @@ MonoBehaviour:
   maxSpeed: 300
   xRotSpeed: 1
   verticalSpeed: 0
-  minVertSpeed: 100
-  maxVertSpeed: 100
+  minVertSpeed: 300
+  maxVertSpeed: 300
   isSub: 0
   subRigi: {fileID: 1009507787048485955}
   subCam: {fileID: 1009507787034648517}
@@ -2221,12 +2221,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d342f4afc5c2964abde0ea4b759ddd0, type: 2}
+      objectReference: {fileID: 2100000, guid: 26877bac13f28734a95e66bc405359b7, type: 2}
     - target: {fileID: 919132149155446097, guid: 71b5e9581c01b54418a827a7dfa081f7,
         type: 3}
       propertyPath: m_Name
       value: SubVar2
       objectReference: {fileID: 0}
+    - target: {fileID: 1742045248851780129, guid: 71b5e9581c01b54418a827a7dfa081f7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd66ff3cb5532b44a943afb77990f63c, type: 2}
     - target: {fileID: 3340103133246382950, guid: 71b5e9581c01b54418a827a7dfa081f7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

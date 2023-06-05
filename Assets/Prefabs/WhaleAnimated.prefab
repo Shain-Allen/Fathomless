@@ -345,7 +345,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: befc32c87a2f01844a16d3e796afd0ca,
         type: 3}
       propertyPath: m_Name
-      value: WhaleRigged
+      value: WhaleAnimated
       objectReference: {fileID: 0}
     - target: {fileID: 942146593468484576, guid: befc32c87a2f01844a16d3e796afd0ca,
         type: 3}
@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: befc32c87a2f01844a16d3e796afd0ca,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a775c077c7a710c47809e7f00de10e84, type: 2}
     - target: {fileID: 3552101416634542713, guid: befc32c87a2f01844a16d3e796afd0ca,
         type: 3}
       propertyPath: m_LocalRotation.w

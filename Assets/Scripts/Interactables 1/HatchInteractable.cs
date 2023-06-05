@@ -40,7 +40,6 @@ public class HatchInteractable : MonoBehaviour, IInteractable
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        CanvasController.Instance.DisplayText("Sploosh");
         playerScript2.Frozen = false; //to restore player control
     }
 }

@@ -133,12 +133,12 @@ PrefabInstance:
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: spawning
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: enterRange
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8310947
+      value: 18.9
       objectReference: {fileID: 0}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.566926
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -229,6 +229,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
+--- !u!114 &229181621 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 194257040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa677ebcba9bd5c428fc5e882ab33246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &569635835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5827705935880556108, guid: 3a86e00e28c097a4eb924a957437351a,
@@ -1029,18 +1041,18 @@ PrefabInstance:
     - target: {fileID: 5827705935880556108, guid: 3a86e00e28c097a4eb924a957437351a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5827705935880556114, guid: 3a86e00e28c097a4eb924a957437351a,
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1137518273}
     - target: {fileID: 5827705935880556114, guid: 3a86e00e28c097a4eb924a957437351a,
         type: 3}
       propertyPath: spawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 229181621}
     - target: {fileID: 5827705935880556114, guid: 3a86e00e28c097a4eb924a957437351a,
         type: 3}
       propertyPath: behavior
