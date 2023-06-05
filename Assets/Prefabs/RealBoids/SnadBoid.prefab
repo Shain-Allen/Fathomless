@@ -69,6 +69,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5817791033368930049}
     m_Modifications:
+    - target: {fileID: 1556046193156474772, guid: 660747a17a0e6414386851718a99ea02,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7234210474245162002, guid: 660747a17a0e6414386851718a99ea02,
         type: 3}
       propertyPath: m_Name
@@ -151,33 +156,33 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a775c077c7a710c47809e7f00de10e84, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660747a17a0e6414386851718a99ea02, type: 3}
---- !u!1 &3403283883141855740 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 649041395489162364, guid: 660747a17a0e6414386851718a99ea02,
+--- !u!95 &3720836238780693012 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1556046193156474772, guid: 660747a17a0e6414386851718a99ea02,
     type: 3}
   m_PrefabInstance: {fileID: 2754864990096506240}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7986245956209604884
-Animator:
-  serializedVersion: 5
+--- !u!1 &4782307158431086994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7234210474245162002, guid: 660747a17a0e6414386851718a99ea02,
+    type: 3}
+  m_PrefabInstance: {fileID: 2754864990096506240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5503066435877517830
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403283883141855740}
+  m_GameObject: {fileID: 4782307158431086994}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 23df0dffa4226854c965ebdd029395c0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7c0de4c4bea1542ae19568abf8c8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3720836238780693012}
+  animationClip: {fileID: 243036510629556243, guid: 7cafe03faf8b9a64392ab04594ab6f3a,
+    type: 3}
 --- !u!4 &5266392043682784040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8011557071247597224, guid: 660747a17a0e6414386851718a99ea02,
