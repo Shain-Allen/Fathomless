@@ -68,7 +68,7 @@ public class SubController : MonoBehaviour
         if (isSub)//checks to see if the player has pressed e on the control pannel
         {
             SubControl();
-            //SubCameraControl();
+            SubCameraControl();
         }
         else
         {
@@ -164,9 +164,10 @@ public class SubController : MonoBehaviour
         yRotation -= mouseY;
         xRotation -= mouseX;
 
-        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        //yRotation = Mathf.Clamp(-90, yRotation, 50f);
+        //rRotation = Mathf.Clamp(-90, yRotation, 50f);
+
 
         //yRotation = mouseX;
 
@@ -178,7 +179,7 @@ public class SubController : MonoBehaviour
     public void verticalSubControl()
     {
         //Moves sub up
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             verticalSpeed += 1f;
             moveUp = true;
@@ -190,7 +191,7 @@ public class SubController : MonoBehaviour
             moveUp = false;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
             verticalSpeed -= 1f;
             moveDown = true;
@@ -219,13 +220,13 @@ public class SubController : MonoBehaviour
 
 
         //This will increase the speed of sub
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.W))
         {
             speed += 3f;
         }
 
         //This will decrease the speed of sub
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.S))
         {
             speed -= 5f;
         }
