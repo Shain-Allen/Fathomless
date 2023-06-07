@@ -42,6 +42,7 @@ public class SubController : MonoBehaviour
     public GameObject playerContainer;
 
     public bool follow;
+    public string AnimationName;
     public GameObject followPoint;
     public float followSpeed;
     public Animator followAnim;
@@ -78,7 +79,7 @@ public class SubController : MonoBehaviour
 
         if(follow == true)
         {
-            followAnim.SetBool("StartAnim", true);
+            followAnim.SetBool(AnimationName, true);
             transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
             transform.LookAt(followPoint.transform);
 

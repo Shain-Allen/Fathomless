@@ -7,12 +7,12 @@ public class AnimationToggleManager : MonoBehaviour
     public GameObject Submarine;
     public bool Animation_Started = false;
     public bool Animation_Completed = false;
-
     public PilotPanelInteractable controlPannelScript;
 
-    public void StartAnimation()
+    public void StartAnimation(string AnimName)
     {
         Submarine.GetComponent<SubController>().follow = true;
+        Submarine.GetComponent<SubController>().AnimationName = AnimName;
         Debug.Log("Starting Animation");
 
         controlPannelScript.controlSub = false;

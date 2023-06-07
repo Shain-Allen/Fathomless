@@ -60,8 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationManager: {fileID: 4272530682611837838}
   HasCollided: 0
-  ToggleType: 0
-  controlPannelScript: {fileID: 0}
+  AnimationName: StartAnim2
+  EndAnimation: 1
 --- !u!1 &639351660
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationManager: {fileID: 4272530682611837838}
   HasCollided: 0
-  ToggleType: 0
-  controlPannelScript: {fileID: 0}
+  AnimationName: StartAnim1
+  EndAnimation: 0
 --- !u!1 &1787236183492273724
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationManager: {fileID: 4272530682611837838}
   HasCollided: 0
-  ToggleType: 1
-  controlPannelScript: {fileID: 0}
+  AnimationName: StartAnim2
+  EndAnimation: 0
 --- !u!1 &4272530682611837838
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   Submarine: {fileID: 0}
   Animation_Started: 0
   Animation_Completed: 0
+  controlPannelScript: {fileID: 0}
 --- !u!1 &6447861719316549820
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,5 +298,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationManager: {fileID: 4272530682611837838}
   HasCollided: 0
-  ToggleType: 1
-  controlPannelScript: {fileID: 0}
+  AnimationName: StartAnim1
+  EndAnimation: 1

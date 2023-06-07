@@ -6,19 +6,20 @@ public class AMCollisionDetector : MonoBehaviour
 {
     public GameObject AnimationManager;
     public bool HasCollided = false;
-    public bool ToggleType = false;
+    public string AnimationName = "";
+    public bool EndAnimation = false;
     void OnTriggerEnter(Collider collision)
     {
         if (HasCollided == false)
         {
             Debug.Log(collision.gameObject);
-            if (ToggleType == false)
+            if (EndAnimation == false)
             {
-                AnimationManager.GetComponent<AnimationToggleManager>().StartAnimation();
+                AnimationManager.GetComponent<AnimationToggleManager>().StartAnimation(AnimationName);
                 print("Animation Started");
                 HasCollided = true;
             }
-            else if (ToggleType == true)
+            else if (EndAnimation == true)
             {
                 AnimationManager.GetComponent<AnimationToggleManager>().EndAnimation();
                 print("Animation Ended");
