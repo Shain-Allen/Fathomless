@@ -12,11 +12,12 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
     public bool controlTurret;
 
+    interactControls playerInteractController;
 
     private void Start()
     {
         playerChar = sub.GetComponent<SubController>().Player;
-
+        playerInteractController = playerChar.GetComponent<interactControls>();
     }
 
     public void Interact(GameObject player)
@@ -40,6 +41,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     {
         if (controlTurret)
         {
+            playerInteractController.InteractFob.SetActive(false);
             playerChar.SetActive(false);
             turretCam.SetActive(true);
             turretScript.isTurret = true;

@@ -9,8 +9,15 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public SubController subScript;
     public GameObject subCam;
 
+    interactControls playerInteractController;
+
     public bool controlSub;
     public bool canControl;
+
+    private void Start()
+    {
+        playerInteractController = player.GetComponent<interactControls>();
+    }
 
     public void Interact(GameObject player)
     {
@@ -34,6 +41,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
         if(controlSub)//enables sub control
         {
+            playerInteractController.InteractFob.SetActive(false);
             player.SetActive(false);
             player.transform.position = playerLockLocation.transform.position;
             subCam.SetActive(true);
