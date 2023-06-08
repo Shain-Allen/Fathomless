@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class CanvasController : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class CanvasController : MonoBehaviour
     public AudioClip clip;
     AudioSource audioSource;
     private static CanvasController instance;
+    private IEnumerator coroutine;
 
     public GameObject textEntryPrefab;
     public GameObject TextBox;
@@ -33,6 +36,11 @@ public class CanvasController : MonoBehaviour
         audioSource.PlayOneShot(clip);
         DrawTextToScreen(text);
     }
+    public void DisplayMoreText(string[] lines, float delay)
+    {
+        coroutine = TextWriter(lines, delay);
+        StartCoroutine(coroutine);
+    }
 
     private void DrawTextToScreen(string text)
     {
@@ -45,5 +53,14 @@ public class CanvasController : MonoBehaviour
         textContainer.GetComponent<RectTransform>().localPosition = ShiftedTextPos;
         Text textComponent = textContainer.GetComponent<Text>();
         textComponent.text = text;
+    }
+    
+    private IEnumerator TextWriter(string[] lines, float delay)
+    {
+        foreach (string line in lines)
+        {
+            DisplayText(line);
+            yield return new WaitForSeconds(delay);
+        }
     }
 }
