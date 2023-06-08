@@ -157,7 +157,7 @@ public class SubController : MonoBehaviour
     public void SubCameraControl()
     {
 
-        Cursor.visible = false;
+        /*Cursor.visible = false;
 
         float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
@@ -173,7 +173,20 @@ public class SubController : MonoBehaviour
         //yRotation = mouseX;
 
 
-        subCam.transform.localRotation = Quaternion.Euler(yRotation, -xRotation, 0);
+        subCam.transform.localRotation = Quaternion.Euler(yRotation, -xRotation, 0);*/
+
+        float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+
+        yRotation = mouseX;
+        //yRotation = Mathf.Clamp(-50, yRotation, 50f);
+
+
+        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouseY, 0);
+        
     }
 
 
