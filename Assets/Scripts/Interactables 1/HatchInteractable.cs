@@ -13,21 +13,78 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     //added for auto access to player in prefab
     public SubController controller;
 
+    public bool canLeave;
+    public bool innerHatch;
+    public bool outerHatch;
+    public bool animBlock;
+    public float tooCloseDistance;
+    public float exitDistance;
+    public GameObject detectionPoint;
+    public GameObject Ladder;
+
     void Awake()
     {
         player = controller.Player;
         playerScript2 = player.GetComponent<playerScript2>();
         playerRb = player.GetComponent<Rigidbody>();
-       
+        Ladder.SetActive(false);
     }
 
     public void Interact(GameObject player)
     {
-        playerScript2.inSub = !playerScript2.inSub;
-        playerRb.velocity = Vector3.zero;
-        StartCoroutine("Teleport");
-        //TODO: add logic for moving player outside sub
-        //player.transform.position = tP.transform.position;
+        if(!animBlock)
+        {
+            if (innerHatch)
+            {
+                DetectGround();
+                if(canLeave)
+                {
+                    playerScript2.inSub = !playerScript2.inSub;
+                    playerRb.velocity = Vector3.zero;
+                    Ladder.SetActive(true);
+                    StartCoroutine("Teleport");
+                    //TODO: add logic for moving player outside sub
+                    //player.transform.position = tP.transform.position;
+                }
+            
+            }
+        
+            if (outerHatch)
+            {
+                playerScript2.inSub = !playerScript2.inSub;
+                playerRb.velocity = Vector3.zero;
+                Ladder.SetActive(false);
+                StartCoroutine("Teleport");
+                //TODO: add logic for moving player outside sub
+                //player.transform.position = tP.transform.position;
+            }
+        }
+       
+    }
+
+    public void DetectGround()
+    {
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(detectionPoint.transform.position, detectionPoint.transform.TransformDirection(Vector3.down), out hit, exitDistance))
+        {
+            Debug.Log("Ground, Can Leave");
+            Debug.Log(hit.distance);
+            canLeave = true;
+        }
+        else
+        {
+            CanvasController.Instance.DisplayText("Lower sub to exit");
+            canLeave = false;
+        }
+
+        if (Physics.Raycast(detectionPoint.transform.position, detectionPoint.transform.TransformDirection(Vector3.down), out hit, tooCloseDistance))
+        {
+            Debug.Log("Too Close");
+            Debug.Log(hit.distance);
+            CanvasController.Instance.DisplayText("Sub close to ground");
+            canLeave = false;
+        }
     }
 
     IEnumerator Teleport()

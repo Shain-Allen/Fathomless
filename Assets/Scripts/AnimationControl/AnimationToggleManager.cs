@@ -8,6 +8,8 @@ public class AnimationToggleManager : MonoBehaviour
     public bool Animation_Started = false;
     public bool Animation_Completed = false;
     public PilotPanelInteractable controlPannelScript;
+    //public HatchInteractable hatchScript;
+    public GameObject innerHatch;
 
     public void StartAnimation(string AnimName)
     {
@@ -17,12 +19,16 @@ public class AnimationToggleManager : MonoBehaviour
 
         controlPannelScript.controlSub = false;
         controlPannelScript.canControl = false;
+        innerHatch.GetComponent<HatchInteractable>().animBlock = true;
     }
 
     public void EndAnimation()
     {
+        //hatchScript.animBlock = false;
+        innerHatch.GetComponent<HatchInteractable>().animBlock = false;
         Submarine.GetComponent<SubController>().follow = false;
         Submarine.GetComponent<SubController>().resetSubRot = true;
         controlPannelScript.canControl = true;
+        
     }
 }

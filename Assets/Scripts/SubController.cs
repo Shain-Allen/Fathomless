@@ -57,6 +57,7 @@ public class SubController : MonoBehaviour
     public float animBottomSpeed;
 
     public bool resetSubRot;
+    public HatchInteractable hatchScript;
 
 
     private void Start()
@@ -84,7 +85,7 @@ public class SubController : MonoBehaviour
             transform.LookAt(followPoint.transform);
 
             float distance = Vector3.Distance(transform.position, followPoint.transform.position);
-            Debug.Log(distance);
+            //Debug.Log(distance);
 
             if(distance >= 100)
             {
@@ -279,7 +280,7 @@ public class SubController : MonoBehaviour
     public void ResetRotation()
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
-
+        //hatchScript.animBlock = true;
         StartCoroutine(resetRotTimer());
     }
 
