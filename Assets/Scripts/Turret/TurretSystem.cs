@@ -15,6 +15,7 @@ public class TurretSystem : MonoBehaviour
     public bool isTurret;
     public Rigidbody subRb;
     public GameObject VisHarpoon;
+    public Animator turretAnimator;
 
     void Update()
     {
@@ -42,6 +43,7 @@ public class TurretSystem : MonoBehaviour
         if (Input.GetMouseButton(0) && Time.time > nextShot)
         {
             FireTurret();
+            turretAnimator.SetTrigger("Fire");
             nextShot = Time.time + fireDelay;
         }
     }
