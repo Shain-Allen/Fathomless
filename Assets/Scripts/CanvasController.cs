@@ -52,7 +52,7 @@ public class CanvasController : MonoBehaviour
 
     public void PlayFadeFromBlack()
     {
-        animator.SetTrigger("FadeFromBlack");
+        animator.SetTrigger("Start");
     }
 
     private void DrawTextToScreen(string text)
