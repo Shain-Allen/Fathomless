@@ -80,22 +80,24 @@ public class SubController : MonoBehaviour
 
         if(follow == true)
         {
-            float distance = Vector3.Distance(transform.position, followPoint.transform.position);
+            //Vector3 ToFP = transform.position - followPoint.transform.position;
 
             followAnim.SetBool(AnimationName, true);
-            transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, distance);
+            transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
             transform.LookAt(followPoint.transform);
 
             //Debug.Log(distance);
 
-            //if(distance >= 100)
-            //{
-            //    followSpeed = animTopFollowSpeed;
-            //}
-            //if (distance <= 100)
-            //{
-            //    followSpeed = animBottomSpeed;
-            //}
+            float distance = Vector3.Distance(transform.position, followPoint.transform.position);
+
+            if (distance >= 100)
+            {
+                followSpeed = animTopFollowSpeed;
+            }
+            if (distance <= 100)
+            {
+                followSpeed = animBottomSpeed;
+            }
 
 
             /*if (this.gameObject.transform.position.z >= endFollowPoint_1.transform.position.z)

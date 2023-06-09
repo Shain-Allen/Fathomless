@@ -74,7 +74,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         }
         else
         {
-            CanvasController.Instance.DisplayText("Lower sub to exit");
+            CanvasController.Instance.DisplayText("I'm too far away from the seafloor.");
             canLeave = false;
         }
 
@@ -82,7 +82,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         {
             Debug.Log("Too Close");
             Debug.Log(hit.distance);
-            CanvasController.Instance.DisplayText("Sub close to ground");
+            CanvasController.Instance.DisplayText("The sub is too close to the ground.");
             canLeave = false;
         }
     }

@@ -4957,14 +4957,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009507787034648517}
-  m_LocalRotation: {x: 0.14677162, y: -0.000032134794, z: -0.00056627986, w: 0.98917025}
-  m_LocalPosition: {x: 0.06298828, y: 0.7440033, z: 7.6569824}
+  m_LocalRotation: {x: 0.22996323, y: -0.000079946454, z: -0.00056152843, w: 0.9731992}
+  m_LocalPosition: {x: 0.06298828, y: 1.5249939, z: 8.739014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1009507787048485957}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 16.88, y: -0.014, z: -0.068}
+  m_LocalEulerAnglesHint: {x: 26.59, y: -0.027, z: -0.072}
 --- !u!20 &1009507787034648521
 Camera:
   m_ObjectHideFlags: 0
@@ -5227,8 +5227,8 @@ MonoBehaviour:
   followAnim: {fileID: 0}
   endFollowPoint_1: {fileID: 0}
   endFollowPoint_2: {fileID: 0}
-  animTopFollowSpeed: 2
-  animBottomSpeed: 1
+  animTopFollowSpeed: 3
+  animBottomSpeed: 2
   resetSubRot: 0
   hatchScript: {fileID: 6846157229327344627}
 --- !u!54 &1009507787048485955
@@ -5438,7 +5438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009507787760163963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0.103, z: -0.49}
+  m_LocalPosition: {x: -0.002, y: 0.103, z: 0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37502,7 +37502,7 @@ PrefabInstance:
     - target: {fileID: 5836685190459867751, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}
       propertyPath: exitDistance
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5836685190459867751, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}
@@ -37730,7 +37730,7 @@ PrefabInstance:
     - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}
       propertyPath: m_Size.y
-      value: 47.315907
+      value: 160.44223
       objectReference: {fileID: 0}
     - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}
@@ -37740,7 +37740,7 @@ PrefabInstance:
     - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}
       propertyPath: m_Center.y
-      value: -23.15795
+      value: -79.7211
       objectReference: {fileID: 0}
     - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}

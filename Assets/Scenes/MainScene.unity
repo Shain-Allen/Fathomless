@@ -3512,7 +3512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169662449}
   m_LocalRotation: {x: -0, y: -0.70710707, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: -51, y: 0, z: 3364.7}
+  m_LocalPosition: {x: -51, y: 0, z: 3428.1}
   m_LocalScale: {x: 8.3919, y: 1415.25, z: 2887.1643}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24248,13 +24248,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2184942866247858562, guid: 65397a895cfd5c44cbe2e4e310ca6a15,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.49994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184942866247858562, guid: 65397a895cfd5c44cbe2e4e310ca6a15,
+        type: 3}
       propertyPath: m_LocalPosition.y
       value: 76.7
       objectReference: {fileID: 0}
     - target: {fileID: 2184942866247858562, guid: 65397a895cfd5c44cbe2e4e310ca6a15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -350.5
+      value: -296.7
       objectReference: {fileID: 0}
     - target: {fileID: 4104949952243138190, guid: 65397a895cfd5c44cbe2e4e310ca6a15,
         type: 3}
@@ -38256,7 +38261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 46846.41
+  m_Intensity: 2801.3853
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -38378,7 +38383,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 46846.41
+  m_Intensity: 2801.3853
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -44981,6 +44986,11 @@ PrefabInstance:
       propertyPath: followPoint
       value: 
       objectReference: {fileID: 358938756}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: animBottomSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: endFollowPoint_1

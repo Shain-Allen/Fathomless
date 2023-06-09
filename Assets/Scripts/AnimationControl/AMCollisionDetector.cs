@@ -9,6 +9,12 @@ public class AMCollisionDetector : MonoBehaviour
     public bool HasCollided = false;
     public string AnimationName = "";
     public bool EndAnimation = false;
+    public BoxCollider col;
+
+    private void Start()
+    {
+        col = GetComponent<BoxCollider>();
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("SubTag"))
@@ -32,6 +38,7 @@ public class AMCollisionDetector : MonoBehaviour
                     {
                         BackTrackWall.SetActive(true);
                     }
+                    col.gameObject.SetActive(false);
                 }
             }
         }
