@@ -10,6 +10,7 @@ public class CanvasController : MonoBehaviour
     AudioSource audioSource;
     private static CanvasController instance;
     private IEnumerator coroutine;
+    private Animator animator;
 
     public GameObject textEntryPrefab;
     public GameObject TextBox;
@@ -30,6 +31,8 @@ public class CanvasController : MonoBehaviour
         }
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clip;
+        animator = GetComponent<Animator>();
+        PlayFadeFromBlack();
     }
     public void DisplayText(string text)
     {
@@ -40,6 +43,16 @@ public class CanvasController : MonoBehaviour
     {
         coroutine = TextWriter(lines, delay);
         StartCoroutine(coroutine);
+    }
+
+    public void PlayFadeToBlack()
+    {
+        animator.SetTrigger("FadeToBlack");
+    }
+
+    public void PlayFadeFromBlack()
+    {
+        animator.SetTrigger("FadeFromBlack");
     }
 
     private void DrawTextToScreen(string text)

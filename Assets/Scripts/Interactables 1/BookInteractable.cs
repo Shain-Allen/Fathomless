@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BookInteractable : MonoBehaviour, IInteractable
 {
@@ -16,9 +18,4 @@ public class BookInteractable : MonoBehaviour, IInteractable
         CanvasController.Instance.DisplayMoreText(manualLines, 3f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
