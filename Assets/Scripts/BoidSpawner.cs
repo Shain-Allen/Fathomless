@@ -71,7 +71,7 @@ public class BoidSpawner : MonoBehaviour
             // Add the position vector to the player vector, to position it at the player's position
             spawnPosition = playerPosition + randomSpherePoint;
             // Check if spawn position is inside the submarine
-            while (IsInsideSubmarine(spawnPosition) || spawnPosition.y < player.transform.position.y + elevationDisplacement)
+            while (IsInsideSubmarine(spawnPosition) || spawnPosition.y < player.transform.position.y + elevationDisplacement || IsSpawnPointInView(spawnPosition))
             {
                 attempts++;
                 if (attempts >= 10)
@@ -101,4 +101,21 @@ public class BoidSpawner : MonoBehaviour
         bool isInside = (normalizedX * normalizedX) + (normalizedY * normalizedY) + (normalizedZ * normalizedZ) <= 1f;
         return isInside;
     }
+
+    public bool IsSpawnPointInView(Vector3 targetPosition)
+    {
+        Vector3 viewportPos = player.GetComponent<playerScript2>().cam.GetComponent<Camera>().WorldToViewportPoint(targetPosition);
+
+        if (viewportPos.x >= 0 && viewportPos.x <= 1 && viewportPos.y >= 0 && viewportPos.y <= 1 && viewportPos.z > 0)
+        {
+            // Object is within the camera's view
+            return true;
+        }
+        else
+        {
+            // Object is not within the camera's view
+            return false;
+        }
+    }
+
 }
