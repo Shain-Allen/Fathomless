@@ -16,7 +16,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        playerChar = sub.GetComponent<SubController>().Player;
+        playerChar = sub.GetComponent<SubController>().Player.gameObject;
         playerInteractController = playerChar.GetComponent<interactControls>();
     }
 

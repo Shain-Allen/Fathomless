@@ -132,10 +132,14 @@ public class playerScript2 : MonoBehaviour
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
                     transform.position += new Vector3(direction.x, direction.y, direction.z);
+                    //Quaternion rotation = Quaternion.Euler( new Vector3(playerContainer.transform.rotation.x, playerContainer.transform.rotation.y, 80));
+                    //transform.rotation = rotation;
                 }
                 else if (offset.magnitude > 1.1f)
                 {
                     transform.position = playerContainer.transform.position;
+                    //Quaternion rotation = Quaternion.Euler(new Vector3(playerContainer.transform.rotation.x, playerContainer.transform.rotation.y, playerBody.transform.rotation.z));
+                    //transform.rotation = rotation;
                 }
             }
 

@@ -33406,6 +33406,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e94ed0b7f069bc4eab45eb821923e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1578585092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578585087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1600031212
 GameObject:
   m_ObjectHideFlags: 0
@@ -37452,7 +37465,7 @@ PrefabInstance:
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: spawning
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -37462,7 +37475,7 @@ PrefabInstance:
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3644429680455947063, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -44704,17 +44717,17 @@ PrefabInstance:
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1082.3
+      value: 1120.07
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -196.1
+      value: -198.57
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -836.4
+      value: -860.11
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}

@@ -26,7 +26,9 @@ public class SteeredCohesionBehavior : FilteredSpeciesBehavior
 
 
             cohesionMove -= agent.transform.position;
-            cohesionMove = Vector3.Slerp(agent.transform.forward, cohesionMove, agentSmoothTime);
+            Quaternion targetRotation = Quaternion.LookRotation(cohesionMove);
+            Quaternion newRotation = Quaternion.Slerp(agent.transform.rotation, targetRotation, agentSmoothTime * Time.deltaTime);
+            cohesionMove = newRotation * Vector3.forward;
             return cohesionMove;
             
         }

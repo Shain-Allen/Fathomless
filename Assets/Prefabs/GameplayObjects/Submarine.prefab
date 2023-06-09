@@ -2674,6 +2674,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &442618004049060038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5474176085691134168}
+  - component: {fileID: 2231560003506616989}
+  m_Layer: 3
+  m_Name: ParticleFloor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5474176085691134168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_LocalRotation: {x: -0, y: 0.005761293, z: -0, w: 0.9999835}
+  m_LocalPosition: {x: -0.014770508, y: 0, z: -0.0010986328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1009507787048485957}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0.66, z: 0}
+--- !u!65 &2231560003506616989
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.063599, y: 0.55888367, z: 20.842651}
+  m_Center: {x: -0.10308838, y: -1.7153397, z: 1.2659302}
 --- !u!1 &482656940361640235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5144,7 @@ GameObject:
   - component: {fileID: 1009507787048485957}
   - component: {fileID: 1009507787048485954}
   - component: {fileID: 1009507787048485955}
+  - component: {fileID: 8949133528658253176}
   - component: {fileID: 1009507787048485952}
   m_Layer: 0
   m_Name: Submarine
@@ -5141,6 +5187,7 @@ Transform:
   - {fileID: 8329573831189177631}
   - {fileID: 3646445410982333777}
   - {fileID: 3842293228804029932}
+  - {fileID: 5474176085691134168}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5199,6 +5246,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &8949133528658253176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009507787048485822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.063599, y: 0.55888367, z: 20.842651}
+  m_Center: {x: -0.10308838, y: -1.7153397, z: 1.2659302}
 --- !u!95 &1009507787048485952
 Animator:
   serializedVersion: 5

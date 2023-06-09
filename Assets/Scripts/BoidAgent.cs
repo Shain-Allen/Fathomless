@@ -37,9 +37,9 @@ public class BoidAgent : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "SubTag")
+        if (other.gameObject.tag == "SubTag")
         {
             Destroy(gameObject);
         }
