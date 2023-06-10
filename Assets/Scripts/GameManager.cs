@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gminstance;
     public GameObject player;
     public int Scrap;
     public int ScrapMax;
 
-    private void Start()
+    public static GameManager Instance
     {
-        //Scrap = 0;
+        get { return gminstance; }
+    }
+    private void Awake()
+    {
+        if (gminstance != null && gminstance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gminstance = this;
+        }
     }
     private void Update()
     {
@@ -29,5 +41,9 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+    }
+    public void EndGame()
+    {
+        CanvasController.Instance.DisplayText("Game Over");
     }
 }

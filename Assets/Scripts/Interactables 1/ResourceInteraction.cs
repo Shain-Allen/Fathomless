@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ResourceInteraction : MonoBehaviour, IInteractable
 {
-    public GameManager GameManager;
     bool pickedUp;
     [Range(1f, 15f)]
     public float floatSpeed;
@@ -12,7 +11,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        if (GameManager.Scrap < GameManager.ScrapMax)
+        if (GameManager.gminstance.Scrap < GameManager.gminstance.ScrapMax)
         {
             pickedUp = true;
         }
@@ -31,7 +30,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
     {
         if (pickedUp)
         {
-            Vector3 direction = GameManager.player.transform.position - transform.position;
+            Vector3 direction = GameManager.gminstance.player.transform.position - transform.position;
             transform.position += direction * floatSpeed * Time.deltaTime;
             transform.Rotate(0,250 * Time.deltaTime, 0);
 
@@ -39,7 +38,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
 
             if (direction.magnitude < 0.3)
             {
-                GameManager.Scrap += 1;
+                GameManager.gminstance.Scrap += 1;
                 Destroy(gameObject);
             }
         }
