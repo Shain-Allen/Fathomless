@@ -4476,17 +4476,17 @@ PrefabInstance:
     - target: {fileID: 6658393218100217362, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 990.2
+      value: 925
       objectReference: {fileID: 0}
     - target: {fileID: 6658393218100217362, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -182.9
+      value: -990
       objectReference: {fileID: 0}
     - target: {fileID: 6658393218100217362, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -610.5771
+      value: -263
       objectReference: {fileID: 0}
     - target: {fileID: 6658393218100217362, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
         type: 3}
@@ -7346,7 +7346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Eel1: {fileID: 1197978741}
-  LargeEnemyBehavior: {fileID: 0}
+  LargeEnemyBehavior: {fileID: 1197978743}
 --- !u!1 &373833904
 GameObject:
   m_ObjectHideFlags: 0
@@ -22626,6 +22626,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060179045}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1060731979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8910999104326305259, guid: 34f0f5b51303174478fae1227e4193d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1805950144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1062697626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25143,6 +25149,18 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 201492780}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1197978743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6658393218100217363, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
+    type: 3}
+  m_PrefabInstance: {fileID: 201492780}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197978741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50910ef281a5644ba246f26bdd582e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1209301652
 GameObject:
   m_ObjectHideFlags: 0
@@ -37754,6 +37772,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8341399023634557049, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: forwardThing
+      value: 
+      objectReference: {fileID: 1060731979}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -37824,6 +37847,11 @@ PrefabInstance:
       propertyPath: sub
       value: 
       objectReference: {fileID: 1578585087}
+    - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: inSub
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: controller
