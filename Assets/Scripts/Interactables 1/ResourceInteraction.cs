@@ -12,7 +12,14 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        pickedUp = true;
+        if (GameManager.Scrap < GameManager.ScrapMax)
+        {
+            pickedUp = true;
+        }
+        else
+        {
+            CanvasController.Instance.DisplayText("I can't carry any more.");
+        }
     }
 
     private void Start()

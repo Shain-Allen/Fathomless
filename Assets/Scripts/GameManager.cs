@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     public int Scrap;
+    public int ScrapMax;
 
     private void Start()
     {
