@@ -118,4 +118,9 @@ public class BoidSpawner : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        spawning = true;
+    }
+
 }
