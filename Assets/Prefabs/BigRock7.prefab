@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1999272411508062956}
   - component: {fileID: 3175332677786154313}
   - component: {fileID: 861871391244468611}
+  - component: {fileID: 7066181281634683696}
   m_Layer: 0
   m_Name: BigRock7
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7066181281634683696
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221890600339333206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 124582154906944723, guid: c66dab59d3bd42c4997ea91eb7155d40, type: 3}

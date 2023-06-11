@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3530701789845988209}
   - component: {fileID: 527001450842434772}
   - component: {fileID: 2356717751189690398}
+  - component: {fileID: -322428056980852714}
   m_Layer: 0
   m_Name: MassiveRock2
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-322428056980852714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302136381811685835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5487334407929586384, guid: 2e8f6644d4a08c749a890b617abce8cf, type: 3}
