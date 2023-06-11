@@ -48,8 +48,11 @@ public class TurretInteractable : MonoBehaviour, IInteractable
         {
             playerInteractController.InteractFob.SetActive(false);
             playerChar.SetActive(false);
-            turretCam.SetActive(true);
-            turretScript.isTurret = true;
+            if (controlTurret)
+            {
+                turretCam.SetActive(true);
+                turretScript.isTurret = true;
+            }
         }
 
         if (!controlTurret && !otherStation.controlSub)

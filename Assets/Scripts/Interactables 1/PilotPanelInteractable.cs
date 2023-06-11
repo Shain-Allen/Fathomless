@@ -45,8 +45,11 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             playerInteractController.InteractFob.SetActive(false);
             player.SetActive(false);
             player.transform.position = playerSubLockLocation.transform.position;
-            subCam.SetActive(true);
-            subScript.isSub = true;
+            if (controlSub)
+            {
+                subCam.SetActive(true);
+                subScript.isSub = true;
+            }
         }
 
         if(!controlSub && !otherStation.controlTurret) //lets the player leave sub control
