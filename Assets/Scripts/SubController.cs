@@ -59,6 +59,7 @@ public class SubController : MonoBehaviour
     public bool resetSubRot;
     public HatchInteractable hatchScript;
 
+    public AudioSource movementSound;
 
     private void Start()
     {
@@ -201,7 +202,6 @@ public class SubController : MonoBehaviour
         {
             verticalSpeed += 1f;
             moveUp = true;
-
             //upRotSpeed += .1f;
         }
         else
@@ -213,7 +213,6 @@ public class SubController : MonoBehaviour
         {
             verticalSpeed -= 1f;
             moveDown = true;
-
             //downRotSpeed += .1f;
         }
         else
@@ -241,6 +240,7 @@ public class SubController : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             speed += 3f;
+            movementSound.Play();
         }
 
         //This will decrease the speed of sub
@@ -264,8 +264,6 @@ public class SubController : MonoBehaviour
             speed = minSpeed;
 
             SlowSub();
-
-
         }
 
         //this will cap the decent speed to the set max decent speed
@@ -289,6 +287,7 @@ public class SubController : MonoBehaviour
 
     public void SlowSub()
     {
+        movementSound.Stop();
         //lerps the velocity so that the sub will slow down.
         subRigi.velocity = Vector3.Lerp(subRigi.velocity, Vector3.zero, dampening * Time.deltaTime);
 

@@ -9,11 +9,14 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     public float shrinkSpeed;
     public SubDamageManager SubDamageManager;
     public int DamageProtrusionIndex = 0;
+
+    public AudioSource hammer;
     public void Interact(GameObject player)
     {
         Debug.Log("INTERACTED");
         if (Manager.Scrap >= 1)
         {
+            hammer.Play();
             repaired = true;
             Manager.Scrap--;
         }
