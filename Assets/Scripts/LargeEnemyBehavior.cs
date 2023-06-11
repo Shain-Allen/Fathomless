@@ -163,6 +163,11 @@ public class LargeEnemyBehavior : MonoBehaviour
 
     private void HandleFleeState()
     {
+        if (enemyHealth <= 0)
+        {
+            //The eel has been slain, end demo. This shouldn't run with the first eel because it has a brazillian health
+            StartCoroutine(LetEelFlee());
+        }
         // calculate the direction away from the player
         Vector3 awayFromPlayer = transform.position - Player.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(awayFromPlayer);
@@ -199,5 +204,10 @@ public class LargeEnemyBehavior : MonoBehaviour
         //mat.color = Color.white;
         yield return new WaitForSeconds(HaltTime);
         currentState = State.Pursue;
+    }
+    private IEnumerator LetEelFlee()
+    {
+        yield return new WaitForSeconds(5);
+        GameManager.gminstance.EndGame();
     }
 }

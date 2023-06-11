@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int Scrap;
     public int ScrapMax;
+    public AnimationClip FadeToBlack;
+    public int SubHealth;
 
+    bool isGameEnding;
     public static GameManager Instance
     {
         get { return gminstance; }
@@ -23,6 +27,10 @@ public class GameManager : MonoBehaviour
         {
             gminstance = this;
         }
+    }
+    private void Start()
+    {
+        isGameEnding = false;
     }
     private void Update()
     {
@@ -42,8 +50,32 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    private void FixedUpdate()
+    {
+        if (SubHealth <= 0)
+        {
+            EndGame();
+        }
+    }
     public void EndGame()
     {
-        CanvasController.Instance.DisplayText("Game Over");
+        //stops the animation from double procing in rare cases
+        if (!isGameEnding)
+        {
+            isGameEnding = true;
+            if (FadeToBlack != null)
+                StartCoroutine(EndGameTimer());
+            else
+            {
+                Debug.LogError("Gamemanager is missing FadeToBlack animation clip. Assign it in the inspector.");
+            }
+        }
+    }
+    //a timer so the animation can play before changing scenes
+    public IEnumerator EndGameTimer()
+    {
+        CanvasController.Instance.PlayFadeToBlack();
+        yield return new WaitForSeconds(FadeToBlack.length + 1);
+        SceneManager.LoadScene("Credits");
     }
 }

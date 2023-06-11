@@ -2684,6 +2684,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5474176085691134168}
   - component: {fileID: 2231560003506616989}
+  - component: {fileID: 1979276022965155465}
+  - component: {fileID: 4780079225550201361}
+  - component: {fileID: 1947530039014539696}
+  - component: {fileID: 4139573867026742538}
   m_Layer: 3
   m_Name: ParticleFloor
   m_TagString: Untagged
@@ -2719,6 +2723,58 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.063599, y: 0.55888367, z: 20.842651}
   m_Center: {x: -0.10308838, y: -1.7153397, z: 1.2659302}
+--- !u!65 &1979276022965155465
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.425201, y: 0.8647003, z: 21.000639}
+  m_Center: {x: 3.7352521, y: -1.5503616, z: 1.2109156}
+--- !u!65 &4780079225550201361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31422713, y: 0.85894775, z: 21.000639}
+  m_Center: {x: -3.970649, y: -1.5474854, z: 1.2109156}
+--- !u!65 &1947530039014539696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.108098, y: 0.9140625, z: 0.40005118}
+  m_Center: {x: -0.120959744, y: -1.5555878, z: 11.466515}
+--- !u!65 &4139573867026742538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442618004049060038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.134315, y: 0.83787537, z: 0.27959064}
+  m_Center: {x: -0.08126547, y: -1.5313034, z: -9.115567}
 --- !u!1 &482656940361640235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5146,7 +5202,6 @@ GameObject:
   - component: {fileID: 1009507787048485955}
   - component: {fileID: 8949133528658253176}
   - component: {fileID: 1009507787048485952}
-  - component: {fileID: 1578585092}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: SubTag
@@ -5281,19 +5336,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &1578585092
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009507787048485822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1009507787265512373
 GameObject:
   m_ObjectHideFlags: 0
@@ -37588,6 +37630,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6860148
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.149614
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.40942737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836685190459867771, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000025843598
       objectReference: {fileID: 0}
     - target: {fileID: 5836685190459867772, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
         type: 3}

@@ -7389,6 +7389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Eel1: {fileID: 1197978741}
   LargeEnemyBehavior: {fileID: 1197978743}
+  Eel2: {fileID: 1649098228}
 --- !u!1 &373833904
 GameObject:
   m_ObjectHideFlags: 0
@@ -30375,8 +30376,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1822935834}
-  Scrap: 0
+  Scrap: 8
   ScrapMax: 10
+  FadeToBlack: {fileID: 7400000, guid: 8608db929e996a84bbedb0f1ce38299a, type: 2}
+  SubHealth: 0
 --- !u!4 &1397076407
 Transform:
   m_ObjectHideFlags: 0
@@ -35101,6 +35104,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 178eef3258019cb46965e3cd3b9dacf9, type: 3}
+--- !u!1 &1649098228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6658393218100217360, guid: e4a0fed54a409ba44b55a1bd8d0d524a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1766131682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653609387
 GameObject:
   m_ObjectHideFlags: 0
@@ -38345,7 +38354,7 @@ PrefabInstance:
     - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: inSub
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
@@ -45536,6 +45545,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1578585092, guid: 3b18662b54615554b9e7428089a7ea23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1009507786129263696, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: player
@@ -45656,7 +45669,13 @@ PrefabInstance:
       propertyPath: playerRb
       value: 
       objectReference: {fileID: 1822935837}
-    m_RemovedComponents: []
+    - target: {fileID: 8949133528658253176, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1578585092, guid: 3b18662b54615554b9e7428089a7ea23, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b18662b54615554b9e7428089a7ea23, type: 3}
 --- !u!1001 &1450976703025089344
 PrefabInstance:

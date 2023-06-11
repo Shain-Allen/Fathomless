@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SubDamageManager : MonoBehaviour, IHit
 {
+    public static SubDamageManager instance;
     public GameManager Manager;
     public GameObject damageProtrusionObj;
     public GameObject damageProtrusionInstance;
@@ -11,6 +12,11 @@ public class SubDamageManager : MonoBehaviour, IHit
     public bool[] DamagedSpots = new bool[5];
 
     int currentlyDamaged;
+
+    public static SubDamageManager Instance
+    {
+        get { return instance; }
+    }
     public void Hit()
     {
         while (true)
@@ -20,11 +26,12 @@ public class SubDamageManager : MonoBehaviour, IHit
                 if (DamagedSpots[i] == true)
                 {
                     currentlyDamaged++;
+
                 }
             }
+            GameManager.gminstance.SubHealth = damagePoint.Length - currentlyDamaged;
             if (currentlyDamaged >= DamagedSpots.Length)
             {
-                print("Sub destroyed, game over.");
                 break;
             }
             else
@@ -49,14 +56,10 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     void Start()
     {
+        GameManager.gminstance.SubHealth = damagePoint.Length;
         for (int i = 0; i < damagePoint.Length; i++)
         {
             DamagedSpots[i] = false;
         }
-    }
-
-
-    void Update()
-    {
     }
 }
