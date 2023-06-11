@@ -5,10 +5,13 @@ using UnityEngine;
 public class TurretInteractable : MonoBehaviour, IInteractable
 {
     GameObject playerChar;
+    playerScript2 playerScript;
+    public PilotPanelInteractable otherStation;
     public TurretSystem turretScript;
     public GameObject turretCam;
     public GameObject sub;
     public GameObject FakeTurret;
+    public GameObject playerTurretDropPoint;
 
     public bool controlTurret;
 
@@ -17,6 +20,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         playerChar = sub.GetComponent<SubController>().Player.gameObject;
+        playerScript = playerChar.GetComponent<playerScript2>();
         playerInteractController = playerChar.GetComponent<interactControls>();
     }
 
@@ -29,8 +33,9 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && controlTurret == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && controlTurret)
         {
+            playerChar.transform.position = playerTurretDropPoint.transform.position;
             FakeTurret.SetActive(true);
             controlTurret = false;
         }
@@ -39,7 +44,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     }
     private void FixedUpdate()
     {
-        if (controlTurret)
+        if (controlTurret || otherStation.controlSub)
         {
             playerInteractController.InteractFob.SetActive(false);
             playerChar.SetActive(false);
@@ -47,7 +52,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
             turretScript.isTurret = true;
         }
 
-        if (!controlTurret)
+        if (!controlTurret && !otherStation.controlSub)
         {
             playerChar.SetActive(true);
             turretCam.SetActive(false);

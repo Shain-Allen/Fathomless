@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PilotPanelInteractable : MonoBehaviour, IInteractable
 {
-    public GameObject playerLockLocation;
+    public GameObject playerSubLockLocation;
     public GameObject player;
     public SubController subScript;
     public GameObject subCam;
+    public TurretInteractable otherStation;
 
     interactControls playerInteractController;
 
@@ -33,22 +34,22 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     private void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && controlSub)
         {
             controlSub = false;
             player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
         }
 
-        if(controlSub)//enables sub control
+        if(controlSub || otherStation.controlTurret)//enables sub control
         {
             playerInteractController.InteractFob.SetActive(false);
             player.SetActive(false);
-            player.transform.position = playerLockLocation.transform.position;
+            player.transform.position = playerSubLockLocation.transform.position;
             subCam.SetActive(true);
             subScript.isSub = true;
         }
 
-        if(!controlSub) //lets the player leave sub control
+        if(!controlSub && !otherStation.controlTurret) //lets the player leave sub control
         {
             //currently stops movement of sub. needs to be fixed so that player will move within sub
             player.SetActive(true);  
