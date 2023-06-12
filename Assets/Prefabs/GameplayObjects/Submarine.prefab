@@ -591,46 +591,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1616677707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1616677708}
-  - component: {fileID: 1616677709}
-  m_Layer: 0
-  m_Name: audioListener
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1616677708
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616677707}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1009507787034648516}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1616677709
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616677707}
-  m_Enabled: 1
 --- !u!1 &1686304858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5818,6 +5778,7 @@ GameObject:
   - component: {fileID: 1009507787034648516}
   - component: {fileID: 1009507787034648521}
   - component: {fileID: 1009507787034648519}
+  - component: {fileID: 7890370902308250181}
   m_Layer: 0
   m_Name: SubCamera
   m_TagString: Untagged
@@ -5836,8 +5797,7 @@ Transform:
   m_LocalPosition: {x: 0.06298828, y: 1.5249939, z: 8.739014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1616677708}
+  m_Children: []
   m_Father: {fileID: 1009507787048485957}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 26.59, y: -0.027, z: -0.072}
@@ -6009,6 +5969,14 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!81 &7890370902308250181
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009507787034648517}
+  m_Enabled: 1
 --- !u!1 &1009507787048485822
 GameObject:
   m_ObjectHideFlags: 0
@@ -38636,6 +38604,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!81 &4716848455685003039
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318034768659365965}
+  m_Enabled: 1
 --- !u!4 &5672857896512705677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1968310250130229652, guid: 48075aec763e3ea4596c52b1deac074f,
