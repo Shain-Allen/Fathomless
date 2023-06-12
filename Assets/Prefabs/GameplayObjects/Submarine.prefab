@@ -38558,6 +38558,12 @@ PrefabInstance:
       propertyPath: turretAnimator
       value: 
       objectReference: {fileID: 983910334}
+    - target: {fileID: 8204240896564455377, guid: 48075aec763e3ea4596c52b1deac074f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1901984940588351134, guid: 22052a9e93a67924c81374edab77c200,
+        type: 3}
     - target: {fileID: 9163796993719908003, guid: 48075aec763e3ea4596c52b1deac074f,
         type: 3}
       propertyPath: m_Name
@@ -38583,6 +38589,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6191004235772796185}
   m_PrefabAsset: {fileID: 0}
+--- !u!81 &4716848455685003039
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318034768659365965}
+  m_Enabled: 1
 --- !u!95 &983910334
 Animator:
   serializedVersion: 5
@@ -38604,14 +38618,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!81 &4716848455685003039
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5318034768659365965}
-  m_Enabled: 1
 --- !u!4 &5672857896512705677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1968310250130229652, guid: 48075aec763e3ea4596c52b1deac074f,

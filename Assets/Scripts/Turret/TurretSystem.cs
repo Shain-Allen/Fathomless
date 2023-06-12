@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
+
 public class TurretSystem : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
@@ -27,6 +29,7 @@ public class TurretSystem : MonoBehaviour
         }
     }
 
+
     void VisualHarpoon()
     {
         if (Time.time > nextShot)
@@ -44,6 +47,7 @@ public class TurretSystem : MonoBehaviour
         {
             FireTurret();
             turretAnimator.SetTrigger("Fire");
+            StartCoroutine(ReloadTimer());
             nextShot = Time.time + fireDelay;
         }
     }
@@ -61,8 +65,15 @@ public class TurretSystem : MonoBehaviour
 
     void FireTurret()   
     {
+        GlobalSoundsManager.instance.PlayHarpoon();
         GameObject turretProjectile = Instantiate(turretProjectilePrefab, turretBarrel.position, turretBarrel.rotation);
         TurretProjectile proj = turretProjectile.transform.GetChild(0).gameObject.GetComponent<TurretProjectile>();
         proj.subRb = subRb;
+    }
+
+    public IEnumerator ReloadTimer()
+    {
+        yield return new WaitForSeconds(fireDelay - 0.2f);
+        GlobalSoundsManager.instance.PlayReload();
     }
 }

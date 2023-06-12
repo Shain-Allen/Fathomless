@@ -72,6 +72,16 @@ public class GlobalSoundsManager : MonoBehaviour
         }
     }
 
+    public void PlayHarpoon()
+    {
+        audiosources[3].pitch = Random.Range(0.9f, 1.1f);
+        audiosources[3].Play();
+    }
+    public void PlayReload()
+    {
+        audiosources[4].Play();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
