@@ -17,6 +17,13 @@ public class SubDamageManager : MonoBehaviour, IHit
     {
         get { return instance; }
     }
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
     public void Hit()
     {
         while (true)

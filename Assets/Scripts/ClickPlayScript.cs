@@ -21,6 +21,6 @@ public class ClickPlayScript : MonoBehaviour
     private IEnumerator WaitForFade()
     {
         yield return new WaitForSeconds(fadeClip.length);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Prologue");
     }
 }
