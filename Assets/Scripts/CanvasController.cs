@@ -54,6 +54,10 @@ public class CanvasController : MonoBehaviour
     {
         animator.SetTrigger("Start");
     }
+    public void PlayQuickFade()
+    {
+        animator.SetTrigger("Hatch");
+    }
 
     private void DrawTextToScreen(string text)
     {

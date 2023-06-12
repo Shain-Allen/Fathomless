@@ -21,6 +21,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     public float exitDistance;
     public GameObject detectionPoint;
     public GameObject Ladder;
+    public AnimationClip fadeClip;
 
     void Awake()
     {
@@ -39,9 +40,8 @@ public class HatchInteractable : MonoBehaviour, IInteractable
                 DetectGround();
                 if(canLeave)
                 {
-                    playerScript2.inSub = !playerScript2.inSub;
                     playerRb.velocity = Vector3.zero;
-                    Ladder.SetActive(true);
+                    animBlock = true;
                     StartCoroutine("Teleport");
                     //TODO: add logic for moving player outside sub
                     //player.transform.position = tP.transform.position;
@@ -51,9 +51,8 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         
             if (outerHatch)
             {
-                playerScript2.inSub = !playerScript2.inSub;
                 playerRb.velocity = Vector3.zero;
-                Ladder.SetActive(false);
+                animBlock = true;
                 StartCoroutine("Teleport");
                 //TODO: add logic for moving player outside sub
                 //player.transform.position = tP.transform.position;
@@ -90,13 +89,25 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     IEnumerator Teleport()
     {
         playerScript2.Frozen = true; //removes player control...
-        yield return new WaitForSeconds(0.01f); //for this long
+        CanvasController.Instance.PlayQuickFade();
+        yield return new WaitForSeconds(fadeClip.length); //for this long
+        if (innerHatch)
+        {
+            playerScript2.inSub = !playerScript2.inSub;
+            Ladder.SetActive(true);
+        }
+        if (outerHatch)
+        {
+            playerScript2.inSub = !playerScript2.inSub;
+            Ladder.SetActive(false);
+        }
         playerScript2.transform.position = teleporter.transform.position; //takes player to this position
-        yield return new WaitForSeconds(0.01f); //waits this long...
+        playerScript2.Frozen = false; //to restore player control
+        yield return new WaitForSeconds(fadeClip.length); //waits this long...
         if (playerScript2.inSub)
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        playerScript2.Frozen = false; //to restore player control
+        animBlock = false;
     }
 }
