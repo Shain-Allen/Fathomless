@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PrologueDialogue : MonoBehaviour
 {
@@ -23,6 +24,13 @@ public class PrologueDialogue : MonoBehaviour
         };
         CanvasController.Instance.DisplayMoreText(script, 3);
         StartCoroutine(IntroTimer());
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
     private IEnumerator IntroTimer()
     {
