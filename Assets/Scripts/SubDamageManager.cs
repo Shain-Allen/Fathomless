@@ -64,7 +64,7 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     void Start()
     {
-        GameManager.gminstance.SubHealth = damagePoint.Length;
+        GameManager.gminstance.SubHealth = damagePoint.Length + 1;
         for (int i = 0; i < damagePoint.Length; i++)
         {
             DamagedSpots[i] = false;
