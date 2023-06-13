@@ -7,6 +7,7 @@ public class playerScript2 : MonoBehaviour
     public float tereSpeed, aquaSpeed, gravity, jumpHeight, groundDistance;
     public bool Frozen, inSub, isGrounded;
     public LayerMask playerMask;
+    public LayerMask subMask;
     public Transform groundCheck;
     public GameObject cam;
     Vector3 direction;
@@ -57,7 +58,8 @@ public class playerScript2 : MonoBehaviour
                 //setting players collider to not be a trigger so that we can use it for physics
                 collider.isTrigger = false;
 
-                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~playerMask); //checks to see if the ground check is contacting anything except the player mask
+                int combinedMask = playerMask | subMask;
+                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~combinedMask); //checks to see if the ground check is contacting anything except the player mask
 
                 direction = Vector3.zero;
 

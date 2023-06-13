@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HatchInteractable : MonoBehaviour, IInteractable
@@ -35,32 +34,34 @@ public class HatchInteractable : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        if(!animBlock)
+        if (!GameManager.Instance.isFading)
         {
-            if (innerHatch)
+            if (!animBlock)
             {
-                DetectGround();
-                if(canLeave)
+                if (innerHatch)
+                {
+                    DetectGround();
+                    if (canLeave)
+                    {
+                        playerRb.velocity = Vector3.zero;
+                        GameManager.Instance.isFading = true;
+                        StartCoroutine("Teleport");
+                        //TODO: add logic for moving player outside sub
+                        //player.transform.position = tP.transform.position;
+                    }
+
+                }
+
+                if (outerHatch)
                 {
                     playerRb.velocity = Vector3.zero;
-                    animBlock = true;
+                    GameManager.Instance.isFading = true;
                     StartCoroutine("Teleport");
                     //TODO: add logic for moving player outside sub
                     //player.transform.position = tP.transform.position;
                 }
-            
-            }
-        
-            if (outerHatch)
-            {
-                playerRb.velocity = Vector3.zero;
-                animBlock = true;
-                StartCoroutine("Teleport");
-                //TODO: add logic for moving player outside sub
-                //player.transform.position = tP.transform.position;
             }
         }
-       
     }
 
     public void DetectGround()
@@ -88,7 +89,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         }
     }
 
-    IEnumerator Teleport()
+    public IEnumerator Teleport()
     {
         playerScript2.Frozen = true; //removes player control...
         CanvasController.Instance.PlayQuickFade();
@@ -103,14 +104,16 @@ public class HatchInteractable : MonoBehaviour, IInteractable
             playerScript2.inSub = !playerScript2.inSub;
             Ladder.SetActive(false);
         }
-        playerScript2.transform.position = teleporter.transform.position; //takes player to this position
-        playerScript2.Frozen = false; //to restore player control
-        yield return new WaitForSeconds(fadeClip.length); //waits this long...
         if (playerScript2.inSub)
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        boidSpawner.spawning = true;
-        animBlock = false;
+        playerScript2.transform.position = teleporter.transform.position; //takes player to this position
+        playerScript2.Frozen = false; //to restore player control
+        yield return new WaitForSeconds(fadeClip.length); //waits this long...
+        if (boidSpawner != null)
+            boidSpawner.spawning = true;
+        GameManager.Instance.isFading = false;
+        //animBlock = false;
     }
 }

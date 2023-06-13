@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public AnimationClip FadeToBlack;
     public int SubHealth;
 
+    //for hatch fade transitions
+    public bool isFading;
+
     bool isGameEnding;
     public static GameManager Instance
     {
