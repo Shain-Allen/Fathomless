@@ -22,6 +22,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     public GameObject detectionPoint;
     public GameObject Ladder;
     public AnimationClip fadeClip;
+    BoidSpawner boidSpawner;
 
     void Awake()
     {
@@ -29,6 +30,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         playerScript2 = player.GetComponent<playerScript2>();
         playerRb = player.GetComponent<Rigidbody>();
         Ladder.SetActive(false);
+        boidSpawner = player.GetComponent<BoidSpawner>();
     }
 
     public void Interact(GameObject player)
@@ -108,6 +110,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        boidSpawner.spawning = true;
         animBlock = false;
     }
 }

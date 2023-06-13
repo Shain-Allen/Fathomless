@@ -49,8 +49,11 @@ public class BoidSpawner : MonoBehaviour
         Vector3 spawnPosition = GetRandomSpawnPosition();
         GameObject boidGroup = Instantiate(boid, spawnPosition, Quaternion.identity);
         Boid boidScript = boid.GetComponent<Boid>();
-        boidScript.spawner = this;
-        boidScript.player = player;
+        if (boidScript != null)
+        {
+            boidScript.spawner = this;
+            boidScript.player = player;
+        }
     }
 
     private Vector3 GetRandomSpawnPosition()

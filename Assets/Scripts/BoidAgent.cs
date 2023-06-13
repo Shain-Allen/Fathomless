@@ -31,11 +31,16 @@ public class BoidAgent : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 distToPlayer = transform.position - player.transform.position;
-        if (distToPlayer.magnitude > boidSpawner.exitRange)
+        if (player != null)
         {
-            Destroy(gameObject);
+            Vector3 distToPlayer = transform.position - player.transform.position;
+            if (distToPlayer.magnitude > boidSpawner.exitRange)
+            {
+                Destroy(gameObject);
+            }
         }
+        else
+            Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
