@@ -9,6 +9,8 @@ public class GlobalSoundsManager : MonoBehaviour
     AudioSource[] audiosources;
     playerstate state;
     bool alarmRunning;
+    public AudioSource toBeFaded;
+    public int indexToFade;
 
     public static GlobalSoundsManager instance;
     public static GlobalSoundsManager Instance
@@ -50,6 +52,7 @@ public class GlobalSoundsManager : MonoBehaviour
     }
     public void PlayHammer()
     {
+        audiosources[0].pitch = Random.Range(0.85f, 1.25f);
         audiosources[0].Play();
     }
 
@@ -71,10 +74,20 @@ public class GlobalSoundsManager : MonoBehaviour
             audiosources[2].loop = false;
         }
     }
+    public void PlayMusic()
+    {
+        indexToFade = 9;
+        FadeIn();
+    }
+    public void StopMusic()
+    {
+        indexToFade = 9;
+        FadeOut();
+    }
 
     public void PlayHarpoon()
     {
-        audiosources[3].pitch = Random.Range(0.9f, 1.1f);
+        audiosources[3].pitch = Random.Range(0.85f, 1.25f);
         audiosources[3].Play();
     }
     public void PlayReload()
@@ -82,15 +95,85 @@ public class GlobalSoundsManager : MonoBehaviour
         audiosources[4].Play();
     }
 
+    public void PlayMetalSnap()
+    {
+        audiosources[1].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[1].Play();
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        HandleFade();
+        //making a lot of buttons to try sounds for volume testing.
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    PlayHammer();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    PlayHarpoon();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    PlayMetalSnap();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    PlayReload();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha5))
+        //{
+        //    PlayMusic();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha6))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha7))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha8))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
+        //{
+        //}
+    }
+    public float fadeDuration = 1f;
+    public float targetVolume;
+
+    private float initialVolume;
+    private float currentFadeTime;
+    private bool isFading;
+    void HandleFade()
+    {
+        if (isFading)
         {
-            StartAlarm();
+            currentFadeTime += Time.deltaTime;
+
+            float t = Mathf.Clamp01(currentFadeTime / fadeDuration);
+            audiosources[indexToFade].volume = Mathf.Lerp(initialVolume, targetVolume, t);
+
+            if (t >= 1f)
+            {
+                isFading = false;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            StopAlarm();
-        }
+    }
+    public void FadeIn()
+    {
+        initialVolume = audiosources[indexToFade].volume;
+        targetVolume = 0.3f;
+        currentFadeTime = 0f;
+        isFading = true;
+    }
+
+    public void FadeOut()
+    {
+        initialVolume = audiosources[indexToFade].volume;
+        targetVolume = 0f;
+        currentFadeTime = 0f;
+        isFading = true;
     }
 }

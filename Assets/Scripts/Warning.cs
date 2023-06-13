@@ -20,10 +20,17 @@ public class Warning : MonoBehaviour
 
     public GameObject warningSound;
 
-    public bool warn;
-    void awake()
+    public bool warn; 
+    public static Warning instance;
+
+    public static Warning Instance
+    {
+        get { return instance; }
+    }
+    void Awake()
     {
         redLightIntensity = 0;
+        instance = this;
     }
 
     // Update is called once per frame
@@ -34,7 +41,6 @@ public class Warning : MonoBehaviour
 
         if (warn)
         {
-            warnEffect();
             if (redLightIntensity >= maxLightIntensity)
             {
                 lightSwitch = 2;
@@ -55,31 +61,29 @@ public class Warning : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            warnEffectOff();
-        }
     }
 
-    void warnEffect()
+    public void warnEffectOn()
     {
+        warn = true;
         subLight1.SetActive(false);
         subLight2.SetActive(false);
 
         redLightHodler1.SetActive(true);
         redLightHodler2.SetActive(true);
 
-        warningSound.SetActive(true);
+        GlobalSoundsManager.instance.StartAlarm();
     }
 
-    void warnEffectOff()
+    public void warnEffectOff()
     {
+        warn = false;
         subLight1.SetActive(true);
         subLight2.SetActive(true);
 
         redLightHodler1.SetActive(false);
         redLightHodler2.SetActive(false);
 
-        warningSound.SetActive(false);
+        GlobalSoundsManager.instance.StopAlarm();
     }
 }

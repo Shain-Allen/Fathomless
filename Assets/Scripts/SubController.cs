@@ -61,9 +61,15 @@ public class SubController : MonoBehaviour
 
     public AudioSource movementSound;
 
+    public static SubController instance;
+    public static SubController Instance
+    {
+        get { return instance; }
+    }
+
     private void Start()
     {
-        
+        instance = this;
     }
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub

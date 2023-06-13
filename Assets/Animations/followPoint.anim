@@ -102,24 +102,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 71.583336
         value: {x: 1045, y: -296.8, z: 2720.4}
-        inSlope: {x: 13.569813, y: 0, z: 78.269615}
-        outSlope: {x: 13.569813, y: 0, z: 78.269615}
+        inSlope: {x: 14.067214, y: 0, z: 83.77543}
+        outSlope: {x: 14.067214, y: 0, z: 83.77543}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 75.333336
-        value: {x: 1092.2, y: -463, z: 2944.3}
-        inSlope: {x: 0, y: 0, z: 36.637207}
-        outSlope: {x: 0, y: 0, z: 36.637207}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 75.35
-        value: {x: 1090.6, y: -463, z: 2978.8}
+        time: 75.01667
+        value: {x: 1092.91, y: -448.9, z: 2974.94}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -153,7 +144,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 75.35
+    m_StopTime: 75.01667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -256,24 +247,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 71.583336
         value: 1045
-        inSlope: 13.569813
-        outSlope: 13.569813
+        inSlope: 14.067214
+        outSlope: 14.067214
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 75.333336
-        value: 1092.2
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 75.35
-        value: 1090.6
+        time: 75.01667
+        value: 1092.91
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -381,17 +363,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 75.333336
-        value: -463
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 75.35
-        value: -463
+        time: 75.01667
+        value: -448.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -492,24 +465,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 71.583336
         value: 2720.4
-        inSlope: 78.269615
-        outSlope: 78.269615
+        inSlope: 83.77543
+        outSlope: 83.77543
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 75.333336
-        value: 2944.3
-        inSlope: 36.637207
-        outSlope: 36.637207
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 75.35
-        value: 2978.8
+        time: 75.01667
+        value: 2974.94
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -527,6 +491,27 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: DamageSub
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6166667
+    functionName: ActivateAlarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.0333333
+    functionName: AutopilotAlert
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 14.833333
     functionName: ActivateEel
     data: 
@@ -534,8 +519,50 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 52.766666
+  - time: 16.116667
+    functionName: EelAlert
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 16.816668
+    functionName: StartMusic
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 52.683334
     functionName: SpookEel
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 54.933334
+    functionName: StopMusic
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 58.216667
+    functionName: DeactivateAlarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 70.88333
+    functionName: DeactivateAlarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 73.23333
+    functionName: PostCombatDialogue
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

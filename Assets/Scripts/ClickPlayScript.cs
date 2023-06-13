@@ -16,6 +16,10 @@ public class ClickPlayScript : MonoBehaviour
             animator.SetTrigger("FadeToBlack");
             StartCoroutine(WaitForFade());
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private IEnumerator WaitForFade()

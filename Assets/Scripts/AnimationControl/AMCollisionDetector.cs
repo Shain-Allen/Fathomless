@@ -19,30 +19,36 @@ public class AMCollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SubTag"))
         {
-            if (HasCollided == false)
-            {
-                Debug.Log(collision.gameObject);
-                if (EndAnimation == false)
+            //if (GameManager.Instance.SubHealth >= SubDamageManager.instance.damagePoint.Length)
+            //{
+                if (HasCollided == false)
                 {
-                    AnimationManager.GetComponent<AnimationToggleManager>().StartAnimation(AnimationName);
-                    print("Animation Started");
-                    HasCollided = true;
-                }
-                else if (EndAnimation == true)
-                {
-                    AnimationManager.GetComponent<AnimationToggleManager>().EndAnimation();
-                    print("Animation Ended");
-                    HasCollided = true;
-
-                    if (BackTrackWall != null)
+                    if (EndAnimation == false)
                     {
-                        BackTrackWall.SetActive(true);
+                        AnimationManager.GetComponent<AnimationToggleManager>().StartAnimation(AnimationName);
+                        print("Animation Started");
+                        HasCollided = true;
                     }
-                    col.gameObject.SetActive(false);
+                    else if (EndAnimation == true)
+                    {
+                        AnimationManager.GetComponent<AnimationToggleManager>().EndAnimation();
+                        print("Animation Ended");
+                        HasCollided = true;
+
+                        if (BackTrackWall != null)
+                        {
+                            BackTrackWall.SetActive(true);
+                        }
+                        col.gameObject.SetActive(false);
+                    }
                 }
-            }
+            //}
+            //else if(!SubController.instance.follow)
+            //{
+                //CanvasController.Instance.DisplayText("I shouldn't go any further until I fix these holes in my sub.");
+            //}
         }
-        else if (collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player") && !SubController.instance.follow)
         {
             CanvasController.Instance.DisplayText("I'm not getting any closer to this cliff without my sub...");
         }

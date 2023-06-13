@@ -26,6 +26,7 @@ public class SubDamageManager : MonoBehaviour, IHit
     }
     public void Hit()
     {
+        GlobalSoundsManager.instance.PlayMetalSnap();
         while (true)
         {
             for (int i = 0; i < DamagedSpots.Length; i++)
