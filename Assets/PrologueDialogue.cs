@@ -22,6 +22,7 @@ public class PrologueDialogue : MonoBehaviour
             "Just my luck. Let's get this train sinking."
         };
         CanvasController.Instance.DisplayMoreText(script, 3);
+        StartCoroutine(IntroTimer());
     }
     private IEnumerator IntroTimer()
     {
