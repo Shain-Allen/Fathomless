@@ -101,9 +101,17 @@ public class SubController : MonoBehaviour
             {
                 followSpeed = animTopFollowSpeed;
             }
-            if (distance <= 100)
+            if (distance <= 75)
             {
-                followSpeed = animBottomSpeed;
+                followSpeed = animTopFollowSpeed / 2;
+            }
+            if (distance <= 50)
+            {
+                followSpeed = animBottomSpeed / 2;
+            }
+            if (distance <= 25)
+            {
+                followSpeed = animBottomSpeed / 4;
             }
 
 

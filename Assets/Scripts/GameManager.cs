@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int ScrapMax;
     public AnimationClip FadeToBlack;
     public int SubHealth;
+    public bool canScissor;
 
     //for hatch fade transitions
     public bool isFading;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && canScissor)
         {
             switch (Random.Range(1, 4))
             {
@@ -51,6 +52,15 @@ public class GameManager : MonoBehaviour
                     CanvasController.Instance.DisplayText("Scissiors.");
                     break;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tilde))
+        {
+            canScissor = true;
+            CanvasController.Instance.DisplayText("Cheats activated: RPS Delux DLC Added.");
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
     private void FixedUpdate()
