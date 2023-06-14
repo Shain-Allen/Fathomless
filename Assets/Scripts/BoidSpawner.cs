@@ -20,7 +20,7 @@ public class BoidSpawner : MonoBehaviour
 
     void Start()
     {
-        controller = player.GetComponent<playerScript2>();
+        controller = playerScript2.Instance;
         timeValue = Random.value * frequency;
         //spawning = true;
     }
