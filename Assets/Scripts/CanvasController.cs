@@ -11,6 +11,7 @@ public class CanvasController : MonoBehaviour
     private static CanvasController instance;
     private IEnumerator coroutine;
     private Animator animator;
+    public bool isBooking;
 
     public GameObject textEntryPrefab;
     public GameObject TextBox;
@@ -79,5 +80,6 @@ public class CanvasController : MonoBehaviour
             DisplayText(line);
             yield return new WaitForSeconds(delay);
         }
+        isBooking = false;
     }
 }

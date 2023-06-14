@@ -97,6 +97,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         if (innerHatch)
         {
             playerScript2.inSub = !playerScript2.inSub;
+            GlobalSoundsManager.instance.PlaySplash();
             GlobalSoundsManager.instance.StopAmbience();
             Ladder.SetActive(true);
         }
@@ -106,6 +107,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
             GlobalSoundsManager.instance.PlayAmbience();
             Ladder.SetActive(false);
         }
+        GlobalSoundsManager.instance.CutAmbientSounds();
         if (playerScript2.inSub)
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else

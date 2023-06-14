@@ -19,6 +19,17 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
             repaired = true;
             Manager.Scrap--;
         }
+        else
+        {
+            if (Random.value < 0.5)
+            {
+                CanvasController.Instance.DisplayText("I hope I can find something to patch this up...");
+            }
+            else
+            {
+                CanvasController.Instance.DisplayText("I've got nothing.");
+            }
+        }
     }
     private void FixedUpdate()
     {

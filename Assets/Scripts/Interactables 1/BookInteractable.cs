@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class BookInteractable : MonoBehaviour, IInteractable
 {
+    private void Start()
+    {
+        CanvasController.Instance.isBooking = false;
+    }
     string[] manualLines = new string[]
     {
     "It's a manual for operating the submarine",
@@ -15,7 +19,11 @@ public class BookInteractable : MonoBehaviour, IInteractable
     };
     public void Interact(GameObject player)
     {
-        CanvasController.Instance.DisplayMoreText(manualLines, 3f);
+        if (!CanvasController.Instance.isBooking)
+        {
+            CanvasController.Instance.isBooking = true;
+            CanvasController.Instance.DisplayMoreText(manualLines, 3f);
+        }
     }
 
 }

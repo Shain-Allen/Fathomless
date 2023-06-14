@@ -10,6 +10,9 @@ public class GlobalSoundsManager : MonoBehaviour
     bool alarmRunning;
     public AudioSource toBeFaded;
     public int indexToFade;
+    public float timer;
+    public float averageInterval;
+
 
     public static GlobalSoundsManager instance;
     public static GlobalSoundsManager Instance
@@ -37,6 +40,15 @@ public class GlobalSoundsManager : MonoBehaviour
             //sounds that will play when the player is outside the sub
 
         }
+    }
+    private void Start()
+    {
+        timer = Random.Range(averageInterval - 30f, averageInterval + 30f);
+    }
+    public void PlaySplash()
+    {
+        audiosources[11].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[11].Play();
     }
     public void PlayAmbience()
     {
@@ -101,44 +113,63 @@ public class GlobalSoundsManager : MonoBehaviour
     private void Update()
     {
         HandleFade();
-        //making a lot of buttons to try sounds for volume testing.
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    PlayHammer();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    PlayHarpoon();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    PlayMetalSnap();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    PlayReload();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha5))
-        //{
-        //    PlayMusic();
-        //}
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            SubDamageManager.instance.Hit();
-        }
-        //if (Input.GetKeyDown(KeyCode.Alpha7))
-        //{
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha8))
-        //{
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha9))
-        //{
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha0))
-        //{
-        //}
+        RandomTimer();
     }
+
+    private void RandomTimer()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0f)
+        {
+            PlayRandomSound();
+            timer = Random.Range(averageInterval - 30f, averageInterval + 30f);
+        }
+    }
+    public void CutAmbientSounds()
+    {
+        audiosources[6].Stop();
+        audiosources[7].Stop();
+        audiosources[8].Stop();
+        audiosources[12].Stop();
+    }
+    private void PlayRandomSound()
+    {
+        int randomIndex = Random.Range(1, 5);
+        switch (randomIndex)
+        {
+            case 1:
+                randomIndex = 6;
+                break;
+            case 2:
+                randomIndex = 7;
+                break;
+            case 3:
+                randomIndex = 8;
+                break;
+            case 4:
+                randomIndex = 12;
+                break;
+        }
+        AudioSource randomClip = audiosources[randomIndex];
+        if ((randomIndex == 7 || randomIndex == 8) && playerScript2.instance.inSub)
+        {
+            randomClip.Play();
+        }
+        else if (randomIndex == 6 || randomIndex == 12 && !playerScript2.instance.inSub)
+        {
+            randomClip.Play();
+        }
+        else if ((randomIndex == 7 || randomIndex == 8) && !playerScript2.instance.inSub)
+        {
+            PlayRandomSound();
+        }
+        else if (randomIndex == 6 || randomIndex == 12 && playerScript2.instance.inSub)
+        {
+            PlayRandomSound();
+        }
+    }
+
     public float fadeDuration = 1f;
     public float targetVolume;
 
