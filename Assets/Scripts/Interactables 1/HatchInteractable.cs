@@ -97,11 +97,13 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         if (innerHatch)
         {
             playerScript2.inSub = !playerScript2.inSub;
+            GlobalSoundsManager.instance.StopAmbience();
             Ladder.SetActive(true);
         }
         if (outerHatch)
         {
             playerScript2.inSub = !playerScript2.inSub;
+            GlobalSoundsManager.instance.PlayAmbience();
             Ladder.SetActive(false);
         }
         if (playerScript2.inSub)

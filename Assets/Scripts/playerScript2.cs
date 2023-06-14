@@ -162,6 +162,17 @@ public class playerScript2 : MonoBehaviour
         
     }
 
+    //water sound
+    public float maxSpeed = 10f;
+
+    private void FixedUpdate()
+    {
+        float speedRatio = playerBody.velocity.magnitude / maxSpeed;
+        float volume = Mathf.Clamp01(speedRatio);
+
+        GlobalSoundsManager.instance.audiosources[10].volume = volume + 0.2f;
+    }
+
 
     //Draws the ellipse to the scene view
     private void OnDrawGizmos()

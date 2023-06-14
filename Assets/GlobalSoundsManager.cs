@@ -6,8 +6,7 @@ public class GlobalSoundsManager : MonoBehaviour
 {
     public playerScript2 playerScript;
     public SubController subController;
-    AudioSource[] audiosources;
-    playerstate state;
+    public AudioSource[] audiosources;
     bool alarmRunning;
     public AudioSource toBeFaded;
     public int indexToFade;
@@ -16,11 +15,6 @@ public class GlobalSoundsManager : MonoBehaviour
     public static GlobalSoundsManager Instance
     {
         get { return instance; }
-    }
-    enum playerstate
-    {
-        //stipulating whether or not sounds should play depending on if the player is in the sub or not.
-        inSub, Outsub
     }
 
     private void Awake()
@@ -34,21 +28,25 @@ public class GlobalSoundsManager : MonoBehaviour
     private void FixedUpdate()
     {
         //This will handle random ambient sounds, as well as constant ambience.
-        if (state == playerstate.inSub)
+        if (playerScript2.instance.inSub)
         {
             //sounds that will play when the player is in the sub
-
         }
-        if (state == playerstate.Outsub)
+        if (!playerScript2.instance.inSub)
         {
             //sounds that will play when the player is outside the sub
 
         }
-        if (state == playerstate.Outsub || state == playerstate.inSub)
-        {
-            //sounds that always have the ability to play
-
-        }
+    }
+    public void PlayAmbience()
+    {
+        audiosources[5].Play();
+        audiosources[10].Stop();
+    }
+    public void StopAmbience()
+    {
+        audiosources[5].Stop();
+        audiosources[10].Play();
     }
     public void PlayHammer()
     {

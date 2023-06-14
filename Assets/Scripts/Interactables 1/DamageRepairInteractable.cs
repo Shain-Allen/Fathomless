@@ -9,7 +9,8 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     public float shrinkSpeed;
     public SubDamageManager SubDamageManager;
     public int DamageProtrusionIndex = 0;
-
+    AudioSource waterSound;
+    float initialVolume;
     public void Interact(GameObject player)
     {
         if (Manager.Scrap >= 1)
@@ -18,6 +19,21 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
             repaired = true;
             Manager.Scrap--;
         }
+    }
+    private void FixedUpdate()
+    {
+        if (playerScript2.instance.inSub)
+        {
+            waterSound.volume = initialVolume;
+        }
+        else
+        {
+            waterSound.volume = 0;
+        }
+    }
+    private void Start()
+    {
+        initialVolume = waterSound.volume;
     }
 
     public void Update()
