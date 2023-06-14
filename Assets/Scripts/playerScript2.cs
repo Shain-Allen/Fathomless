@@ -23,6 +23,15 @@ public class playerScript2 : MonoBehaviour
 
     public SubController controller;
 
+    public static playerScript2 instance;
+    public static playerScript2 Instance
+    {
+        get { return instance; }
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

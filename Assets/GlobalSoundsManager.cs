@@ -124,10 +124,10 @@ public class GlobalSoundsManager : MonoBehaviour
         //{
         //    PlayMusic();
         //}
-        //if (Input.GetKeyDown(KeyCode.Alpha6))
-        //{
-        //    SubDamageManager.instance.Hit();
-        //}
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SubDamageManager.instance.Hit();
+        }
         //if (Input.GetKeyDown(KeyCode.Alpha7))
         //{
         //}

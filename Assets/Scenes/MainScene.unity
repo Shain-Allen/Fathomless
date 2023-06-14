@@ -5559,6 +5559,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253082902}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &263101351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6799883689108234820, guid: f799e0220f122f4498c65e27799d4613,
+    type: 3}
+  m_PrefabInstance: {fileID: 1105842354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &270746555
 GameObject:
   m_ObjectHideFlags: 0
@@ -33393,7 +33399,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56cc844bb3dcbc54fa5958a496c93a3b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -47548,6 +47554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1470589368, guid: 3b18662b54615554b9e7428089a7ea23, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 263101351}
     - target: {fileID: 1009507786129263696, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: player
