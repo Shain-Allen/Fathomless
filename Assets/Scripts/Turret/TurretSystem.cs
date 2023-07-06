@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEngine.Serialization;
 
 public class TurretSystem : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
-    public Camera camera;
+    [FormerlySerializedAs("camera")] public Camera turretCamera;
     float x_rotation = 0f;
     float y_rotation = 0f;
     public GameObject turretProjectilePrefab;

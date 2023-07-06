@@ -111,12 +111,12 @@ public class BoidSpawner : MonoBehaviour
 
         if (viewportPos.x >= 0 && viewportPos.x <= 1 && viewportPos.y >= 0 && viewportPos.y <= 1 && viewportPos.z > 0)
         {
-            // Object is within the camera's view
+            // Object is within the turretCamera's view
             return true;
         }
         else
         {
-            // Object is not within the camera's view
+            // Object is not within the turretCamera's view
             return false;
         }
     }
