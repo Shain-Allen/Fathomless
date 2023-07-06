@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     Vector3 initialPos;
     public float spaceRadiusX;
     public float spaceRadiusZ;
-    CapsuleCollider collider;
+    CapsuleCollider playerCollider;
     public GameObject FlashLight;
 
     public SubController controller;
@@ -37,7 +37,7 @@ public class PlayerScript : MonoBehaviour
     {
         controller = sub.GetComponent<SubController>();
         playerContainer = controller.playerContainer;
-        collider = GetComponent<CapsuleCollider>();
+        playerCollider = GetComponent<CapsuleCollider>();
         playerHeightOffset = playerContainer.transform.localPosition.y;
         if (spaceRadiusX < 1)
         {
@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
                 transform.SetParent(null);
 
                 //setting players collider to not be a trigger so that we can use it for physics
-                collider.isTrigger = false;
+                playerCollider.isTrigger = false;
 
                 int combinedMask = playerMask | subMask;
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~combinedMask); //checks to see if the ground check is contacting anything except the player mask
@@ -110,7 +110,7 @@ public class PlayerScript : MonoBehaviour
                 playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 
                 //setting players collider to be a trigger so it doesn't influence sub movement
-                collider.isTrigger = true;
+                playerCollider.isTrigger = true;
 
                 transform.SetParent(sub.transform);
                 if (Input.GetKey(KeyCode.D)) //pressed D
