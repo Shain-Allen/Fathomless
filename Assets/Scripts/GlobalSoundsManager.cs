@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalSoundsManager : MonoBehaviour
 {
-    public playerScript2 playerScript;
+    public PlayerScript playerScript;
     public SubController subController;
     public AudioSource[] audiosources;
     bool alarmRunning;
@@ -31,11 +31,11 @@ public class GlobalSoundsManager : MonoBehaviour
     private void FixedUpdate()
     {
         //This will handle random ambient sounds, as well as constant ambience.
-        if (playerScript2.instance.inSub)
+        if (PlayerScript.instance.inSub)
         {
             //sounds that will play when the player is in the sub
         }
-        if (!playerScript2.instance.inSub)
+        if (!PlayerScript.instance.inSub)
         {
             //sounds that will play when the player is outside the sub
 
@@ -152,19 +152,19 @@ public class GlobalSoundsManager : MonoBehaviour
                 break;
         }
         AudioSource randomClip = audiosources[randomIndex];
-        if ((randomIndex == 7 || randomIndex == 8) && playerScript2.instance.inSub)
+        if ((randomIndex == 7 || randomIndex == 8) && PlayerScript.instance.inSub)
         {
             randomClip.Play();
         }
-        else if (randomIndex == 6 || randomIndex == 12 && !playerScript2.instance.inSub)
+        else if (randomIndex == 6 || randomIndex == 12 && !PlayerScript.instance.inSub)
         {
             randomClip.Play();
         }
-        else if ((randomIndex == 7 || randomIndex == 8) && !playerScript2.instance.inSub)
+        else if ((randomIndex == 7 || randomIndex == 8) && !PlayerScript.instance.inSub)
         {
             PlayRandomSound();
         }
-        else if (randomIndex == 6 || randomIndex == 12 && playerScript2.instance.inSub)
+        else if (randomIndex == 6 || randomIndex == 12 && PlayerScript.instance.inSub)
         {
             PlayRandomSound();
         }

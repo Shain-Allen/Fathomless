@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HatchInteractable : MonoBehaviour, IInteractable
 {
-    playerScript2 playerScript2;
+    PlayerScript playerScript;
     public Rigidbody playerRb;
     public LayerMask seaMask, subMask;
     public GameObject teleporter;
@@ -26,7 +26,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     void Awake()
     {
         player = controller.Player;
-        playerScript2 = player.GetComponent<playerScript2>();
+        playerScript = player.GetComponent<PlayerScript>();
         playerRb = player.GetComponent<Rigidbody>();
         Ladder.SetActive(false);
         boidSpawner = player.GetComponent<BoidSpawner>();
@@ -91,29 +91,29 @@ public class HatchInteractable : MonoBehaviour, IInteractable
 
     public IEnumerator Teleport()
     {
-        playerScript2.Frozen = true; //removes player control...
+        playerScript.Frozen = true; //removes player control...
         CanvasController.Instance.PlayQuickFade();
         yield return new WaitForSeconds(fadeClip.length); //for this long
         if (innerHatch)
         {
-            playerScript2.inSub = !playerScript2.inSub;
+            playerScript.inSub = !playerScript.inSub;
             GlobalSoundsManager.instance.PlaySplash();
             GlobalSoundsManager.instance.StopAmbience();
             Ladder.SetActive(true);
         }
         if (outerHatch)
         {
-            playerScript2.inSub = !playerScript2.inSub;
+            playerScript.inSub = !playerScript.inSub;
             GlobalSoundsManager.instance.PlayAmbience();
             Ladder.SetActive(false);
         }
         GlobalSoundsManager.instance.CutAmbientSounds();
-        if (playerScript2.inSub)
+        if (playerScript.inSub)
             player.transform.localRotation = controller.gameObject.transform.rotation;
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        playerScript2.transform.position = teleporter.transform.position; //takes player to this position
-        playerScript2.Frozen = false; //to restore player control
+        playerScript.transform.position = teleporter.transform.position; //takes player to this position
+        playerScript.Frozen = false; //to restore player control
         yield return new WaitForSeconds(fadeClip.length); //waits this long...
         if (boidSpawner != null)
             boidSpawner.spawning = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretInteractable : MonoBehaviour, IInteractable
 {
     GameObject playerChar;
-    playerScript2 playerScript;
+    PlayerScript playerScript;
     public PilotPanelInteractable otherStation;
     public TurretSystem turretScript;
     public GameObject turretCam;
@@ -20,7 +20,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         playerChar = sub.GetComponent<SubController>().Player.gameObject;
-        playerScript = playerChar.GetComponent<playerScript2>();
+        playerScript = playerChar.GetComponent<PlayerScript>();
         playerInteractController = playerChar.GetComponent<interactControls>();
     }
 

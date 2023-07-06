@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerScript2 : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public GameObject sub;
     public Rigidbody playerBody;
@@ -23,8 +23,8 @@ public class playerScript2 : MonoBehaviour
 
     public SubController controller;
 
-    public static playerScript2 instance;
-    public static playerScript2 Instance
+    public static PlayerScript instance;
+    public static PlayerScript Instance
     {
         get { return instance; }
     }

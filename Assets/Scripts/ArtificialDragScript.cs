@@ -6,13 +6,13 @@ public class ArtificialDragScript : MonoBehaviour
 {
     Rigidbody playerRb;
     Rigidbody subRb;
-    playerScript2 playerScript;
+    PlayerScript playerScript;
     Vector3 targetVel;
 
     public float drag;
     void Start()
     {
-        playerScript = GetComponent<playerScript2>();
+        playerScript = GetComponent<PlayerScript>();
         subRb = playerScript.sub.GetComponent<Rigidbody>();
         playerRb = GetComponent<Rigidbody>();
     }

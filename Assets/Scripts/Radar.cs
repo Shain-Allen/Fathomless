@@ -24,7 +24,7 @@ public class Radar : MonoBehaviour
 
         audioSource.volume = volume;
         audioSource.pitch = pitch;
-        if (playerScript2.instance.inSub)
+        if (PlayerScript.instance.inSub)
             audioSource.Play();
     }
 }

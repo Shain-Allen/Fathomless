@@ -33,7 +33,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     }
     private void FixedUpdate()
     {
-        if (playerScript2.instance.inSub)
+        if (PlayerScript.instance.inSub)
         {
             waterSound.volume = initialVolume;
         }

@@ -15,12 +15,12 @@ public class BoidSpawner : MonoBehaviour
     public float playerContainerAntiFishFieldOffset;
     public bool spawning;
     public GameObject player;
-    playerScript2 controller;
+    PlayerScript controller;
     Vector3 spawnPosition;
 
     void Start()
     {
-        controller = playerScript2.Instance;
+        controller = PlayerScript.Instance;
         timeValue = Random.value * frequency;
         //spawning = true;
     }
@@ -107,7 +107,7 @@ public class BoidSpawner : MonoBehaviour
 
     public bool IsSpawnPointInView(Vector3 targetPosition)
     {
-        Vector3 viewportPos = player.GetComponent<playerScript2>().cam.GetComponent<Camera>().WorldToViewportPoint(targetPosition);
+        Vector3 viewportPos = player.GetComponent<PlayerScript>().cam.GetComponent<Camera>().WorldToViewportPoint(targetPosition);
 
         if (viewportPos.x >= 0 && viewportPos.x <= 1 && viewportPos.y >= 0 && viewportPos.y <= 1 && viewportPos.z > 0)
         {
