@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SubController : MonoBehaviour
@@ -85,18 +86,16 @@ public class SubController : MonoBehaviour
             speed = 0f;
         }
 
-        if(follow == true)
+        if(follow == true)  //this is the part of the code that lets the sub follow the animated follow point
         {
-            //Vector3 ToFP = transform.position - followPoint.transform.position;
 
             followAnim.SetBool(AnimationName, true);
             transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
             transform.LookAt(followPoint.transform);
 
-            //Debug.Log(distance);
-
             float distance = Vector3.Distance(transform.position, followPoint.transform.position);
 
+            //these are the different distances that the sub will look out for to controll the speed of when it is following the animated follow point
             if (distance >= 100)
             {
                 followSpeed = animTopFollowSpeed;
@@ -114,29 +113,10 @@ public class SubController : MonoBehaviour
                 followSpeed = animBottomSpeed / 4;
             }
 
-
-            /*if (this.gameObject.transform.position.z >= endFollowPoint_1.transform.position.z)
-            {
-                follow = false;
-
-                resetSubRot = true;
-                
-            }
-            if (this.gameObject.transform.position.z >= endFollowPoint_2.transform.position.z)
-            {
-                follow = false;
-
-                resetSubRot = true;
-
-            }*/
         }
 
-        /*if(follow == false)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
-        }*/
 
-        if(!verMove)
+        if(!verMove) //this checks to see if the sub is moving up or down, if not, the sub will slow to a stop
         {
             SlowSub();
 
@@ -160,39 +140,20 @@ public class SubController : MonoBehaviour
         }
 
 
-        //Debug.Log(subRigi.velocity.magnitude);
     }
 
-    private void Update()
+    private void Update() 
     {
         verticalSubControl();
 
-        if(resetSubRot)
+        if(resetSubRot) //checks to see if subs rotation is reset
         {
             ResetRotation();
         }
     }
 
-    public void SubCameraControl()
+    public void SubCameraControl() //the clamps for the sub controller
     {
-
-        /*Cursor.visible = false;
-
-        float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
-
-        yRotation -= mouseY;
-        xRotation -= mouseX;
-
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        //rRotation = Mathf.Clamp(-90, yRotation, 50f);
-
-
-        //yRotation = mouseX;
-
-
-        subCam.transform.localRotation = Quaternion.Euler(yRotation, -xRotation, 0);*/
 
         float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
@@ -201,8 +162,6 @@ public class SubController : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
         yRotation = mouseX;
-        //yRotation = Mathf.Clamp(-50, yRotation, 50f);
-
 
         subCam.transform.localRotation = Quaternion.Euler(xRotation, mouseY, 0);
         
@@ -216,18 +175,17 @@ public class SubController : MonoBehaviour
         {
             verticalSpeed += 1f;
             moveUp = true;
-            //upRotSpeed += .1f;
         }
         else
         {
             moveUp = false;
         }
 
+        //Moves sub down
         if (Input.GetKey(KeyCode.LeftControl))
         {
             verticalSpeed -= 1f;
             moveDown = true;
-            //downRotSpeed += .1f;
         }
         else
         {
@@ -292,10 +250,9 @@ public class SubController : MonoBehaviour
         }
     }
 
-    public void ResetRotation()
+    public void ResetRotation() //Will reset the rotaion of the sub if called
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
-        //hatchScript.animBlock = true;
         StartCoroutine(resetRotTimer());
     }
 
@@ -324,7 +281,7 @@ public class SubController : MonoBehaviour
         }
     }
 
-    IEnumerator resetRotTimer()
+    IEnumerator resetRotTimer() //timer for how long the reset rotation will be called
     {
         yield return new WaitForSeconds(2f);
         resetSubRot = false;
