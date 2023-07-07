@@ -15,6 +15,10 @@ public class PlayerScript : MonoBehaviour
     private float jump;
     float playerHeightOffset;
 
+    private Vector2 mouseInput;
+    public float mouseSensitivity = 100f;
+    float yRotation = 0f;
+
     private Transform parentTransform;
     GameObject playerContainer;
     Vector3 initialPos;
@@ -35,6 +39,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         controller = sub.GetComponent<SubController>();
         playerContainer = controller.playerContainer;
         playerCollider = GetComponent<CapsuleCollider>();
@@ -71,9 +76,19 @@ public class PlayerScript : MonoBehaviour
                 InsideMovement(moveVector);
             }
 
+            MoveCamera();
         }
     }
-    
+
+    private void MoveCamera()
+    {
+        yRotation -= mouseInput.y;
+        yRotation = Mathf.Clamp(yRotation, -90f, 90f);
+
+        cam.transform.localRotation = Quaternion.Euler(yRotation, 0, 0);
+        transform.Rotate(Vector3.up * mouseInput.x);
+    }
+
     //movement logic for when the player is not in the water
     private void InsideMovement(Vector3 moveVector)
     {
@@ -202,4 +217,7 @@ public class PlayerScript : MonoBehaviour
 
     //expression body statement to get input for when the player Jumps
     private void OnJump(InputValue inputValue) => jump = inputValue.Get<float>();
+
+    //expression body statement to get input for when the player moves their mouse
+    private void OnLook(InputValue inputValue) => mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
 }

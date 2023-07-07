@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6687032, g: 0.5373772, b: 0.42028892, a: 1}
+  m_IndirectSpecularColor: {r: 0.70169985, g: 0.57425165, b: 0.46829185, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42157,6 +42157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341399023634557049, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341399023634557049, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
       propertyPath: forwardThing
       value: 
       objectReference: {fileID: 1060731979}
@@ -42245,12 +42250,18 @@ PrefabInstance:
       propertyPath: jumpHeight
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 8910999105452109260, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8910999105452109261, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_Mass
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8341399023634557049, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
 --- !u!1 &1808104229
 GameObject:
