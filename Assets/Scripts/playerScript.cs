@@ -1,31 +1,33 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
     public GameObject sub;
     public Rigidbody playerBody;
     public float tereSpeed, aquaSpeed, gravity, jumpHeight, groundDistance;
-    public bool Frozen, inSub, isGrounded;
+    [FormerlySerializedAs("Frozen")] public bool frozen;
+    public bool inSub, isGrounded;
     public LayerMask playerMask;
     public LayerMask subMask;
     public Transform groundCheck;
     public GameObject cam;
-    Vector2 direction;
+    private Vector2 direction;
     private float jump;
-    float playerHeightOffset;
+    private float playerHeightOffset;
 
     private Vector2 mouseInput;
     public float mouseSensitivity = 100f;
-    float yRotation = 0f;
+    private float yRotation;
 
     private Transform parentTransform;
-    GameObject playerContainer;
-    Vector3 initialPos;
+    private GameObject playerContainer;
+    private Vector3 initialPos;
     public float spaceRadiusX;
     public float spaceRadiusZ;
-    CapsuleCollider playerCollider;
-    public GameObject FlashLight;
+    private CapsuleCollider playerCollider;
+    [FormerlySerializedAs("FlashLight")] public GameObject flashLight;
 
     public SubController controller;
 
@@ -61,18 +63,18 @@ public class PlayerScript : MonoBehaviour
         Vector3 moveVector = new (direction.x, jump, direction.y);
         
         initialPos = playerContainer.transform.localPosition;
-        if (!Frozen) // if Frozen is false
+        if (!frozen) // if frozen is false
         {
             if (!inSub)
             {
-                if (!FlashLight.activeSelf)
-                    FlashLight.SetActive(true);
+                if (!flashLight.activeSelf)
+                    flashLight.SetActive(true);
                 OutsideMovement(moveVector);
             }
             else
             {
-                if (FlashLight.activeSelf)
-                    FlashLight.SetActive(false);
+                if (flashLight.activeSelf)
+                    flashLight.SetActive(false);
                 InsideMovement(moveVector);
             }
 

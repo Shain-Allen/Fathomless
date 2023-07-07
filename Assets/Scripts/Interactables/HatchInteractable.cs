@@ -91,7 +91,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
 
     public IEnumerator Teleport()
     {
-        playerScript.Frozen = true; //removes player control...
+        playerScript.frozen = true; //removes player control...
         CanvasController.Instance.PlayQuickFade();
         yield return new WaitForSeconds(fadeClip.length); //for this long
         if (innerHatch)
@@ -113,7 +113,7 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         else
             player.transform.rotation = Quaternion.Euler(0, 0, 0);
         playerScript.transform.position = teleporter.transform.position; //takes player to this position
-        playerScript.Frozen = false; //to restore player control
+        playerScript.frozen = false; //to restore player control
         yield return new WaitForSeconds(fadeClip.length); //waits this long...
         if (boidSpawner != null)
             boidSpawner.spawning = true;
