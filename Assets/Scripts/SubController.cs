@@ -11,7 +11,6 @@ public class SubController : MonoBehaviour
     public float maxSpeed;
 
     public float xRotSpeed = 1;
-    private float yRotSpeed = 1;
 
     public float verticalSpeed;
     public float minVertSpeed;
