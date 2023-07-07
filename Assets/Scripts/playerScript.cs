@@ -62,63 +62,74 @@ public class PlayerScript : MonoBehaviour
             {
                 if (!FlashLight.activeSelf)
                     FlashLight.SetActive(true);
-                //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
-                playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
-                transform.SetParent(null);
-
-                //setting players collider to not be a trigger so that we can use it for physics
-                playerCollider.isTrigger = false;
-
-                int combinedMask = playerMask | subMask;
-                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~combinedMask); //checks to see if the ground check is contacting anything except the player mask
-                
-                moveVector.Normalize();
-
-                moveVector.x *= Time.deltaTime * aquaSpeed;
-                moveVector.z *= Time.deltaTime * aquaSpeed;
-
-                moveVector.y -= gravity * Time.deltaTime;
-                
-                if (isGrounded && Input.GetButtonDown("Jump")) //if you press space while grounded
-                {
-                    moveVector.y += jumpHeight;
-                }
-                
-                playerBody.AddForce(transform.TransformDirection(moveVector), ForceMode.Impulse);
-                
+                OutsideMovement(moveVector);
             }
             else
             {
                 if (FlashLight.activeSelf)
                     FlashLight.SetActive(false);
-                //sets the freeze position constrains, since we're moving with transform. needed for parenting to work.
-                playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-
-                //setting players collider to be a trigger so it doesn't influence sub movement
-                playerCollider.isTrigger = true;
-
-                transform.SetParent(sub.transform);
-
-                moveVector *= Time.deltaTime * (tereSpeed / 5);
-
-                //establishes ellipse which represents player movement space
-                Vector3 newPos = transform.localPosition + moveVector;
-                Vector3 offset = newPos - initialPos;
-                offset.x /= spaceRadiusX;
-                offset.z /= spaceRadiusZ;
-                //compare distance of player to origin of ellipse to see if player would be out of bounds. if so, then skip adding movement.
-                if (offset.magnitude < 1.0)
-                {
-                    transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
-                    transform.position += transform.TransformDirection(moveVector);
-                }
-                else if (offset.magnitude > 1.1f)
-                {
-                    transform.position = playerContainer.transform.position;
-                }
+                InsideMovement(moveVector);
             }
 
         }
+    }
+    
+    //movement logic for when the player is not in the water
+    private void InsideMovement(Vector3 moveVector)
+    {
+        //sets the freeze position constrains, since we're moving with transform. needed for parenting to work.
+        playerBody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+
+        //setting players collider to be a trigger so it doesn't influence sub movement
+        playerCollider.isTrigger = true;
+
+        transform.SetParent(sub.transform);
+
+        moveVector *= Time.deltaTime * (tereSpeed / 5);
+
+        //establishes ellipse which represents player movement space
+        Vector3 newPos = transform.localPosition + moveVector;
+        Vector3 offset = newPos - initialPos;
+        offset.x /= spaceRadiusX;
+        offset.z /= spaceRadiusZ;
+        //compare distance of player to origin of ellipse to see if player would be out of bounds. if so, then skip adding movement.
+        if (offset.magnitude < 1.0)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
+            transform.position += transform.TransformDirection(moveVector);
+        }
+        else if (offset.magnitude > 1.1f)
+        {
+            transform.position = playerContainer.transform.position;
+        }
+    }
+
+    //movement logic for when the player is in the water
+    private void OutsideMovement(Vector3 moveVector)
+    {
+        //sets the freeze position constrains, since we're moving with transform. needed for rigidbody to work.
+        playerBody.constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotation;
+        transform.SetParent(null);
+
+        //setting players collider to not be a trigger so that we can use it for physics
+        playerCollider.isTrigger = false;
+
+        int combinedMask = playerMask | subMask;
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~combinedMask); //checks to see if the ground check is contacting anything except the player mask
+
+        moveVector.Normalize();
+
+        moveVector.x *= Time.deltaTime * aquaSpeed;
+        moveVector.z *= Time.deltaTime * aquaSpeed;
+
+        moveVector.y -= gravity * Time.deltaTime;
+
+        if (isGrounded && Input.GetButtonDown("Jump")) //if you press space while grounded
+        {
+            moveVector.y += jumpHeight;
+        }
+
+        playerBody.AddForce(transform.TransformDirection(moveVector), ForceMode.Impulse);
     }
 
     //water sound
@@ -186,13 +197,9 @@ public class PlayerScript : MonoBehaviour
         return mesh;
     }
 
-    private void OnMove(InputValue inputValue)
-    {
-        direction = inputValue.Get<Vector2>();
-    }
+    //expression body statement to get input for player movement
+    private void OnMove(InputValue inputValue) => direction = inputValue.Get<Vector2>();
 
-    private void OnJump(InputValue inputValue)
-    {
-        jump = inputValue.Get<float>();
-    }
+    //expression body statement to get input for when the player Jumps
+    private void OnJump(InputValue inputValue) => jump = inputValue.Get<float>();
 }
