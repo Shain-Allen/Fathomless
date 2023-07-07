@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class PlayerScript : MonoBehaviour
     public LayerMask subMask;
     public Transform groundCheck;
     public GameObject cam;
-    Vector3 direction;
+    Vector2 direction;
+    private float jump;
     float playerHeightOffset;
 
     private Transform parentTransform;
@@ -24,10 +26,8 @@ public class PlayerScript : MonoBehaviour
     public SubController controller;
 
     public static PlayerScript instance;
-    public static PlayerScript Instance
-    {
-        get { return instance; }
-    }
+    public static PlayerScript Instance => instance;
+
     private void Awake()
     {
         instance = this;
@@ -53,6 +53,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 moveVector = new (direction.x, jump, direction.y);
+        
         initialPos = playerContainer.transform.localPosition;
         if (!Frozen) // if Frozen is false
         {
@@ -69,38 +71,21 @@ public class PlayerScript : MonoBehaviour
 
                 int combinedMask = playerMask | subMask;
                 isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, ~combinedMask); //checks to see if the ground check is contacting anything except the player mask
+                
+                moveVector.Normalize();
 
-                direction = Vector3.zero;
+                moveVector.x *= Time.deltaTime * aquaSpeed;
+                moveVector.z *= Time.deltaTime * aquaSpeed;
 
-                if (Input.GetKey(KeyCode.D)) //pressed D
-                {
-                    direction += playerBody.transform.right;
-                }
-                if (Input.GetKey(KeyCode.A)) //pressed A
-                {
-                    direction += -playerBody.transform.right;
-                }
-                if (Input.GetKey(KeyCode.W)) //pressed W
-                {
-                    direction += playerBody.transform.forward;
-                }
-                if (Input.GetKey(KeyCode.S)) //pressed S
-                {
-                    direction += -playerBody.transform.forward;
-                }
-
-                direction.Normalize();
-
-                direction.x *= Time.deltaTime * aquaSpeed;
-                direction.z *= Time.deltaTime * aquaSpeed;
-
-                direction.y -= gravity * Time.deltaTime;
+                moveVector.y -= gravity * Time.deltaTime;
                 
                 if (isGrounded && Input.GetButtonDown("Jump")) //if you press space while grounded
                 {
-                    direction.y += jumpHeight;
+                    moveVector.y += jumpHeight;
                 }
-                playerBody.AddForce(direction, ForceMode.Impulse); //applies impulse force to all movements
+                
+                playerBody.AddForce(transform.TransformDirection(moveVector), ForceMode.Impulse);
+                
             }
             else
             {
@@ -113,28 +98,11 @@ public class PlayerScript : MonoBehaviour
                 playerCollider.isTrigger = true;
 
                 transform.SetParent(sub.transform);
-                if (Input.GetKey(KeyCode.D)) //pressed D
-                {
-                    direction += transform.right;
-                }
-                if (Input.GetKey(KeyCode.A)) //pressed A
-                {
-                    direction += -transform.right;
-                }
-                if (Input.GetKey(KeyCode.W)) //pressed W
-                {
-                    direction += transform.forward;
-                }
-                if (Input.GetKey(KeyCode.S)) //pressed S
-                {
-                    direction += -transform.forward;
-                }
-                direction *= Time.deltaTime * (tereSpeed / 5);
 
-                
+                moveVector *= Time.deltaTime * (tereSpeed / 5);
 
                 //establishes ellipse which represents player movement space
-                Vector3 newPos = transform.localPosition + direction;
+                Vector3 newPos = transform.localPosition + moveVector;
                 Vector3 offset = newPos - initialPos;
                 offset.x /= spaceRadiusX;
                 offset.z /= spaceRadiusZ;
@@ -142,24 +110,15 @@ public class PlayerScript : MonoBehaviour
                 if (offset.magnitude < 1.0)
                 {
                     transform.localPosition = new Vector3(transform.localPosition.x, playerHeightOffset, transform.localPosition.z);
-                    transform.position += new Vector3(direction.x, direction.y, direction.z);
-                    //Quaternion rotation = Quaternion.Euler( new Vector3(playerContainer.transform.rotation.x, playerContainer.transform.rotation.y, 80));
-                    //transform.rotation = rotation;
+                    transform.position += transform.TransformDirection(moveVector);
                 }
                 else if (offset.magnitude > 1.1f)
                 {
                     transform.position = playerContainer.transform.position;
-                    //Quaternion rotation = Quaternion.Euler(new Vector3(playerContainer.transform.rotation.x, playerContainer.transform.rotation.y, playerBody.transform.rotation.z));
-                    //transform.rotation = rotation;
                 }
             }
 
         }
-        else //if Frozen is true
-        {
-
-        }
-        
     }
 
     //water sound
@@ -183,7 +142,10 @@ public class PlayerScript : MonoBehaviour
         Gizmos.matrix = Matrix4x4.identity;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + direction * 50);
+        Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y))  * 50);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 25);
     }
     private Mesh CreateEllipseMesh()
     {
@@ -222,5 +184,15 @@ public class PlayerScript : MonoBehaviour
         mesh.SetIndices(indices, MeshTopology.Lines, 0);
 
         return mesh;
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        direction = inputValue.Get<Vector2>();
+    }
+
+    private void OnJump(InputValue inputValue)
+    {
+        jump = inputValue.Get<float>();
     }
 }
