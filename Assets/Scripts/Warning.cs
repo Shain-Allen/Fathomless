@@ -36,10 +36,11 @@ public class Warning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //gets a lights intestisty and sets it to a float
         redLight1.intensity = redLightIntensity;
         redLight2.intensity = redLightIntensity;
 
-        if (warn)
+        if (warn) //if the warning is set, it will make the lights slowly flash based of a speed set
         {
             if (redLightIntensity >= maxLightIntensity)
             {
@@ -63,7 +64,7 @@ public class Warning : MonoBehaviour
         }
     }
 
-    public void warnEffectOn()
+    public void warnEffectOn() //this turns on the warning
     {
         warn = true;
         subLight1.SetActive(false);
@@ -75,7 +76,7 @@ public class Warning : MonoBehaviour
         GlobalSoundsManager.instance.StartAlarm();
     }
 
-    public void warnEffectOff()
+    public void warnEffectOff() //this turns off the warning
     {
         warn = false;
         subLight1.SetActive(true);
