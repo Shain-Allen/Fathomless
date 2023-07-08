@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public AnimationClip FadeToBlack;
     public int SubHealth;
     public bool canScissor;
+    public float playerHealth;
 
     //for hatch fade transitions
     public bool isFading;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameEnding = false;
+        playerHealth = 100;
     }
     private void Update()
     {
@@ -68,6 +70,14 @@ public class GameManager : MonoBehaviour
         if (SubHealth <= 0)
         {
             EndGame();
+        }
+        if (playerHealth < 0)
+        {
+            playerHealth = 0;
+        }
+        if (playerHealth > 100)
+        {
+            playerHealth = 100;
         }
     }
     public void EndGame()
