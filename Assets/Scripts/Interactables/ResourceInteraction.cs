@@ -30,7 +30,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
     {
         if (pickedUp)
         {
-            Vector3 direction = GameManager.gminstance.player.transform.position - transform.position;
+            Vector3 direction = PlayerScript.instance.transform.position - transform.position;
             transform.position += direction * floatSpeed * Time.deltaTime;
             transform.Rotate(0,250 * Time.deltaTime, 0);
 

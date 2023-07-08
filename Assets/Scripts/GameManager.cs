@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gminstance;
-    public GameObject player;
     public int Scrap;
     public int ScrapMax;
     public AnimationClip FadeToBlack;
     public int SubHealth;
     public bool canScissor;
     public float playerHealth;
+    public float playerOxygen;
+    public float O2DepletionRate;
+    public float playerReloadPercentage;
+    public float isReloading;
+
 
     //for hatch fade transitions
     public bool isFading;
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
     {
         isGameEnding = false;
         playerHealth = 100;
+        playerReloadPercentage = 100;
+        playerOxygen = 100;
     }
     private void Update()
     {
@@ -71,6 +77,24 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+        HandleOxygen();
+        CapBars();
+    }
+
+    private void HandleOxygen()
+    {
+        if (!PlayerScript.Instance.inSub)
+        {
+            playerOxygen -= O2DepletionRate * Time.deltaTime;
+        }
+        else
+        {
+            playerOxygen += O2DepletionRate * Time.deltaTime * 10;
+        }
+    }
+
+    private void CapBars()
+    {
         if (playerHealth < 0)
         {
             playerHealth = 0;
@@ -79,7 +103,16 @@ public class GameManager : MonoBehaviour
         {
             playerHealth = 100;
         }
+        if (playerOxygen > 100)
+        {
+            playerOxygen = 100;
+        }
+        if (playerOxygen < 0)
+        {
+            playerOxygen = 0;
+        }
     }
+
     public void EndGame()
     {
         //stops the animation from double procing in rare cases

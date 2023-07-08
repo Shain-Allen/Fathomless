@@ -44,5 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930b19d54832de64195b39b3b6bc6a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   Scrap: 0
+  ScrapMax: 10
+  FadeToBlack: {fileID: 7400000, guid: 8608db929e996a84bbedb0f1ce38299a, type: 2}
+  SubHealth: 0
+  canScissor: 0
+  playerHealth: 0
+  playerOxygen: 0
+  O2DepletionRate: 5
+  playerReloadPercentage: 0
+  isReloading: 0
+  isFading: 0

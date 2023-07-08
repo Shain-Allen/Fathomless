@@ -64,7 +64,7 @@ MonoBehaviour:
   elevationDisplacement: 0
   frequency: 5
   playerContainerAntiFishFieldOffset: 0
-  spawning: 1
+  spawning: 0
   player: {fileID: 8341399024471591689}
 --- !u!1 &7469742907020895066
 GameObject:
@@ -741,7 +741,7 @@ MonoBehaviour:
   playerBody: {fileID: 8910999105452109261}
   tereSpeed: 20
   aquaSpeed: 100
-  gravity: 70
+  gravity: 90
   jumpHeight: 45
   groundDistance: 0.1
   frozen: 0
@@ -759,6 +759,7 @@ MonoBehaviour:
   spaceRadiusX: 3.11
   spaceRadiusZ: 9.12
   flashLight: {fileID: 7469742907020895066}
+  reloadSpeed: 75
   controller: {fileID: 0}
   maxSpeed: 10
 --- !u!54 &8910999105452109261

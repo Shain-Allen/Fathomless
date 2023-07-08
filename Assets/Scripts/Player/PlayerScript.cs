@@ -29,6 +29,8 @@ public class PlayerScript : MonoBehaviour
     private CapsuleCollider playerCollider;
     [FormerlySerializedAs("FlashLight")] public GameObject flashLight;
 
+    public float reloadSpeed;
+
     public SubController controller;
 
     public static PlayerScript instance;
@@ -60,8 +62,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 moveVector = new (direction.x, jump, direction.y);
-        
+        Vector3 moveVector = new(direction.x, jump, direction.y);
+
         initialPos = playerContainer.transform.localPosition;
         if (!frozen) // if frozen is false
         {
@@ -79,6 +81,15 @@ public class PlayerScript : MonoBehaviour
             }
 
             MoveCamera();
+
+            if (GameManager.Instance.playerReloadPercentage < 100)
+                GameManager.Instance.playerReloadPercentage += reloadSpeed * Time.deltaTime;
+            else if (GameManager.Instance.playerReloadPercentage > 100)
+                GameManager.Instance.playerReloadPercentage = 100;
+            if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.Instance.playerReloadPercentage == 100)
+            {
+                Fire();
+            }
         }
     }
 
@@ -170,7 +181,7 @@ public class PlayerScript : MonoBehaviour
         Gizmos.matrix = Matrix4x4.identity;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y))  * 50);
+        Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 50);
 
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * 25);
@@ -222,4 +233,10 @@ public class PlayerScript : MonoBehaviour
 
     //expression body statement to get input for when the player moves their mouse
     private void OnLook(InputValue inputValue) => mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
+
+    //handles the firing of the handheld harpoon gun (if that gets added)
+    private void Fire()
+    {
+        GameManager.Instance.playerReloadPercentage = 0;
+    }
 }
