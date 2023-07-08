@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8671890753242254084
 Transform:
   m_ObjectHideFlags: 0
@@ -55,13 +55,13 @@ MonoBehaviour:
   - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
   - {fileID: 2815133269886621400, guid: d81328aef9c45b14cbffcd289aeea1a2, type: 3}
   - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
-  - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
-  - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
+  - {fileID: 5817791033368930051, guid: f9f59bab6947a1a4e9b07c42a63af693, type: 3}
+  - {fileID: 5817791033368930051, guid: b3648d48e68097a41a43916490c7e33c, type: 3}
   - {fileID: 5817791033368930051, guid: b3648d48e68097a41a43916490c7e33c, type: 3}
   - {fileID: 5817791033368930051, guid: f9f59bab6947a1a4e9b07c42a63af693, type: 3}
   enterRange: 70
   exitRange: 100
-  elevationDisplacement: 20
+  elevationDisplacement: 0
   frequency: 5
   playerContainerAntiFishFieldOffset: 0
   spawning: 1
@@ -407,7 +407,6 @@ GameObject:
   - component: {fileID: 8341399023634557047}
   - component: {fileID: 8341399023634557051}
   - component: {fileID: 8341399023634557048}
-  - component: {fileID: 8341399023634557049}
   - component: {fileID: 8341399023634557050}
   m_Layer: 8
   m_Name: Main Camera
@@ -482,20 +481,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341399023634557052}
   m_Enabled: 1
---- !u!114 &8341399023634557049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341399023634557052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50a5f688089b3524c8ddd183a22af957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 8341399024471591685}
 --- !u!114 &8341399023634557050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,6 +651,7 @@ GameObject:
   - component: {fileID: 8910999105452109249}
   - component: {fileID: 8910999105452109260}
   - component: {fileID: 4467576264458866668}
+  - component: {fileID: 7544636684410426706}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -716,7 +702,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341399024471591689}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 7
   m_Drag: 2
   m_AngularDrag: 1
   m_UseGravity: 0
@@ -755,9 +741,9 @@ MonoBehaviour:
   tereSpeed: 20
   aquaSpeed: 100
   gravity: 70
-  jumpHeight: 25
+  jumpHeight: 45
   groundDistance: 0.1
-  Frozen: 0
+  frozen: 0
   inSub: 1
   isGrounded: 0
   playerMask:
@@ -768,10 +754,12 @@ MonoBehaviour:
     m_Bits: 512
   groundCheck: {fileID: 8341399024407237591}
   cam: {fileID: 8341399023634557052}
+  mouseSensitivity: 5
   spaceRadiusX: 3.11
   spaceRadiusZ: 9.12
-  FlashLight: {fileID: 7469742907020895066}
+  flashLight: {fileID: 7469742907020895066}
   controller: {fileID: 0}
+  maxSpeed: 10
 --- !u!82 &4467576264458866668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -868,6 +856,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7544636684410426706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341399024471591689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e48f041e9dd06dd4eb539e592c9c11bd,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player_AMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &8910999104326305259
 GameObject:
   m_ObjectHideFlags: 0
