@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class interactControls : MonoBehaviour
 {
@@ -13,17 +12,18 @@ public class interactControls : MonoBehaviour
     {
         InteractFob.SetActive(false);
     }
-    // Update is called once per frame
-    void Update()
+
+    private void OnInteract(InputValue inputValue)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        //Debug.Log("Button Press");
+        if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
-            Debug.Log("Button Press");
-            if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
-            {
-                raycast.collider.gameObject.GetComponent<IInteractable>()?.Interact(gameObject);
-            }
+            raycast.collider.gameObject.GetComponent<IInteractable>()?.Interact(gameObject);
         }
+    }
+
+    private void OnLook(InputValue inputValue)
+    {
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             if (raycast.collider.gameObject.GetComponent<IInteractable>() != null)
