@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TurretInteractable : MonoBehaviour, IInteractable
 {
-    GameObject playerChar;
-    PlayerScript playerScript;
+    private GameObject playerChar;
     public PilotPanelInteractable otherStation;
     public TurretSystem turretScript;
     public GameObject turretCam;
@@ -14,34 +12,25 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     public GameObject playerTurretDropPoint;
 
     public bool controlTurret;
+    private PlayerInput subInput;
 
     interactControls playerInteractController;
 
     private void Start()
     {
         playerChar = sub.GetComponent<SubController>().Player.gameObject;
-        playerScript = playerChar.GetComponent<PlayerScript>();
         playerInteractController = playerChar.GetComponent<interactControls>();
+        subInput = sub.GetComponent<PlayerInput>();
     }
 
     public void Interact(GameObject player)
     {
+        player.GetComponent<PlayerInput>().enabled = false;
+        subInput.enabled = true;
         FakeTurret.SetActive(false);
         controlTurret = true;
     }
-
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Escape) && controlTurret)
-        {
-            playerChar.transform.position = playerTurretDropPoint.transform.position;
-            FakeTurret.SetActive(true);
-            controlTurret = false;
-        }
-
-        
-    }
+    
     private void FixedUpdate()
     {
         if (controlTurret || otherStation.controlSub)
@@ -60,6 +49,19 @@ public class TurretInteractable : MonoBehaviour, IInteractable
             playerChar.SetActive(true);
             turretCam.SetActive(false);
             turretScript.isTurret = false;
+        }
+    }
+
+    private void OnLeavePost(InputValue inputValue)
+    {
+        if (controlTurret)
+        {
+            subInput.enabled = false;
+            playerInteractController.GetComponent<PlayerInput>().enabled = true;
+            
+            playerChar.transform.position = playerTurretDropPoint.transform.position;
+            FakeTurret.SetActive(true);
+            controlTurret = false;
         }
     }
 }

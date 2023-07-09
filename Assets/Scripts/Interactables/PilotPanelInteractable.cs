@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PilotPanelInteractable : MonoBehaviour, IInteractable
 {
@@ -9,6 +8,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public SubController subScript;
     public GameObject subCam;
     public TurretInteractable otherStation;
+    private PlayerInput subInput;
 
     interactControls playerInteractController;
 
@@ -18,6 +18,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
+        subInput = subScript.GetComponent<PlayerInput>();
     }
 
     public void Interact(GameObject player)
@@ -27,19 +28,14 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
         if (canControl)
         {
+            player.GetComponent<PlayerInput>().enabled = false;
+            subInput.enabled = true;
             controlSub = true; //turns on sub control when player presses e on control pannel
         }
     }
 
     private void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.Escape) && controlSub)
-        {
-            controlSub = false;
-            player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-        }
-
         if(controlSub || otherStation.controlTurret)//enables sub control
         {
             playerInteractController.InteractFob.SetActive(false);
@@ -58,6 +54,17 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             player.SetActive(true);  
             subCam.SetActive(false);
             subScript.isSub = false;
+        }
+    }
+
+    private void OnLeavePost (InputValue inputValue)
+    {
+        if (controlSub)
+        {
+            subInput.enabled = false;
+            player.GetComponent<PlayerInput>().enabled = true;
+            controlSub = false;
+            player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
         }
     }
 }
