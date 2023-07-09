@@ -172,9 +172,34 @@ public class SubController : MonoBehaviour
         {
             moveDown = false;
         }
-
     }
 
+    private void OnSubElevate(InputValue inputValue)
+    {
+        /*//Moves sub up
+        if (inputValue.Get<float>() == 1f)
+        {
+            verticalSpeed += 1f;
+            moveUp = true;
+        }
+        else
+        {
+            moveUp = false;
+        }
+
+        //Moves sub down
+        if (inputValue.Get<float>() == -1f)
+        {
+            verticalSpeed -= 1f;
+            moveDown = true;
+        }
+        else
+        {
+            moveDown = false;
+        }*/
+    }
+    
+    
      public void SubControl()
     {
         subRigi.isKinematic = false;
