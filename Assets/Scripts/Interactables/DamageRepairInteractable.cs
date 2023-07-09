@@ -44,6 +44,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     }
     private void Start()
     {
+        waterSound = GetComponent<AudioSource>();
         initialVolume = waterSound.volume;
     }
 
