@@ -6,8 +6,6 @@ public class TurretSystem : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     private Vector2 rotation;
-    float x_rotation;
-    float y_rotation;
     public GameObject turretProjectilePrefab;
     public Transform turretBarrel;
     public float fireDelay = 1.0f;
