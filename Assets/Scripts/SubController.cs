@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SubController : MonoBehaviour
 {
@@ -77,7 +76,6 @@ public class SubController : MonoBehaviour
         if (isSub)//checks to see if the player has pressed e on the control pannel
         {
             SubControl();
-            SubCameraControl();
         }
         else
         {
@@ -150,22 +148,6 @@ public class SubController : MonoBehaviour
             ResetRotation();
         }
     }
-
-    public void SubCameraControl() //the clamps for the sub controller
-    {
-
-        float mouseX = Input.GetAxis("Mouse X") * subMouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * subMouseSensitivity * Time.deltaTime;
-
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
-
-        yRotation = mouseX;
-
-        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouseY, 0);
-        
-    }
-
 
     public void verticalSubControl()
     {
@@ -284,5 +266,17 @@ public class SubController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         resetSubRot = false;
+    }
+
+    private void OnLook(InputValue inputValue)
+    {
+        Vector2 mouse = inputValue.Get<Vector2>() * subMouseSensitivity * Time.deltaTime;
+        
+        xRotation -= mouse.y;
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+
+        yRotation = mouse.x;
+
+        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouse.y, 0);
     }
 }
