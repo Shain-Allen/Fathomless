@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
     public float spaceRadiusZ;
     private CapsuleCollider playerCollider;
     [FormerlySerializedAs("FlashLight")] public GameObject flashLight;
+    public GameObject MinimapCamera;
 
     public float reloadSpeed;
 
@@ -239,4 +240,5 @@ public class PlayerScript : MonoBehaviour
     {
         GameManager.Instance.playerReloadPercentage = 0;
     }
+    
 }
