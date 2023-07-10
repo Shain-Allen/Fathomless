@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +8,8 @@ public class SubController : MonoBehaviour
     public float speed;
     public float minSpeed;
     public float maxSpeed;
+    public float subAcceleration = 3f;
+    public float subBreakForce = 5f;
 
     public float xRotSpeed = 1;
 
@@ -19,7 +20,8 @@ public class SubController : MonoBehaviour
     private bool verMove;
     private bool moveUp;
     private bool moveDown;
-    private float rawVertIn;
+    private float rawVertInput;
+    private Vector2 rawWASDInput;
 
     public bool isSub;
 
@@ -27,9 +29,7 @@ public class SubController : MonoBehaviour
 
     public GameObject subCam;
     public float subMouseSensitivity = 100f;
-    float xRotation = 0f;
-    float yRotation = 0f;
-
+    private float xRotation;
 
     public float delayTime;
     private float delayTimer;
@@ -63,10 +63,7 @@ public class SubController : MonoBehaviour
     public AudioSource movementSound;
 
     public static SubController instance;
-    public static SubController Instance
-    {
-        get { return instance; }
-    }
+    public static SubController Instance => instance;
 
     private void Start()
     {
@@ -75,7 +72,7 @@ public class SubController : MonoBehaviour
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
-        if (isSub)//checks to see if the player has pressed e on the control pannel
+        if (isSub)//checks to see if the player has pressed e on the control panel
         {
             SubControl();
         }
@@ -85,7 +82,7 @@ public class SubController : MonoBehaviour
             speed = 0f;
         }
 
-        if(follow == true)  //this is the part of the code that lets the sub follow the animated follow point
+        if(follow)  //this is the part of the code that lets the sub follow the animated follow point
         {
 
             followAnim.SetBool(AnimationName, true);
@@ -94,7 +91,7 @@ public class SubController : MonoBehaviour
 
             float distance = Vector3.Distance(transform.position, followPoint.transform.position);
 
-            //these are the different distances that the sub will look out for to controll the speed of when it is following the animated follow point
+            //these are the different distances that the sub will look out for to control the speed of when it is following the animated follow point
             if (distance >= 100)
             {
                 followSpeed = animTopFollowSpeed;
@@ -143,7 +140,7 @@ public class SubController : MonoBehaviour
 
     private void Update() 
     {
-        verticalSpeed += rawVertIn;
+        verticalSpeed += rawVertInput;
 
         if(resetSubRot) //checks to see if subs rotation is reset
         {
@@ -153,41 +150,40 @@ public class SubController : MonoBehaviour
 
     private void OnSubElevate(InputValue inputValue)
     {
-        rawVertIn = inputValue.Get<float>();
+        rawVertInput = inputValue.Get<float>();
         
         //Moves sub up
-        moveUp = rawVertIn >= 0.1f;
+        moveUp = rawVertInput >= 0.1f;
 
         //Moves sub down
-        moveDown = rawVertIn <= -0.1f;
+        moveDown = rawVertInput <= -0.1f;
     }
     
     
      private void SubControl()
     {
         subRigi.isKinematic = false;
-        //this will ensure that the sub will allways move forward. 0 speed will stop the throttle of the speed.
+        //this will ensure that the sub will always move forward. 0 speed will stop the throttle of the speed.
         subRigi.AddForce(transform.forward * speed);
 
         subRigi.AddForce(transform.up * verticalSpeed);
-
-        //float rotationX = Input.GetAxis("Vertical") * yRotSpeed;
-        float rotationY = Input.GetAxis("Horizontal") * xRotSpeed;
+        
+        float rotationY = rawWASDInput.x * xRotSpeed;
         Quaternion rotation = Quaternion.Euler(0.0f, rotationY, 0.0f);
         subRigi.MoveRotation(subRigi.rotation * rotation);
 
-
         //This will increase the speed of sub
-        if (Input.GetKey(KeyCode.W))
+        
+        switch (rawWASDInput.y)
         {
-            speed += 3f;
-            movementSound.Play();
-        }
-
-        //This will decrease the speed of sub
-        if (Input.GetKey(KeyCode.S))
-        {
-            speed -= 5f;
+            case > 0:
+                speed += subAcceleration * rawWASDInput.y;
+                movementSound.Play();
+                break;
+            //This will decrease the speed of sub
+            case < 0:
+                speed += subBreakForce * rawWASDInput.y;
+                break;
         }
 
 
@@ -210,13 +206,13 @@ public class SubController : MonoBehaviour
         verticalSpeed = Mathf.Clamp(verticalSpeed, minVertSpeed, maxVertSpeed);
     }
 
-    public void ResetRotation() //Will reset the rotaion of the sub if called
+    public void ResetRotation() //Will reset the rotation of the sub if called
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0f, 0f, 0f), .05f);
         StartCoroutine(resetRotTimer());
     }
 
-    public void SlowSub()
+    private void SlowSub()
     {
         movementSound.Stop();
         //lerps the velocity so that the sub will slow down.
@@ -228,7 +224,7 @@ public class SubController : MonoBehaviour
 
             delayTimer += Time.deltaTime;//this is the delay timer to check is the delay will stop it (needs work)
 
-            if (delayTimer >= delayTime) //will stop sub after delat timer
+            if (delayTimer >= delayTime) //will stop sub after delay timer
             {
                 subRigi.velocity = Vector3.zero;
                 subRigi.angularVelocity = Vector3.zero;
@@ -254,8 +250,11 @@ public class SubController : MonoBehaviour
         xRotation -= mouse.y;
         xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
-        yRotation = mouse.x;
-
         subCam.transform.localRotation = Quaternion.Euler(xRotation, mouse.y, 0);
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        rawWASDInput = inputValue.Get<Vector2>();
     }
 }
