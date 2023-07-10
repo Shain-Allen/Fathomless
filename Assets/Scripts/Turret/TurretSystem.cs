@@ -46,6 +46,9 @@ public class TurretSystem : MonoBehaviour
     
     private void OnFire(InputValue inputValue)
     {
+        
+        if (!isTurret) return;
+        
         if (Time.time > nextShot)
         {
             FireTurret();

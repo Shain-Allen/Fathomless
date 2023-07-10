@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,7 @@ public class SubController : MonoBehaviour
     private bool verMove;
     private bool moveUp;
     private bool moveDown;
+    private float rawVertIn;
 
     public bool isSub;
 
@@ -141,7 +143,7 @@ public class SubController : MonoBehaviour
 
     private void Update() 
     {
-        verticalSubControl();
+        verticalSpeed += rawVertIn;
 
         if(resetSubRot) //checks to see if subs rotation is reset
         {
@@ -149,58 +151,19 @@ public class SubController : MonoBehaviour
         }
     }
 
-    public void verticalSubControl()
-    {
-        //Moves sub up
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            verticalSpeed += 1f;
-            moveUp = true;
-        }
-        else
-        {
-            moveUp = false;
-        }
-
-        //Moves sub down
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            verticalSpeed -= 1f;
-            moveDown = true;
-        }
-        else
-        {
-            moveDown = false;
-        }
-    }
-
     private void OnSubElevate(InputValue inputValue)
     {
-        /*//Moves sub up
-        if (inputValue.Get<float>() == 1f)
-        {
-            verticalSpeed += 1f;
-            moveUp = true;
-        }
-        else
-        {
-            moveUp = false;
-        }
+        rawVertIn = inputValue.Get<float>();
+        
+        //Moves sub up
+        moveUp = rawVertIn >= 0.1f;
 
         //Moves sub down
-        if (inputValue.Get<float>() == -1f)
-        {
-            verticalSpeed -= 1f;
-            moveDown = true;
-        }
-        else
-        {
-            moveDown = false;
-        }*/
+        moveDown = rawVertIn <= -0.1f;
     }
     
     
-     public void SubControl()
+     private void SubControl()
     {
         subRigi.isKinematic = false;
         //this will ensure that the sub will allways move forward. 0 speed will stop the throttle of the speed.
@@ -234,26 +197,17 @@ public class SubController : MonoBehaviour
             speed = maxSpeed;
         }
 
-        //This will set the sub speed to zero when the thrust is tunred off
+        //This will set the sub speed to zero when the thrust is turned off
         if (speed <= minSpeed)
         {
 
-            //right now the sub will stop immediatly, but we can probably find a way to make it gradually stop.
+            //right now the sub will stop immediately, but we can probably find a way to make it gradually stop.
             speed = minSpeed;
 
             SlowSub();
         }
 
-        //this will cap the decent speed to the set max decent speed
-        if (verticalSpeed >= maxVertSpeed)
-        {
-            verticalSpeed = maxVertSpeed;
-        }
-
-        if (verticalSpeed >= minVertSpeed)
-        {
-            verticalSpeed = minVertSpeed;
-        }
+        verticalSpeed = Mathf.Clamp(verticalSpeed, minVertSpeed, maxVertSpeed);
     }
 
     public void ResetRotation() //Will reset the rotaion of the sub if called
