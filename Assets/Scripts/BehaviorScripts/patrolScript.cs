@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class patrolScript : MonoBehaviour
 {
-    public Transform[] pos;
+    public GameObject[] pos;
     public int currentPos;
-    public bool followPlayer;
+
     public NavMeshAgent agent;
     public float speed;
 
@@ -18,38 +18,48 @@ public class patrolScript : MonoBehaviour
 
     public bool canAttack;
     public bool canMove;
-    bool moveTowardsPlayer;
+
     int patrolCase;
+
+    public bool canFollowPlayer;
+    public bool randomPatrol;
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos = GameObject.FindGameObjectsWithTag("patrolPoint");
     }
 
     // Update is called once per frame
     void Update()
     {
+        agent.speed = speed;
+
         Debug.Log(patrolCase);
         distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= 10 && distance >= 3)
-        {
-            patrolCase = 2;
-        }
 
         if(distance >= 15)
         {
-            patrolCase=1;
+            patrolCase = 1;
         }
 
-        if(distance <= 3)
+        if (canFollowPlayer)
         {
-            patrolCase = 3;
+            if (distance <= 10 && distance >= 3)
+            {
+                patrolCase = 2;
+            }
+
+            if(distance <= 3)
+            {
+                patrolCase = 3;
+            }
         }
 
         switch (patrolCase)
         {
             case 1:
                 canMove = true;
+                //transform.LookAt(pos[currentPos].transform.position);\
                 Patrol();
                 break;
             case 2:
@@ -71,14 +81,24 @@ public class patrolScript : MonoBehaviour
         if (canMove == true)
         {
             //transform.position = Vector3.MoveTowards(transform.position, pos[currentPos].position, speed * Time.deltaTime);
-            agent.SetDestination(pos[currentPos].position);
+            agent.SetDestination(pos[currentPos].transform.position);
             //agent.speed = 5f;
-            transform.LookAt(pos[currentPos].transform.position);
-            if (Vector3.Distance(transform.position, pos[currentPos].position) < 2f)
+            //transform.LookAt(pos[currentPos].transform.position);
+            if (Vector3.Distance(transform.position, pos[currentPos].transform.position) < 2f)
             {
                 if (waitTime <= 0)
                 {
-                    NextPos();
+                    
+
+                    if(randomPatrol)
+                    {
+                        RandomPos();
+                    }
+                    else
+                    {
+                        NextPos();
+                    }
+
                     waitTime = startWaitTime;
                 }
                 else
@@ -102,5 +122,10 @@ public class patrolScript : MonoBehaviour
         {
             currentPos++;
         }
+    }
+
+    public void RandomPos()
+    {
+        currentPos = Random.Range(0, pos.Length);
     }
 }
