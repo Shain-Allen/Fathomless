@@ -59,6 +59,24 @@ public class PlayerScript : MonoBehaviour
         }
         parentTransform = sub.transform;
     }
+    
+    //expression body statement to get input for player movement
+    private void OnMove(InputValue inputValue) => direction = inputValue.Get<Vector2>();
+
+    //expression body statement to get input for when the player Jumps
+    private void OnJump(InputValue inputValue) => jump = inputValue.Get<float>();
+
+    //expression body statement to get input for when the player moves their mouse
+    private void OnLook(InputValue inputValue) => mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
+
+    //handles the firing of the handheld harpoon gun (if that gets added)
+    private void OnFire(InputValue inputValue)
+    {
+        if (GameManager.Instance.playerReloadPercentage >= 100f)
+        {
+            GameManager.Instance.playerReloadPercentage = 0;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -87,10 +105,6 @@ public class PlayerScript : MonoBehaviour
                 GameManager.Instance.playerReloadPercentage += reloadSpeed * Time.deltaTime;
             else if (GameManager.Instance.playerReloadPercentage > 100)
                 GameManager.Instance.playerReloadPercentage = 100;
-            if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.Instance.playerReloadPercentage == 100)
-            {
-                Fire();
-            }
         }
     }
 
@@ -225,20 +239,4 @@ public class PlayerScript : MonoBehaviour
 
         return mesh;
     }
-
-    //expression body statement to get input for player movement
-    private void OnMove(InputValue inputValue) => direction = inputValue.Get<Vector2>();
-
-    //expression body statement to get input for when the player Jumps
-    private void OnJump(InputValue inputValue) => jump = inputValue.Get<float>();
-
-    //expression body statement to get input for when the player moves their mouse
-    private void OnLook(InputValue inputValue) => mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
-
-    //handles the firing of the handheld harpoon gun (if that gets added)
-    private void Fire()
-    {
-        GameManager.Instance.playerReloadPercentage = 0;
-    }
-    
 }
