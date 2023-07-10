@@ -6913,9 +6913,11 @@ MonoBehaviour:
   speed: 0
   minSpeed: 0
   maxSpeed: 200
+  subAcceleration: 3
+  subBreakForce: 5
   xRotSpeed: 1
   verticalSpeed: 0
-  minVertSpeed: 200
+  minVertSpeed: -200
   maxVertSpeed: 200
   isSub: 0
   subRigi: {fileID: 1009507787048485955}
