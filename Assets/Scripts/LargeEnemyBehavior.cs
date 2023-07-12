@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LargeEnemyBehavior : MonoBehaviour
 {
-    public GameObject Player; 
+    public GameObject Player;
     public GameObject damageHandler;
     public GameObject bloodEffect;
     Vector3 direction;
@@ -19,9 +19,12 @@ public class LargeEnemyBehavior : MonoBehaviour
     Material mat;
     public float HaltedSpeed = 40f;
     public float HaltTime = 1.5f;
+    public float StunTime = 5;
+    public float StunCooldown;
     public float fleeSpeed = 100;
     public float attackSwimSpeed;
-   
+
+    public bool eelFleeing;
 
     public float enemyHealth = 100;
 
@@ -30,7 +33,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 
     public enum State
     {
-        Idle, Pursue, Attack, Halt, Flee
+        Idle, Pursue, Attack, Halt, Flee, Stun
     }
 
     private void Start()
@@ -45,6 +48,11 @@ public class LargeEnemyBehavior : MonoBehaviour
 
     private void Update()
     {
+        
+        if (eelFleeing)
+        {
+            currentState = State.Flee;
+        }
         switch (currentState)
         {
             case State.Idle:
@@ -61,6 +69,9 @@ public class LargeEnemyBehavior : MonoBehaviour
                 break;
             case State.Flee:
                 HandleFleeState();
+                break;
+            case State.Stun:
+                HandleStunState();
                 break;
             default:
                 break;
@@ -96,6 +107,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         if (enemyHealth <= 0)
         {
             currentState = State.Flee;
+            eelFleeing = true;
         }
 
         //if monster enters equilibrium state, start timer for eventual attack
@@ -132,6 +144,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         if (enemyHealth <= 0)
         {
             currentState = State.Flee;
+            eelFleeing = true;
         }
 
         if (dist < 10)
@@ -159,6 +172,28 @@ public class LargeEnemyBehavior : MonoBehaviour
         direction = toPlayer * HaltedSpeed + (noise / 5);
         rb.velocity = direction;
         rb.rotation = Quaternion.LookRotation(direction);
+    }
+
+    private void HandleStunState()
+    {
+        if (enemyHealth <= 0)
+        {
+            currentState = State.Flee;
+            eelFleeing = true;
+        }
+        //calculate to player vector, measure distance
+        Vector3 toPlayer = Player.transform.position - transform.position;
+
+        // calculate the direction away from the player
+        Vector3 awayFromPlayer = transform.position - Player.transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(awayFromPlayer);
+
+        // smoothly rotate towards the target rotation
+        //rb.rotation = Quaternion.LookRotation(direction);
+        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * (fleeSpeed * 2));
+        direction = transform.forward * swimSpeed;
+        rb.velocity = direction;
+        StartCoroutine(StartStunTimer());
     }
 
     private void HandleFleeState()
@@ -194,15 +229,26 @@ public class LargeEnemyBehavior : MonoBehaviour
             yield return null;
             CurrentDelayTime -= Time.deltaTime;
         }
-        currentState = State.Attack;
+        if (currentState != State.Stun && currentState != State.Halt)
+        {
+            currentState = State.Attack;
+        }
+        else
+        {
+            currentState = State.Pursue;
+        }
         isAttackTimerRunning = false;
     }
 
     //after attacking, hold for player to gain distance.
     private IEnumerator StartHaltTimer()
     {
-        //mat.color = Color.white;
         yield return new WaitForSeconds(HaltTime);
+        currentState = State.Pursue;
+    }
+    private IEnumerator StartStunTimer()
+    {
+        yield return new WaitForSeconds(StunTime);
         currentState = State.Pursue;
     }
     private IEnumerator LetEelFlee()

@@ -23,12 +23,12 @@ public class followPoint : MonoBehaviour
     }
     public void SpookEel()
     {
-        Eel1.GetComponent<LargeEnemyBehavior>().currentState = LargeEnemyBehavior.State.Flee;
+        Eel1.GetComponent<LargeEnemyBehavior>().eelFleeing = true;
         StartCoroutine("DestroyEel");
     }
     public void SpookEel2()
     {
-        Eel2.GetComponent<LargeEnemyBehavior>().currentState = LargeEnemyBehavior.State.Flee;
+        Eel2.GetComponent<LargeEnemyBehavior>().eelFleeing = true;
         StartCoroutine("DestroyEel2");
     }
     public void EndOfRoad()
@@ -82,12 +82,12 @@ public class followPoint : MonoBehaviour
 
     IEnumerator DestroyEel()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         Object.Destroy(Eel1);
     }
     IEnumerator DestroyEel2()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         Object.Destroy(Eel2);
     }
 }
