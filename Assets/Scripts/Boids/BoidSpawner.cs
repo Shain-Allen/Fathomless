@@ -94,7 +94,7 @@ public class BoidSpawner : MonoBehaviour
     bool IsInsideSubmarine(Vector3 position)
     {
         // Assuming the submarine is represented by an ellipsoid shape centered at the Sub's "playercontainter" position
-        Vector3 localPosition =  controller.controller.playerContainer.transform.InverseTransformPoint(position);
+        Vector3 localPosition =  controller.subController.playerContainer.transform.InverseTransformPoint(position);
         float normalizedX = localPosition.x / controller.spaceRadiusX + playerContainerAntiFishFieldOffset; 
         float normalizedY = localPosition.y / controller.spaceRadiusX + playerContainerAntiFishFieldOffset;
         //note: I'm using the elipse info from the playercontainer, which is two dimentional. This is why I'm using sRX twice. if the sub ends up being weirdly shaped, we can fix this. 

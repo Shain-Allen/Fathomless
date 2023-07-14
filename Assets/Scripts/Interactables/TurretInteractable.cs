@@ -57,8 +57,8 @@ public class TurretInteractable : MonoBehaviour, IInteractable
         if (controlTurret)
         {
             subInput.enabled = false;
-            playerInteractController.GetComponent<PlayerInput>().enabled = true;
-            
+            playerChar.GetComponent<PlayerInput>().enabled = true;
+            playerChar.GetComponent<PlayerScript>().ResetMoveVector();
             playerChar.transform.position = playerTurretDropPoint.transform.position;
             FakeTurret.SetActive(true);
             controlTurret = false;

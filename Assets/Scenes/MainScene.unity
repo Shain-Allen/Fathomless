@@ -40254,11 +40254,6 @@ PrefabInstance:
       propertyPath: sub
       value: 
       objectReference: {fileID: 1578585087}
-    - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
-        type: 3}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 1578585088}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -40523,12 +40518,6 @@ MeshFilter:
 --- !u!1 &1822935834 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8341399024471591689, guid: 34f0f5b51303174478fae1227e4193d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1805950144}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1822935837 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8910999105452109261, guid: 34f0f5b51303174478fae1227e4193d3,
     type: 3}
   m_PrefabInstance: {fileID: 1805950144}
   m_PrefabAsset: {fileID: 0}
@@ -47837,21 +47826,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1822935834}
-    - target: {fileID: 6846157229327344627, guid: 3b18662b54615554b9e7428089a7ea23,
-        type: 3}
-      propertyPath: playerRb
-      value: 
-      objectReference: {fileID: 1822935837}
     - target: {fileID: 6846157229334940297, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1822935834}
-    - target: {fileID: 6846157229334940297, guid: 3b18662b54615554b9e7428089a7ea23,
-        type: 3}
-      propertyPath: playerRb
-      value: 
-      objectReference: {fileID: 1822935837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b18662b54615554b9e7428089a7ea23, type: 3}
 --- !u!1001 &1450976703025089344

@@ -63,6 +63,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         {
             subInput.enabled = false;
             player.GetComponent<PlayerInput>().enabled = true;
+            player.GetComponent<PlayerScript>().ResetMoveVector();
             controlSub = false;
             player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
         }

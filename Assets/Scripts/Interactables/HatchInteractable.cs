@@ -4,7 +4,6 @@ using UnityEngine;
 public class HatchInteractable : MonoBehaviour, IInteractable
 {
     PlayerScript playerScript;
-    public Rigidbody playerRb;
     public LayerMask seaMask, subMask;
     public GameObject teleporter;
     public GameObject player;
@@ -27,7 +26,6 @@ public class HatchInteractable : MonoBehaviour, IInteractable
     {
         player = controller.Player;
         playerScript = player.GetComponent<PlayerScript>();
-        playerRb = player.GetComponent<Rigidbody>();
         Ladder.SetActive(false);
         boidSpawner = player.GetComponent<BoidSpawner>();
     }
@@ -43,22 +41,25 @@ public class HatchInteractable : MonoBehaviour, IInteractable
                     DetectGround();
                     if (canLeave)
                     {
-                        playerRb.velocity = Vector3.zero;
+                        playerScript.ResetMoveVector();
                         GameManager.Instance.isFading = true;
                         StartCoroutine("Teleport");
                         //TODO: add logic for moving player outside sub
                         //player.transform.position = tP.transform.position;
+                        
+                        playerScript.GetComponent<Transform>().SetParent(null);
                     }
 
                 }
 
                 if (outerHatch)
                 {
-                    playerRb.velocity = Vector3.zero;
+                    playerScript.ResetMoveVector();
                     GameManager.Instance.isFading = true;
                     StartCoroutine("Teleport");
                     //TODO: add logic for moving player outside sub
                     //player.transform.position = tP.transform.position;
+                    playerScript.GetComponent<Transform>().SetParent(SubController.instance.GetComponent<Transform>());
                 }
             }
         }
