@@ -6,6 +6,7 @@ public class HandheldHarpoonProjectileScript : MonoBehaviour
 {
     public float projectileSpeed;
     Rigidbody rb;
+    public int harpoonDamage;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
