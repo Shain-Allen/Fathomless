@@ -35,7 +35,7 @@ public class patrolScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pos = GameObject.FindGameObjectsWithTag("patrolPoint");
+        //pos = GameObject.FindGameObjectsWithTag("patrolPoint");
         patrolCase = 1;
     }
 

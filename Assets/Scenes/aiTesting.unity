@@ -787,18 +787,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &795258528 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-    type: 3}
-  m_PrefabInstance: {fileID: 3913147966898314287}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857cd41b577e7bd4ca0ed06d77e046cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &965112365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,20 +1395,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1768531883, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1, type: 3}
-      propertyPath: patrolScript
-      value: 
-      objectReference: {fileID: 795258528}
-    - target: {fileID: 3586257468660262234, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3586257468660262234, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.28
-      objectReference: {fileID: 0}
     - target: {fileID: 3913147967220837926, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1476,35 +1450,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3913147967220837928, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1660829371}
-    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: timerTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: takenDamage
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3913147967220837932, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: m_Name
       value: Patrol Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3913147967220837932, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1, type: 3}

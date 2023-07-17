@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 3913147967220837931}
   m_Layer: 0
   m_Name: Patrol Enemy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1127,11 +1127,13 @@ MonoBehaviour:
   startWaitTime: 0
   canAttack: 0
   canMove: 1
+  patrolCase: 0
   canFollowPlayer: 1
   randomPatrol: 0
   fish: {fileID: 4219629335430463456}
   fixedRotation: 180
   takenDamage: 0
+  timerTime: 5
 --- !u!195 &3913147967220837931
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2258,12 +2260,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 36df3a0eeeded4d4a847d6bb2e80973a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.39
+      value: 4.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36df3a0eeeded4d4a847d6bb2e80973a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.13
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36df3a0eeeded4d4a847d6bb2e80973a,
         type: 3}
@@ -2345,3 +2347,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 50
+  patrolScript: {fileID: 3913147967220837930}
