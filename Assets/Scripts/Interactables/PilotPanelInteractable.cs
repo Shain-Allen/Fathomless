@@ -15,6 +15,12 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public bool controlSub;
     public bool canControl;
 
+    public GameObject sub;
+    public float tooCloseDistance;
+    public float exitDistance;
+    public GameObject detectionPoint;
+
+    public GameObject resetPoint;
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
@@ -66,6 +72,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             player.GetComponent<PlayerScript>().ResetMoveVector();
             controlSub = false;
             player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+            
         }
-    }
+    } 
 }
