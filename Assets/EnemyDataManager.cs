@@ -6,7 +6,7 @@ public class EnemyDataManager : MonoBehaviour
 {
     public int enemyHealth;
 
-
+    public patrolScript patrolScript;
     private void FixedUpdate()
     {
         if (enemyHealth <= 0)
@@ -24,6 +24,9 @@ public class EnemyDataManager : MonoBehaviour
     {
         if (other.tag == "harpoon")
         {
+            /*patrolScript.patrolCase = 5;*/
+            patrolScript.takenDamage = true;
+
             if (other.GetComponent<HandheldHarpoonProjectileScript>() != null)
             {
                 enemyHealth -= other.GetComponent<HandheldHarpoonProjectileScript>().harpoonDamage;
@@ -39,4 +42,5 @@ public class EnemyDataManager : MonoBehaviour
     {
         enemyHealth -= damage;
     }
+
 }

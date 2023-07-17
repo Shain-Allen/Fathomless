@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,7 +21,7 @@ public class patrolScript : MonoBehaviour
     public bool canAttack;
     public bool canMove;
 
-    int patrolCase;
+    public int patrolCase;
 
     public bool canFollowPlayer;
     public bool randomPatrol;
@@ -29,6 +30,8 @@ public class patrolScript : MonoBehaviour
 
     public float fixedRotation;
     public bool takenDamage;
+    public float timerTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,9 +70,10 @@ public class patrolScript : MonoBehaviour
             }
         }
 
-        if(takenDamage)
+        if (takenDamage)//figure out how to make him not look at the player at another time that isnt now.
         {
             patrolCase = 5;
+            StartCoroutine(runAway());
         }
 
         switch (patrolCase)
@@ -163,5 +167,12 @@ public class patrolScript : MonoBehaviour
     public void RandomPos()
     {
         currentPos = Random.Range(0, pos.Length);
+    }
+
+    IEnumerator runAway()
+    {
+        transform.LookAt(pos[currentPos].transform.position);
+        yield return new WaitForSeconds(timerTime);
+        takenDamage = false;
     }
 }
