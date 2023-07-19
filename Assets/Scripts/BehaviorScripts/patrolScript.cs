@@ -30,6 +30,7 @@ public class patrolScript : MonoBehaviour
 
     public float fixedRotation;
     public bool takenDamage;
+    public bool eyeDamage;
     public float timerTime;
 
     // Start is called before the first frame update
@@ -70,10 +71,16 @@ public class patrolScript : MonoBehaviour
             }
         }
 
-        if (takenDamage)//figure out how to make him not look at the player at another time that isnt now.
+        if (eyeDamage)//figure out how to make him not look at the player at another time that isnt now.
         {
             patrolCase = 5;
+            takenDamage = false;
             StartCoroutine(runAway());
+        }
+
+        if (takenDamage)
+        {
+            patrolCase = 2;
         }
 
         switch (patrolCase)
@@ -96,7 +103,7 @@ public class patrolScript : MonoBehaviour
                 canMove = false;
                 agent.isStopped = true;
                 break;
-            case 4:
+            case 4://i dont know why this case is here, but I  am afraid if I remove it, the code will break, so here it will stay. *Edit: Its for if the player gets to close, then do something
 
                 break;
             case 5:
@@ -110,7 +117,7 @@ public class patrolScript : MonoBehaviour
                 if (patrolDistance <= 5) 
                 {
                     patrolCase = 1;
-                    takenDamage = false;   
+                    eyeDamage = false;   
                 }
                 break;
         }
@@ -173,6 +180,6 @@ public class patrolScript : MonoBehaviour
     {
         transform.LookAt(pos[currentPos].transform.position);
         yield return new WaitForSeconds(timerTime);
-        takenDamage = false;
+        eyeDamage = false;
     }
 }
