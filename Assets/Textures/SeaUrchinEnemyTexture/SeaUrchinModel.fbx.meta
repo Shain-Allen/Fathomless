@@ -3,7 +3,27 @@ guid: 95755d8dddb001c45ae3f937e874f396
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 3e7e5e91f5608854ca2f810d17635a3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyeball
+    second: {fileID: 2100000, guid: 2dc57802a5268d042a3d16fe4310248c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pupil
+    second: {fileID: 2100000, guid: 271415d3e6c997041b38816656c63fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spines
+    second: {fileID: 2100000, guid: 9090252dbd252634198771840378f2ed, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
