@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager gminstance;
     public int Scrap;
     public int ScrapMax;
+    public uint currentTreasure;
+    public uint newTreasure;
+    public uint treasureMax = 9999999;
     public AnimationClip FadeToBlack;
     public int SubHealth;
     public bool canScissor;

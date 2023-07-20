@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class TreasureValueManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TextMeshProUGUI treasureText;
+
+    private void Update()
     {
-        
+        if (GameManager.gminstance.newTreasure > 0 && GameManager.gminstance.currentTreasure <= GameManager.gminstance.treasureMax)
+        {
+            AddTreasure();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddTreasure()
     {
-        
+        GameManager.gminstance.currentTreasure++;
+        GameManager.gminstance.newTreasure--;
+
+        treasureText.text = GameManager.gminstance.currentTreasure.ToString().PadLeft(7, '0');
     }
 }
