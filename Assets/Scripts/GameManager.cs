@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Tilde))
+        if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             canScissor = true;
             CanvasController.Instance.DisplayText("Cheats activated: RPS Delux DLC Added.");
@@ -73,10 +73,20 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SubDamageManager.instance.Hit();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SubDamageManager.instance.RepairAllHits();
+        }
     }
     private void FixedUpdate()
     {
-        if (SubHealth <= 0)
+        if (SubHealth <= 0 || playerHealth <= 0)
         {
             EndGame();
         }
@@ -89,6 +99,10 @@ public class GameManager : MonoBehaviour
         if (!PlayerScript.Instance.inSub)
         {
             playerOxygen -= O2DepletionRate * Time.deltaTime;
+            if(playerOxygen <= 0)
+            {
+                playerHealth -= O2DepletionRate * Time.deltaTime;
+            }
         }
         else
         {
@@ -135,6 +149,6 @@ public class GameManager : MonoBehaviour
     {
         CanvasController.Instance.PlayFadeToBlack();
         yield return new WaitForSeconds(FadeToBlack.length + 1);
-        SceneManager.LoadScene("Credits");
+        CheckpointDataHandler.Instance.LoadCheckpoint();
     }
 }

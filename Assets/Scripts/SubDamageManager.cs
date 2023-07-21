@@ -60,6 +60,17 @@ public class SubDamageManager : MonoBehaviour, IHit
             }
         }
     }
+    // repairs all of the sub holes, for use in loading a checkpoint.
+    public void RepairAllHits()
+    {
+        for (int i = 0; i < damagePoint.Length; i++)
+        {
+            if (damagePoint[i].transform.childCount > 0)
+            {
+                damagePoint[i].transform.GetChild(0).GetComponent<DamageRepairInteractable>().repaired = true;
+            }
+        }
+    }
 
 
     void Start()

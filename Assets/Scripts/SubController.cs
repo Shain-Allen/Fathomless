@@ -65,7 +65,7 @@ public class SubController : MonoBehaviour
     public static SubController instance;
     public static SubController Instance => instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }
