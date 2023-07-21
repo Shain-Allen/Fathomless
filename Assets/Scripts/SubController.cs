@@ -58,7 +58,6 @@ public class SubController : MonoBehaviour
     public float animBottomSpeed;
 
     public bool resetSubRot;
-    public HatchInteractable hatchScript;
 
     public AudioSource movementSound;
 

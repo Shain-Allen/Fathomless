@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4851989451099783122}
   - component: {fileID: 4851989451099783123}
+  - component: {fileID: 2017072475258703938}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,12 +47,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scrap: 0
   ScrapMax: 10
+  currentTreasure: 0
+  newTreasure: 0
+  treasureMax: 9999999
   FadeToBlack: {fileID: 7400000, guid: 8608db929e996a84bbedb0f1ce38299a, type: 2}
   SubHealth: 0
   canScissor: 0
   playerHealth: 0
   playerOxygen: 0
-  O2DepletionRate: 5.14
+  O2DepletionRate: 10
   playerReloadPercentage: 0
   isReloading: 0
   isFading: 0
+  isGameEnding: 0
+--- !u!114 &2017072475258703938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851989451099783120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf917fce2c37b648a241143b22c0a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointPresets: []
+  currentLatestCheckpoint:
+    subPosition: {x: 0, y: 0, z: 0}
+    subRotation: {x: 0, y: 0, z: 0, w: 0}
+    treasureCount: 0

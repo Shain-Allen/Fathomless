@@ -39,11 +39,22 @@ public class CheckpointDataHandler : MonoBehaviour
     //method to load a checkpoint.
     public void LoadCheckpoint()
     {
+        StartCoroutine(ArtificialLoadTime());
         SubController.Instance.transform.position = currentLatestCheckpoint.subPosition;
         SubController.Instance.transform.rotation = currentLatestCheckpoint.subRotation;
         GameManager.Instance.currentTreasure = currentLatestCheckpoint.treasureCount;
         GameManager.Instance.playerHealth = 100;
+        GameManager.Instance.isGameEnding = false;
         GameManager.Instance.playerOxygen = 100;
-        PlayerScript.instance.inSub = true;
+        HatchInteractableToInsub.instance.SendToInsub();
+    }
+    public IEnumerator ArtificialLoadTime()
+    {
+        GlobalSoundsManager.instance.CutAmbientSounds();
+        GlobalSoundsManager.instance.StopWaterAmbience();
+        yield return new WaitForSeconds(3);
+        GlobalSoundsManager.instance.PlaySubAmbience();
+        CanvasController.Instance.ResetFadeIn();
+
     }
 }

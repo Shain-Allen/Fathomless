@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     //for hatch fade transitions
     public bool isFading;
 
-    bool isGameEnding;
+    public bool isGameEnding;
     public static GameManager Instance
     {
         get { return gminstance; }

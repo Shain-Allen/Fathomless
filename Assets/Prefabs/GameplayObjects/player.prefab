@@ -80,9 +80,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -159,12 +167,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   hasPersistentHistory: 0
+  screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   allowDeepLearningSuperSampling: 1
   deepLearningSuperSamplingUseCustomQualitySettings: 0
   deepLearningSuperSamplingQuality: 0
   deepLearningSuperSamplingUseCustomAttributes: 0
   deepLearningSuperSamplingUseOptimalSettings: 1
   deepLearningSuperSamplingSharpening: 0
+  fsrOverrideSharpness: 0
+  fsrSharpness: 0.92
   exposureTarget: {fileID: 0}
   materialMipBias: 0
   m_RenderingPathCustomFrameSettings:
@@ -187,7 +199,7 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
-  m_Version: 8
+  m_Version: 9
   m_ObsoleteRenderingPath: 0
   m_ObsoleteFrameSettings:
     overrides: 0
@@ -414,75 +426,9 @@ MonoBehaviour:
     type: 3}
   ProjectileSpawnPoint: {fileID: 1191362419}
   HarpoonVisual: {fileID: 582285672}
-  projectileSpeed: 65
+  projectileSpeed: 80
   reloading: 0
   reloadTime: 1
---- !u!1 &576249504964950461
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8671890753242254084}
-  - component: {fileID: 3644429680455947063}
-  m_Layer: 8
-  m_Name: BoidManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8671890753242254084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576249504964950461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8341399024471591685}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3644429680455947063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576249504964950461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa677ebcba9bd5c428fc5e882ab33246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Boids:
-  - {fileID: 2815133269886621400, guid: d81328aef9c45b14cbffcd289aeea1a2, type: 3}
-  - {fileID: 2815133269886621400, guid: d81328aef9c45b14cbffcd289aeea1a2, type: 3}
-  - {fileID: 2815133269886621400, guid: d81328aef9c45b14cbffcd289aeea1a2, type: 3}
-  - {fileID: 2016691332592064478, guid: f01ffbd7e4ad8544ab22d57c1054be58, type: 3}
-  - {fileID: 5817791033368930051, guid: b3648d48e68097a41a43916490c7e33c, type: 3}
-  - {fileID: 2016691332592064478, guid: f01ffbd7e4ad8544ab22d57c1054be58, type: 3}
-  - {fileID: 6435270339936717643, guid: f942d4390281e144c9cfa161b2c3b5b0, type: 3}
-  - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
-  - {fileID: 2815133269886621400, guid: d81328aef9c45b14cbffcd289aeea1a2, type: 3}
-  - {fileID: 5901530298636074816, guid: 241e280e48bb41d45aa23d01bbaa0d76, type: 3}
-  - {fileID: 5817791033368930051, guid: f9f59bab6947a1a4e9b07c42a63af693, type: 3}
-  - {fileID: 5817791033368930051, guid: b3648d48e68097a41a43916490c7e33c, type: 3}
-  - {fileID: 5817791033368930051, guid: b3648d48e68097a41a43916490c7e33c, type: 3}
-  - {fileID: 5817791033368930051, guid: f9f59bab6947a1a4e9b07c42a63af693, type: 3}
-  enterRange: 70
-  exitRange: 100
-  elevationDisplacement: 0
-  frequency: 5
-  playerContainerAntiFishFieldOffset: 0
-  spawning: 0
-  player: {fileID: 8341399024471591689}
 --- !u!1 &7469742907020895066
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,9 +793,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -934,12 +888,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   hasPersistentHistory: 0
+  screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   allowDeepLearningSuperSampling: 1
   deepLearningSuperSamplingUseCustomQualitySettings: 0
   deepLearningSuperSamplingQuality: 0
   deepLearningSuperSamplingUseCustomAttributes: 0
   deepLearningSuperSamplingUseOptimalSettings: 1
   deepLearningSuperSamplingSharpening: 0
+  fsrOverrideSharpness: 0
+  fsrSharpness: 0.92
   exposureTarget: {fileID: 0}
   materialMipBias: 0
   m_RenderingPathCustomFrameSettings:
@@ -962,7 +920,7 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
-  m_Version: 8
+  m_Version: 9
   m_ObsoleteRenderingPath: 0
   m_ObsoleteFrameSettings:
     overrides: 0
@@ -1078,10 +1036,9 @@ Transform:
   - {fileID: 4078996030849479200}
   - {fileID: 8341399024407237591}
   - {fileID: 8910999104326305258}
-  - {fileID: 8671890753242254084}
   - {fileID: 953588028}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7544636684410426706
 MonoBehaviour:
@@ -1122,9 +1079,17 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341399024471591689}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
@@ -1312,6 +1277,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 582285673}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0f885f17d9d64654880f1dd9fd0703b1,
@@ -1395,6 +1361,9 @@ PrefabInstance:
       value: HarpoonModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f885f17d9d64654880f1dd9fd0703b1, type: 3}
 --- !u!4 &543450653425296571 stripped
 Transform:

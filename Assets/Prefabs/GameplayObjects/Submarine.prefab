@@ -6194,7 +6194,7 @@ Transform:
   - {fileID: 4231494042756360755}
   - {fileID: 1345466659829073347}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009507787048485954
 MonoBehaviour:
@@ -6236,7 +6236,6 @@ MonoBehaviour:
   animTopFollowSpeed: 3
   animBottomSpeed: 1
   resetSubRot: 0
-  hatchScript: {fileID: 6846157229327344627}
   movementSound: {fileID: 296560438}
 --- !u!54 &1009507787048485955
 Rigidbody:
@@ -32432,28 +32431,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5836685190459867769, guid: c42b6c8c4ef0aae4fb6c947bbabc6929, type: 3}
+    - {fileID: 5836685190459867751, guid: c42b6c8c4ef0aae4fb6c947bbabc6929, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5836685190459867772, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6854565788859262707}
   m_SourcePrefab: {fileID: 100100000, guid: c42b6c8c4ef0aae4fb6c947bbabc6929, type: 3}
+--- !u!1 &6846157229327344616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5836685190459867772, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+    type: 3}
+  m_PrefabInstance: {fileID: 1009507787528708500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6854565788859262707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846157229327344616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28bf21b0efa19ea46ba9316b874c1770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporter: {fileID: 1009507785944861681}
+  player: {fileID: 0}
+  controller: {fileID: 1009507787048485954}
+  canLeave: 1
+  animBlock: 0
+  tooCloseDistance: 0
+  exitDistance: 40.01
+  detectionPoint: {fileID: 3721216029369056726}
+  Ladder: {fileID: 695498515098359546}
+  fadeClip: {fileID: 7400000, guid: 37f042ebd71fd90408ed4e90ef3c5bb8, type: 2}
 --- !u!4 &6846157229327344620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5836685190459867768, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
     type: 3}
   m_PrefabInstance: {fileID: 1009507787528708500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6846157229327344627 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5836685190459867751, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
-    type: 3}
-  m_PrefabInstance: {fileID: 1009507787528708500}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81a3b57d8d79154c8a33e093cd6c129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1009507787532634350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32607,11 +32627,42 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5836685190459867751, guid: c42b6c8c4ef0aae4fb6c947bbabc6929, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5836685190459867772, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8705783424429924293}
   m_SourcePrefab: {fileID: 100100000, guid: c42b6c8c4ef0aae4fb6c947bbabc6929, type: 3}
+--- !u!1 &6846157229334940306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5836685190459867772, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,
+    type: 3}
+  m_PrefabInstance: {fileID: 1009507787532634350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8705783424429924293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846157229334940306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36751ed9e1736c244a386ef001738e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleporter: {fileID: 1009507787760163963}
+  player: {fileID: 0}
+  controller: {fileID: 1009507787048485954}
+  canLeave: 1
+  animBlock: 0
+  detectionPoint: {fileID: 0}
+  Ladder: {fileID: 695498515098359546}
+  fadeClip: {fileID: 7400000, guid: b04b59570c5264f44a46929da3ec464f, type: 2}
 --- !u!4 &6846157229334940310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5836685190459867768, guid: c42b6c8c4ef0aae4fb6c947bbabc6929,

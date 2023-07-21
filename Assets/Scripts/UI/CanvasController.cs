@@ -60,6 +60,11 @@ public class CanvasController : MonoBehaviour
         animator.SetTrigger("Hatch");
     }
 
+    // resets the animator so it can do a long fade out and in. for use in loading checkpoints.
+    public void ResetFadeIn()
+    {
+        animator.SetTrigger("Reset");
+    }
     private void DrawTextToScreen(string text)
     {
         GameObject entryObject = Instantiate(textEntryPrefab, TextBox.transform);

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class HatchInteractable : MonoBehaviour, IInteractable
+public class HatchInteractableOLD : MonoBehaviour, IInteractable
 {
     PlayerScript playerScript;
     public LayerMask seaMask, subMask;
@@ -99,13 +99,15 @@ public class HatchInteractable : MonoBehaviour, IInteractable
         {
             playerScript.inSub = !playerScript.inSub;
             GlobalSoundsManager.instance.PlaySplash();
-            GlobalSoundsManager.instance.StopAmbience();
+            GlobalSoundsManager.instance.StopSubAmbience();
+            GlobalSoundsManager.instance.PlayWaterAmbience();
             Ladder.SetActive(true);
         }
         if (outerHatch)
         {
             playerScript.inSub = !playerScript.inSub;
-            GlobalSoundsManager.instance.PlayAmbience();
+            GlobalSoundsManager.instance.PlaySubAmbience();
+            GlobalSoundsManager.instance.StopWaterAmbience();
             Ladder.SetActive(false);
         }
         GlobalSoundsManager.instance.CutAmbientSounds();

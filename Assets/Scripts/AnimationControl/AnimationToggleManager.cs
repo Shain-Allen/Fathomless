@@ -19,13 +19,13 @@ public class AnimationToggleManager : MonoBehaviour
 
         controlPannelScript.controlSub = false;
         controlPannelScript.canControl = false;
-        innerHatch.GetComponent<HatchInteractable>().animBlock = true;
+        innerHatch.GetComponent<HatchInteractableToOutsub>().animBlock = true;
     }
 
     public void EndAnimation()
     {
         //hatchScript.animBlock = false;
-        innerHatch.GetComponent<HatchInteractable>().animBlock = false;
+        innerHatch.GetComponent<HatchInteractableToOutsub>().animBlock = false;
         Submarine.GetComponent<SubController>().follow = false;
         Submarine.GetComponent<SubController>().resetSubRot = true;
         controlPannelScript.canControl = true;

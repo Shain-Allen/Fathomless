@@ -50,15 +50,21 @@ public class GlobalSoundsManager : MonoBehaviour
         audiosources[11].pitch = Random.Range(0.85f, 1.25f);
         audiosources[11].Play();
     }
-    public void PlayAmbience()
+    public void PlaySubAmbience()
     {
         audiosources[5].Play();
-        audiosources[10].Stop();
     }
-    public void StopAmbience()
+    public void StopSubAmbience()
     {
         audiosources[5].Stop();
+    }
+    public void PlayWaterAmbience()
+    {
         audiosources[10].Play();
+    }
+    public void StopWaterAmbience()
+    {
+        audiosources[10].Stop();
     }
     public void PlayHammer()
     {
