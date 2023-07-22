@@ -29,6 +29,7 @@ public class SubDamageManager : MonoBehaviour, IHit
         GlobalSoundsManager.instance.PlayMetalSnap();
         while (true)
         {
+            currentlyDamaged = 0;
             for (int i = 0; i < DamagedSpots.Length; i++)
             {
                 if (DamagedSpots[i] == true)
@@ -42,13 +43,13 @@ public class SubDamageManager : MonoBehaviour, IHit
             {
                 break;
             }
-            else
-            {
-                currentlyDamaged = 0;
-            }
             int damaged = Random.Range(0, damagePoint.Length);
             if (DamagedSpots[damaged] == false)
             {
+                if (damagePoint[damaged].transform.childCount > 0)
+                {
+                    Destroy(damagePoint[damaged].transform.GetChild(0).gameObject);
+                }
                 damageProtrusionInstance = Instantiate(damageProtrusionObj, damagePoint[damaged].transform.position, damagePoint[damaged].transform.rotation);
                 DamageRepairInteractable inst = damageProtrusionInstance.GetComponent<DamageRepairInteractable>();
                 inst.DamageProtrusionIndex = damaged;
@@ -65,9 +66,13 @@ public class SubDamageManager : MonoBehaviour, IHit
     {
         for (int i = 0; i < damagePoint.Length; i++)
         {
-            if (damagePoint[i].transform.childCount > 0)
+            if (damagePoint[i].transform.childCount > 0 && damagePoint[i].transform.GetChild(0).GetComponent<DamageRepairInteractable>() != null)
             {
                 damagePoint[i].transform.GetChild(0).GetComponent<DamageRepairInteractable>().repaired = true;
+            }
+            else if (damagePoint[i].transform.childCount > 0)
+            {
+                Destroy(damagePoint[i].transform.GetChild(0).gameObject);
             }
         }
     }

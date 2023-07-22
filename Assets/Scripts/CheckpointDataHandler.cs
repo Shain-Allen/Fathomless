@@ -52,6 +52,8 @@ public class CheckpointDataHandler : MonoBehaviour
     {
         GlobalSoundsManager.instance.CutAmbientSounds();
         GlobalSoundsManager.instance.StopWaterAmbience();
+        SubDamageManager.instance.RepairAllHits();
+        GameManager.Instance.SubHealth = SubDamageManager.Instance.damagePoint.Length;
         yield return new WaitForSeconds(3);
         GlobalSoundsManager.instance.PlaySubAmbience();
         CanvasController.Instance.ResetFadeIn();

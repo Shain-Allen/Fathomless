@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageRepairInteractable : MonoBehaviour, IInteractable
@@ -9,15 +7,18 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     public float shrinkSpeed;
     public SubDamageManager SubDamageManager;
     public int DamageProtrusionIndex = 0;
+    public GameObject repairPlate;
     AudioSource waterSound;
     float initialVolume;
+    bool makePlate;
     public void Interact(GameObject player)
     {
-        if (Manager.Scrap >= 1)
+        if (GameManager.Instance.Scrap >= 1)
         {
             GlobalSoundsManager.instance.PlayHammer();
             repaired = true;
-            Manager.Scrap--;
+            makePlate = true;
+            GameManager.Instance.Scrap--;
         }
         else
         {
@@ -55,7 +56,8 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
             transform.localScale = transform.localScale / shrinkSpeed;
             if (transform.localScale.x < 0.05f)
             {
-                print("destroying");
+                if (makePlate)
+                    Instantiate(repairPlate, transform.position, transform.rotation, transform.parent);
                 SubDamageManager.DamagedSpots[DamageProtrusionIndex] = false;
                 Destroy(this.gameObject);
             }
