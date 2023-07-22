@@ -59,6 +59,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
                 if (makePlate)
                     Instantiate(repairPlate, transform.position, transform.rotation, transform.parent);
                 SubDamageManager.DamagedSpots[DamageProtrusionIndex] = false;
+                SubDamageManager.instance.UpdateSubHealth();
                 Destroy(this.gameObject);
             }
         }
