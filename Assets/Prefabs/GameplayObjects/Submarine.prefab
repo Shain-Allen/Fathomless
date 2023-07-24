@@ -10125,6 +10125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9069047728735034063}
   - component: {fileID: 2002103053870329191}
+  - component: {fileID: 1776262448635778077}
   m_Layer: 9
   m_Name: ControlPanelUI
   m_TagString: Untagged
@@ -10163,6 +10164,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapText: {fileID: 6580509781229089134}
   healthBar: {fileID: 8326675053664091506}
+--- !u!114 &1776262448635778077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328261954473883918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4ae8da98f451b468ffacdebf79a58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  depthText: {fileID: 0}
+  depthPoint: {fileID: 1049348132}
 --- !u!1 &2379738078231802916
 GameObject:
   m_ObjectHideFlags: 0
