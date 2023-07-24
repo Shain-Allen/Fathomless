@@ -26,7 +26,7 @@ public class SubDepthManager : MonoBehaviour
         }
         else
         {
-            depthText.color = Color.white;
+            depthText.color = Color.black;
         }
     }
 }
