@@ -11,6 +11,7 @@ public class patrolScript : MonoBehaviour
     public float speed;
 
     public GameObject player;
+    public GameManager gManager;
 
     public float waitTime;
     public float startWaitTime;
@@ -32,6 +33,8 @@ public class patrolScript : MonoBehaviour
     public bool takenDamage;
     public bool eyeDamage;
     public float timerTime;
+
+    public patrolEnemyAttack attackScript;
 
     // Start is called before the first frame update
     void Start()
@@ -65,9 +68,8 @@ public class patrolScript : MonoBehaviour
             {
                 patrolCase = 3;
             }
-            if (distance <= 2)
+            if (distance <= 5)
             {
-                patrolCase = 4;
             }
         }
 
@@ -78,21 +80,26 @@ public class patrolScript : MonoBehaviour
             StartCoroutine(runAway());
         }
 
-        if (takenDamage)
+        /*if (takenDamage)
         {
             patrolCase = 2;
-        }
+        }*/
+
+
 
         switch (patrolCase)
         {
             case 1:
                 canMove = true;
+                attackScript.doDamage = false;
                 speed = 1f;
                 transform.LookAt(pos[currentPos].transform.position);
                 Patrol();
                 break;
             case 2:
                 canMove = false;
+                attackScript.doDamage = false;
+
                 agent.speed = 10f;
                 transform.LookAt(player.transform.position);
                 agent.SetDestination(player.transform.position);
@@ -102,13 +109,18 @@ public class patrolScript : MonoBehaviour
                 transform.LookAt(player.transform.position);
                 canMove = false;
                 agent.isStopped = true;
+                attackScript.doDamage = true;
+                //do damage here
                 break;
-            case 4://i dont know why this case is here, but I  am afraid if I remove it, the code will break, so here it will stay. *Edit: Its for if the player gets to close, then do something
-
+            case 4:
+                /*DamagePlayer(damageAmount);
+                //play a damage animation here;
+                eyeDamage = true;*/
                 break;
             case 5:
                 patrolDistance = Vector3.Distance(transform.position, pos[currentPos].transform.position);
                 canMove = true;
+                attackScript.doDamage = false;
                 transform.LookAt(pos[currentPos].transform.position);
                 agent.SetDestination(pos[currentPos].transform.position);
                 speed = 15f;
@@ -174,6 +186,11 @@ public class patrolScript : MonoBehaviour
     public void RandomPos()
     {
         currentPos = Random.Range(0, pos.Length);
+    }
+
+    public void DamagePlayer(float damage)
+    {
+        gManager.playerHealth -= damage;
     }
 
     IEnumerator runAway()
