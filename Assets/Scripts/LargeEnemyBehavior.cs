@@ -87,7 +87,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     private void HandlePursueState()
     {
         //calculate to player vector, measure distance
-        Vector3 toPlayer = Player.transform.position - transform.position;
+        Vector3 toPlayer = SubController.instance.chasePoint.transform.position - transform.position;
         float dist = toPlayer.magnitude;
 
         //speed is based off of distance from player. Creates equilibrium, as this is when the player has time to fire at the enemy
@@ -124,7 +124,7 @@ public class LargeEnemyBehavior : MonoBehaviour
         //mat.color = Color.red;
 
         //calculate to player vector, and measure distance
-        Vector3 toPlayer = Player.transform.position - transform.position;
+        Vector3 toPlayer = SubController.instance.chasePoint.transform.position - transform.position;
         float dist = toPlayer.magnitude;
 
         //swimspeed is 20 as flat value, rather than being dependant on distance.
@@ -149,7 +149,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 
         if (dist < 10)
         {
-            damageHandler.GetComponent<IHit>()?.Hit();
+            SubDamageManager.instance.Hit();
             currentState = State.Halt;
             StartCoroutine(StartHaltTimer());
         }
@@ -158,7 +158,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     private void HandleHaltState()
     {
         //calculate to player vector, measure distance
-        Vector3 toPlayer = Player.transform.position - transform.position;
+        Vector3 toPlayer = SubController.instance.chasePoint.transform.position - transform.position;
 
         //adds noise for more organic movement
         Vector3 noise = new(Mathf.PerlinNoise(Time.time * noiseSpeed, 0), Mathf.PerlinNoise(0, Time.time * noiseSpeed), Mathf.PerlinNoise(Time.time * noiseSpeed, Time.time * noiseSpeed));
@@ -182,10 +182,10 @@ public class LargeEnemyBehavior : MonoBehaviour
             eelFleeing = true;
         }
         //calculate to player vector, measure distance
-        Vector3 toPlayer = Player.transform.position - transform.position;
+        Vector3 toPlayer = SubController.instance.chasePoint.transform.position - transform.position;
 
         // calculate the direction away from the player
-        Vector3 awayFromPlayer = transform.position - Player.transform.position;
+        Vector3 awayFromPlayer = transform.position - SubController.instance.chasePoint.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(awayFromPlayer);
 
         // smoothly rotate towards the target rotation
@@ -204,7 +204,7 @@ public class LargeEnemyBehavior : MonoBehaviour
             StartCoroutine(LetEelFlee());
         }
         // calculate the direction away from the player
-        Vector3 awayFromPlayer = transform.position - Player.transform.position;
+        Vector3 awayFromPlayer = transform.position - SubController.instance.chasePoint.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(awayFromPlayer);
 
         // smoothly rotate towards the target rotation

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class followPoint : MonoBehaviour
 {
-    public GameObject Eel1;
+    public GameObject Eel;
     public LargeEnemyBehavior LargeEnemyBehavior;
-    public GameObject Eel2;
     void Start()
     {
         
@@ -15,21 +14,12 @@ public class followPoint : MonoBehaviour
 
     public void ActivateEel()
     {
-        Eel1.SetActive(true);
-    }
-    public void ActivateEel2()
-    {
-        Eel2.SetActive(true);
+        Eel.SetActive(true);
     }
     public void SpookEel()
     {
-        Eel1.GetComponent<LargeEnemyBehavior>().eelFleeing = true;
-        StartCoroutine("DestroyEel");
-    }
-    public void SpookEel2()
-    {
-        Eel2.GetComponent<LargeEnemyBehavior>().eelFleeing = true;
-        StartCoroutine("DestroyEel2");
+        Eel.GetComponent<LargeEnemyBehavior>().eelFleeing = true;
+        StartCoroutine("DeactivateEel");
     }
     public void EndOfRoad()
     {
@@ -58,20 +48,15 @@ public class followPoint : MonoBehaviour
     }
     public void AutopilotAlert()
     {
-        CanvasController.Instance.DisplayText("(Hull damage revieved. Initiating autopilot)");
+        //text removed
     }
     public void EelAlert()
     {
-        CanvasController.Instance.DisplayText("(Abnormal heat signature detected. Defensive action advised.)");
+        //text removed
     }
     public void PostCombatDialogue()
     {
-        CanvasController.Instance.DisplayMoreText(new string[]
-        {
-            "(Conditions normalized. Returning pilot control.)",
-            "That doesn't look good... I better find something to repair those holes.",
-            "Maybe I could find something out on the seafloor?"
-        }, 3);
+        //text removed
     }
 
     public void ReturnPilotControl()
@@ -80,14 +65,9 @@ public class followPoint : MonoBehaviour
         SubController.instance.ResetRotation(); 
     }
 
-    IEnumerator DestroyEel()
+    IEnumerator DeactivateEel()
     {
         yield return new WaitForSeconds(6f);
-        Object.Destroy(Eel1);
-    }
-    IEnumerator DestroyEel2()
-    {
-        yield return new WaitForSeconds(6f);
-        Object.Destroy(Eel2);
+        Eel.gameObject.SetActive(false);
     }
 }

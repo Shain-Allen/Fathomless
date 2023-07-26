@@ -59,7 +59,6 @@ public class AMCollisionDetector : MonoBehaviour
         {
             if (HasCollided == false)
             {
-                Debug.Log(collision.gameObject);
                 if (EndAnimation == false)
                 {
                     AnimationManager.GetComponent<AnimationToggleManager>().StartAnimation(AnimationName);

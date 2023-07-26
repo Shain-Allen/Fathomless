@@ -14,7 +14,6 @@ public class AnimationToggleManager : MonoBehaviour
     public void StartAnimation(string AnimName)
     {
         Submarine.GetComponent<SubController>().follow = true;
-        Submarine.GetComponent<SubController>().AnimationName = AnimName;
         Debug.Log("Starting Animation");
 
         controlPannelScript.controlSub = false;

@@ -18,8 +18,11 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
     public GameObject Ladder;
     public AnimationClip fadeClip;
 
+    public static HatchInteractableToOutsub instance;
+    public static HatchInteractableToOutsub Instance => instance;
     void Awake()
     {
+        instance = this;
         player = controller.Player;
         playerScript = player.GetComponent<PlayerScript>();
         Ladder.SetActive(false);

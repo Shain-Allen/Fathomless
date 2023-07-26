@@ -21,6 +21,13 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public GameObject detectionPoint;
 
     public GameObject resetPoint;
+
+    public static PilotPanelInteractable instance;
+    public static PilotPanelInteractable Instance => instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
