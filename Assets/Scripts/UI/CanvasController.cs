@@ -45,7 +45,10 @@ public class CanvasController : MonoBehaviour
         coroutine = TextWriter(lines, delay);
         StartCoroutine(coroutine);
     }
-
+    public void PlayDamageVignette()
+    {
+        animator.SetTrigger("DamageVignette");
+    }
     public void PlayFadeToBlack()
     {
         animator.SetTrigger("FadeToBlack");
