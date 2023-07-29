@@ -9,6 +9,7 @@ public class HandheldHarpoonProjectileScript : MonoBehaviour
     public int harpoonDamage;
     private void Start()
     {
+        CheckpointDataHandler.instance.AddToHarpoonArray(this.gameObject);
         rb = GetComponent<Rigidbody>();
         rb.AddForce(rb.transform.forward * projectileSpeed, ForceMode.Impulse);
     }

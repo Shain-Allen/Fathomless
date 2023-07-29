@@ -15,6 +15,7 @@ public class TurretProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CheckpointDataHandler.instance.AddToHarpoonArray(this.transform.parent.gameObject);
         gameObject.transform.parent.SetParent(subRb.transform, true);
         projectileRigidbody.velocity = subRb.velocity;
         projectileRigidbody.AddForce(transform.forward * velocityProj, ForceMode.Impulse);
@@ -30,19 +31,6 @@ public class TurretProjectile : MonoBehaviour
             Destroy(gameObject.transform.parent.gameObject);
         }
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (test == false)
-    //    {
-    //        GameObject collidedObject = collision.gameObject;
-    //        obj.transform.parent = collidedObject.transform;
-    //        projectileRigidbody.isKinematic = true;
-    //        thisCol.enabled = false;
-    //        projectileRigidbody.detectCollisions = false;
-
-    //        Destroy(projectileRigidbody);
-    //    }
-    //}
     private void OnTriggerEnter(Collider other)
     {
         if (test == false)

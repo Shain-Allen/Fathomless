@@ -5,15 +5,19 @@ using UnityEngine;
 public class followPoint : MonoBehaviour
 {
     public GameObject Eel;
+    public GameObject EelSpawnPoint;
     public LargeEnemyBehavior LargeEnemyBehavior;
+    public float startingHealth;
     void Start()
     {
-        
+        startingHealth = LargeEnemyBehavior.enemyHealth;
     }
 
 
     public void ActivateEel()
     {
+        LargeEnemyBehavior.enemyHealth = startingHealth;
+        LargeEnemyBehavior.eelFleeing = false;
         Eel.SetActive(true);
     }
     public void SpookEel()
@@ -63,11 +67,16 @@ public class followPoint : MonoBehaviour
     {
         SubController.instance.follow = false;
         SubController.instance.ResetRotation(); 
+        PilotPanelInteractable.instance.canControl = true;
+        HatchInteractableToOutsub.instance.animBlock = false;
     }
 
     IEnumerator DeactivateEel()
     {
         yield return new WaitForSeconds(6f);
+        Eel.transform.position = EelSpawnPoint.transform.position;
+        Eel.transform.rotation = EelSpawnPoint.transform.rotation;
+        LargeEnemyBehavior.currentState = LargeEnemyBehavior.State.Pursue;
         Eel.gameObject.SetActive(false);
     }
 }
