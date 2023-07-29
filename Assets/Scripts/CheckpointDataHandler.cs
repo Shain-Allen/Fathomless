@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class CheckpointDataHandler : MonoBehaviour
 {
     public GameObject[] activeHarpoons;
+    Transform[] urchinPositions;
+    EnemyDataManager[] urchinScripts;
+    public GameObject[] urchinEnemies;
     public static CheckpointDataHandler instance;
     public static CheckpointDataHandler Instance
     {
@@ -21,6 +25,19 @@ public class CheckpointDataHandler : MonoBehaviour
     private void Start()
     {
         SaveCheckpoint(SubController.Instance.transform.position, SubController.Instance.transform.rotation, GameManager.gminstance.currentTreasure);
+        SaveEnemies();
+    }
+
+    public void SaveEnemies()
+    {
+        urchinEnemies = GameObject.FindGameObjectsWithTag("urchinEnemy");
+        urchinPositions = new Transform[urchinEnemies.Length];
+        urchinScripts = new EnemyDataManager[urchinEnemies.Length];
+        for (int i = 0; i < urchinEnemies.Length; i++)
+        {
+            urchinScripts[i] = urchinEnemies[i].GetComponentInChildren<EnemyDataManager>(true);
+            urchinPositions[i] = urchinEnemies[i].transform;
+        }
     }
 
     //method to save a new checkpoint.
@@ -49,43 +66,67 @@ public class CheckpointDataHandler : MonoBehaviour
         }
         activeHarpoons = new GameObject[1];
     }
+    public void AddToHarpoonArray(GameObject harpoon)
+    {
+        //kind of crazy there isn't an easy way to append gameobjects to arrays, huh?
+        GameObject[] newArray = new GameObject[activeHarpoons.Length + 1];
+
+        for (int i = 0; i < activeHarpoons.Length; i++)
+        {
+            newArray[i] = activeHarpoons[i];
+        }
+
+        newArray[newArray.Length - 1] = harpoon;
+
+        activeHarpoons = newArray;
+    }
 
     //method to load a checkpoint.
     public void LoadCheckpoint()
     {
         StartCoroutine(ArtificialLoadTime());
-        SubController.Instance.transform.position = currentLatestCheckpoint.subPosition;
-        SubController.Instance.transform.rotation = currentLatestCheckpoint.subRotation;
-        GameManager.Instance.currentTreasure = currentLatestCheckpoint.treasureCount;
-        GameManager.Instance.playerHealth = 100;
-        GameManager.Instance.isGameEnding = false;
-        GameManager.Instance.playerOxygen = 100;
+        LoadSub();
         HatchInteractableToInsub.instance.SendToInsub();
     }
     public IEnumerator ArtificialLoadTime()
     {
         GlobalSoundsManager.instance.CutAmbientSounds();
         GlobalSoundsManager.instance.StopWaterAmbience();
-        SubDamageManager.instance.RepairAllHits();
         GameManager.Instance.SubHealth = SubDamageManager.Instance.damagePoint.Length;
+        LoadGM();
         RemoveHarpoons();
-        yield return new WaitForSeconds(3);
+        LoadEnemies();
+        yield return new WaitForSeconds(1);
         GlobalSoundsManager.instance.PlaySubAmbience();
-        CanvasController.Instance.ResetFadeIn();
+        LoadCanvas();
 
     }
-    public void AddToHarpoonArray(GameObject harpoon)
+    void LoadSub()
     {
-        //kind of crazy there isn't an easy way to append gameobjects to arrays, huh?
-            GameObject[] newArray = new GameObject[activeHarpoons.Length + 1];
+        SubController.Instance.transform.position = currentLatestCheckpoint.subPosition;
+        SubController.Instance.transform.rotation = currentLatestCheckpoint.subRotation;
+        SubDamageManager.instance.RepairAllHits();
+    }
+    void LoadCanvas()
+    {
+        CanvasController.Instance.ResetFadeIn();
+    }
+    void LoadGM()
+    {
+        GameManager.Instance.currentTreasure = currentLatestCheckpoint.treasureCount;
+        GameManager.Instance.playerHealth = 100;
+        GameManager.Instance.isGameEnding = false;
+        GameManager.Instance.playerOxygen = 100;
+    }
+    void LoadEnemies()
+    {
+        for (int i = 0; i < urchinEnemies.Length; i++)
+        {
+            urchinScripts[i].enemyHealth = urchinScripts[i].enemyMaxHealth;
+            urchinEnemies[i].SetActive(true);
+            urchinEnemies[i].transform.position = urchinPositions[i].position;
+            urchinPositions[i].rotation = urchinPositions[i].rotation;
+        }
 
-            for (int i = 0; i < activeHarpoons.Length; i++)
-            {
-                newArray[i] = activeHarpoons[i];
-            }
-
-            newArray[newArray.Length - 1] = harpoon;
-
-            activeHarpoons = newArray;
     }
 }

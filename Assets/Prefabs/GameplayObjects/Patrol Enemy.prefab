@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 3913147967220837931}
   m_Layer: 0
   m_Name: Patrol Enemy
-  m_TagString: Player
+  m_TagString: urchinEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1051,7 +1051,7 @@ Transform:
   - {fileID: 3913147966069918007}
   - {fileID: 4540075857397831541}
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3913147967220837927
 MeshFilter:
@@ -2529,5 +2529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85b167a62c7076429cd2fc315976b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 100
+  enemyMaxHealth: 40
+  enemyHealth: 0
   patrolScript: {fileID: 3913147967220837930}

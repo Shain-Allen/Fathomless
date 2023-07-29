@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyDataManager : MonoBehaviour
 {
+    public int enemyMaxHealth;
     public int enemyHealth;
 
     public patrolScript patrolScript;
@@ -12,10 +13,15 @@ public class EnemyDataManager : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {
-            Destroy(gameObject.transform.parent.gameObject);
+            gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
 
+    private void Start()
+    {
+        //incase I forget why I did this, the checkpoint loader uses max health to heal enemies on load.
+        enemyHealth = enemyMaxHealth;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
