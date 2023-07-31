@@ -7,6 +7,7 @@ public class followPoint : MonoBehaviour
     public GameObject Eel;
     public GameObject EelSpawnPoint;
     public LargeEnemyBehavior LargeEnemyBehavior;
+    public Animator FallingRocks;
     public float startingHealth;
     void Start()
     {
@@ -50,6 +51,15 @@ public class followPoint : MonoBehaviour
     {
         SubDamageManager.instance.Hit();
     }
+    public void DropRocks()
+    {
+        FallingRocks.SetTrigger("RockFall");
+    }
+    public void ResetRocks()
+    {
+        FallingRocks.SetBool("Reset", true);
+        StartCoroutine(ResetCancel());
+    }
     public void AutopilotAlert()
     {
         //text removed
@@ -78,5 +88,10 @@ public class followPoint : MonoBehaviour
         Eel.transform.rotation = EelSpawnPoint.transform.rotation;
         LargeEnemyBehavior.currentState = LargeEnemyBehavior.State.Pursue;
         Eel.gameObject.SetActive(false);
+    }
+    IEnumerator ResetCancel()
+    {
+        yield return new WaitForSeconds(0.1f);
+        FallingRocks.SetBool("Reset", false);
     }
 }

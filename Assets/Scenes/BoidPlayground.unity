@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -2197,7 +2197,7 @@ PrefabInstance:
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.8
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
@@ -2207,7 +2207,7 @@ PrefabInstance:
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.3
+      value: -190.9
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
@@ -3387,6 +3387,7 @@ MonoBehaviour:
   Eel: {fileID: 0}
   EelSpawnPoint: {fileID: 0}
   LargeEnemyBehavior: {fileID: 0}
+  FallingRocks: {fileID: 0}
   startingHealth: 0
 --- !u!95 &1256770788
 Animator:
@@ -4072,8 +4073,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396152621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 97.5, y: -81.8, z: -1756.9}
-  m_LocalScale: {x: 53.387, y: 5.120881, z: 53.387}
+  m_LocalPosition: {x: 67.7, y: -35.8, z: -1882.9}
+  m_LocalScale: {x: 360.11667, y: 34.542393, z: 360.11667}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

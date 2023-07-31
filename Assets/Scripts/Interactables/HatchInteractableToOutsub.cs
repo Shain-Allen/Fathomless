@@ -58,7 +58,6 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
         if (Physics.Raycast(detectionPoint.transform.position, detectionPoint.transform.TransformDirection(Vector3.down), out hit, exitDistance))
         {
             Debug.Log("Ground, Can Leave");
-            Debug.Log(hit.distance);
             canLeave = true;
         }
         else
@@ -70,7 +69,6 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
         if (Physics.Raycast(detectionPoint.transform.position, detectionPoint.transform.TransformDirection(Vector3.down), out hit, tooCloseDistance))
         {
             Debug.Log("Too Close");
-            Debug.Log(hit.distance);
             CanvasController.Instance.DisplayText("The sub is too close to the ground.");
             canLeave = false;
         }
