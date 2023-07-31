@@ -6,10 +6,11 @@ public class interactControls : MonoBehaviour
     public Camera MainCamera;
     private RaycastHit raycast;
     private float raycastRange = 5f;
-    public GameObject InteractFob;
+    GameObject InteractFob;
 
     private void Start()
     {
+        InteractFob = CanvasController.Instance.pointer;
         InteractFob.SetActive(false);
     }
 
