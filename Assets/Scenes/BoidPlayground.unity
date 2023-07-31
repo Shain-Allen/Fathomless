@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -2202,12 +2202,12 @@ PrefabInstance:
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.34
+      value: 18.3
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -190.9
+      value: -167
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
@@ -2267,20 +2267,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1889477482, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: sub
       value: 
       objectReference: {fileID: 584775738}
-    - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
-        type: 3}
-      propertyPath: HarpoonGun
-      value: 
-      objectReference: {fileID: 927473951}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -2351,12 +2342,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
---- !u!1 &927473951 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1889477482, guid: 34f0f5b51303174478fae1227e4193d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 927473950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963056451
 GameObject:
   m_ObjectHideFlags: 0
