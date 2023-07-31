@@ -6,7 +6,7 @@ public class interactControls : MonoBehaviour
     public Camera MainCamera;
     private RaycastHit raycast;
     private float raycastRange = 5f;
-    GameObject InteractFob;
+    public GameObject InteractFob;
 
     private void Start()
     {
