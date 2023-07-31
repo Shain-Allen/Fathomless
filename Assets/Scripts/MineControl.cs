@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class MineControl : MonoBehaviour
 {
@@ -10,10 +11,21 @@ public class MineControl : MonoBehaviour
     public SubDamageManager subMan;
     public float mineDamage;
 
+    public GameObject mineMesh;
+    public VisualEffect explosion;
+
+    bool isActive;
+
+    private void Start()
+    {
+        isActive = true;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "SubTag")
         {
+            explosion.SendEvent("Blow"); //Not Working
             subDamage();
         }
     }
@@ -21,6 +33,6 @@ public class MineControl : MonoBehaviour
     public void subDamage()
     {
         subMan.Hit();
-        Destroy(gameObject);
+        mineMesh.SetActive(false);
     }
 }
