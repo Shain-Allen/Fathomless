@@ -60,6 +60,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     public GameObject cam;
     public GameObject flashLight;
+    public GameObject HarpoonGun;
     public static PlayerScript instance;
     public static PlayerScript Instance => instance;
 

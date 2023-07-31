@@ -87,6 +87,7 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
             GlobalSoundsManager.instance.StopSubAmbience();
             GlobalSoundsManager.instance.PlayWaterAmbience();
             Ladder.SetActive(true);
+        PlayerScript.instance.HarpoonGun.SetActive(true);
 
         GlobalSoundsManager.instance.CutAmbientSounds();
 

@@ -50,6 +50,7 @@ public class HatchInteractableToInsub : MonoBehaviour, IInteractable
         GlobalSoundsManager.instance.PlaySubAmbience();
         GlobalSoundsManager.instance.StopWaterAmbience();
         Ladder.SetActive(false);
+        PlayerScript.instance.HarpoonGun.SetActive(false);
 
         GlobalSoundsManager.instance.CutAmbientSounds();
 
@@ -69,6 +70,7 @@ public class HatchInteractableToInsub : MonoBehaviour, IInteractable
 
         playerScript.inSub = true;
         Ladder.SetActive(false);
+        PlayerScript.instance.HarpoonGun.SetActive(false);
 
 
         player.transform.rotation = Quaternion.Euler(0, 0, 0);
