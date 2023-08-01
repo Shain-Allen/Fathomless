@@ -27,6 +27,13 @@ public class CheckpointDataHandler : MonoBehaviour
         SaveCheckpoint(SubController.Instance.transform.position, SubController.Instance.transform.rotation, GameManager.gminstance.currentTreasure);
         SaveEnemies();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            GameManager.Instance.EndGame();
+        }
+    }
 
     public void SaveEnemies()
     {
@@ -51,7 +58,7 @@ public class CheckpointDataHandler : MonoBehaviour
             // Set other data types as needed.
         };
 
-        checkpointPresets.Add(preset);
+        //checkpointPresets.Add(preset);
         currentLatestCheckpoint = preset;
     }
 
@@ -85,7 +92,6 @@ public class CheckpointDataHandler : MonoBehaviour
     public void LoadCheckpoint()
     {
         StartCoroutine(ArtificialLoadTime());
-        LoadSub();
         HatchInteractableToInsub.instance.SendToInsub();
     }
     public IEnumerator ArtificialLoadTime()
@@ -94,6 +100,7 @@ public class CheckpointDataHandler : MonoBehaviour
         GlobalSoundsManager.instance.StopWaterAmbience();
         GameManager.Instance.SubHealth = SubDamageManager.Instance.damagePoint.Length;
         LoadGM();
+        LoadSub();
         RemoveHarpoons();
         LoadEnemies();
         yield return new WaitForSeconds(1);

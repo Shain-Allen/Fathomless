@@ -12,6 +12,7 @@ public class CanvasController : MonoBehaviour
     private IEnumerator coroutine;
     private Animator animator;
     public bool isBooking;
+    public GameObject pointer;
 
     public GameObject textEntryPrefab;
     public GameObject TextBox;
