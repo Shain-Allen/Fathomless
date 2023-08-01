@@ -20,14 +20,12 @@ public class HatchInteractableOLD : MonoBehaviour, IInteractable
     public GameObject detectionPoint;
     public GameObject Ladder;
     public AnimationClip fadeClip;
-    BoidSpawner boidSpawner;
 
     void Awake()
     {
         player = controller.Player;
         playerScript = player.GetComponent<PlayerScript>();
         Ladder.SetActive(false);
-        boidSpawner = player.GetComponent<BoidSpawner>();
     }
 
     public void Interact(GameObject player)
@@ -118,8 +116,6 @@ public class HatchInteractableOLD : MonoBehaviour, IInteractable
         playerScript.transform.position = teleporter.transform.position; //takes player to this position
         playerScript.frozen = false; //to restore player control
         yield return new WaitForSeconds(fadeClip.length); //waits this long...
-        if (boidSpawner != null)
-            boidSpawner.spawning = true;
         GameManager.Instance.isFading = false;
         //animBlock = false;
     }
