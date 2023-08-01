@@ -217,7 +217,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     private IEnumerator StartAttackTimer()
     {
         isAttackTimerRunning = true;
-        InitialAttackdelay = 10f;
+        //InitialAttackdelay = 10f;
         CurrentDelayTime = InitialAttackdelay;
         //yield return new WaitForSeconds() would work here, but with this system we can add to the timer if we want to. More flexible.
         while (CurrentDelayTime > 0)
