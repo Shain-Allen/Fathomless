@@ -10,6 +10,7 @@ public class CheckpointDataHandler : MonoBehaviour
     EnemyDataManager[] urchinScripts;
     public GameObject[] urchinEnemies;
     public static CheckpointDataHandler instance;
+    GameObject Submarine;
     public static CheckpointDataHandler Instance
     {
         get { return instance; }
@@ -26,6 +27,7 @@ public class CheckpointDataHandler : MonoBehaviour
     {
         SaveCheckpoint(SubController.Instance.transform.position, SubController.Instance.transform.rotation, GameManager.gminstance.currentTreasure);
         SaveEnemies();
+        Submarine = SubController.instance.gameObject;
     }
     private void Update()
     {
@@ -110,8 +112,7 @@ public class CheckpointDataHandler : MonoBehaviour
     }
     void LoadSub()
     {
-        SubController.Instance.transform.position = currentLatestCheckpoint.subPosition;
-        SubController.Instance.transform.rotation = currentLatestCheckpoint.subRotation;
+        SubController.instance.SetSubPosAndRot(currentLatestCheckpoint.subPosition, currentLatestCheckpoint.subRotation);
         SubDamageManager.instance.RepairAllHits();
     }
     void LoadCanvas()

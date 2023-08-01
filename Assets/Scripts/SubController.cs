@@ -255,4 +255,11 @@ public class SubController : MonoBehaviour
     {
         rawWASDInput = inputValue.Get<Vector2>();
     }
+    public void SetSubPosAndRot(Vector3 pos, Quaternion rot)
+    {
+        subRigi.velocity = Vector3.zero;
+        subRigi.angularVelocity = Vector3.zero;
+        transform.position = pos;
+        transform.rotation = rot;
+    }
 }

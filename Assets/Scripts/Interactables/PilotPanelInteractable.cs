@@ -49,7 +49,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        if(controlSub || otherStation.controlTurret)//enables sub control
+        if (controlSub || otherStation.controlTurret)//enables sub control
         {
             playerInteractController.InteractFob.SetActive(false);
             player.SetActive(false);
@@ -61,16 +61,16 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             }
         }
 
-        if(!controlSub && !otherStation.controlTurret) //lets the player leave sub control
+        if (!controlSub && !otherStation.controlTurret) //lets the player leave sub control
         {
             //currently stops movement of sub. needs to be fixed so that player will move within sub
-            player.SetActive(true);  
+            player.SetActive(true);
             subCam.SetActive(false);
             subScript.isSub = false;
         }
     }
 
-    private void OnLeavePost (InputValue inputValue)
+    private void OnLeavePost(InputValue inputValue)
     {
         if (controlSub)
         {
@@ -78,8 +78,21 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             player.GetComponent<PlayerInput>().enabled = true;
             player.GetComponent<PlayerScript>().ResetMoveVector();
             controlSub = false;
-            player.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-            
+            player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
         }
-    } 
+    }
+    public void kickPlayerOut() 
+    {
+        subInput.enabled = false;
+        player.GetComponent<PlayerInput>().enabled = true;
+        player.GetComponent<PlayerScript>().ResetMoveVector();
+        controlSub = false;
+        player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+
+        SubController.instance.follow = true;
+        canControl = false;
+        HatchInteractableToOutsub.instance.animBlock = true;
+    }
+
 }

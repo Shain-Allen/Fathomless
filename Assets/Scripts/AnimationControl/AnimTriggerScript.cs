@@ -25,10 +25,7 @@ public class AnimTriggerScript : MonoBehaviour
     {
         exitScript.col.isTrigger = true;
         SubController.instance.followPoint = followPoint;
-        SubController.instance.follow = true;
-        PilotPanelInteractable.instance.canControl = false;
-        PilotPanelInteractable.instance.controlSub = false;
-        HatchInteractableToOutsub.instance.animBlock = true;
+        PilotPanelInteractable.instance.kickPlayerOut();
 
         followPointAnim.Play();
     }

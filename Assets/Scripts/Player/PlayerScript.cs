@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,7 +7,7 @@ public class PlayerScript : MonoBehaviour
     private Vector2 direction;
     private Vector2 mouseInput;
     private float jumpInput;
-    
+
     //Player States
     [Header("Player States")]
     public bool frozen;
@@ -23,9 +20,9 @@ public class PlayerScript : MonoBehaviour
     [Min(0)][SerializeField] private float maxSpeed = 20f;
     private float currentSpeed;
     [Tooltip("This is the Acceleration of the player while not in the water")]
-    [Min(0)] [SerializeField] private float insideAcceleration = 1f;
+    [Min(0)][SerializeField] private float insideAcceleration = 1f;
     [Tooltip("This is the Acceleration of the player while in the water")]
-    [Min(0)] [SerializeField] private float outsideAcceleration = 2f;
+    [Min(0)][SerializeField] private float outsideAcceleration = 2f;
     private Vector3 moveVector;
     [Tooltip("This is the jump height of the player while out of the water")]
     [Min(0)][SerializeField] private float insideJumpHeight = 1f;
@@ -47,7 +44,7 @@ public class PlayerScript : MonoBehaviour
 
 
     //Physics Vars
-    [Header("Physics adjustments")] 
+    [Header("Physics adjustments")]
     [Min(0)][SerializeField] private float groundedGravity = -0.05f;
     private float outsideGravity = -9.8f;
     private float insideGravity = -9.8f;
@@ -72,15 +69,15 @@ public class PlayerScript : MonoBehaviour
     private GameObject playerContainer;
     public float spaceRadiusX;
     public float spaceRadiusZ;
-    
-    
+
+
     //Other References
     [Header("Other References")]
     public GameObject MinimapCamera;
-    
-    
+
+
     //expression body statement to get input for player movement
-    private void OnMove(InputValue inputValue)
+    public void OnMove(InputValue inputValue)
     {
         direction = inputValue.Get<Vector2>();
     }
@@ -120,7 +117,7 @@ public class PlayerScript : MonoBehaviour
         playerContainer = subController.playerContainer;
         transform.position = playerContainer.transform.position;
         characterController = GetComponent<CharacterController>();
-        
+
         if (spaceRadiusX < 1)
         {
             spaceRadiusX = 1;
@@ -129,7 +126,7 @@ public class PlayerScript : MonoBehaviour
         {
             spaceRadiusZ = 1;
         }
-        
+
         transform.SetParent(sub.transform);
     }
 
@@ -138,7 +135,7 @@ public class PlayerScript : MonoBehaviour
         float timeToApex = outsideJumpTime / 2;
         outsideGravity = (2 * outsideJumpHeight) / Mathf.Pow(timeToApex, 2);
         outsideInitialJumpVelocity = (2 * outsideJumpHeight) / timeToApex;
-        
+
         timeToApex = insideJumpTime / 2;
         insideGravity = (2 * insideJumpHeight) / Mathf.Pow(timeToApex, 2);
         insideInitialJumpVelocity = (2 * insideJumpHeight) / timeToApex;
@@ -159,11 +156,11 @@ public class PlayerScript : MonoBehaviour
         {
             if (!inSub)
             {
-                
+
                 moveVector += new Vector3(direction.x, 0, direction.y) * outsideAcceleration;
                 if (!flashLight.activeSelf)
                     flashLight.SetActive(true);
-                characterController.Move( transform.TransformDirection(moveVector) * Time.deltaTime);
+                characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
                 HandleGravity(outsideGravity);
                 HandleDrag(outsideDrag);
                 HandleJump(outsideInitialJumpVelocity);
@@ -173,7 +170,7 @@ public class PlayerScript : MonoBehaviour
                 if (flashLight.activeSelf)
                     flashLight.SetActive(false);
                 moveVector += new Vector3(direction.x, 0, direction.y) * insideAcceleration;
-                characterController.Move( transform.TransformDirection(moveVector) * Time.deltaTime);
+                characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
                 HandleGravity(insideGravity);
                 HandleDrag(insideDrag);
                 HandleJump(insideInitialJumpVelocity);
@@ -225,10 +222,10 @@ public class PlayerScript : MonoBehaviour
         yRotation -= mouseInput.y;
         yRotation = Mathf.Clamp(yRotation, -90f, 90f);
 
-        cam.transform.localRotation = Quaternion.Euler(yRotation, 0, 0);
+        CameraManager.instance.MoveCam(yRotation);
         transform.Rotate(Vector3.up * mouseInput.x);
     }
-    
+
     //Draws the ellipse to the scene view
     private void OnDrawGizmos()
     {

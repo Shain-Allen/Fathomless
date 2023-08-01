@@ -30,4 +30,8 @@ public class CameraManager : MonoBehaviour
         ScreenShakeAnim.Play();
         CanvasController.Instance.PlayDamageVignette();
     }
+    public void MoveCam(float yrot)
+    {
+        transform.localRotation = Quaternion.Euler(yrot, 0, 0);
+    }
 }
