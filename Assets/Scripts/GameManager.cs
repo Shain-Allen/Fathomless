@@ -73,7 +73,14 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
-
+        if (Input.GetKey(KeyCode.K))
+        {
+            Time.timeScale = 0.05f;
+        }
+        else if (Input.GetKey(KeyCode.L))
+        {
+            Time.timeScale = 1f;
+        }
 
         if (Input.GetKeyDown(KeyCode.H))
         {

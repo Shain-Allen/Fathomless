@@ -180,6 +180,10 @@ public class PlayerScript : MonoBehaviour
 
             GunLogic();
         }
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            transform.position = SubController.instance.playerContainer.transform.position;
+        }
     }
 
     private void HandleJump(float initialJumpVelocity)
