@@ -44,6 +44,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             player.GetComponent<PlayerInput>().enabled = false;
             subInput.enabled = true;
             controlSub = true; //turns on sub control when player presses e on control pannel
+            player.GetComponent<PlayerScript>().frozen = true;
         }
     }
 
@@ -52,7 +53,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         if (controlSub || otherStation.controlTurret)//enables sub control
         {
             playerInteractController.InteractFob.SetActive(false);
-            player.SetActive(false);
             player.transform.position = playerSubLockLocation.transform.position;
             if (controlSub)
             {
@@ -64,13 +64,12 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         if (!controlSub && !otherStation.controlTurret) //lets the player leave sub control
         {
             //currently stops movement of sub. needs to be fixed so that player will move within sub
-            player.SetActive(true);
             subCam.SetActive(false);
             subScript.isSub = false;
         }
     }
 
-    private void OnLeavePost(InputValue inputValue)
+    private void OnLeavePost (InputValue inputValue)
     {
         if (controlSub)
         {
@@ -79,7 +78,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
             player.GetComponent<PlayerScript>().ResetMoveVector();
             controlSub = false;
             player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-
         }
     }
     public void kickPlayerOut() 
@@ -88,6 +86,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         player.GetComponent<PlayerInput>().enabled = true;
         player.GetComponent<PlayerScript>().ResetMoveVector();
         controlSub = false;
+        player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         SubController.instance.follow = true;
         canControl = false;

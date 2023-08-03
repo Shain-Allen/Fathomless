@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -79,19 +80,19 @@ public class PlayerScript : MonoBehaviour
     //expression body statement to get input for player movement
     public void OnMove(InputValue inputValue)
     {
-        direction = inputValue.Get<Vector2>();
+        if (!frozen) direction = inputValue.Get<Vector2>();
     }
 
     //expression body statement to get input for when the player Jumps
     private void OnJump(InputValue inputValue)
     {
-        jumpInput = inputValue.Get<float>();
+        if (!frozen) jumpInput = inputValue.Get<float>();
     }
 
     //expression body statement to get input for when the player moves their mouse
     private void OnLook(InputValue inputValue)
     {
-        mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
+        if (!frozen) mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
     }
 
     //handles the firing of the handheld harpoon gun (if that gets added)
@@ -172,7 +173,7 @@ public class PlayerScript : MonoBehaviour
                 moveVector += new Vector3(direction.x, 0, direction.y) * insideAcceleration;
                 characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
                 HandleGravity(insideGravity);
-                HandleDrag(insideDrag);
+                HandleDrag(insideDrag); //this appears to be causing the issue when getting out of the sub controls
                 HandleJump(insideInitialJumpVelocity);
             }
 
@@ -243,5 +244,14 @@ public class PlayerScript : MonoBehaviour
     public void ResetMoveVector()
     {
         moveVector = Vector3.zero;
+        StartCoroutine(freezePlayer());
+    }
+
+    // temporarily freezes the player movement for the specified time 
+    public IEnumerator freezePlayer(float time = 0.15f)
+    {
+        frozen = true;
+        yield return new WaitForSeconds(time);
+        frozen = false;
     }
 }

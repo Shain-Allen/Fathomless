@@ -26,6 +26,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     public void Interact(GameObject player)
     {
         player.GetComponent<PlayerInput>().enabled = false;
+        player.GetComponent<PlayerScript>().frozen = true;
         subInput.enabled = true;
         FakeTurret.SetActive(false);
         controlTurret = true;
@@ -36,7 +37,6 @@ public class TurretInteractable : MonoBehaviour, IInteractable
         if (controlTurret || otherStation.controlSub)
         {
             playerInteractController.InteractFob.SetActive(false);
-            playerChar.SetActive(false);
             if (controlTurret)
             {
                 turretCam.SetActive(true);
@@ -46,7 +46,6 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
         if (!controlTurret && !otherStation.controlSub)
         {
-            playerChar.SetActive(true);
             turretCam.SetActive(false);
             turretScript.isTurret = false;
         }
