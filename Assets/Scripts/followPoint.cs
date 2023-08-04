@@ -77,7 +77,7 @@ public class followPoint : MonoBehaviour
     {
         SubController.instance.follow = false;
         SubController.instance.ResetRotation(); 
-        PilotPanelInteractable.instance.canControl = true;
+        PilotPanelInteractable.Instance.canControl = true;
         HatchInteractableToOutsub.instance.animBlock = false;
     }
 

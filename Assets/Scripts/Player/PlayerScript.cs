@@ -170,7 +170,9 @@ public class PlayerScript : MonoBehaviour
             {
                 if (flashLight.activeSelf)
                     flashLight.SetActive(false);
-                moveVector += new Vector3(direction.x, 0, direction.y) * insideAcceleration;
+                //moveVector = new Vector3(direction.x, 0, direction.y) * insideAcceleration;
+                moveVector.x = direction.x * insideAcceleration;
+                moveVector.z = direction.y * insideAcceleration;
                 characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
                 HandleGravity(insideGravity);
                 HandleDrag(insideDrag); //this appears to be causing the issue when getting out of the sub controls

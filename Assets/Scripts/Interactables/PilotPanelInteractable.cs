@@ -22,12 +22,14 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     public GameObject resetPoint;
 
-    public static PilotPanelInteractable instance;
+    private static PilotPanelInteractable instance;
     public static PilotPanelInteractable Instance => instance;
+    
     private void Awake()
     {
         instance = this;
     }
+    
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
@@ -69,7 +71,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnLeavePost (InputValue inputValue)
+    public void OnLeavePost ()
     {
         if (controlSub)
         {

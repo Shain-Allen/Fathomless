@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,15 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     private PlayerInput subInput;
 
     interactControls playerInteractController;
+
+    private static TurretInteractable instance;
+    
+    public static TurretInteractable Instance => instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -51,7 +61,7 @@ public class TurretInteractable : MonoBehaviour, IInteractable
         }
     }
 
-    private void OnLeavePost(InputValue inputValue)
+    public void OnLeavePost()
     {
         if (controlTurret)
         {

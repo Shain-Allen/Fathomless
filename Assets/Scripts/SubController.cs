@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -63,9 +64,69 @@ public class SubController : MonoBehaviour
     public static SubController instance;
     public static SubController Instance => instance;
 
+    public Fathomless fathomlessInputActions;
+
     private void Awake()
     {
         instance = this;
+
+        fathomlessInputActions = new Fathomless();
+        fathomlessInputActions.Player_AMap.Enable();
+    }
+
+    private void OnEnable()
+    {
+        fathomlessInputActions.Player_AMap.Move.performed += OnMove;
+        fathomlessInputActions.Player_AMap.Move.canceled += OnMove;
+        fathomlessInputActions.Player_AMap.SubElevate.performed += OnSubElevate;
+        fathomlessInputActions.Player_AMap.Look.performed += OnLook;
+        fathomlessInputActions.Player_AMap.LeavePost.performed += OnLeavePost;
+    }
+
+    private void OnDisable()
+    {
+        fathomlessInputActions.Player_AMap.Move.performed -= OnMove;
+        fathomlessInputActions.Player_AMap.Move.canceled -= OnMove;
+        fathomlessInputActions.Player_AMap.SubElevate.performed -= OnSubElevate;
+        fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+    }
+    
+    private void OnLook(InputAction.CallbackContext context)
+    {
+        if (!isSub) return;
+        
+        Vector2 mouse = context.ReadValue<Vector2>() * subMouseSensitivity * Time.deltaTime;
+        
+        xRotation -= mouse.y;
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+
+        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouse.y, 0);
+    }
+    
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        if (!isSub) return;
+        
+        rawWASDInput = context.ReadValue<Vector2>();
+    }
+    
+    private void OnSubElevate(InputAction.CallbackContext context)
+    {
+        if (!isSub) return;
+        
+        rawVertInput = context.ReadValue<float>();
+        
+        //Moves sub up
+        moveUp = rawVertInput >= 0.1f;
+
+        //Moves sub down
+        moveDown = rawVertInput <= -0.1f;
+    }
+
+    private void OnLeavePost(InputAction.CallbackContext context)
+    {
+        TurretInteractable.Instance.OnLeavePost();
+        PilotPanelInteractable.Instance.OnLeavePost();
     }
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
@@ -145,18 +206,6 @@ public class SubController : MonoBehaviour
             ResetRotation();
         }
     }
-
-    private void OnSubElevate(InputValue inputValue)
-    {
-        rawVertInput = inputValue.Get<float>();
-        
-        //Moves sub up
-        moveUp = rawVertInput >= 0.1f;
-
-        //Moves sub down
-        moveDown = rawVertInput <= -0.1f;
-    }
-    
     
      private void SubControl()
     {
@@ -240,21 +289,7 @@ public class SubController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         resetSubRot = false;
     }
-
-    private void OnLook(InputValue inputValue)
-    {
-        Vector2 mouse = inputValue.Get<Vector2>() * subMouseSensitivity * Time.deltaTime;
-        
-        xRotation -= mouse.y;
-        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
-
-        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouse.y, 0);
-    }
-
-    private void OnMove(InputValue inputValue)
-    {
-        rawWASDInput = inputValue.Get<Vector2>();
-    }
+    
     public void SetSubPosAndRot(Vector3 pos, Quaternion rot)
     {
         subRigi.velocity = Vector3.zero;
