@@ -170,13 +170,25 @@ public class PlayerScript : MonoBehaviour
             {
                 if (flashLight.activeSelf)
                     flashLight.SetActive(false);
-                //moveVector = new Vector3(direction.x, 0, direction.y) * insideAcceleration;
+                //Vector3 lastLocalPos = transform.localPosition;
                 moveVector.x = direction.x * insideAcceleration;
                 moveVector.z = direction.y * insideAcceleration;
                 characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
+                //Vector3 estimatedNewPos = lastLocalPos + (moveVector * Time.deltaTime);
+                //float compareThreshold = 0.1f;
                 HandleGravity(insideGravity);
-                HandleDrag(insideDrag); //this appears to be causing the issue when getting out of the sub controls
+                HandleDrag(insideDrag);
                 HandleJump(insideInitialJumpVelocity);
+
+                //Debug.Log(Vector3Compare(transform.localPosition, estimatedNewPos, compareThreshold));
+                
+                // check if the new pos is actually where its meant to be, if not then correct it.
+                // if (!Vector3Compare(transform.localPosition, estimatedNewPos, compareThreshold))
+                // {
+                //     transform.localPosition = new Vector3(estimatedNewPos.x, transform.localPosition.y, estimatedNewPos.z);
+                // }
+                
+                //Debug.Log($"last local pos: {transform.localPosition} \n estimated new pos: {estimatedNewPos}");
             }
 
             MoveCamera();
@@ -250,10 +262,28 @@ public class PlayerScript : MonoBehaviour
     }
 
     // temporarily freezes the player movement for the specified time 
-    public IEnumerator freezePlayer(float time = 0.15f)
+    public IEnumerator freezePlayer(float time = 0.05f)
     {
         frozen = true;
         yield return new WaitForSeconds(time);
         frozen = false;
+    }
+
+    public bool Vector3Compare(Vector3 firstVector3, Vector3 secondVector3, float threshold = 0.1f)
+    {
+        // check to see how close the vectors are to equal
+        float sqrDistance = (firstVector3 - secondVector3).sqrMagnitude;
+
+        float sqrThres = threshold * threshold;
+
+        if (sqrDistance > 1f)
+        {
+            Debug.Log("BigNumber");
+        }
+        
+        Debug.Log(sqrDistance);
+
+        // if they are equal enough (via threshold) then return true
+        return sqrDistance < sqrThres;
     }
 }
