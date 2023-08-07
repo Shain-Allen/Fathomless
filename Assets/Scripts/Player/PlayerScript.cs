@@ -67,7 +67,7 @@ public class PlayerScript : MonoBehaviour
     [Header("Sub Component References")]
     public GameObject sub;
     [HideInInspector] public SubController subController;
-    private GameObject playerContainer;
+    public GameObject playerContainer;
     public float spaceRadiusX;
     public float spaceRadiusZ;
 
@@ -157,7 +157,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (!inSub)
             {
-
+                characterController.enabled = true;
                 moveVector += new Vector3(direction.x, 0, direction.y) * outsideAcceleration;
                 if (!flashLight.activeSelf)
                     flashLight.SetActive(true);
@@ -168,27 +168,10 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
+                characterController.enabled = false;
                 if (flashLight.activeSelf)
                     flashLight.SetActive(false);
-                //Vector3 lastLocalPos = transform.localPosition;
-                moveVector.x = direction.x * insideAcceleration;
-                moveVector.z = direction.y * insideAcceleration;
-                characterController.Move(transform.TransformDirection(moveVector) * Time.deltaTime);
-                //Vector3 estimatedNewPos = lastLocalPos + (moveVector * Time.deltaTime);
-                //float compareThreshold = 0.1f;
-                HandleGravity(insideGravity);
-                HandleDrag(insideDrag);
-                HandleJump(insideInitialJumpVelocity);
-
-                //Debug.Log(Vector3Compare(transform.localPosition, estimatedNewPos, compareThreshold));
-                
-                // check if the new pos is actually where its meant to be, if not then correct it.
-                // if (!Vector3Compare(transform.localPosition, estimatedNewPos, compareThreshold))
-                // {
-                //     transform.localPosition = new Vector3(estimatedNewPos.x, transform.localPosition.y, estimatedNewPos.z);
-                // }
-                
-                //Debug.Log($"last local pos: {transform.localPosition} \n estimated new pos: {estimatedNewPos}");
+                InsideMovement(new Vector3(direction.x, 0, direction.y));
             }
 
             MoveCamera();
@@ -198,6 +181,29 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha7))
         {
             transform.position = SubController.instance.playerContainer.transform.position;
+        }
+    }
+    
+    private void InsideMovement(Vector3 moveVector)
+    {
+        transform.SetParent(sub.transform);
+
+        moveVector *= Time.deltaTime * (insideAcceleration / 5);
+
+        //establishes ellipse which represents player movement space
+        Vector3 newPos = transform.localPosition + moveVector;
+        Vector3 offset = newPos - playerContainer.transform.localPosition;
+        offset.x /= spaceRadiusX;
+        offset.z /= spaceRadiusZ;
+        //compare distance of player to origin of ellipse to see if player would be out of bounds. if so, then skip adding movement.
+        if (offset.magnitude < 1.0)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, playerContainer.transform.localPosition.y, transform.localPosition.z);
+            transform.position += transform.TransformDirection(moveVector);
+        }
+        else if (offset.magnitude > 1f)
+        {
+            transform.position = playerContainer.transform.position;
         }
     }
 
@@ -248,11 +254,55 @@ public class PlayerScript : MonoBehaviour
     //Draws the ellipse to the scene view
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.yellow;
+        Gizmos.matrix = transform.parent != null ? transform.parent.localToWorldMatrix : Matrix4x4.identity;
+        Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
+        Gizmos.matrix = Matrix4x4.identity;
+        
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 50);
 
         Gizmos.color = Color.green;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * 10);
+    }
+    
+    private Mesh CreateEllipseMesh()
+    {
+        int numSegments = 32;
+        float angleStep = 360.0f / numSegments;
+
+        Vector3[] vertices = new Vector3[numSegments + 1];
+        Vector3[] normals = new Vector3[numSegments + 1];
+        int[] indices = new int[numSegments * 2];
+
+        vertices[0] = Vector3.zero;
+        normals[0] = Vector3.up;
+        for (int i = 0; i < numSegments; i++)
+        {
+            float angle = i * angleStep;
+            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
+            float z = Mathf.Sin(angle * Mathf.Deg2Rad);
+            vertices[i + 1] = new Vector3(x * spaceRadiusX, 0.0f, z * spaceRadiusZ);
+            normals[i + 1] = Vector3.up;
+
+            if (i < numSegments - 1)
+            {
+                indices[i * 2] = i;
+                indices[i * 2 + 1] = i + 1;
+            }
+            else
+            {
+                indices[i * 2] = i;
+                indices[i * 2 + 1] = 0;
+            }
+        }
+
+        Mesh mesh = new Mesh();
+        mesh.vertices = vertices;
+        mesh.normals = normals;
+        mesh.SetIndices(indices, MeshTopology.Lines, 0);
+
+        return mesh;
     }
 
     public void ResetMoveVector()
