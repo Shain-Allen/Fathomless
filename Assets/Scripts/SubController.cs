@@ -79,6 +79,7 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.Move.performed += OnMove;
         fathomlessInputActions.Player_AMap.Move.canceled += OnMove;
         fathomlessInputActions.Player_AMap.SubElevate.performed += OnSubElevate;
+        fathomlessInputActions.Player_AMap.SubElevate.canceled += OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed += OnLook;
         fathomlessInputActions.Player_AMap.LeavePost.performed += OnLeavePost;
     }
@@ -88,6 +89,7 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.Move.performed -= OnMove;
         fathomlessInputActions.Player_AMap.Move.canceled -= OnMove;
         fathomlessInputActions.Player_AMap.SubElevate.performed -= OnSubElevate;
+        fathomlessInputActions.Player_AMap.SubElevate.canceled -= OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
     }
     
