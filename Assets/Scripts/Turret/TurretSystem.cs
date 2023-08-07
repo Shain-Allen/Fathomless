@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,23 @@ public class TurretSystem : MonoBehaviour
     public Rigidbody subRb;
     public GameObject VisHarpoon;
     public Animator turretAnimator;
+
+
+    public void TurretSystemEnable()
+    {
+        SubController.Instance.fathomlessInputActions.Player_AMap.Look.performed += OnLook;
+        SubController.Instance.fathomlessInputActions.Player_AMap.Look.canceled += OnLook;
+        
+        SubController.Instance.fathomlessInputActions.Player_AMap.Fire.performed += OnFire;
+    }
+
+    public void TurretSystemDisabled()
+    {
+        SubController.Instance.fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+        SubController.Instance.fathomlessInputActions.Player_AMap.Look.canceled -= OnLook;
+        
+        SubController.Instance.fathomlessInputActions.Player_AMap.Fire.performed -= OnFire;
+    }
 
     void Update()
     {
@@ -35,21 +53,21 @@ public class TurretSystem : MonoBehaviour
         }
     }
     
-    private void OnLook(InputValue inputValue)
+    private void OnLook(InputAction.CallbackContext context)
     {
-        Vector2 mouse = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
+        Vector2 mouse = context.ReadValue<Vector2>() * mouseSensitivity * Time.deltaTime;
         rotation += mouse;
         rotation.x = Mathf.Clamp(rotation.x, -90f, 90f);
         rotation.y = Mathf.Clamp(rotation.y, -90f, 90f);
         transform.localRotation = Quaternion.Euler(rotation.y, rotation.x, 0);
     }
     
-    private void OnFire(InputValue inputValue)
+    private void OnFire(InputAction.CallbackContext context)
     {
         
         if (!isTurret) return;
         
-        if (Time.time > nextShot)
+        if (Time.time > nextShot && context.performed)
         {
             FireTurret();
             turretAnimator.SetTrigger("Fire");

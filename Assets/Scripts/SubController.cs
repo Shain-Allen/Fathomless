@@ -82,6 +82,8 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.SubElevate.canceled += OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed += OnLook;
         fathomlessInputActions.Player_AMap.LeavePost.performed += OnLeavePost;
+
+        GetComponentInChildren<TurretSystem>().TurretSystemEnable();
     }
 
     private void OnDisable()
@@ -91,6 +93,7 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.SubElevate.performed -= OnSubElevate;
         fathomlessInputActions.Player_AMap.SubElevate.canceled -= OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+        GetComponentInChildren<TurretSystem>().TurretSystemDisabled();
     }
     
     private void OnLook(InputAction.CallbackContext context)
