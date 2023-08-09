@@ -1,37 +1,83 @@
-using System;
+using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private Bounds bounds;
 
-    [Header("Example")] 
-    [SerializeField] private Transform worldTransform;
-    [SerializeField] private RectTransform imageTransform;
+    [FormerlySerializedAs("worldTransform")]
+    [Header("Player references")] 
+    [SerializeField] private Transform playerWorldTransform;
+    [SerializeField] private RectTransform playerrRectTransform;
+
+    [Header("Points of interest")] 
+    [SerializeField] private GameObject mapIconPrefab;
+    [SerializeField] private List<MapPOI> pointsOfIntrestWT;
+    [SerializeField] private List<RectTransform> pointsOfIntrestsRT;
+
+    [SerializeField] private Sprite[] mapIcons;
     
     private RectTransform MapTransform => transform as RectTransform;
+    
+    private void OnValidate()
+    {
+        pointsOfIntrestWT = new List<MapPOI>();
+        
+        foreach (MapPOI icon in FindObjectsOfType<MapPOI>())
+        {
+            pointsOfIntrestWT.Add(icon);
+        }
+    }
+
+    private void Awake()
+    {
+        if (pointsOfIntrestWT == null)
+        {
+            Debug.Log("There are no Points of interests registered on the map");
+            return;
+        }
+
+        foreach (MapPOI mapPoi in pointsOfIntrestWT)
+        {
+            GameObject newMapIcon = Instantiate(mapIconPrefab, transform);
+            newMapIcon.GetComponent<Image>().sprite = mapIcons[(int)mapPoi.poiType];
+            mapPoi.RegisterPOIIcon(newMapIcon.transform as RectTransform);
+            pointsOfIntrestsRT.Add(newMapIcon.transform as RectTransform);
+            mapPoi.POIDeleted += POIDeleted;
+        }
+    }
 
     private void Update()
     {
-        if (!worldTransform)
-        {
-            Debug.LogError("you don't have the Player set in the Map's Mapmanager scrip in the inspector");
-            return;
-        }
+        playerrRectTransform.anchoredPosition = FindInterfacePoint(playerWorldTransform);
 
-        if (!bounds)
+        if (pointsOfIntrestsRT.Count != pointsOfIntrestWT.Count)
         {
-            Debug.LogError("you don't have the MiniMapWorldBounds prefab in your scene, this is required for the map to work");
+            Debug.LogWarning("Error: for some reason there is not the same amount of POI's as map icons");
             return;
         }
         
-        imageTransform.anchoredPosition = FindInterfacePoint();
+        for (int i = 0; i < pointsOfIntrestWT.Count; i++)
+        {
+            pointsOfIntrestsRT[i].anchoredPosition = FindInterfacePoint(pointsOfIntrestWT[i].transform);
+        }
     }
 
-    private Vector2 FindInterfacePoint()
+    private Vector2 FindInterfacePoint(Transform objectTransform)
     {
-        Vector2 normalizedPosition = bounds.FindNormalizedPosition(worldTransform.position);
+        Vector2 normalizedPosition = bounds.FindNormalizedPosition(objectTransform.position);
         return Rect.NormalizedToPoint(MapTransform.rect, normalizedPosition);
+    }
+    
+    private void POIDeleted(Transform poiTransform, RectTransform poiRT)
+    {
+        pointsOfIntrestWT.Remove(poiTransform.GetComponent<MapPOI>());
+        pointsOfIntrestsRT.Remove(poiRT);
+        poiTransform.GetComponent<MapPOI>().POIDeleted -= POIDeleted;
+        Destroy(poiRT.gameObject);
     }
 }
