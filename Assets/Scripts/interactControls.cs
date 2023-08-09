@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,23 +9,48 @@ public class interactControls : MonoBehaviour
     private float raycastRange = 5f;
     public GameObject InteractFob;
 
+    private Fathomless fathomlessInputActions;
+
+    private void Awake()
+    {
+        fathomlessInputActions = new Fathomless();
+        fathomlessInputActions.Player_AMap.Enable();
+    }
+
+    private void OnEnable()
+    {
+        fathomlessInputActions.Player_AMap.Look.performed += OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled += OnLook;
+        fathomlessInputActions.Player_AMap.Interact.performed += OnInteract;
+    }
+
+    private void OnDisable()
+    {
+        fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled -= OnLook;
+        fathomlessInputActions.Player_AMap.Interact.performed -= OnInteract;
+    }
+
     private void Start()
     {
         InteractFob = CanvasController.Instance.pointer;
         InteractFob.SetActive(false);
     }
 
-    private void OnInteract(InputValue inputValue)
+    private void OnInteract(InputAction.CallbackContext context)
     {
-        //Debug.Log("Button Press");
+        if(!context.performed) return;
+        
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             raycast.collider.gameObject.GetComponent<IInteractable>()?.Interact(gameObject);
         }
     }
 
-    private void OnLook(InputValue inputValue)
+    public void OnLook(InputAction.CallbackContext context)
     {
+        if(!context.performed) return;
+        
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             if (raycast.collider.gameObject.GetComponent<IInteractable>() != null)

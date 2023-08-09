@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4851989451099783122}
   - component: {fileID: 4851989451099783123}
   - component: {fileID: 2017072475258703938}
+  - component: {fileID: 4592406708052840638}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930b19d54832de64195b39b3b6bc6a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scrap: 0
+  Scrap: 13
   ScrapMax: 10
   currentTreasure: 0
   newTreasure: 0
@@ -55,7 +56,7 @@ MonoBehaviour:
   canScissor: 0
   playerHealth: 0
   playerOxygen: 0
-  O2DepletionRate: 10
+  O2DepletionRate: 0.9
   playerReloadPercentage: 0
   isReloading: 0
   isFading: 0
@@ -72,8 +73,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf917fce2c37b648a241143b22c0a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeHarpoons: []
+  urchinEnemies: []
   checkpointPresets: []
   currentLatestCheckpoint:
     subPosition: {x: 0, y: 0, z: 0}
     subRotation: {x: 0, y: 0, z: 0, w: 0}
     treasureCount: 0
+--- !u!114 &4592406708052840638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851989451099783120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e48f041e9dd06dd4eb539e592c9c11bd,
+    type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SubController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 7f95bd43-6d96-4b05-aeb2-6a277e14cf35
+    m_ActionName: Player_AMap/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5253ecdf-9c13-4f41-8085-f0b17e6db9ae
+    m_ActionName: Player_AMap/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 18157a0e-1822-4d23-8b46-8f364c02150c
+    m_ActionName: Player_AMap/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aa66f154-b011-47da-8abd-e82332f2c723
+    m_ActionName: Player_AMap/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8798da90-711c-48cb-8a8d-458e29c755f2
+    m_ActionName: Player_AMap/LeavePost[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 52476bf8-6ae3-4a0f-8e0b-732d3260fc7a
+    m_ActionName: Player_AMap/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 226c1e38-e252-464c-a67c-1d321840ed37
+    m_ActionName: Player_AMap/SubElevate[/Keyboard/leftShift,/Keyboard/leftCtrl]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player_AMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

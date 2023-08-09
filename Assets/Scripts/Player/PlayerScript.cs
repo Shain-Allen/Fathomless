@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -64,6 +65,8 @@ public class PlayerScript : MonoBehaviour
     public static PlayerScript instance;
     public static PlayerScript Instance => instance;
 
+    private Fathomless fathomlessInputActions;
+
 
     //Sub References
     [Header("Sub Component References")]
@@ -80,25 +83,27 @@ public class PlayerScript : MonoBehaviour
 
 
     //expression body statement to get input for player movement
-    public void OnMove(InputValue inputValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (!frozen) direction = inputValue.Get<Vector2>();
+        if (!frozen) direction = context.ReadValue<Vector2>();
     }
 
     //expression body statement to get input for when the player Jumps
-    private void OnJump(InputValue inputValue)
+    private void OnJump(InputAction.CallbackContext context)
     {
-        if (!frozen) jumpInput = inputValue.Get<float>();
+        if (!frozen) jumpInput = context.ReadValue<float>();
     }
 
     //expression body statement to get input for when the player moves their mouse
-    private void OnLook(InputValue inputValue)
+    private void OnLook(InputAction.CallbackContext context)
     {
-        if (!frozen) mouseInput = inputValue.Get<Vector2>() * mouseSensitivity * Time.deltaTime;
+        if (frozen) return; 
+            
+        mouseInput = context.ReadValue<Vector2>() * mouseSensitivity * Time.deltaTime;
     }
 
     //handles the firing of the handheld harpoon gun (if that gets added)
-    private void OnFire(InputValue inputValue)
+    private void OnFire(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.playerReloadPercentage >= 100f)
         {
@@ -110,6 +115,31 @@ public class PlayerScript : MonoBehaviour
     {
         instance = this;
         SetupJumpVariables();
+        
+        fathomlessInputActions = new Fathomless();
+        fathomlessInputActions.Player_AMap.Enable();
+    }
+
+    private void OnEnable()
+    {
+        fathomlessInputActions.Player_AMap.Move.performed += OnMove;
+        fathomlessInputActions.Player_AMap.Move.canceled += OnMove;
+        fathomlessInputActions.Player_AMap.Jump.performed += OnJump;
+        fathomlessInputActions.Player_AMap.Jump.canceled += OnJump;
+        fathomlessInputActions.Player_AMap.Look.performed += OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled += OnLook;
+        fathomlessInputActions.Player_AMap.Fire.performed += OnFire;
+    }
+
+    private void OnDisable()
+    {
+        fathomlessInputActions.Player_AMap.Move.performed -= OnMove;
+        fathomlessInputActions.Player_AMap.Move.canceled -= OnMove;
+        fathomlessInputActions.Player_AMap.Jump.performed -= OnJump;
+        fathomlessInputActions.Player_AMap.Jump.canceled -= OnJump;
+        fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled -= OnLook;
+        fathomlessInputActions.Player_AMap.Fire.performed -= OnFire;
     }
 
     // Start is called before the first frame update

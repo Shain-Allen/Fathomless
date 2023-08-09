@@ -8,7 +8,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public SubController subScript;
     public GameObject subCam;
     public TurretInteractable otherStation;
-    private PlayerInput subInput;
 
     interactControls playerInteractController;
 
@@ -33,7 +32,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
-        subInput = subScript.GetComponent<PlayerInput>();
     }
 
     public void Interact(GameObject player)
@@ -43,8 +41,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
         if (canControl)
         {
-            player.GetComponent<PlayerInput>().enabled = false;
-            subInput.enabled = true;
             controlSub = true; //turns on sub control when player presses e on control pannel
             player.GetComponent<PlayerScript>().frozen = true;
         }
@@ -75,8 +71,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     {
         if (controlSub)
         {
-            subInput.enabled = false;
-            player.GetComponent<PlayerInput>().enabled = true;
             player.GetComponent<PlayerScript>().ResetMoveVector();
             controlSub = false;
             player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -84,8 +78,6 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     }
     public void kickPlayerOut() 
     {
-        subInput.enabled = false;
-        player.GetComponent<PlayerInput>().enabled = true;
         player.GetComponent<PlayerScript>().ResetMoveVector();
         controlSub = false;
         player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));

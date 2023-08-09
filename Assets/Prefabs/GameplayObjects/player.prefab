@@ -1157,7 +1157,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8341399024471591685}
-  - component: {fileID: 7544636684410426706}
   - component: {fileID: 6542037386266173904}
   - component: {fileID: 8341399024471591688}
   - component: {fileID: 6013005429556658105}
@@ -1192,37 +1191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7544636684410426706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341399024471591689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: e48f041e9dd06dd4eb539e592c9c11bd,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player_AMap
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!143 &6542037386266173904
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1294,6 +1262,7 @@ MonoBehaviour:
   cam: {fileID: 8341399023634557052}
   flashLight: {fileID: 7469742907020895066}
   HarpoonGun: {fileID: 1889477482}
+  InternalCollider: 0
   sub: {fileID: 0}
   subController: {fileID: 0}
   playerContainer: {fileID: 0}
@@ -1434,9 +1403,10 @@ GameObject:
   - component: {fileID: 6630242967105236346}
   - component: {fileID: 6096131596231020850}
   - component: {fileID: 2301864242584182508}
+  - component: {fileID: 1555239861430929281}
   m_Layer: 8
-  m_Name: visball
-  m_TagString: Untagged
+  m_Name: TransformControllerColliderCheck
+  m_TagString: ColliderCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,7 +1441,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8680158545337229920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1506,6 +1476,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1555239861430929281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680158545337229920}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8706007500799016188
 GameObject:
   m_ObjectHideFlags: 0

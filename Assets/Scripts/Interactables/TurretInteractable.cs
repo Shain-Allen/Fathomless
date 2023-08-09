@@ -13,7 +13,6 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     public GameObject playerTurretDropPoint;
 
     public bool controlTurret;
-    private PlayerInput subInput;
 
     interactControls playerInteractController;
 
@@ -21,23 +20,25 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     
     public static TurretInteractable Instance => instance;
 
+    private Fathomless fathomlessInputActions;
+
     private void Awake()
     {
         instance = this;
+        
+        fathomlessInputActions = new Fathomless();
+        fathomlessInputActions.Player_AMap.Enable();
     }
 
     private void Start()
     {
         playerChar = sub.GetComponent<SubController>().Player.gameObject;
         playerInteractController = playerChar.GetComponent<interactControls>();
-        subInput = sub.GetComponent<PlayerInput>();
     }
 
     public void Interact(GameObject player)
     {
-        player.GetComponent<PlayerInput>().enabled = false;
         player.GetComponent<PlayerScript>().frozen = true;
-        subInput.enabled = true;
         FakeTurret.SetActive(false);
         controlTurret = true;
     }
@@ -65,8 +66,6 @@ public class TurretInteractable : MonoBehaviour, IInteractable
     {
         if (controlTurret)
         {
-            subInput.enabled = false;
-            playerChar.GetComponent<PlayerInput>().enabled = true;
             playerChar.GetComponent<PlayerScript>().ResetMoveVector();
             playerChar.transform.position = playerTurretDropPoint.transform.position;
             FakeTurret.SetActive(true);
