@@ -78,6 +78,8 @@ public class MapManager : MonoBehaviour
         pointsOfIntrestWT.Remove(poiTransform.GetComponent<MapPOI>());
         pointsOfIntrestsRT.Remove(poiRT);
         poiTransform.GetComponent<MapPOI>().POIDeleted -= POIDeleted;
-        Destroy(poiRT.gameObject);
+        
+        if (poiRT)
+            Destroy(poiRT.gameObject);
     }
 }

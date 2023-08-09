@@ -19,6 +19,7 @@ public class MapPOI : MonoBehaviour
     private void OnDestroy()
     {
         POIDeleted(transform, poiRectTransform);
-        poiRectTransform = null;
+        if (poiRectTransform)
+            poiRectTransform = null;
     }
 }
