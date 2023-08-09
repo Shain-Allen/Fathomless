@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public bool frozen;
     public bool inSub;
 
+    public GameObject visball;
 
     //Player movement Vars
     [Header("Player Adjustments")]
@@ -59,6 +60,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject cam;
     public GameObject flashLight;
     public GameObject HarpoonGun;
+    public bool InternalCollider;
     public static PlayerScript instance;
     public static PlayerScript Instance => instance;
 
@@ -190,23 +192,35 @@ public class PlayerScript : MonoBehaviour
 
         moveVector *= Time.deltaTime * (insideAcceleration / 5);
 
-        //establishes ellipse which represents player movement space
-        Vector3 newPos = transform.localPosition + moveVector;
-        Vector3 offset = newPos - playerContainer.transform.localPosition;
-        offset.x /= spaceRadiusX;
-        offset.z /= spaceRadiusZ;
+        Vector3 newPos = transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 0.5f;
+
+        visball.transform.position = newPos;
+
+        //Vector3 desiredPosition = playerContainer.transform.position + visball.transform.position - moveVector;
+        //desiredPosition.y += Mathf.Abs(playerContainer.transform.position.y);
+        //visball.transform.position = desiredPosition;
+
+
+
+
+
         //compare distance of player to origin of ellipse to see if player would be out of bounds. if so, then skip adding movement.
-        if (offset.magnitude < 1.0)
+        if (InternalCollider)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, playerContainer.transform.localPosition.y, transform.localPosition.z);
             transform.position += transform.TransformDirection(moveVector);
         }
-        else if (offset.magnitude > 1f)
-        {
-            transform.position = playerContainer.transform.position;
-        }
+        
+        //transform.localPosition = new Vector3(transform.localPosition.x, playerContainer.transform.localPosition.y, transform.localPosition.z);
+        //transform.position += transform.TransformDirection(moveVector);
+        //transform.localPosition - transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 0.5f
     }
-
+    //private bool IsInsideEllipse(Vector3 position)
+    //{
+    //    Vector3 point = position - playerContainer.transform.position;
+    //    return ((point.x * point.x) / (spaceRadiusX * spaceRadiusX)) +
+    //           ((point.z * point.z) / (spaceRadiusZ * spaceRadiusZ)) <= 1f;
+    //}
     private void HandleJump(float initialJumpVelocity)
     {
         if (jumpInput > 0f && characterController.isGrounded)
@@ -256,14 +270,14 @@ public class PlayerScript : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.matrix = transform.parent != null ? transform.parent.localToWorldMatrix : Matrix4x4.identity;
-        Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
+        //Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
         Gizmos.matrix = Matrix4x4.identity;
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 50);
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 10);
+        //Gizmos.color = Color.green;
+       // Gizmos.DrawLine(transform.position, transform.position + transform.forward * 10);
     }
     
     private Mesh CreateEllipseMesh()
