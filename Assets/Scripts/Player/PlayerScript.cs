@@ -151,14 +151,7 @@ public class PlayerScript : MonoBehaviour
         transform.position = playerContainer.transform.position;
         characterController = GetComponent<CharacterController>();
 
-        if (spaceRadiusX < 1)
-        {
-            spaceRadiusX = 1;
-        }
-        if (spaceRadiusZ < 1)
-        {
-            spaceRadiusZ = 1;
-        }
+        
 
         transform.SetParent(sub.transform);
     }
@@ -218,7 +211,7 @@ public class PlayerScript : MonoBehaviour
     
     private void InsideMovement(Vector3 moveVector)
     {
-        transform.SetParent(sub.transform);
+        transform.SetParent(SubController.instance.subRigi.transform);
 
         moveVector *= Time.deltaTime * (insideAcceleration / 5);
 
@@ -226,31 +219,12 @@ public class PlayerScript : MonoBehaviour
 
         visball.transform.position = newPos;
 
-        //Vector3 desiredPosition = playerContainer.transform.position + visball.transform.position - moveVector;
-        //desiredPosition.y += Mathf.Abs(playerContainer.transform.position.y);
-        //visball.transform.position = desiredPosition;
 
-
-
-
-
-        //compare distance of player to origin of ellipse to see if player would be out of bounds. if so, then skip adding movement.
         if (InternalCollider)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, playerContainer.transform.localPosition.y, transform.localPosition.z);
             transform.position += transform.TransformDirection(moveVector);
         }
-        
-        //transform.localPosition = new Vector3(transform.localPosition.x, playerContainer.transform.localPosition.y, transform.localPosition.z);
-        //transform.position += transform.TransformDirection(moveVector);
-        //transform.localPosition - transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 0.5f
     }
-    //private bool IsInsideEllipse(Vector3 position)
-    //{
-    //    Vector3 point = position - playerContainer.transform.position;
-    //    return ((point.x * point.x) / (spaceRadiusX * spaceRadiusX)) +
-    //           ((point.z * point.z) / (spaceRadiusZ * spaceRadiusZ)) <= 1f;
-    //}
     private void HandleJump(float initialJumpVelocity)
     {
         if (jumpInput > 0f && characterController.isGrounded)

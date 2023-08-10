@@ -150,29 +150,11 @@ public class SubController : MonoBehaviour
         {
 
             //followAnim.SetBool(AnimationName, true);
-            transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
+            //transform.position = Vector3.MoveTowards(transform.position, followPoint.transform.position, followSpeed);
+            transform.position = Vector3.Lerp(transform.position, followPoint.transform.position, 0.5f);
             transform.LookAt(followPoint.transform);
 
             float distance = Vector3.Distance(transform.position, followPoint.transform.position);
-
-            //these are the different distances that the sub will look out for to control the speed of when it is following the animated follow point
-            if (distance >= 100)
-            {
-                followSpeed = animTopFollowSpeed;
-            }
-            if (distance <= 75)
-            {
-                followSpeed = animTopFollowSpeed / 2;
-            }
-            if (distance <= 50)
-            {
-                followSpeed = animBottomSpeed / 2;
-            }
-            if (distance <= 25)
-            {
-                followSpeed = animBottomSpeed / 4;
-            }
-
         }
 
 

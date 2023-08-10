@@ -15,5 +15,9 @@ public class SubInternalCollider : MonoBehaviour
         {
             PlayerScript.instance.InternalCollider = false;
         }
+        if (other.gameObject.tag == "Player")
+        {
+            PlayerScript.instance.transform.position = SubController.instance.playerContainer.transform.position;
+        }
     }
 }
