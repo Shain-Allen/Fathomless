@@ -62,6 +62,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject flashLight;
     public GameObject HarpoonGun;
     public bool InternalCollider;
+    public Animation FakeJumpAnim;
+    public bool canFakeJump;
+    public GameObject PlayerMesh;
     public static PlayerScript instance;
     public static PlayerScript Instance => instance;
 
@@ -92,6 +95,14 @@ public class PlayerScript : MonoBehaviour
     private void OnJump(InputAction.CallbackContext context)
     {
         if (!frozen) jumpInput = context.ReadValue<float>();
+        if (inSub)
+        {
+            if (canFakeJump)
+            {
+                canFakeJump = false;
+                FakeJumpAnim.Play();
+            }
+        }
     }
 
     //expression body statement to get input for when the player moves their mouse
@@ -150,8 +161,8 @@ public class PlayerScript : MonoBehaviour
         playerContainer = subController.playerContainer;
         transform.position = playerContainer.transform.position;
         characterController = GetComponent<CharacterController>();
-
-        
+        //player's mesh is visible while jumping, so I deactivate it on start.
+        PlayerMesh.SetActive(false);
 
         transform.SetParent(sub.transform);
     }
@@ -224,6 +235,7 @@ public class PlayerScript : MonoBehaviour
         {
             transform.position += transform.TransformDirection(moveVector);
         }
+        
     }
     private void HandleJump(float initialJumpVelocity)
     {
@@ -274,54 +286,13 @@ public class PlayerScript : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.matrix = transform.parent != null ? transform.parent.localToWorldMatrix : Matrix4x4.identity;
-        //Gizmos.DrawWireMesh(CreateEllipseMesh(), playerContainer.transform.localPosition);
         Gizmos.matrix = Matrix4x4.identity;
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 50);
 
-        //Gizmos.color = Color.green;
-       // Gizmos.DrawLine(transform.position, transform.position + transform.forward * 10);
     }
     
-    private Mesh CreateEllipseMesh()
-    {
-        int numSegments = 32;
-        float angleStep = 360.0f / numSegments;
-
-        Vector3[] vertices = new Vector3[numSegments + 1];
-        Vector3[] normals = new Vector3[numSegments + 1];
-        int[] indices = new int[numSegments * 2];
-
-        vertices[0] = Vector3.zero;
-        normals[0] = Vector3.up;
-        for (int i = 0; i < numSegments; i++)
-        {
-            float angle = i * angleStep;
-            float x = Mathf.Cos(angle * Mathf.Deg2Rad);
-            float z = Mathf.Sin(angle * Mathf.Deg2Rad);
-            vertices[i + 1] = new Vector3(x * spaceRadiusX, 0.0f, z * spaceRadiusZ);
-            normals[i + 1] = Vector3.up;
-
-            if (i < numSegments - 1)
-            {
-                indices[i * 2] = i;
-                indices[i * 2 + 1] = i + 1;
-            }
-            else
-            {
-                indices[i * 2] = i;
-                indices[i * 2 + 1] = 0;
-            }
-        }
-
-        Mesh mesh = new Mesh();
-        mesh.vertices = vertices;
-        mesh.normals = normals;
-        mesh.SetIndices(indices, MeshTopology.Lines, 0);
-
-        return mesh;
-    }
 
     public void ResetMoveVector()
     {

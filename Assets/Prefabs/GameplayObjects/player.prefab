@@ -108,7 +108,7 @@ Camera:
     m_Bits: 1088
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: c4eb92552598f2b4c824327a4741cab0, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0
@@ -549,6 +549,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3273426666147238654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3717157037976747542}
+  - component: {fileID: 5208421243534853037}
+  - component: {fileID: 1608985906869214215}
+  m_Layer: 8
+  m_Name: ArtificialJumpPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3717157037976747542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273426666147238654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8341399023634557047}
+  m_Father: {fileID: 8341399024471591685}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &5208421243534853037
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273426666147238654}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b4c2a81fcaee98949be8b18be4460622, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b4c2a81fcaee98949be8b18be4460622, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &1608985906869214215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273426666147238654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5b93c2d30e5404e8379c5e4fcae6cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7469742907020895066
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,13 +955,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341399023634557052}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0.60999966, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1889477483}
-  m_Father: {fileID: 8341399024471591685}
-  m_RootOrder: 1
+  m_Father: {fileID: 3717157037976747542}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8341399023634557051
 Camera:
@@ -1182,14 +1244,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8341399023321249072}
-  - {fileID: 8341399023634557047}
+  - {fileID: 3717157037976747542}
   - {fileID: 4078996030849479200}
   - {fileID: 8341399024407237591}
   - {fileID: 8910999104326305258}
   - {fileID: 953588028}
   - {fileID: 6630242967105236346}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6542037386266173904
 CharacterController:
@@ -1263,6 +1325,9 @@ MonoBehaviour:
   flashLight: {fileID: 7469742907020895066}
   HarpoonGun: {fileID: 1889477482}
   InternalCollider: 0
+  FakeJumpAnim: {fileID: 5208421243534853037}
+  canFakeJump: 0
+  PlayerMesh: {fileID: 8341399023321249073}
   sub: {fileID: 0}
   subController: {fileID: 0}
   playerContainer: {fileID: 0}

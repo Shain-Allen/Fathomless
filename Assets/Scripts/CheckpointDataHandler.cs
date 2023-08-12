@@ -105,6 +105,7 @@ public class CheckpointDataHandler : MonoBehaviour
         LoadSub();
         RemoveHarpoons();
         LoadEnemies();
+        LoadTunnelReset();
         yield return new WaitForSeconds(1);
         GlobalSoundsManager.instance.PlaySubAmbience();
         LoadCanvas();
@@ -125,6 +126,19 @@ public class CheckpointDataHandler : MonoBehaviour
         GameManager.Instance.playerHealth = 100;
         GameManager.Instance.isGameEnding = false;
         GameManager.Instance.playerOxygen = 100;
+    }
+    void LoadTunnelReset()
+    {
+        if (SubController.instance.follow)
+        {
+            SubController.instance.follow = false;
+            followPoint currentTunnelScript = SubController.instance.followPoint.GetComponent<followPoint>();
+            Animation followPointAnim = SubController.instance.followPoint.GetComponent<Animation>();
+            followPointAnim.Stop();
+            followPointAnim.Rewind();
+            currentTunnelScript.SpookEel();
+            currentTunnelScript.ReturnPilotControl();
+        }
     }
     void LoadEnemies()
     {

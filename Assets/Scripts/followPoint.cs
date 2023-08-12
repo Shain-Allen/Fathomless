@@ -83,7 +83,7 @@ public class followPoint : MonoBehaviour
 
     IEnumerator DeactivateEel()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         Eel.transform.position = EelSpawnPoint.transform.position;
         Eel.transform.rotation = EelSpawnPoint.transform.rotation;
         LargeEnemyBehavior.currentState = LargeEnemyBehavior.State.Pursue;
