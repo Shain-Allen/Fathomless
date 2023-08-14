@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SubDamageManager.instance.RepairAllHits();
+            CameraManager.instance.HurtPlayerEffect();
         }
     }
     private void FixedUpdate()
