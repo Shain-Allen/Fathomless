@@ -12,6 +12,8 @@ public class patrolEnemyAttack : MonoBehaviour
 
     public float damageAmount;
 
+    public Animator anim;
+
     public void Start()
     {
         timerTime = maxTime;
@@ -25,7 +27,12 @@ public class patrolEnemyAttack : MonoBehaviour
             if(timerTime <= 0)
             {
                 patroler.DamagePlayer(damageAmount);
+                anim.SetBool("attack", true);
                 timerTime = maxTime;
+            }
+            else
+            {
+                anim.SetBool("attack", false);
             }
             //StartCoroutine(DamageCountDown());
         }
@@ -34,10 +41,10 @@ public class patrolEnemyAttack : MonoBehaviour
             timerTime = maxTime;
         }
     }
-
+/*
     IEnumerator DamageCountDown()
     {
         yield return new WaitForSeconds(timerTime);
         patroler.DamagePlayer(damageAmount);
-    }
+    }*/
 }

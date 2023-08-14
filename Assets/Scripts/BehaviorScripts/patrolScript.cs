@@ -52,19 +52,19 @@ public class patrolScript : MonoBehaviour
         distance = Vector3.Distance(transform.position, player.transform.position);
 
 
-        if(distance >= 20)
+        if(distance >= 25)
         {
             patrolCase = 1;
         }
 
         if (canFollowPlayer)
         {
-            if (distance <= 15 && distance >= 8)
+            if (distance <= 20 && distance >= 13)
             {
                 patrolCase = 2;
             }
 
-            if(distance <= 7)
+            if(distance <= 12)
             {
                 patrolCase = 3;
             }
@@ -94,6 +94,8 @@ public class patrolScript : MonoBehaviour
                 attackScript.doDamage = false;
                 speed = 1f;
                 transform.LookAt(pos[currentPos].transform.position);
+                Vector3 eulerAngles = transform.eulerAngles;
+                transform.eulerAngles = new Vector3(0f, eulerAngles.y, eulerAngles.z);
                 Patrol();
                 break;
             case 2:

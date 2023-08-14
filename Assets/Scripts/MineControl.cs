@@ -12,7 +12,9 @@ public class MineControl : MonoBehaviour
     public float mineDamage;
 
     public GameObject mineMesh;
-    public VisualEffect explosion;
+    public GameObject explosion;
+    public GameObject explosionPoint;
+
 
     bool isActive;
 
@@ -25,14 +27,17 @@ public class MineControl : MonoBehaviour
     {
         if(collision.gameObject.tag == "SubTag")
         {
-            explosion.SendEvent("Blow"); //Not Working
+            //explosion.SendEvent("Blow"); //Not Working
             subDamage();
         }
     }
 
     public void subDamage()
     {
+        //explosion.SendEvent("OnPlay");
+        Instantiate(explosion, explosionPoint.transform.position, Quaternion.identity);
         subMan.Hit();
-        mineMesh.SetActive(false);
+        //mineMesh.SetActive(false);
+        Destroy(gameObject);
     }
 }
