@@ -1,18 +1,11 @@
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MapManager : MonoBehaviour
 {
     [Header("References")] 
     [SerializeField] private Bounds bounds;
-
-    [FormerlySerializedAs("worldTransform")]
-    [Header("Player references")] 
-    [SerializeField] private Transform playerWorldTransform;
-    [SerializeField] private RectTransform playerrRectTransform;
 
     [Header("Points of interest")] 
     [SerializeField] private GameObject mapIconPrefab;
@@ -53,8 +46,6 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
-        playerrRectTransform.anchoredPosition = FindInterfacePoint(playerWorldTransform);
-
         if (pointsOfIntrestsRT.Count != pointsOfIntrestWT.Count)
         {
             Debug.LogWarning("Error: for some reason there is not the same amount of POI's as map icons");
@@ -70,6 +61,12 @@ public class MapManager : MonoBehaviour
     private Vector2 FindInterfacePoint(Transform objectTransform)
     {
         Vector2 normalizedPosition = bounds.FindNormalizedPosition(objectTransform.position);
+
+        // if (objectTransform.GetComponent<MapPOI>().poiType == MapPOITypes.Tunnel)
+        // {
+        //     Debug.Log(bounds.FindNormalizedPosition(objectTransform.position));
+        // }
+        
         return Rect.NormalizedToPoint(MapTransform.rect, normalizedPosition);
     }
     

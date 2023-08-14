@@ -4,7 +4,8 @@ using UnityEngine;
 public enum MapPOITypes
 {
     Treasure,
-    Tunnel
+    Tunnel,
+    Sub
 }
 
 public class MapPOI : MonoBehaviour
