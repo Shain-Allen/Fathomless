@@ -27,6 +27,7 @@ public class patrolEnemyAttack : MonoBehaviour
             if(timerTime <= 0)
             {
                 patroler.DamagePlayer(damageAmount);
+                CameraManager.instance.HurtPlayerEffect();
                 anim.SetBool("attack", true);
                 timerTime = maxTime;
             }

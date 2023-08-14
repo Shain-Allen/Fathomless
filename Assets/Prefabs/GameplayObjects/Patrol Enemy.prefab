@@ -4143,7 +4143,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3913147967220837932}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4263,7 +4263,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2.6
-  m_Speed: 3.5
+  m_Speed: 0.27
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -5392,8 +5392,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672519771335172958}
-  - component: {fileID: 8944588141215603721}
   - component: {fileID: 2792299679993177881}
+  - component: {fileID: 8818673193233210676}
+  - component: {fileID: 4805901618424299496}
   m_Layer: 0
   m_Name: enemyHolder
   m_TagString: Untagged
@@ -5417,21 +5418,6 @@ Transform:
   m_Father: {fileID: 3913147967220837926}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8944588141215603721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4883205939539500568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85b167a62c7076429cd2fc315976b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMaxHealth: 50
-  enemyHealth: 50
-  patrolScript: {fileID: 3913147967220837930}
 --- !u!95 &2792299679993177881
 Animator:
   serializedVersion: 5
@@ -5453,6 +5439,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8818673193233210676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883205939539500568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85b167a62c7076429cd2fc315976b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxHealth: 50
+  enemyHealth: 50
+  patrolScript: {fileID: 3913147967220837930}
+--- !u!135 &4805901618424299496
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883205939539500568}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.7092719
+  m_Center: {x: 0.06442261, y: -0.07255077, z: -0.36274958}
 --- !u!1 &4905665930473092307
 GameObject:
   m_ObjectHideFlags: 0
