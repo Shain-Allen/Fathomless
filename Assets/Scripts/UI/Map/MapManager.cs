@@ -42,6 +42,8 @@ public class MapManager : MonoBehaviour
             pointsOfIntrestsRT.Add(newMapIcon.transform as RectTransform);
             mapPoi.POIDeleted += POIDeleted;
         }
+
+        pointsOfIntrestsRT[pointsOfIntrestWT.IndexOf(pointsOfIntrestWT.Find(poi => poi.poiType == MapPOITypes.Sub))].transform.SetAsLastSibling();
     }
 
     private void Update()
