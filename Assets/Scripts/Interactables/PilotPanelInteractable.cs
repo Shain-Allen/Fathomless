@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PilotPanelInteractable : MonoBehaviour, IInteractable
 {
     public GameObject playerSubLockLocation;
-    GameObject player;
+    public GameObject player;
     public SubController subScript;
     public GameObject subCam;
     public TurretInteractable otherStation;
@@ -20,7 +20,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public GameObject detectionPoint;
 
     public GameObject resetPoint;
-    GameObject InteractFob;
+    public GameObject InteractFob;
 
     private static PilotPanelInteractable instance;
     public static PilotPanelInteractable Instance => instance;
@@ -34,7 +34,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     {
         playerInteractController = player.GetComponent<interactControls>();
         InteractFob = playerInteractController.InteractFob;
-        player = sub.GetComponent<SubController>().Player.gameObject;
+        player = PlayerScript.instance.gameObject;
     }
 
     public void Interact(GameObject player)
