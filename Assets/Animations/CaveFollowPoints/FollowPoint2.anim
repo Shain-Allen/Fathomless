@@ -28,8 +28,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.9989539}
       - serializedVersion: 3
-        time: 13.75
-        value: {x: 20.9, y: 0, z: 15.5078125}
+        time: 13.9
+        value: {x: 8.65, y: 0, z: 10.007111}
         inSlope: {x: 0, y: 0, z: -36.25635}
         outSlope: {x: 0, y: 0, z: -36.25635}
         tangentMode: 0
@@ -39,8 +39,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 18.95
         value: {x: -20.22, y: 0, z: -222.05783}
-        inSlope: {x: 0, y: 0, z: -50.0073}
-        outSlope: {x: 0, y: 0, z: -50.0073}
+        inSlope: {x: 0, y: 0, z: -50.143845}
+        outSlope: {x: 0, y: 0, z: -50.143845}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -122,8 +122,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 13.75
-        value: 20.9
+        time: 13.9
+        value: 8.65
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -188,7 +188,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 13.75
+        time: 13.9
         value: 0
         inSlope: 0
         outSlope: 0
@@ -254,8 +254,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.9989539
       - serializedVersion: 3
-        time: 13.75
-        value: 15.5078125
+        time: 13.9
+        value: 10.007111
         inSlope: -36.25635
         outSlope: -36.25635
         tangentMode: 136
@@ -265,8 +265,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 18.95
         value: -222.05783
-        inSlope: -50.0073
-        outSlope: -50.0073
+        inSlope: -50.143845
+        outSlope: -50.143845
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -324,15 +324,29 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 50.483334
+  - time: 7.1
+    functionName: ActivateAlarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 48.7
     functionName: SpookEel
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 52.133335
+  - time: 51.066666
     functionName: DropRocks
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 53.533333
+    functionName: DeactivateAlarm
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
