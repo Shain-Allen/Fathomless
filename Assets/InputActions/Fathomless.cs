@@ -370,7 +370,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""08011fbe-d6cb-40c0-a42d-05fb3c2ecedf"",
-                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
