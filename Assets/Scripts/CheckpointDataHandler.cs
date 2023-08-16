@@ -138,6 +138,7 @@ public class CheckpointDataHandler : MonoBehaviour
             followPointAnim.Rewind();
             currentTunnelScript.SpookEel();
             currentTunnelScript.ReturnPilotControl();
+            currentTunnelScript.DeactivateAlarm();
         }
     }
     void LoadEnemies()

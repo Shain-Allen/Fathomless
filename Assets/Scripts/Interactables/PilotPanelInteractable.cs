@@ -20,6 +20,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     public GameObject detectionPoint;
 
     public GameObject resetPoint;
+    GameObject InteractFob;
 
     private static PilotPanelInteractable instance;
     public static PilotPanelInteractable Instance => instance;
@@ -32,6 +33,8 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         playerInteractController = player.GetComponent<interactControls>();
+        InteractFob = playerInteractController.InteractFob;
+        player = PlayerScript.instance.gameObject;
     }
 
     public void Interact(GameObject player)
@@ -50,7 +53,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     {
         if (controlSub || otherStation.controlTurret)//enables sub control
         {
-            playerInteractController.InteractFob.SetActive(false);
+            InteractFob.SetActive(false);
             player.transform.position = playerSubLockLocation.transform.position;
             if (controlSub)
             {
