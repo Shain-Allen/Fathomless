@@ -160,6 +160,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""00ce2b83-0d52-4e07-983e-31cce3484438"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""8bb98df7-6203-47b5-a3c4-8e91f9c93791"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -176,6 +187,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6f3a43b-53a5-45fe-b87c-7fc3a8e28dd3"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -204,6 +226,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2ab9e525-5492-4f03-90c4-0988f5acd1b1"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""LeavePost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b89536d8-a46a-4401-bf03-ca02e6b28af3"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
@@ -220,6 +253,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b751c9f2-7dba-48d3-87c2-f5ac3a839a72"",
+                    ""path"": ""<DualShockGamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -248,6 +292,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""03944c26-8839-49bb-84eb-749b479519eb"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e5e7e4c3-7ad3-49c7-aec1-0cb39c376242"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -264,6 +319,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57257327-1a04-408f-b322-641d15b04c12"",
+                    ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -307,13 +373,13 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad Generic"",
                     ""action"": ""SubElevate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Y-A"",
+                    ""name"": ""Button South/North"",
                     ""id"": ""aeb70c23-1cb9-4027-8060-3573ca1619d0"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -346,7 +412,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Bumpers"",
+                    ""name"": ""Controller Generic"",
                     ""id"": ""6f6a3310-1052-4444-b574-2092db09ad66"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -377,6 +443,50 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""action"": ""SubElevate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""R1/L1"",
+                    ""id"": ""8a65be91-fdfe-4c26-bc63-f840ffbfa678"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""179603de-07c2-4523-80e5-8ae8bf2cb6db"",
+                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""0f742265-0523-40cf-88ad-aec236e16e3e"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""950701bc-5060-4890-910d-f1f2f12a88b4"",
+                    ""path"": ""<DualShockGamepad>/dpad/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PlayStation"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -415,6 +525,17 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PlayStation"",
+            ""bindingGroup"": ""PlayStation"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<DualShockGamepad>"",
                     ""isOptional"": true,
                     ""isOR"": false
                 }
@@ -607,6 +728,15 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
         {
             if (m_GamepadGenericSchemeIndex == -1) m_GamepadGenericSchemeIndex = asset.FindControlSchemeIndex("Gamepad Generic");
             return asset.controlSchemes[m_GamepadGenericSchemeIndex];
+        }
+    }
+    private int m_PlayStationSchemeIndex = -1;
+    public InputControlScheme PlayStationScheme
+    {
+        get
+        {
+            if (m_PlayStationSchemeIndex == -1) m_PlayStationSchemeIndex = asset.FindControlSchemeIndex("PlayStation");
+            return asset.controlSchemes[m_PlayStationSchemeIndex];
         }
     }
     public interface IPlayer_AMapActions
