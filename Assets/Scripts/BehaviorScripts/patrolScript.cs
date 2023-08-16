@@ -41,6 +41,9 @@ public class patrolScript : MonoBehaviour
     {
         //pos = GameObject.FindGameObjectsWithTag("patrolPoint");
         patrolCase = 1;
+
+        player = PlayerScript.Instance.gameObject;
+        gManager = GameManager.Instance;
     }
 
     // Update is called once per frame

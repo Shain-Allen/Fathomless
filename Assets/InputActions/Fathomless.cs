@@ -456,9 +456,9 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
+                    ""name"": ""positive"",
                     ""id"": ""179603de-07c2-4523-80e5-8ae8bf2cb6db"",
-                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation"",
@@ -469,7 +469,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""0f742265-0523-40cf-88ad-aec236e16e3e"",
-                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation"",
