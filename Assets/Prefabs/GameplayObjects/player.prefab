@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1889477483
 Transform:
   m_ObjectHideFlags: 0
@@ -1251,7 +1251,7 @@ Transform:
   - {fileID: 953588028}
   - {fileID: 6630242967105236346}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &6542037386266173904
 CharacterController:
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   insideJumpTime: 0.5
   outsideJumpHeight: 1.5
   outsideJumpTime: 3
-  mouseSensitivity: 5
+  mouseSensitivity: 275
   reloadSpeed: 100
   groundedGravity: -0.05
   insideDrag: 49.62

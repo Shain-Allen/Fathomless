@@ -2342,6 +2342,7 @@ MonoBehaviour:
   exitDistance: 50
   detectionPoint: {fileID: 1049348131}
   resetPoint: {fileID: 0}
+  InteractFob: {fileID: 0}
 --- !u!1 &206012875594661023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5187,7 +5188,7 @@ Transform:
   - {fileID: 3317213246246339016}
   - {fileID: 4481931011847317197}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009507787048485954
 MonoBehaviour:
@@ -5206,7 +5207,7 @@ MonoBehaviour:
   maxSpeed: 200
   subAcceleration: 3
   subBreakForce: 5
-  xRotSpeed: 1
+  xRotSpeed: 200
   verticalSpeed: 0
   minVertSpeed: -200
   maxVertSpeed: 200
@@ -13612,9 +13613,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 36486.496
+  m_Intensity: 11238.923
   m_Range: 2176.8293
-  m_SpotAngle: 92
+  m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -23406,9 +23407,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 36486.496
+  m_Intensity: 11238.923
   m_Range: 2176.829
-  m_SpotAngle: 92
+  m_SpotAngle: 179
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
