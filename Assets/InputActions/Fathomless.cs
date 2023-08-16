@@ -172,7 +172,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""58e144d2-e16b-42b5-9967-f5e28e14aec0"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -194,7 +194,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4cb8ae99-eb53-43f4-9af2-2ec5d0e2bd84"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -238,7 +238,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6384fc71-db30-4c81-af69-a060f168aeee"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -311,6 +311,72 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""action"": ""SubElevate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Y-A"",
+                    ""id"": ""aeb70c23-1cb9-4027-8060-3573ca1619d0"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""10ef8818-9602-4c55-b153-03477898f186"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""e4ee88af-1fa9-4dec-bc58-d355c856569d"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Bumpers"",
+                    ""id"": ""6f6a3310-1052-4444-b574-2092db09ad66"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""ca4bf14c-1cfc-42f2-8df5-36707f61f98d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""08011fbe-d6cb-40c0-a42d-05fb3c2ecedf"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
