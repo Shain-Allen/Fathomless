@@ -80,6 +80,7 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.SubElevate.performed += OnSubElevate;
         fathomlessInputActions.Player_AMap.SubElevate.canceled += OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed += OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled += OnLook;
         fathomlessInputActions.Player_AMap.LeavePost.performed += OnLeavePost;
 
         GetComponentInChildren<TurretSystem>().TurretSystemEnable();
@@ -92,20 +93,24 @@ public class SubController : MonoBehaviour
         fathomlessInputActions.Player_AMap.SubElevate.performed -= OnSubElevate;
         fathomlessInputActions.Player_AMap.SubElevate.canceled -= OnSubElevate;
         fathomlessInputActions.Player_AMap.Look.performed -= OnLook;
+        fathomlessInputActions.Player_AMap.Look.canceled -= OnLook;
         fathomlessInputActions.Player_AMap.LeavePost.performed -= OnLeavePost;
         GetComponentInChildren<TurretSystem>().TurretSystemDisabled();
     }
+    
+    Vector2 mouse;
     
     private void OnLook(InputAction.CallbackContext context)
     {
         if (!isSub) return;
         
-        Vector2 mouse = context.ReadValue<Vector2>() * subMouseSensitivity * Time.deltaTime;
         
+        mouse = context.ReadValue<Vector2>() * subMouseSensitivity * Time.deltaTime;
+
         xRotation -= mouse.y;
         xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
-        subCam.transform.localRotation = Quaternion.Euler(xRotation, mouse.y, 0);
+        subCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
     
     private void OnMove(InputAction.CallbackContext context)
@@ -202,7 +207,8 @@ public class SubController : MonoBehaviour
 
         subRigi.AddForce(transform.up * verticalSpeed);
         
-        float rotationY = rawWASDInput.x * xRotSpeed;
+        //Handle Sub rotation left right
+        float rotationY = mouse.x * xRotSpeed * Time.deltaTime;
         Quaternion rotation = Quaternion.Euler(0.0f, rotationY, 0.0f);
         subRigi.MoveRotation(subRigi.rotation * rotation);
 
