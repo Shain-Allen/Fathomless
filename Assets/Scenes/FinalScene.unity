@@ -217,6 +217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1917,6 +1922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2250,6 +2260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2553,6 +2568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 58.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908454729365800579, guid: 48eab1e5bbf40e04fbacb9629a14c58f,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7323243664853190426, guid: 48eab1e5bbf40e04fbacb9629a14c58f,
         type: 3}
@@ -3215,6 +3235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3921,6 +3946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4022,12 +4052,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e53d1a2aa69224cbb5c1059f4026be, type: 3}
+--- !u!1 &1554311879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1834305296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1554311880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 930401460138636075, guid: e8b93cfac77236b4a9490d64a750fadc,
     type: 3}
   m_PrefabInstance: {fileID: 1834305296}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1554311883
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554311879}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6905734858746828084, guid: fb04e202c8676f048a69ec796ea21da3, type: 3}
 --- !u!1 &1557368270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,6 +4343,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2358.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6904595005871356779, guid: b81933dc14f50ae47b574b121f989155,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904595005871356779, guid: b81933dc14f50ae47b574b121f989155,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 480.44
+      objectReference: {fileID: 0}
     - target: {fileID: 8828773273625747335, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
       propertyPath: m_RootOrder
@@ -4453,7 +4521,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1554311883}
   m_SourcePrefab: {fileID: 100100000, guid: e8b93cfac77236b4a9490d64a750fadc, type: 3}
 --- !u!4 &1905054484 stripped
 Transform:
@@ -4775,6 +4847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359013320471021269, guid: a794a89985098a1449871b6817886ed8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
