@@ -30,8 +30,13 @@ public class MapManager : MonoBehaviour
     {
         if (pointsOfIntrestWT == null)
         {
-            Debug.Log("There are no Points of interests registered on the map");
+            Debug.LogWarning("There are no Points of interests registered on the map");
             return;
+        }
+
+        if (bounds == null)
+        {
+            Debug.LogError("your missing the Bounds Object in the scene, please add one");
         }
 
         foreach (MapPOI mapPoi in pointsOfIntrestWT)
@@ -48,6 +53,11 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
+        if (pointsOfIntrestWT.Count == 0 || pointsOfIntrestsRT.Count == 0)
+        {
+            return;
+        }    
+        
         if (pointsOfIntrestsRT.Count != pointsOfIntrestWT.Count)
         {
             Debug.LogWarning("Error: for some reason there is not the same amount of POI's as map icons");
@@ -63,11 +73,6 @@ public class MapManager : MonoBehaviour
     private Vector2 FindInterfacePoint(Transform objectTransform)
     {
         Vector2 normalizedPosition = bounds.FindNormalizedPosition(objectTransform.position);
-
-        // if (objectTransform.GetComponent<MapPOI>().poiType == MapPOITypes.Tunnel)
-        // {
-        //     Debug.Log(bounds.FindNormalizedPosition(objectTransform.position));
-        // }
         
         return Rect.NormalizedToPoint(MapTransform.rect, normalizedPosition);
     }

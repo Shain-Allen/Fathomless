@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bounds : MonoBehaviour
@@ -9,6 +10,22 @@ public class Bounds : MonoBehaviour
     [SerializeField] private Transform lower;
     [SerializeField] private Transform upper;
 
+
+    private void OnValidate()
+    {
+        if (target) return;
+        
+        Debug.Log("Attempting to default to Player transform as minimap center target due to field being null");
+        target = FindObjectOfType<PlayerScript>().GetComponent<Transform>();
+
+        if (!target)
+        {
+            Debug.LogError("No player found in the scene. minimap doesn't have a center target assigned yet so please assign one");
+            return;
+        }
+            
+        Debug.Log("Player object found and set as minimap center target");
+    }
 
     private void Awake()
     {

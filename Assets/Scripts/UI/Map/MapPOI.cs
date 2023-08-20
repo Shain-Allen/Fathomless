@@ -12,6 +12,8 @@ public class MapPOI : MonoBehaviour
 {
     public MapPOITypes poiType;
     private RectTransform poiRectTransform;
+    private float poiIconSize;
+    public float GetPoiRectSize() => poiIconSize;
 
     public Action<Transform, RectTransform> POIDeleted;
 
@@ -23,4 +25,6 @@ public class MapPOI : MonoBehaviour
         if (poiRectTransform)
             poiRectTransform = null;
     }
+
+    
 }
