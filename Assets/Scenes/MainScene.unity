@@ -7241,6 +7241,16 @@ PrefabInstance:
       objectReference: {fileID: 430311312}
     - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
+      propertyPath: canAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
+        type: 3}
+      propertyPath: takenDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
+        type: 3}
       propertyPath: pos.Array.data[0]
       value: 
       objectReference: {fileID: 1059579856}
@@ -53037,6 +53047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: minSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: xRotSpeed
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
