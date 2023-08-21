@@ -123,24 +123,54 @@ public class SubController : MonoBehaviour
     private void OnSubElevate(InputAction.CallbackContext context)
     {
         if (!isSub) return;
-        
+
         rawVertInput = context.ReadValue<float>();
         
         //Moves sub up
         moveUp = rawVertInput >= 0.1f;
 
+        if (moveUp)
+        {
+            verMove = true;
+        }
+        else
+        {
+            verMove = false;
+        }
+
+
+        if(rawVertInput == 0)
+        {
+            verticalSpeed = rawVertInput;
+            verMove = false;
+        }
+
         //Moves sub down
         moveDown = rawVertInput <= -0.1f;
+
+        if (moveDown)
+        {
+            verMove = true;
+        }
+        else
+        {
+            verMove = false;
+        }
     }
 
     private void OnLeavePost(InputAction.CallbackContext context)
     {
         TurretInteractable.Instance.OnLeavePost();
         PilotPanelInteractable.Instance.OnLeavePost();
+        verticalSpeed = 0f;
+        subRigi.velocity = Vector3.zero;
     }
 
     void FixedUpdate()//this will use simple keycodes for now, but we can use this for the unity input system if we want. This is just to see the best way to control the sub
     {
+
+        verticalSpeed += rawVertInput;
+
         if (isSub)//checks to see if the player has pressed e on the control panel
         {
             SubControl();
@@ -149,6 +179,8 @@ public class SubController : MonoBehaviour
         {
             subRigi.isKinematic = false;
             speed = 0f;
+            verticalSpeed = 0f;
+            SlowSub();
         }
 
         if(follow)  //this is the part of the code that lets the sub follow the animated follow point
@@ -163,7 +195,7 @@ public class SubController : MonoBehaviour
         }
 
 
-        if(!verMove) //this checks to see if the sub is moving up or down, if not, the sub will slow to a stop
+        if (!verMove) //this checks to see if the sub is moving up or down, if not, the sub will slow to a stop
         {
             SlowSub();
 
@@ -191,8 +223,6 @@ public class SubController : MonoBehaviour
 
     private void Update() 
     {
-        verticalSpeed += rawVertInput;
-
         if(resetSubRot) //checks to see if subs rotation is reset
         {
             ResetRotation();

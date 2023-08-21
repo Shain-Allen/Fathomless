@@ -262,7 +262,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""id"": ""b751c9f2-7dba-48d3-87c2-f5ac3a839a72"",
                     ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=8,y=4)"",
+                    ""processors"": ""ScaleVector2(x=25,y=8)"",
                     ""groups"": ""PlayStation;Playstation"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
