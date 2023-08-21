@@ -934,16 +934,6 @@ PrefabInstance:
       propertyPath: bounds
       value: 
       objectReference: {fileID: 1267103125}
-    - target: {fileID: 4745693020801862330, guid: bbb325465777f1a4bb68f5eff730e763,
-        type: 3}
-      propertyPath: pointsOfIntrestWT.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4745693020801862330, guid: bbb325465777f1a4bb68f5eff730e763,
-        type: 3}
-      propertyPath: pointsOfIntrestWT.Array.data[0]
-      value: 
-      objectReference: {fileID: 1151937498}
     - target: {fileID: 6548068059416221936, guid: bbb325465777f1a4bb68f5eff730e763,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3089,18 +3079,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1329724241}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1151937498 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 368815374012848269, guid: 3b18662b54615554b9e7428089a7ea23,
-    type: 3}
-  m_PrefabInstance: {fileID: 1329724241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151937497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e25e64d75c775543bbec31adc039049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1267103125 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4673808816864811244, guid: 321b5fd01de67ac49bd3fe383282b8c6,
@@ -3799,6 +3777,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: sub

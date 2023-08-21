@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1468513058660839495}
   - component: {fileID: 1468513058660839493}
   - component: {fileID: 1468513058660839492}
+  - component: {fileID: 4788136480021633817}
   m_Layer: 0
   m_Name: HatchScrapPickup
   m_TagString: Untagged
@@ -42,9 +43,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468513058660839490}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1.2016408, y: 0.61833227, z: 1}
   m_Center: {x: -0.10082054, y: 0.37943023, z: 0}
 --- !u!114 &1468513058660839492
@@ -59,14 +68,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99adf67123e43bf419416087d8c3f2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
   floatSpeed: 10
   shrinkSpeed: 1.1
+--- !u!114 &4788136480021633817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468513058660839490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25e64d75c775543bbec31adc039049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poiType: 0
 --- !u!1001 &1468513059846005332
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1468513058660839495}
     m_Modifications:
     - target: {fileID: 356183202277645789, guid: c37524c4bb9c2e840a4f2a2f96b6eb9f,
@@ -145,6 +167,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37524c4bb9c2e840a4f2a2f96b6eb9f, type: 3}
 --- !u!4 &2007355049980503347 stripped
 Transform:
