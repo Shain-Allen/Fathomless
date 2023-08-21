@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 99195ff96c3661c468afb0ebe416aef8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 07559bdf9d64bac4083fa4476f877c0c, type: 2}
 --- !u!1 &185020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,6 +1174,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 162377724}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &24806138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24806139}
+  m_Layer: 0
+  m_Name: point1
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24806139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24806138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.95, y: -51.91, z: -196.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1581081328}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &25375879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,6 +1296,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589360431396670179, guid: 9f006217d385b694dab71d86379eec6c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3589360431396670179, guid: 9f006217d385b694dab71d86379eec6c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8460543112268650083, guid: 9f006217d385b694dab71d86379eec6c,
         type: 3}
@@ -1457,6 +1498,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_06 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
@@ -2999,6 +3050,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3528,6 +3589,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7509357152375464626, guid: 765c8eafdfde71d41ad4c10e9fb57847,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509357152375464626, guid: 765c8eafdfde71d41ad4c10e9fb57847,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3862,6 +3933,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_09 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5559,6 +5640,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 931841388}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &152612790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152612791}
+  m_Layer: 0
+  m_Name: point3
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &152612791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152612790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.08, y: -49.96, z: -187.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1581081328}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &154107335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2350378736109258621, guid: 999edc7e5af35a84bb29f9e807c037af,
@@ -6137,6 +6249,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7395,6 +7517,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_07
       objectReference: {fileID: 0}
+    - target: {fileID: 6899936899186694336, guid: 56cbdf032b9b64f46ac89e2023ceeb97,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6899936899186694336, guid: 56cbdf032b9b64f46ac89e2023ceeb97,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8103100150049854504, guid: 56cbdf032b9b64f46ac89e2023ceeb97,
         type: 3}
       propertyPath: m_RootOrder
@@ -7876,6 +8008,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_04
       objectReference: {fileID: 0}
+    - target: {fileID: 5458178133958514531, guid: 770b9aeb9a4996641a81b7cbd3663c9b,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458178133958514531, guid: 770b9aeb9a4996641a81b7cbd3663c9b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8099,6 +8241,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4672345170178263370, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
         type: 3}
@@ -8878,6 +9030,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9856,6 +10018,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_06 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4909590340393673151, guid: 1f927a059b969f54ab49f14aea721b77,
         type: 3}
       propertyPath: m_RootOrder
@@ -10426,6 +10598,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11522,6 +11704,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
       propertyPath: m_RootOrder
@@ -11680,6 +11872,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11773,6 +11975,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_05 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12969,6 +13181,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_07 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12986,6 +13208,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441684489765719068, guid: 61190b9f4fcf4964da4b4936f69ac820,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441684489765719068, guid: 61190b9f4fcf4964da4b4936f69ac820,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7894425725773916377, guid: 61190b9f4fcf4964da4b4936f69ac820,
         type: 3}
@@ -16327,6 +16559,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_09 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20823,6 +21065,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_06 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
       propertyPath: m_RootOrder
@@ -22635,6 +22887,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_05 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23493,6 +23755,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24788,6 +25060,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
       propertyPath: m_RootOrder
@@ -24945,6 +25227,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27142,6 +27434,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_07 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29097,6 +29399,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29410,8 +29722,8 @@ GameObject:
   m_Name: Rocks_Large_07 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &802176509
 Transform:
@@ -30007,6 +30319,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4909590340393673151, guid: 1f927a059b969f54ab49f14aea721b77,
         type: 3}
       propertyPath: m_RootOrder
@@ -30239,6 +30561,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_02
       objectReference: {fileID: 0}
+    - target: {fileID: 6651265543286160748, guid: 6e6c119f7b94a1e48a0b2ff450bd0992,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651265543286160748, guid: 6e6c119f7b94a1e48a0b2ff450bd0992,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30411,6 +30743,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_10 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33615,8 +33957,8 @@ GameObject:
   m_Name: Rocks_Large_07 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &895129510
 Transform:
@@ -33881,6 +34223,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_07 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34425,6 +34777,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34697,6 +35059,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_05 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36372,6 +36744,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38378,6 +38760,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39549,6 +39941,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09
       objectReference: {fileID: 0}
+    - target: {fileID: 65164198031221314, guid: 673c4e488955e0846bf63ef4003a6e99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65164198031221314, guid: 673c4e488955e0846bf63ef4003a6e99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 479121292501625426, guid: 673c4e488955e0846bf63ef4003a6e99,
         type: 3}
       propertyPath: m_RootOrder
@@ -39636,6 +40038,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
@@ -39978,6 +40390,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42350,6 +42772,37 @@ Transform:
   m_Father: {fileID: 831971634}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -195.565, z: 0}
+--- !u!1 &1130101992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130101993}
+  m_Layer: 0
+  m_Name: point2
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130101993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130101992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: -49.96, z: -192.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1581081328}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1132509075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42728,6 +43181,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
@@ -43307,6 +43770,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44564,6 +45037,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5756165755799893202, guid: f2137dc1c12720e4cb6b46b920d79160,
         type: 3}
       propertyPath: m_RootOrder
@@ -44724,6 +45207,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_06 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
@@ -45390,6 +45883,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_05
       objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45588,6 +46091,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46585,6 +47098,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -46672,6 +47195,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47100,6 +47633,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
@@ -48320,6 +48863,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4672345170178263370, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -48563,6 +49116,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6651265543286160748, guid: 6e6c119f7b94a1e48a0b2ff450bd0992,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651265543286160748, guid: 6e6c119f7b94a1e48a0b2ff450bd0992,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48645,6 +49208,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513737521267360183, guid: d4e38275a6c8cd847ae1ff4e01fc3eab,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513737521267360183, guid: d4e38275a6c8cd847ae1ff4e01fc3eab,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48839,6 +49412,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_05
       objectReference: {fileID: 0}
+    - target: {fileID: 7102264637102884541, guid: 9aac74592a3136a43a4dd98bca41ded5,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7102264637102884541, guid: 9aac74592a3136a43a4dd98bca41ded5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49011,6 +49594,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49257,6 +49850,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49890,6 +50493,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54046,6 +54659,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_02 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1953061879893699796, guid: 592956d1a074d5e498ec212cdea056df,
         type: 3}
       propertyPath: m_RootOrder
@@ -54757,13 +55380,28 @@ PrefabInstance:
     - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: pos.Array.size
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
+        type: 3}
+      propertyPath: pos.Array.data[0]
+      value: 
+      objectReference: {fileID: 24806138}
+    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
+        type: 3}
+      propertyPath: pos.Array.data[1]
+      value: 
+      objectReference: {fileID: 1130101992}
+    - target: {fileID: 3913147967220837930, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
+        type: 3}
+      propertyPath: pos.Array.data[2]
+      value: 
+      objectReference: {fileID: 152612790}
     - target: {fileID: 3913147967220837932, guid: 87500cb4e0ebeac4d9c1b34e5b0b19a1,
         type: 3}
       propertyPath: m_Name
@@ -55247,6 +55885,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -55446,6 +56094,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_09 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55749,6 +56407,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4909590340393673151, guid: 1f927a059b969f54ab49f14aea721b77,
         type: 3}
@@ -56310,6 +56978,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_06 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
@@ -56984,6 +57662,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_06 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4909590340393673151, guid: 1f927a059b969f54ab49f14aea721b77,
         type: 3}
       propertyPath: m_RootOrder
@@ -57306,6 +57994,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_06 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57675,6 +58373,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_00
       objectReference: {fileID: 0}
+    - target: {fileID: 8636020882666811852, guid: ecd9dab3eef25814abcb4faeae4fc374,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636020882666811852, guid: ecd9dab3eef25814abcb4faeae4fc374,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57768,6 +58476,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283552260952636015, guid: a3f6beb075426de4dbd97a9b7ba4f377,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57874,6 +58592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_00 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5866908900195989495, guid: e41609ccaebf93a45a99cf43c9583d11,
         type: 3}
@@ -58897,6 +59625,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1953061879893699796, guid: 592956d1a074d5e498ec212cdea056df,
         type: 3}
       propertyPath: m_RootOrder
@@ -58990,6 +59728,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5756165755799893202, guid: f2137dc1c12720e4cb6b46b920d79160,
         type: 3}
@@ -59218,6 +59966,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509357152375464626, guid: 765c8eafdfde71d41ad4c10e9fb57847,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509357152375464626, guid: 765c8eafdfde71d41ad4c10e9fb57847,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60893,6 +61651,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_05 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -61281,6 +62049,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1476961225}
+  - {fileID: 24806139}
+  - {fileID: 1130101993}
+  - {fileID: 152612791}
   - {fileID: 1283492638}
   - {fileID: 1411014107}
   - {fileID: 506222530}
@@ -61717,6 +62488,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5756165755799893202, guid: f2137dc1c12720e4cb6b46b920d79160,
         type: 3}
@@ -62710,6 +63491,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09
       objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62874,6 +63665,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_06
       objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
       propertyPath: m_RootOrder
@@ -62967,6 +63768,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_06 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316439737324928954, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7833372810529839533, guid: a3f28cf8debaeff42885e5a13ce6fd4d,
         type: 3}
@@ -63470,6 +64281,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5756165755799893202, guid: f2137dc1c12720e4cb6b46b920d79160,
         type: 3}
       propertyPath: m_RootOrder
@@ -63955,6 +64776,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1953061879893699796, guid: 592956d1a074d5e498ec212cdea056df,
         type: 3}
       propertyPath: m_RootOrder
@@ -64392,6 +65223,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_06 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304516094295992739, guid: 1f927a059b969f54ab49f14aea721b77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4909590340393673151, guid: 1f927a059b969f54ab49f14aea721b77,
         type: 3}
       propertyPath: m_RootOrder
@@ -64748,6 +65589,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654067279518104790, guid: f2137dc1c12720e4cb6b46b920d79160,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5756165755799893202, guid: f2137dc1c12720e4cb6b46b920d79160,
         type: 3}
       propertyPath: m_RootOrder
@@ -64969,6 +65820,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_10
       objectReference: {fileID: 0}
+    - target: {fileID: 4388771940033442813, guid: 62720d0f45320cd4887b96fe26807f5a,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388771940033442813, guid: 62720d0f45320cd4887b96fe26807f5a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -65145,6 +66006,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66152,6 +67023,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_03
       objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3504183683680275992, guid: f4e6531a7b9026641927a460c1daf01c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66505,6 +67386,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
       propertyPath: m_RootOrder
@@ -66662,6 +67553,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_07 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68263,6 +69164,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68908,6 +69819,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69088,6 +70009,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_05 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027115720534575054, guid: 9e57090c31e15144b9802d40795a70ad,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69705,6 +70636,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_00 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5866908900195989495, guid: e41609ccaebf93a45a99cf43c9583d11,
         type: 3}
       propertyPath: m_RootOrder
@@ -69970,6 +70911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_04
       objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047803931038273472, guid: dfece79988e0ce74c8ff1dd88cb3526d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70191,8 +71142,8 @@ GameObject:
   m_Name: Rocks_Large_09 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1826879160
 Transform:
@@ -70892,6 +71843,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71932,6 +72893,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_09 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053065114782858737, guid: e8b93cfac77236b4a9490d64a750fadc,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -72131,6 +73102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457345669213307966, guid: 2f747fae83bdd904392cbdc131d1aff6,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457345669213307966, guid: 2f747fae83bdd904392cbdc131d1aff6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -72604,6 +73585,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_00
       objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223031968347872061, guid: e41609ccaebf93a45a99cf43c9583d11,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5866908900195989495, guid: e41609ccaebf93a45a99cf43c9583d11,
         type: 3}
       propertyPath: m_RootOrder
@@ -72958,6 +73949,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_08 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460365283126375487, guid: 1112e27a00b92744ab40196f69c071af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73316,6 +74317,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_07 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73772,6 +74783,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_09 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893911913527658063, guid: 51271c5074281af47bf074d5d027d9d9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73888,6 +74909,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Medium_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562249610800515964, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4672345170178263370, guid: 224cf86ff5033cd44b7ed9e72ca2b1e8,
         type: 3}
@@ -75390,6 +76421,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
       propertyPath: m_RootOrder
@@ -75477,6 +76518,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018153344223941663, guid: 277a11ef59988af4c87bd77dfd9d8d99,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4206155582347480042, guid: 277a11ef59988af4c87bd77dfd9d8d99,
         type: 3}
@@ -76334,6 +77385,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Small_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033937757660602539, guid: 592956d1a074d5e498ec212cdea056df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1953061879893699796, guid: 592956d1a074d5e498ec212cdea056df,
         type: 3}
       propertyPath: m_RootOrder
@@ -76613,6 +77674,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Small_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286665488062188899, guid: a2cb0736b96834b4ea5a815e839d19e5,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286665488062188899, guid: a2cb0736b96834b4ea5a815e839d19e5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5591650877524797197, guid: a2cb0736b96834b4ea5a815e839d19e5,
         type: 3}
@@ -79272,8 +80343,8 @@ GameObject:
   m_Name: Rocks_Large_07 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2083560360
 Transform:
@@ -79961,6 +81032,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Large_07
       objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7468273878555453914, guid: 5e00e822415182844bc241d2acf17156,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80136,6 +81217,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_Large_00 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636020882666811852, guid: ecd9dab3eef25814abcb4faeae4fc374,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636020882666811852, guid: ecd9dab3eef25814abcb4faeae4fc374,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81662,6 +82753,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_Medium_10
       objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208329549376452076, guid: b4a51294320d4d241a55da288d69a716,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81689,8 +82790,8 @@ GameObject:
   m_Name: Rocks_Large_05 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!136 &70789937225691475
 CapsuleCollider:
@@ -81884,8 +82985,8 @@ GameObject:
   m_Name: Rocks_Large_07 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &478966473191041727
 MeshCollider:
@@ -82729,8 +83830,8 @@ GameObject:
   m_Name: Rocks_Large_07 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &2434897459898755550
 GameObject:
@@ -83713,8 +84814,8 @@ GameObject:
   m_Name: Rocks_Large_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &4064099442663186000
 GameObject:
@@ -83849,8 +84950,8 @@ GameObject:
   m_Name: Rocks_Large_05 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4260690373690672546
 Transform:
@@ -83998,8 +85099,8 @@ GameObject:
   m_Name: Rocks_Large_07 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &4493589309505994220
 MeshRenderer:
@@ -84090,8 +85191,8 @@ GameObject:
   m_Name: Rocks_Large_09 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4570633632808056473
 Transform:
@@ -84404,8 +85505,8 @@ GameObject:
   m_Name: Rocks_Large_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &5200914336897199795
 MeshRenderer:
@@ -84897,8 +85998,8 @@ GameObject:
   m_Name: Rocks_Large_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6052790303784281111
 Transform:
@@ -85007,8 +86108,8 @@ GameObject:
   m_Name: Rocks_Large_09 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6204209893699856000
 Transform:
@@ -85228,8 +86329,8 @@ GameObject:
   m_Name: Rocks_Large_05 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &6497835198488523870
 GameObject:
@@ -85334,8 +86435,8 @@ GameObject:
   m_Name: Rocks_Large_07 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!136 &6682559066476213190
 CapsuleCollider:
@@ -86356,8 +87457,8 @@ GameObject:
   m_Name: Rocks_Large_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!218 &8215789964679316958
 Terrain:
@@ -86528,8 +87629,8 @@ GameObject:
   m_Name: Rocks_Large_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &8438975326335549480
 GameObject:
@@ -86682,8 +87783,8 @@ GameObject:
   m_Name: Rocks_Large_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!114 &8731353330767624915
 MonoBehaviour:
