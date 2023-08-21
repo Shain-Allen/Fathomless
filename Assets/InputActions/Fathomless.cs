@@ -251,7 +251,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""id"": ""18dccb4d-e2d1-4bb7-97cb-dd968131d344"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=8,y=8)"",
                     ""groups"": ""Gamepad Generic"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
