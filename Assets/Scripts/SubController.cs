@@ -6,8 +6,8 @@ public class SubController : MonoBehaviour
 {
 
     public float speed;
-    public float minSpeed;
-    public float maxSpeed;
+    public float minBackwardsSpeed;
+    public float maxForwardSpeed;
     public float subAcceleration = 3f;
     public float subBreakForce = 5f;
 
@@ -218,30 +218,30 @@ public class SubController : MonoBehaviour
         {
             case > 0:
                 speed += subAcceleration * rawWASDInput.y;
+                speedControl(maxForwardSpeed);
                 movementSound.Play();
                 break;
             //This will decrease the speed of sub
+            case 0:
+                speed = 0;
+                movementSound.Stop();
+                break;
             case < 0:
-                speed += subBreakForce * rawWASDInput.y;
+                speed += subAcceleration * rawWASDInput.y;
+                speedControl(minBackwardsSpeed);
+                movementSound.Play();
                 break;
         }
 
-
-        //this will cap the speed to the set max speed
-        if (speed >= maxSpeed)
-        {
-            speed = maxSpeed;
-        }
-
-        //This will set the sub speed to zero when the thrust is turned off
-        if (speed <= minSpeed)
+        /*//This will set the sub speed to zero when the thrust is turned off
+        if (Mathf.Abs(speed) >= minSpeed)
         {
 
             //right now the sub will stop immediately, but we can probably find a way to make it gradually stop.
-            speed = minSpeed;
+            speed = minSpeed * Mathf.Sign(rawWASDInput.y);
 
-            SlowSub();
-        }
+            //SlowSub();
+        }*/
 
         verticalSpeed = Mathf.Clamp(verticalSpeed, minVertSpeed, maxVertSpeed);
     }
@@ -289,5 +289,18 @@ public class SubController : MonoBehaviour
         subRigi.angularVelocity = Vector3.zero;
         transform.position = pos;
         transform.rotation = rot;
+    }
+
+    public void speedControl(float speedCap)
+    {
+        //This will set the sub speed to zero when the thrust is turned off
+        if (Mathf.Abs(speed) >= speedCap)
+        {
+
+            //right now the sub will stop immediately, but we can probably find a way to make it gradually stop.
+            speed = speedCap * Mathf.Sign(rawWASDInput.y);
+
+            //SlowSub();
+        }
     }
 }

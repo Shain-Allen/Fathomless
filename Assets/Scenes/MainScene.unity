@@ -53035,6 +53035,11 @@ PrefabInstance:
       objectReference: {fileID: 1822935834}
     - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
+      propertyPath: minSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
       propertyPath: followAnim
       value: 
       objectReference: {fileID: 358938757}
@@ -53045,6 +53050,11 @@ PrefabInstance:
       objectReference: {fileID: 358938756}
     - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
+      propertyPath: maxForwardSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
       propertyPath: endFollowPoint_1
       value: 
       objectReference: {fileID: 1118304586}
@@ -53053,6 +53063,11 @@ PrefabInstance:
       propertyPath: endFollowPoint_2
       value: 
       objectReference: {fileID: 30712697}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: minBackwardsSpeed
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_RootOrder
