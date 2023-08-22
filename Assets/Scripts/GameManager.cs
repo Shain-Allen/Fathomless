@@ -81,13 +81,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKey(KeyCode.M))
         {
-            SubDamageManager.instance.Hit();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            CameraManager.instance.HurtPlayerEffect();
+            SubController.instance.subRigi.AddForce(new Vector3(0, 0, 30));
         }
     }
     private void FixedUpdate()

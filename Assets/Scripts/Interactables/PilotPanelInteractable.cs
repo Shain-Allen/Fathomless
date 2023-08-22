@@ -83,7 +83,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
     {
         player.GetComponent<PlayerScript>().ResetMoveVector();
         controlSub = false;
-        player.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        player.transform.rotation = SubController.instance.transform.rotation;
 
         SubController.instance.follow = true;
         canControl = false;

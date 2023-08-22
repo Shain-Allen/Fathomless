@@ -222,7 +222,7 @@ public class PlayerScript : MonoBehaviour
     
     private void InsideMovement(Vector3 moveVector)
     {
-        transform.SetParent(SubController.instance.subRigi.transform);
+        //transform.SetParent(SubController.instance.subRigi.transform);
 
         moveVector *= Time.deltaTime * (insideAcceleration / 5);
 
@@ -298,6 +298,10 @@ public class PlayerScript : MonoBehaviour
     {
         moveVector = Vector3.zero;
         StartCoroutine(freezePlayer());
+    }
+    public void ResetRotate()
+    {
+        transform.rotation = subController.transform.rotation;
     }
 
     // temporarily freezes the player movement for the specified time 
