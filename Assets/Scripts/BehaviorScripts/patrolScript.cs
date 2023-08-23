@@ -11,7 +11,9 @@ public class patrolScript : MonoBehaviour
     public float speed;
 
     public GameObject player;
+    public PlayerScript playerScrpt;
     public GameManager gManager;
+    public SubController subControl;
 
     public float waitTime;
     public float startWaitTime;
@@ -41,9 +43,10 @@ public class patrolScript : MonoBehaviour
     {
         //pos = GameObject.FindGameObjectsWithTag("patrolPoint");
         patrolCase = 1;
-
+        playerScrpt = PlayerScript.Instance;
         player = PlayerScript.Instance.gameObject;
         gManager = GameManager.Instance;
+        subControl = SubController.Instance;
     }
 
     // Update is called once per frame
@@ -51,43 +54,51 @@ public class patrolScript : MonoBehaviour
     {
         agent.speed = speed;
 
-        Debug.Log(patrolCase);
+        
         distance = Vector3.Distance(transform.position, player.transform.position);
 
+        if (!playerScrpt.inSub)
+        {
+            if (canFollowPlayer)
+            {
+                if (distance <= 20 && distance >= 13)
+                {
+                    patrolCase = 2;
+                }
+
+                if(distance <= 12)
+                {
+                    patrolCase = 3;
+                    takenDamage = false;
+                }
+                if (distance <= 5)
+                {
+                }
+            }
+
+            if (eyeDamage)//figure out how to make him not look at the player at another time that isnt now.
+            {
+                patrolCase = 5;
+                takenDamage = false;
+                StartCoroutine(runAway());
+            }
+            else
+            {
+                StopCoroutine(runAway());
+            }
+
+
+
+            if (takenDamage)
+            {
+                patrolCase = 2;
+            }
+        }
 
         if(distance >= 25)
         {
             patrolCase = 1;
         }
-
-        if (canFollowPlayer)
-        {
-            if (distance <= 20 && distance >= 13)
-            {
-                patrolCase = 2;
-            }
-
-            if(distance <= 12)
-            {
-                patrolCase = 3;
-            }
-            if (distance <= 5)
-            {
-            }
-        }
-
-        if (eyeDamage)//figure out how to make him not look at the player at another time that isnt now.
-        {
-            patrolCase = 5;
-            takenDamage = false;
-            StartCoroutine(runAway());
-        }
-
-        /*if (takenDamage)
-        {
-            patrolCase = 2;
-        }*/
-
 
 
         switch (patrolCase)
@@ -198,7 +209,7 @@ public class patrolScript : MonoBehaviour
         gManager.playerHealth -= damage;
     }
 
-    IEnumerator runAway()
+    public IEnumerator runAway()
     {
         transform.LookAt(pos[currentPos].transform.position);
         yield return new WaitForSeconds(timerTime);

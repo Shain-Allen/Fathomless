@@ -31,8 +31,9 @@ public class EnemyDataManager : MonoBehaviour
     {
         if (other.tag == "harpoon")
         {
-            /*patrolScript.patrolCase = 5;*/
+            /*patrolScript.patrolCase = 2;*/
             patrolScript.takenDamage = true;
+
 
             if (other.GetComponent<HandheldHarpoonProjectileScript>() != null)
             {
