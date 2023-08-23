@@ -24,9 +24,37 @@ public class SubDamageManager : MonoBehaviour, IHit
         else
             Destroy(gameObject);
     }
+    
     public void Hit()
     {
         GlobalSoundsManager.instance.PlayMetalSnap();
+        while (true)
+        {
+            UpdateSubHealth();
+            if (currentlyDamaged >= DamagedSpots.Length)
+            {
+                break;
+            }
+            int damaged = Random.Range(0, damagePoint.Length);
+            if (DamagedSpots[damaged] == false)
+            {
+                if (damagePoint[damaged].transform.childCount > 0)
+                {
+                    Destroy(damagePoint[damaged].transform.GetChild(0).gameObject);
+                }
+                damageProtrusionInstance = Instantiate(damageProtrusionObj, damagePoint[damaged].transform.position, damagePoint[damaged].transform.rotation);
+                DamageRepairInteractable inst = damageProtrusionInstance.GetComponent<DamageRepairInteractable>();
+                inst.DamageProtrusionIndex = damaged;
+                inst.Manager = Manager;
+                inst.transform.SetParent(damagePoint[damaged].transform);
+                inst.SubDamageManager = this;
+                DamagedSpots[damaged] = true;
+                break;
+            }
+        }
+    }
+    public void SilentHit()
+    {
         while (true)
         {
             UpdateSubHealth();
@@ -84,6 +112,7 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     void Start()
     {
+        SilentHit();
         GameManager.gminstance.SubHealth = damagePoint.Length + 1;
         for (int i = 0; i < damagePoint.Length; i++)
         {
