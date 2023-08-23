@@ -28,7 +28,7 @@
                     "type": "Value",
                     "id": "18157a0e-1822-4d23-8b46-8f364c02150c",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=15,y=12)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -149,6 +149,17 @@
                 },
                 {
                     "name": "",
+                    "id": "77d9c76f-f58e-4938-9b14-66b6014c4c64",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8bb98df7-6203-47b5-a3c4-8e91f9c93791",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -176,6 +187,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayStation;Playstation",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a416835d-e4e9-4ffc-b29d-96318556fab2",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -215,6 +237,17 @@
                 },
                 {
                     "name": "",
+                    "id": "705f2d1b-50f8-48c5-9f8f-300efb2ec2b0",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "LeavePost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b89536d8-a46a-4401-bf03-ca02e6b28af3",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -242,6 +275,17 @@
                     "interactions": "",
                     "processors": "ScaleVector2(x=25,y=8)",
                     "groups": "PlayStation;Playstation",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6026c889-4383-4847-becb-caa271ec1894",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -281,6 +325,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7570f712-7c96-4d91-ba04-7a3e7cbc1701",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e5e7e4c3-7ad3-49c7-aec1-0cb39c376242",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -308,6 +363,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayStation;Playstation",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0481d794-edf7-4e99-adaf-9ab766984c2a",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -462,6 +528,50 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PlayStation;Playstation",
+                    "action": "SubElevate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "53fc749a-4cd9-4557-9cbf-22effcd622e6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SubElevate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "a2058f1e-d17a-4b90-8c18-cc116db3ae02",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "SubElevate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "eb9c5e38-7b11-4383-aeef-7571f8226e38",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
+                    "action": "SubElevate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5a785c45-2b3a-46ed-bf39-835b8a336ea3",
+                    "path": "<Gamepad>/dpad/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox Controller",
                     "action": "SubElevate",
                     "isComposite": false,
                     "isPartOfComposite": false
