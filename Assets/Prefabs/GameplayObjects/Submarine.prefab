@@ -2343,6 +2343,7 @@ MonoBehaviour:
   detectionPoint: {fileID: 1049348131}
   resetPoint: {fileID: 0}
   InteractFob: {fileID: 0}
+  tutorial: 1
 --- !u!1 &206012875594661023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5189,7 @@ Transform:
   - {fileID: 1345466659829073347}
   - {fileID: 4481931011847317197}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1009507787048485954
 MonoBehaviour:
@@ -5433,6 +5434,7 @@ MonoBehaviour:
   - {fileID: 1009507787266497538}
   - {fileID: 1009507785649168757}
   DamagedSpots: 00000000
+  interactable: {fileID: 0}
 --- !u!1 &1009507787760163963
 GameObject:
   m_ObjectHideFlags: 0
