@@ -32,6 +32,7 @@ public class MineControl : MonoBehaviour
         {
             //explosion.SendEvent("Blow"); //Not Working
             subDamage();
+            GlobalSoundsManager.instance.PlayMineExplode();
         }
     }
 
