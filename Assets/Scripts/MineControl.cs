@@ -21,6 +21,9 @@ public class MineControl : MonoBehaviour
     private void Start()
     {
         isActive = true;
+
+        gameMan = GameManager.Instance;
+        subMan = SubDamageManager.Instance;
     }
 
     private void OnCollisionEnter(Collision collision)
