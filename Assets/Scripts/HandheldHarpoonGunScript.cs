@@ -24,6 +24,7 @@ public class HandheldHarpoonGunScript : MonoBehaviour
             reloading = true;
             GameObject harpoon = Instantiate(HarpoonProjectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
             harpoon.GetComponent<HandheldHarpoonProjectileScript>().projectileSpeed = projectileSpeed;
+            GlobalSoundsManager.instance.PlayHandheldHarpoon()
             StartCoroutine(ReloadTimer(reloadTime));
         }
     }
