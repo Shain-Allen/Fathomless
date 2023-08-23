@@ -11,6 +11,8 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     AudioSource waterSound;
     float initialVolume;
     bool makePlate;
+
+    public PilotPanelInteractable interactable;
     public void Interact(GameObject player)
     {
         if (GameManager.Instance.Scrap >= 1)
@@ -47,6 +49,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
     {
         waterSound = GetComponent<AudioSource>();
         initialVolume = waterSound.volume;
+        interactable = PilotPanelInteractable.Instance;
     }
 
     public void Update()
@@ -54,6 +57,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
         if (repaired)
         {
             transform.localScale = transform.localScale / shrinkSpeed;
+            interactable.canControl = true;
             if (transform.localScale.x < 0.05f)
             {
                 if (makePlate)

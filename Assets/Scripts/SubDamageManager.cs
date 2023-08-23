@@ -13,6 +13,8 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     int currentlyDamaged;
 
+    public PilotPanelInteractable interactable;
+
     public static SubDamageManager Instance
     {
         get { return instance; }
@@ -57,6 +59,8 @@ public class SubDamageManager : MonoBehaviour, IHit
     {
         while (true)
         {
+            interactable.canControl = false;
+
             UpdateSubHealth();
             if (currentlyDamaged >= DamagedSpots.Length)
             {
@@ -112,6 +116,7 @@ public class SubDamageManager : MonoBehaviour, IHit
 
     void Start()
     {
+        interactable = PilotPanelInteractable.Instance;
         SilentHit();
         GameManager.gminstance.SubHealth = damagePoint.Length + 1;
         for (int i = 0; i < damagePoint.Length; i++)

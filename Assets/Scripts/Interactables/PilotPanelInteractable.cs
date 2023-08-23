@@ -24,6 +24,8 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     private static PilotPanelInteractable instance;
     public static PilotPanelInteractable Instance => instance;
+
+    public bool tutorial;
     
     private void Awake()
     {
@@ -46,6 +48,12 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         {
             controlSub = true; //turns on sub control when player presses e on control pannel
             player.GetComponent<PlayerScript>().frozen = true;
+            tutorial = false;
+        }
+
+        if (canControl == false && tutorial == true)
+        {
+            CanvasController.Instance.DisplayText("I should repair my ship first");
         }
     }
 
