@@ -4504,6 +4504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nominalValue: 1000
   valueRange: 200
+  floatSpeed: 0
+  shrinkSpeed: 0
 --- !u!65 &210602316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7712,7 +7714,7 @@ MonoBehaviour:
   volumeDepth: 668.06
   volumePrority: 0
   transitionSize: 0.1
-  absorbtionDistanceMultiplier: 1
+  absorbtionDistanceMultiplier: 1.56
 --- !u!4 &330340219
 Transform:
   m_ObjectHideFlags: 0
@@ -15059,6 +15061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nominalValue: 5000
   valueRange: 1000
+  floatSpeed: 0
+  shrinkSpeed: 0
 --- !u!65 &693786301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26510,7 +26514,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 10
+  m_Intensity: 50
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -26587,7 +26591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 10
+  m_Intensity: 50
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -30205,6 +30209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nominalValue: 1000
   valueRange: 200
+  floatSpeed: 0
+  shrinkSpeed: 0
 --- !u!65 &1638024791
 BoxCollider:
   m_ObjectHideFlags: 0
