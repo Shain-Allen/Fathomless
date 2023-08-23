@@ -128,6 +128,59 @@ public class GlobalSoundsManager : MonoBehaviour
         audiosources[14].pitch = Random.Range(0.85f, 1.25f);
         audiosources[14].Play();
     }
+
+    public void PlayJunkCollect()
+    {
+        audiosources[15].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[15].Play();
+    }
+
+    public void PlayMineExplode()
+    {
+        audiosources[16].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[16].Play();
+    }
+
+    public void PlaySubExplode()
+    {
+        audiosources[17].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[17].Play();
+    }
+    public void PlayUrchinAlert()
+    {
+        audiosources[18].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[18].Play();
+    }
+    public void PlayUrchinDamage()
+    {
+        audiosources[19].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[19].Play();
+    }
+    public void PlayUrchinDeath()
+    {
+        audiosources[20].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[20].Play();
+    }
+    public void PlayPlayerDamage()
+    {
+        audiosources[21].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[21].Play();
+    }
+    public void PlayHatchOpen()
+    {
+        audiosources[22].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[22].Play();
+    }
+    public void PlaySubWalk()
+    {
+        audiosources[23].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[23].Play();
+    }
+    public void PlaySubCollision()
+    {
+        audiosources[24].pitch = Random.Range(0.85f, 1.25f);
+        audiosources[24].Play();
+    }
     private void Update()
     {
         HandleFade();
