@@ -181,6 +181,11 @@ public class GlobalSoundsManager : MonoBehaviour
         audiosources[24].pitch = Random.Range(0.85f, 1.25f);
         audiosources[24].Play();
     }
+    public void StopTreasureCollect()
+    {
+        audiosources[13].Stop();
+    }
+
     private void Update()
     {
         HandleFade();
