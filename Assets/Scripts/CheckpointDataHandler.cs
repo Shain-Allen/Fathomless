@@ -7,7 +7,7 @@ public class CheckpointDataHandler : MonoBehaviour
 {
     public GameObject[] activeHarpoons;
     Transform[] urchinPositions;
-    EnemyDataManager[] urchinScripts;
+    public EnemyDataManager[] urchinScripts;
     public GameObject[] urchinEnemies;
     public static CheckpointDataHandler instance;
     GameObject Submarine;
@@ -52,6 +52,7 @@ public class CheckpointDataHandler : MonoBehaviour
     //method to save a new checkpoint.
     public void SaveCheckpoint(Vector3 position, Quaternion rotation, uint treasure)
     {
+        Debug.Log("Saving...");
         CheckpointPreset preset = new CheckpointPreset
         {
             subPosition = position,
@@ -60,7 +61,7 @@ public class CheckpointDataHandler : MonoBehaviour
             // Set other data types as needed.
         };
 
-        //checkpointPresets.Add(preset);
+        checkpointPresets.Add(preset);
         currentLatestCheckpoint = preset;
     }
 
@@ -145,10 +146,13 @@ public class CheckpointDataHandler : MonoBehaviour
     {
         for (int i = 0; i < urchinEnemies.Length; i++)
         {
-            urchinScripts[i].enemyHealth = urchinScripts[i].enemyMaxHealth;
-            urchinEnemies[i].SetActive(true);
-            urchinEnemies[i].transform.position = urchinPositions[i].position;
-            urchinPositions[i].rotation = urchinPositions[i].rotation;
+            if (urchinEnemies[i] != null)
+            {
+                urchinScripts[i].enemyHealth = urchinScripts[i].enemyMaxHealth;
+                urchinEnemies[i].SetActive(true);
+                urchinEnemies[i].transform.position = urchinPositions[i].position;
+                urchinPositions[i].rotation = urchinPositions[i].rotation;
+            }
         }
 
     }
