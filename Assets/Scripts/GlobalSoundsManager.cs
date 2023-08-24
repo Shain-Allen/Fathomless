@@ -185,7 +185,10 @@ public class GlobalSoundsManager : MonoBehaviour
     {
         audiosources[13].Stop();
     }
-
+    public void PlayBeep()
+    {
+        audiosources[25].Play();
+    }
     private void Update()
     {
         HandleFade();
