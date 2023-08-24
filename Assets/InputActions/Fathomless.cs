@@ -89,6 +89,24 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab398387-4154-49dd-ad98-3f5ddbfb3771"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""1116bf70-b280-47c2-bda7-a2474fc8a856"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -555,7 +573,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis"",
+                    ""name"": ""1D Axis Xbox Controller"",
                     ""id"": ""53fc749a-4cd9-4557-9cbf-22effcd622e6"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -595,6 +613,94 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Xbox Controller"",
                     ""action"": ""SubElevate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""583c5ad2-aa22-415a-9b52-de194082c08a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00a99263-776d-434f-b971-1b87aee9933e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb83d116-182f-4b41-8497-c2561570779f"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Controller"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63b496f3-bda4-44bb-b83c-c317d73efed9"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Playstation"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb9b07ce-b77d-4014-8e16-1735fe810542"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87b9f0ac-e3ec-4fd9-bfbc-5d1acdd74411"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad Generic"",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f2f5b7d-0c1c-4451-a3b2-a104887b89da"",
+                    ""path"": ""<XInputController>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Controller"",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f658286-638e-4ea6-a75f-fc7434963dcb"",
+                    ""path"": ""<DualSenseGamepadHID>/systemButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Playstation"",
+                    ""action"": ""ExitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -662,6 +768,8 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
         m_Player_AMap_LeavePost = m_Player_AMap.FindAction("LeavePost", throwIfNotFound: true);
         m_Player_AMap_Fire = m_Player_AMap.FindAction("Fire", throwIfNotFound: true);
         m_Player_AMap_SubElevate = m_Player_AMap.FindAction("SubElevate", throwIfNotFound: true);
+        m_Player_AMap_StartGame = m_Player_AMap.FindAction("StartGame", throwIfNotFound: true);
+        m_Player_AMap_ExitGame = m_Player_AMap.FindAction("ExitGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -730,6 +838,8 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AMap_LeavePost;
     private readonly InputAction m_Player_AMap_Fire;
     private readonly InputAction m_Player_AMap_SubElevate;
+    private readonly InputAction m_Player_AMap_StartGame;
+    private readonly InputAction m_Player_AMap_ExitGame;
     public struct Player_AMapActions
     {
         private @Fathomless m_Wrapper;
@@ -741,6 +851,8 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
         public InputAction @LeavePost => m_Wrapper.m_Player_AMap_LeavePost;
         public InputAction @Fire => m_Wrapper.m_Player_AMap_Fire;
         public InputAction @SubElevate => m_Wrapper.m_Player_AMap_SubElevate;
+        public InputAction @StartGame => m_Wrapper.m_Player_AMap_StartGame;
+        public InputAction @ExitGame => m_Wrapper.m_Player_AMap_ExitGame;
         public InputActionMap Get() { return m_Wrapper.m_Player_AMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -771,6 +883,12 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
             @SubElevate.started += instance.OnSubElevate;
             @SubElevate.performed += instance.OnSubElevate;
             @SubElevate.canceled += instance.OnSubElevate;
+            @StartGame.started += instance.OnStartGame;
+            @StartGame.performed += instance.OnStartGame;
+            @StartGame.canceled += instance.OnStartGame;
+            @ExitGame.started += instance.OnExitGame;
+            @ExitGame.performed += instance.OnExitGame;
+            @ExitGame.canceled += instance.OnExitGame;
         }
 
         private void UnregisterCallbacks(IPlayer_AMapActions instance)
@@ -796,6 +914,12 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
             @SubElevate.started -= instance.OnSubElevate;
             @SubElevate.performed -= instance.OnSubElevate;
             @SubElevate.canceled -= instance.OnSubElevate;
+            @StartGame.started -= instance.OnStartGame;
+            @StartGame.performed -= instance.OnStartGame;
+            @StartGame.canceled -= instance.OnStartGame;
+            @ExitGame.started -= instance.OnExitGame;
+            @ExitGame.performed -= instance.OnExitGame;
+            @ExitGame.canceled -= instance.OnExitGame;
         }
 
         public void RemoveCallbacks(IPlayer_AMapActions instance)
@@ -858,5 +982,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
         void OnLeavePost(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnSubElevate(InputAction.CallbackContext context);
+        void OnStartGame(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
     }
 }

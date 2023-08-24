@@ -16,7 +16,15 @@ public class Bounds : MonoBehaviour
         if (target) return;
         
         Debug.Log("Attempting to default to Player transform as minimap center target due to field being null");
-        target = FindObjectOfType<PlayerScript>().GetComponent<Transform>();
+        try
+        {
+            target = FindObjectOfType<PlayerScript>().GetComponent<Transform>();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return;
+        }
 
         if (!target)
         {
