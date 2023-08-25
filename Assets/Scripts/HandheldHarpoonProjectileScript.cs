@@ -23,7 +23,7 @@ public class HandheldHarpoonProjectileScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "ColliderCheck" && other.gameObject.tag != "Unshootable" && other.gameObject.tag != "hatchTrigger")
         {
             gameObject.transform.parent = other.transform;
             rb.isKinematic = true;
