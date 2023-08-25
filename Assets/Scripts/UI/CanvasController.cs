@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
 public class CanvasController : MonoBehaviour
 {
@@ -16,6 +18,11 @@ public class CanvasController : MonoBehaviour
 
     public GameObject textEntryPrefab;
     public GameObject TextBox;
+
+    [SerializeField] private List<Sprite> pointerIcons;
+    [SerializeField] private Image pointerIcon;
+    private Fathomless fathomlessInput;
+    private PlayerInput playerInput;
 
     public static CanvasController Instance
     {
@@ -35,7 +42,32 @@ public class CanvasController : MonoBehaviour
         audioSource.clip = clip;
         animator = GetComponent<Animator>();
         PlayFadeFromBlack();
+        fathomlessInput = new Fathomless();
     }
+
+    private void Start()
+    {
+        playerInput = GameManager.Instance.GetComponent<PlayerInput>();
+    }
+
+    private void Update()
+    {
+        if (!playerInput || pointerIcons.Count == 0 || !pointerIcon) return;
+        
+        if (playerInput.currentControlScheme == fathomlessInput.XboxControllerScheme.name)
+        {
+            pointerIcon.sprite = pointerIcons[1];
+        }
+        else if (playerInput.currentControlScheme == fathomlessInput.PlaystationScheme.name)
+        {
+            pointerIcon.sprite = pointerIcons[2];
+        }
+        else
+        {
+            pointerIcon.sprite = pointerIcons[0];
+        }
+    }
+    
     public void DisplayText(string text)
     {
         audioSource.PlayOneShot(clip);
