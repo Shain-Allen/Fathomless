@@ -15,7 +15,7 @@ public class TurretSystem : MonoBehaviour
     public Rigidbody subRb;
     public GameObject VisHarpoon;
     public Animator turretAnimator;
-
+    private Vector2 mouse;
 
     public void TurretSystemEnable()
     {
@@ -51,15 +51,16 @@ public class TurretSystem : MonoBehaviour
         {
             VisHarpoon.SetActive(false);
         }
+        
+        rotation += mouse * Time.deltaTime;
+        rotation.x = Mathf.Clamp(rotation.x, -90f, 90f);
+        rotation.y = Mathf.Clamp(rotation.y, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(rotation.y, rotation.x, 0);
     }
     
     private void OnLook(InputAction.CallbackContext context)
     {
-        Vector2 mouse = context.ReadValue<Vector2>() * mouseSensitivity * Time.deltaTime;
-        rotation += mouse;
-        rotation.x = Mathf.Clamp(rotation.x, -90f, 90f);
-        rotation.y = Mathf.Clamp(rotation.y, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(rotation.y, rotation.x, 0);
+        mouse = context.ReadValue<Vector2>() * mouseSensitivity;
     }
     
     private void OnFire(InputAction.CallbackContext context)

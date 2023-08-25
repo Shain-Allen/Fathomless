@@ -27220,6 +27220,11 @@ PrefabInstance:
       propertyPath: m_RenderingLayerMask
       value: 258
       objectReference: {fileID: 0}
+    - target: {fileID: 356197970824821314, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 379210449458396096, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_RenderingLayerMask
@@ -27434,7 +27439,7 @@ PrefabInstance:
         type: 3}
       propertyPath: InteractFob
       value: 
-      objectReference: {fileID: 1336213649}
+      objectReference: {fileID: 1821827047}
     - target: {fileID: 1009507787048485822, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_Name
@@ -27445,6 +27450,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1545918506}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: xRotSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009507787048485954, guid: 3b18662b54615554b9e7428089a7ea23,
+        type: 3}
+      propertyPath: subMouseSensitivity
+      value: 0.57
+      objectReference: {fileID: 0}
     - target: {fileID: 1009507787048485957, guid: 3b18662b54615554b9e7428089a7ea23,
         type: 3}
       propertyPath: m_RootOrder
@@ -29936,12 +29951,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331879923}
   m_Mesh: {fileID: -2444344280229971126, guid: 694dad31ecd585e43b0ef42aadc87aa3, type: 3}
---- !u!1 &1336213649 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7976119996925123763, guid: bbb325465777f1a4bb68f5eff730e763,
-    type: 3}
-  m_PrefabInstance: {fileID: 398289248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1344606768
 GameObject:
   m_ObjectHideFlags: 0
@@ -31978,6 +31987,11 @@ PrefabInstance:
       propertyPath: sub
       value: 
       objectReference: {fileID: 1151937497}
+    - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -32037,7 +32051,7 @@ PrefabInstance:
         type: 3}
       propertyPath: InteractFob
       value: 
-      objectReference: {fileID: 1336213649}
+      objectReference: {fileID: 1821827047}
     - target: {fileID: 8341399024471591689, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_Name
@@ -40661,6 +40675,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820085400}
   m_Mesh: {fileID: 8310067372295098587, guid: c1602ae6a2efc3c4abe44bd856d8c105, type: 3}
+--- !u!1 &1821827047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3821159645333927433, guid: bbb325465777f1a4bb68f5eff730e763,
+    type: 3}
+  m_PrefabInstance: {fileID: 398289248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1830020777
 GameObject:
   m_ObjectHideFlags: 0

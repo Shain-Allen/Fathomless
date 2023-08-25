@@ -105,12 +105,7 @@ public class SubController : MonoBehaviour
         if (!isSub) return;
         
         
-        mouse = context.ReadValue<Vector2>() * subMouseSensitivity * Time.deltaTime;
-
-        xRotation -= mouse.y;
-        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
-
-        subCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        mouse = context.ReadValue<Vector2>() * subMouseSensitivity;
     }
     
     private void OnMove(InputAction.CallbackContext context)
@@ -241,6 +236,11 @@ public class SubController : MonoBehaviour
         float rotationY = mouse.x * xRotSpeed * Time.deltaTime;
         Quaternion rotation = Quaternion.Euler(0.0f, rotationY, 0.0f);
         subRigi.MoveRotation(subRigi.rotation * rotation);
+        
+        // Handle the up down rot of player cam in sub seat
+        xRotation -= mouse.y * Time.deltaTime;
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+        subCam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         //This will increase the speed of sub
         
