@@ -12,6 +12,7 @@ public class CreditsRoll : MonoBehaviour
     private void Awake()
     {
         fathomlessInput = new Fathomless();
+        fathomlessInput.Player_AMap.Enable();
     }
 
     private void OnEnable()
@@ -26,6 +27,7 @@ public class CreditsRoll : MonoBehaviour
     
     private void OnExit(InputAction.CallbackContext obj)
     {
+        Debug.Log("performed");
         SceneManager.LoadScene("MainMenu");
     }
 

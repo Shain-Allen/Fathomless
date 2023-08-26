@@ -16,22 +16,21 @@ public class HandheldHarpoonGunScript : MonoBehaviour
         reloading = false;
         HarpoonVisual.SetActive(true);
     }
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Mouse0) && !reloading)
-        {
-            HarpoonVisual.SetActive(false);
-            reloading = true;
-            GameObject harpoon = Instantiate(HarpoonProjectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
-            harpoon.GetComponent<HandheldHarpoonProjectileScript>().projectileSpeed = projectileSpeed;
-            GlobalSoundsManager.instance.PlayHandheldHarpoon();
-            StartCoroutine(ReloadTimer(reloadTime));
-        }
-    }
+    
     private IEnumerator ReloadTimer(float reloadTime)
     {
         yield return new WaitForSeconds(reloadTime);
         reloading = false;
         HarpoonVisual.SetActive(true);
+    }
+
+    public void FireGun()
+    {
+        HarpoonVisual.SetActive(false);
+        reloading = true;
+        GameObject harpoon = Instantiate(HarpoonProjectile, ProjectileSpawnPoint.transform.position, ProjectileSpawnPoint.transform.rotation);
+        harpoon.GetComponent<HandheldHarpoonProjectileScript>().projectileSpeed = projectileSpeed;
+        GlobalSoundsManager.instance.PlayHandheldHarpoon();
+        StartCoroutine(ReloadTimer(reloadTime));
     }
 }

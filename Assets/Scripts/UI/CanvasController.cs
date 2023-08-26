@@ -43,6 +43,7 @@ public class CanvasController : MonoBehaviour
         animator = GetComponent<Animator>();
         PlayFadeFromBlack();
         fathomlessInput = new Fathomless();
+        fathomlessInput.Player_AMap.Enable();
     }
 
     private void Start()

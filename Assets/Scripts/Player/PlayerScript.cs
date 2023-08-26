@@ -116,9 +116,10 @@ public class PlayerScript : MonoBehaviour
     //handles the firing of the handheld harpoon gun (if that gets added)
     private void OnFire(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance.playerReloadPercentage >= 100f)
+        if (GameManager.Instance.playerReloadPercentage >= 100f && !inSub)
         {
             GameManager.Instance.playerReloadPercentage = 0;
+            GetComponentInChildren<HandheldHarpoonGunScript>().FireGun();
         }
     }
 
