@@ -28,6 +28,7 @@ public class followPoint : MonoBehaviour
     }
     public void EndOfRoad()
     {
+
         GameManager.gminstance.EndGame();
     }
 

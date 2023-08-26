@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public bool isFading;
 
     public bool isGameEnding;
+    public bool toCredits;
     public static GameManager Instance
     {
         get { return gminstance; }
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameEnding = false;
+        toCredits = false;
         playerHealth = 100;
         playerReloadPercentage = 100;
         playerOxygen = 100;
@@ -115,7 +117,7 @@ public class GameManager : MonoBehaviour
         {
             isGameEnding = true;
             if (FadeToBlack != null)
-                StartCoroutine(EndGameTimer());
+                StartCoroutine(CheckPointTimer());
             else
             {
                 Debug.LogError("Gamemanager is missing FadeToBlack animation clip. Assign it in the inspector.");
@@ -123,10 +125,17 @@ public class GameManager : MonoBehaviour
         }
     }
     //a timer so the animation can play before changing scenes
-    public IEnumerator EndGameTimer()
+    public IEnumerator CheckPointTimer()
     {
         CanvasController.Instance.PlayFadeToBlack();
         yield return new WaitForSeconds(FadeToBlack.length + 1);
-        CheckpointDataHandler.Instance.LoadCheckpoint();
+        if (!toCredits)
+        {
+            CheckpointDataHandler.Instance.LoadCheckpoint();
+        }
+        else
+        {
+            SceneManager.LoadScene("Credits");
+        }
     }
 }

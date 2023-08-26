@@ -23,6 +23,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     public float StunCooldown;
     public float fleeSpeed = 100;
     public float attackSwimSpeed;
+    public bool FinalEel;
 
     public bool eelFleeing;
 
@@ -106,8 +107,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            currentState = State.Flee;
-            eelFleeing = true;
+            KillEel();
         }
 
         //if monster enters equilibrium state, start timer for eventual attack
@@ -143,8 +143,7 @@ public class LargeEnemyBehavior : MonoBehaviour
 
         if (enemyHealth <= 0)
         {
-            currentState = State.Flee;
-            eelFleeing = true;
+            KillEel();
         }
 
         if (dist < 10)
@@ -178,8 +177,7 @@ public class LargeEnemyBehavior : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {
-            currentState = State.Flee;
-            eelFleeing = true;
+            KillEel();
         }
         //calculate to player vector, measure distance
         Vector3 toPlayer = SubController.instance.chasePoint.transform.position - transform.position;
@@ -200,7 +198,6 @@ public class LargeEnemyBehavior : MonoBehaviour
     {
         if (enemyHealth <= 0)
         {
-            //The eel has been slain, end demo. This shouldn't run with the first eel because it has a brazillian health
             StartCoroutine(LetEelFlee());
         }
         // calculate the direction away from the player
@@ -240,6 +237,16 @@ public class LargeEnemyBehavior : MonoBehaviour
         isAttackTimerRunning = false;
     }
 
+    public void KillEel()
+    {
+        if (FinalEel)
+        {
+            GameManager.Instance.toCredits = true;
+        }
+        currentState = State.Flee;
+        eelFleeing = true;
+    }
+
     //after attacking, hold for player to gain distance.
     private IEnumerator StartHaltTimer()
     {
@@ -254,6 +261,6 @@ public class LargeEnemyBehavior : MonoBehaviour
     private IEnumerator LetEelFlee()
     {
         yield return new WaitForSeconds(5);
-        GameManager.gminstance.EndGame();
+        gameObject.SetActive(false);
     }
 }
