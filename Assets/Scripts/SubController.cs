@@ -315,6 +315,7 @@ public class SubController : MonoBehaviour
     
     public void SetSubPosAndRot(Vector3 pos, Quaternion rot)
     {
+        Debug.Log("setting sub pos");
         subRigi.velocity = Vector3.zero;
         subRigi.angularVelocity = Vector3.zero;
         transform.position = pos;

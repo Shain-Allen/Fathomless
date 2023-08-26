@@ -48,26 +48,6 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && canScissor)
-        {
-            switch (Random.Range(1, 4))
-            {
-                case 1:
-                    CanvasController.Instance.DisplayText("Rock.");
-                    break;
-                case 2:
-                    CanvasController.Instance.DisplayText("Paper.");
-                    break;
-                case 3:
-                    CanvasController.Instance.DisplayText("Scissiors.");
-                    break;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            canScissor = true;
-            CanvasController.Instance.DisplayText("Cheats activated: RPS Delux DLC Added.");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
@@ -81,10 +61,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKey(KeyCode.M))
-        {
-            SubController.instance.subRigi.AddForce(new Vector3(0, 0, 30));
-        }
     }
     private void FixedUpdate()
     {

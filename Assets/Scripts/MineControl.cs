@@ -15,6 +15,9 @@ public class MineControl : MonoBehaviour
     public GameObject explosion;
     public GameObject explosionPoint;
 
+    public MineWarningSound warningSound;
+    public MineWarningSound warningSound2;
+
 
     bool isActive;
 
@@ -41,7 +44,9 @@ public class MineControl : MonoBehaviour
         //explosion.SendEvent("OnPlay");
         Instantiate(explosion, explosionPoint.transform.position, Quaternion.identity);
         subMan.Hit();
+        warningSound.beeping = false;
+        warningSound2.beeping = false;
         //mineMesh.SetActive(false);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -20,6 +20,7 @@ TagManager:
   - urchinEnemy
   - ColliderCheck
   - Unshootable
+  - Mine
   layers:
   - Default
   - TransparentFX
@@ -56,4 +57,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bubble
+    uniqueID: 4291752569
     locked: 0

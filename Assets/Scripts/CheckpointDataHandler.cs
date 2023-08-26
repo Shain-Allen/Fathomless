@@ -9,6 +9,9 @@ public class CheckpointDataHandler : MonoBehaviour
     Transform[] urchinPositions;
     public EnemyDataManager[] urchinScripts;
     public GameObject[] urchinEnemies;
+    public GameObject[] Scrap;
+    public GameObject[] Mines;
+    Transform[] minePositions;
     public static CheckpointDataHandler instance;
     GameObject Submarine;
     public static CheckpointDataHandler Instance
@@ -27,6 +30,7 @@ public class CheckpointDataHandler : MonoBehaviour
     {
         SaveCheckpoint(SubController.Instance.transform.position, SubController.Instance.transform.rotation, GameManager.gminstance.currentTreasure);
         SaveEnemies();
+        SaveMines();
         Submarine = SubController.instance.gameObject;
     }
     private void Update()
@@ -48,11 +52,20 @@ public class CheckpointDataHandler : MonoBehaviour
             urchinPositions[i] = urchinEnemies[i].transform;
         }
     }
+    public void SaveMines()
+    {
+        Mines = GameObject.FindGameObjectsWithTag("Mine");
+        minePositions = new Transform[Mines.Length];
+        for (int i = 0; i < Mines.Length; i++)
+        {
+            minePositions[i] = Mines[i].transform;
+        }
+    }
+
 
     //method to save a new checkpoint.
     public void SaveCheckpoint(Vector3 position, Quaternion rotation, uint treasure)
     {
-        Debug.Log("Saving...");
         CheckpointPreset preset = new CheckpointPreset
         {
             subPosition = position,
@@ -61,7 +74,7 @@ public class CheckpointDataHandler : MonoBehaviour
             // Set other data types as needed.
         };
 
-        checkpointPresets.Add(preset);
+        //checkpointPresets.Add(preset);
         currentLatestCheckpoint = preset;
     }
 
@@ -106,6 +119,7 @@ public class CheckpointDataHandler : MonoBehaviour
         LoadSub();
         RemoveHarpoons();
         LoadEnemies();
+        LoadMines();
         LoadTunnelReset();
         yield return new WaitForSeconds(1);
         GlobalSoundsManager.instance.PlaySubAmbience();
@@ -152,6 +166,19 @@ public class CheckpointDataHandler : MonoBehaviour
                 urchinEnemies[i].SetActive(true);
                 urchinEnemies[i].transform.position = urchinPositions[i].position;
                 urchinPositions[i].rotation = urchinPositions[i].rotation;
+            }
+        }
+
+    }
+    void LoadMines()
+    {
+        for (int i = 0; i < Mines.Length; i++)
+        {
+            if (Mines[i] != null)
+            {
+                Mines[i].SetActive(true);
+                Mines[i].transform.position = minePositions[i].position;
+                minePositions[i].rotation = minePositions[i].rotation;
             }
         }
 

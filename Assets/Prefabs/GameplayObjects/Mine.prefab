@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7576957732069910209}
   m_Layer: 0
   m_Name: Mine
-  m_TagString: Unshootable
+  m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +279,8 @@ MonoBehaviour:
   explosion: {fileID: 4158996883258911287, guid: b73daf9e64ff8c44a8e07065a6c2ca59,
     type: 3}
   explosionPoint: {fileID: 8049912027079795033}
+  warningSound: {fileID: 4752556856463661951}
+  warningSound2: {fileID: 1037835603684983078}
 --- !u!136 &7576957732069910209
 CapsuleCollider:
   m_ObjectHideFlags: 0
