@@ -47,7 +47,7 @@ public class CanvasController : MonoBehaviour
 
     private void Start()
     {
-        playerInput = GameManager.Instance.GetComponent<PlayerInput>();
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     private void Update()
