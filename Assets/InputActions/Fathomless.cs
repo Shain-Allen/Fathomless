@@ -212,7 +212,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""58e144d2-e16b-42b5-9967-f5e28e14aec0"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -223,7 +223,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6f3a43b-53a5-45fe-b87c-7fc3a8e28dd3"",
-                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation;Playstation"",
@@ -256,7 +256,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4cb8ae99-eb53-43f4-9af2-2ec5d0e2bd84"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -267,7 +267,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2ab9e525-5492-4f03-90c4-0988f5acd1b1"",
-                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayStation;Playstation"",
