@@ -1,15 +1,39 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CreditsRoll : MonoBehaviour
 {
+    private Fathomless fathomlessInput;
     string[] credits;
+
+    private void Awake()
+    {
+        fathomlessInput = new Fathomless();
+    }
+
+    private void OnEnable()
+    {
+        fathomlessInput.Player_AMap.ExitGame.performed += OnExit;
+    }
+
+    private void OnDisable()
+    {
+        fathomlessInput.Player_AMap.ExitGame.performed -= OnExit;
+    }
+    
+    private void OnExit(InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     private void Start()
     {
         credits = new string[]
         {
-            "Thank you for playing our Fathomless demo.",
+            "Thank you for playing Fathomless.",
             "This couldn't be possible without our fantastic team:",
             "Producers:",
             "Maverick Wilkinson     Sean Spencer     Emily Adams     Ethan Berning.",
@@ -22,13 +46,15 @@ public class CreditsRoll : MonoBehaviour
             "Lighting and Volumetrics:",
             "Tyler Charnholm",
             "Programmers:",
-            "Maverick Wilkinson     Joshua Abens     Sean Spencer     Hugo Autio",
+            "Maverick Wilkinson     Joshua Abens     Sean Spencer     Hugo Autio     Shain Allen",
             "Animation and Rigging:",
             "Erin Hiliker    Ita Cummins",
             "Environment and Level Design",
             "Emily Adams     Alex Turner",
             "UI",
-            "Maverick Wilkinson    Tyler Charnholm",
+            "Maverick Wilkinson    Tyler Charnholm    Shain Allen",
+            "sound Design",
+            "Jonathan Saeteurn",
             "Implementation",
             "Maverick Wilkinson    Joshua Abens    Sean Spencer",
             "Moral support (and special thanks)",
@@ -52,7 +78,7 @@ public class CreditsRoll : MonoBehaviour
             "And thank you for playing.",
             "We really hope you enjoyed the experience."
         };
-
+        
         CanvasController.Instance.DisplayMoreText(credits, 2.5f);
         StartCoroutine(CreditsTimer());
     }
@@ -60,11 +86,5 @@ public class CreditsRoll : MonoBehaviour
     {
         yield return new WaitForSeconds(credits.Length * 2.5f + 3);
         SceneManager.LoadScene("MainMenu");
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            SceneManager.LoadScene("MainMenu");
-        }
     }
 }
