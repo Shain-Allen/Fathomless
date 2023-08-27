@@ -40,12 +40,14 @@ public class interactControls : MonoBehaviour
     private void OnInteract(InputAction.CallbackContext context)
     {
         if(!context.performed) return;
-        
+
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             raycast.collider.gameObject.GetComponent<IInteractable>()?.Interact(gameObject);
+
             PlayerScript.instance.Feet.Stop();
         }
+
     }
 
     public void OnLook(InputAction.CallbackContext context)

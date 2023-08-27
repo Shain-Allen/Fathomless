@@ -78,6 +78,7 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
     {
         playerScript.frozen = true; //removes player control...
         CanvasController.Instance.PlayQuickFade();
+        PlayerScript.instance.Feet.Stop();
         yield return new WaitForSeconds(fadeClip.length); //for this long
 
             playerScript.inSub = !playerScript.inSub;

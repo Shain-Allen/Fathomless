@@ -29,7 +29,7 @@ public class eyeHit : MonoBehaviour //this script goes on the eye of the enemy
             /*patrolScript.patrolCase = 5;*/
             patrolScript.eyeDamage = true;
 
-
+            enemyDat.MakeHurtSound();
             if (other.GetComponent<HandheldHarpoonProjectileScript>() != null)
             {
                 enemyDat.enemyHealth -= other.GetComponent<HandheldHarpoonProjectileScript>().harpoonDamage;
