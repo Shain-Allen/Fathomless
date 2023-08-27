@@ -30,7 +30,7 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
-        if (!GameManager.Instance.isFading)
+        if (!GameManager.Instance.isFading && (!PilotPanelInteractable.Instance.controlSub && !TurretInteractable.Instance.controlTurret))
         {
             if (!animBlock)
             {

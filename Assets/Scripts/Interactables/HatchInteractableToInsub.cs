@@ -6,6 +6,7 @@ public class HatchInteractableToInsub : MonoBehaviour, IInteractable
     PlayerScript playerScript;
     public GameObject teleporter;
     public GameObject player;
+    private AudioSource hatchSound;
 
     //added for auto access to player in prefab
     public SubController controller;
@@ -24,6 +25,7 @@ public class HatchInteractableToInsub : MonoBehaviour, IInteractable
         player = controller.Player;
         playerScript = player.GetComponent<PlayerScript>();
         Ladder.SetActive(false);
+        hatchSound = GetComponent<AudioSource>();
     }
 
     public void Interact(GameObject player)
@@ -45,7 +47,7 @@ public class HatchInteractableToInsub : MonoBehaviour, IInteractable
         playerScript.frozen = true; //removes player control...
         CanvasController.Instance.PlayQuickFade();
         yield return new WaitForSeconds(fadeClip.length); //for this long
-
+        hatchSound.Play();
         playerScript.inSub = true;
         GlobalSoundsManager.instance.PlaySubAmbience();
         GlobalSoundsManager.instance.StopWaterAmbience();
