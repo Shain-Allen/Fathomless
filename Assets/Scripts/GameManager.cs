@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float O2DepletionRate;
     public float playerReloadPercentage;
     public float isReloading;
+    public uint DeathPenalty;
 
     //for hatch fade transitions
     public bool isFading;

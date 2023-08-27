@@ -53,7 +53,7 @@ public class EnemyDataManager : MonoBehaviour
     }
     public void MakeHurtSound()
     {
-        float randomPitch = 1f + Random.Range(-2, 1f);
+        float randomPitch = 1f + Random.Range(-0.5f, 0f);
         damageSound.pitch = randomPitch;
         damageSound.Play();
     }

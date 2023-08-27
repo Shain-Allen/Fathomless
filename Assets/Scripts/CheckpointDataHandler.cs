@@ -61,9 +61,6 @@ public class CheckpointDataHandler : MonoBehaviour
             minePositions[i] = Mines[i].transform;
         }
     }
-
-
-    //method to save a new checkpoint.
     public void SaveCheckpoint(Vector3 position, Quaternion rotation, uint treasure)
     {
         CheckpointPreset preset = new CheckpointPreset
@@ -115,6 +112,7 @@ public class CheckpointDataHandler : MonoBehaviour
         GlobalSoundsManager.instance.CutAmbientSounds();
         GlobalSoundsManager.instance.StopWaterAmbience();
         GameManager.Instance.SubHealth = SubDamageManager.Instance.damagePoint.Length;
+        GameManager.Instance.currentTreasure -= GameManager.Instance.DeathPenalty;
         CheckStations();
         LoadGM();
         LoadSub();

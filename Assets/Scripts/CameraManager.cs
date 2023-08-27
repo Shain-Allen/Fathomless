@@ -27,6 +27,7 @@ public class CameraManager : MonoBehaviour
 
     public void HurtPlayerEffect()
     {
+        GlobalSoundsManager.instance.PlayePlayerDamage();
         ScreenShakeAnim.Play();
         CanvasController.Instance.PlayDamageVignette();
     }
