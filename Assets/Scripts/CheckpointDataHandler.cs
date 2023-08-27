@@ -115,6 +115,7 @@ public class CheckpointDataHandler : MonoBehaviour
         GlobalSoundsManager.instance.CutAmbientSounds();
         GlobalSoundsManager.instance.StopWaterAmbience();
         GameManager.Instance.SubHealth = SubDamageManager.Instance.damagePoint.Length;
+        CheckStations();
         LoadGM();
         LoadSub();
         RemoveHarpoons();
@@ -125,6 +126,17 @@ public class CheckpointDataHandler : MonoBehaviour
         GlobalSoundsManager.instance.PlaySubAmbience();
         LoadCanvas();
 
+    }
+    void CheckStations()
+    {
+        if (PilotPanelInteractable.Instance.controlSub)
+        {
+            PilotPanelInteractable.Instance.RemoveControl();
+        }
+        if (TurretInteractable.Instance.controlTurret)
+        {
+            TurretInteractable.Instance.RemoveControl();
+        }
     }
     void LoadSub()
     {

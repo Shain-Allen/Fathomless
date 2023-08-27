@@ -64,6 +64,10 @@ public class TurretInteractable : MonoBehaviour, IInteractable
 
     public void OnLeavePost()
     {
+        RemoveControl();
+    }
+    public void RemoveControl()
+    {
         if (controlTurret)
         {
             playerChar.GetComponent<PlayerScript>().ResetMoveVector();

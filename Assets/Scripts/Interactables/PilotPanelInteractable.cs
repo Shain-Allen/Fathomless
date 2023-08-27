@@ -80,6 +80,10 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     public void OnLeavePost ()
     {
+        RemoveControl();
+    }
+    public void RemoveControl()
+    {
         if (controlSub)
         {
             player.GetComponent<PlayerScript>().ResetMoveVector();
