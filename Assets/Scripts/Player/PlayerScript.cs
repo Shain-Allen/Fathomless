@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     //Raw input data
-    private Vector2 direction;
+    public Vector2 direction;
     private Vector2 mouseInput;
     private float jumpInput;
 
@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     [Min(0)][SerializeField] private float mouseSensitivity = 100f;
     private float yRotation;
     [Min(0)][SerializeField] private float reloadSpeed;
+    public Vector3 moveVectorCurrent;
 
 
     //Physics Vars
@@ -59,6 +60,8 @@ public class PlayerScript : MonoBehaviour
     [Header("Player Component References")]
     [SerializeField] private CharacterController characterController;
     public GameObject cam;
+    public AudioSource Feet;
+    bool walking;
     public GameObject flashLight;
     public GameObject HarpoonGun;
     public bool InternalCollider;
@@ -208,7 +211,8 @@ public class PlayerScript : MonoBehaviour
                 characterController.enabled = false;
                 if (flashLight.activeSelf)
                     flashLight.SetActive(false);
-                InsideMovement(new Vector3(direction.x, 0, direction.y));
+                if (!PilotPanelInteractable.Instance.controlSub && !TurretInteractable.Instance.controlTurret)
+                    InsideMovement(new Vector3(direction.x, 0, direction.y));
             }
 
             MoveCamera();
@@ -224,13 +228,23 @@ public class PlayerScript : MonoBehaviour
     private void InsideMovement(Vector3 moveVector)
     {
         //transform.SetParent(SubController.instance.subRigi.transform);
-
+        moveVectorCurrent = moveVector;
         moveVector *= Time.deltaTime * (insideAcceleration / 5);
 
         Vector3 newPos = transform.position + transform.TransformDirection(new Vector3(direction.x, 0, direction.y)) * 0.5f;
 
         visball.transform.position = newPos;
 
+        if (moveVectorCurrent.magnitude != 0 && !walking)
+        {
+            walking = true;
+            Feet.Play();
+        }
+        else if (moveVectorCurrent.magnitude == 0 && walking)
+        {
+            walking = false;
+            Feet.Stop();
+        }
 
         if (InternalCollider)
         {

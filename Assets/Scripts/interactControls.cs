@@ -44,6 +44,7 @@ public class interactControls : MonoBehaviour
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             raycast.collider.gameObject.GetComponent<IInteractable>()?.Interact(gameObject);
+            PlayerScript.instance.Feet.Stop();
         }
     }
 

@@ -34953,7 +34953,7 @@ PrefabInstance:
     - target: {fileID: 7250791769285762801, guid: 321b5fd01de67ac49bd3fe383282b8c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7250791769285762801, guid: 321b5fd01de67ac49bd3fe383282b8c6,
         type: 3}
@@ -44135,32 +44135,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 953588027, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
-      propertyPath: m_TargetDisplay
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 953588030, guid: 34f0f5b51303174478fae1227e4193d3, type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: sub
       value: 
       objectReference: {fileID: 1151937497}
-    - target: {fileID: 6013005429556658105, guid: 34f0f5b51303174478fae1227e4193d3,
-        type: 3}
-      propertyPath: mouseSensitivity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8341399024471591685, guid: 34f0f5b51303174478fae1227e4193d3,
         type: 3}
       propertyPath: m_RootOrder
@@ -48260,7 +48239,7 @@ PrefabInstance:
     - target: {fileID: 4112327951343524398, guid: d8e53d1a2aa69224cbb5c1059f4026be,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4156916350334715308, guid: d8e53d1a2aa69224cbb5c1059f4026be,
         type: 3}
@@ -52664,7 +52643,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709576313}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 237f66b5719acb44db65f22d71b062b1, type: 3}
   m_Name: 
@@ -52685,14 +52664,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 10000000
+  m_Intensity: 43185
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
-  m_LightUnit: 0
+  m_LightUnit: 2
   m_FadeDistance: 10000
   m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
@@ -52807,7 +52786,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.8160377, g: 0.8440701, b: 1, a: 1}
-  m_Intensity: 795774.7
+  m_Intensity: 43185
   m_Range: 49.792725
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
