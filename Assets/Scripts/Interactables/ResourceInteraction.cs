@@ -39,6 +39,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
             if (direction.magnitude < 0.3)
             {
                 GameManager.gminstance.Scrap += 1;
+                GlobalSoundsManager.instance.PlayScrap();
                 Destroy(gameObject);
             }
         }

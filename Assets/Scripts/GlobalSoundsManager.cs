@@ -196,6 +196,12 @@ public class GlobalSoundsManager : MonoBehaviour
         audiosources[26].pitch = randomPitch;
         audiosources[26].PlayOneShot(audiosources[26].clip);
     }
+    public void PlayScrap()
+    {
+        float randomPitch = 1f + Random.Range(-0.2f, 0f);
+        audiosources[27].pitch = randomPitch;
+        audiosources[27].PlayOneShot(audiosources[27].clip);
+    }
     private void Update()
     {
         HandleFade();
