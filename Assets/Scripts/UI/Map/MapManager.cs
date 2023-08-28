@@ -7,12 +7,13 @@ public class MapManager : MonoBehaviour
     [Header("References")] 
     [SerializeField] private Bounds bounds;
 
-    [Header("Points of interest")] 
+    [Header("Points of interest")]
     [SerializeField] private GameObject mapIconPrefab;
     [SerializeField] private List<MapPOI> pointsOfIntrestWT;
     [SerializeField] private List<RectTransform> pointsOfIntrestsRT;
 
     [SerializeField] private Sprite[] mapIcons;
+    [SerializeField] private List<float> poiSizes;
     
     private RectTransform MapTransform => transform as RectTransform;
     
@@ -43,8 +44,11 @@ public class MapManager : MonoBehaviour
         {
             GameObject newMapIcon = Instantiate(mapIconPrefab, transform);
             newMapIcon.GetComponent<Image>().sprite = mapIcons[(int)mapPoi.poiType];
-            mapPoi.RegisterPOIIcon(newMapIcon.transform as RectTransform);
-            pointsOfIntrestsRT.Add(newMapIcon.transform as RectTransform);
+            RectTransform newMapIconRect = newMapIcon.transform as RectTransform;
+            newMapIconRect.sizeDelta = new Vector2(poiSizes[(int)mapPoi.poiType], poiSizes[(int)mapPoi.poiType]);
+            
+            mapPoi.RegisterPOIIcon(newMapIconRect);
+            pointsOfIntrestsRT.Add(newMapIconRect);
             mapPoi.POIDeleted += POIDeleted;
         }
 
