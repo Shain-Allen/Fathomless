@@ -212,7 +212,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""58e144d2-e16b-42b5-9967-f5e28e14aec0"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -234,7 +234,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a416835d-e4e9-4ffc-b29d-96318556fab2"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Controller"",
@@ -256,7 +256,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4cb8ae99-eb53-43f4-9af2-2ec5d0e2bd84"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad Generic"",
@@ -278,7 +278,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""705f2d1b-50f8-48c5-9f8f-300efb2ec2b0"",
-                    ""path"": ""<XInputController>/buttonWest"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox Controller"",
