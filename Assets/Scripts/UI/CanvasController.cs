@@ -69,14 +69,15 @@ public class CanvasController : MonoBehaviour
         }
     }
     
-    public void DisplayText(string text)
+    public void DisplayText(string text, bool sound)
     {
-        audioSource.PlayOneShot(clip);
+        if (sound)
+            audioSource.PlayOneShot(clip);
         DrawTextToScreen(text);
     }
-    public void DisplayMoreText(string[] lines, float delay)
+    public void DisplayMoreText(string[] lines, float delay, bool sound)
     {
-        coroutine = TextWriter(lines, delay);
+        coroutine = TextWriter(lines, delay, sound);
         StartCoroutine(coroutine);
     }
     public void PlayDamageVignette()
@@ -115,11 +116,11 @@ public class CanvasController : MonoBehaviour
         textComponent.text = text;
     }
     
-    private IEnumerator TextWriter(string[] lines, float delay)
+    private IEnumerator TextWriter(string[] lines, float delay, bool sound)
     {
         foreach (string line in lines)
         {
-            DisplayText(line);
+            DisplayText(line, sound);
             yield return new WaitForSeconds(delay);
         }
         isBooking = false;

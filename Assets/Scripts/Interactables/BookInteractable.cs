@@ -21,7 +21,7 @@ public class BookInteractable : MonoBehaviour, IInteractable
     "It's a manual for operating the submarine",
     "Page 1: E key to Interact, Esc to dismount station.",
     "Page 2: W key to increase  thrust, S key for brakes",
-    "Page 3: A and D keys turn the sub left and right.",
+    "Page 3: Move mouse to turn the sub left and right.",
     "Page 4: Shift key to ascend, Ctrl key to descend.",
     "The rest of the pages contain dense blueprints. Probably not important."
     }; 
@@ -50,15 +50,15 @@ public class BookInteractable : MonoBehaviour, IInteractable
             CanvasController.Instance.isBooking = true;
             if (playerInput.currentControlScheme == fathomlessInput.KeyboardMouseScheme.name)
             {
-                CanvasController.Instance.DisplayMoreText(manualLinesPC, 3f);
+                CanvasController.Instance.DisplayMoreText(manualLinesPC, 3f, false);
             }
             if (playerInput.currentControlScheme == fathomlessInput.XboxControllerScheme.name)
             {
-                CanvasController.Instance.DisplayMoreText(manualLinesXbox, 3f);
+                CanvasController.Instance.DisplayMoreText(manualLinesXbox, 3f, false);
             }
             if (playerInput.currentControlScheme == fathomlessInput.PlaystationScheme.name)
             {
-                CanvasController.Instance.DisplayMoreText(manualLinesPS, 3f);
+                CanvasController.Instance.DisplayMoreText(manualLinesPS, 3f, false);
             }
         }
     }

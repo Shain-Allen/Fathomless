@@ -9,9 +9,13 @@ public class MineWarningSound : MonoBehaviour
     public bool beeping = false;
     public bool inner;
     public MineWarningSound otherSphere;
+    AudioSource beep;
 
-    private AudioSource audioSource;
 
+    private void Start()
+    {
+        beep = PilotPanelInteractable.Instance.BeepSound.GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("SubTag"))
@@ -48,6 +52,6 @@ public class MineWarningSound : MonoBehaviour
 
     private void PlayBeep()
     {
-        GlobalSoundsManager.instance.PlayBeep();
+        beep.PlayOneShot(beep.clip);
     }
 }

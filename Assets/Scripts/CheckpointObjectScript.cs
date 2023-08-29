@@ -5,6 +5,8 @@ using UnityEngine;
 public class CheckpointObjectScript : MonoBehaviour
 {
     BoxCollider col;
+    public bool delCaveIcon;
+    public GameObject CaveIconGameObject;
     private void Start()
     {
         col = gameObject.GetComponent<BoxCollider>();
@@ -15,6 +17,10 @@ public class CheckpointObjectScript : MonoBehaviour
         {
             CheckpointDataHandler.instance.SaveCheckpoint(SubController.instance.transform.position, SubController.instance.transform.rotation, GameManager.Instance.currentTreasure);
             col.enabled = false;
+            if (delCaveIcon)
+            {
+                Destroy(CaveIconGameObject);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ public class PrologueDialogue : MonoBehaviour
             "Right. Well, if you hit your head on the way down, theres a manual on the table.",
             "Just my luck. Let's get this train sinking."
         };
-        CanvasController.Instance.DisplayMoreText(script, 3);
+        CanvasController.Instance.DisplayMoreText(script, 3, false);
         StartCoroutine(IntroTimer());
     }
     private void Update()

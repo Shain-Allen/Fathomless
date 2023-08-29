@@ -8,7 +8,7 @@ public class BackTrackBlockwall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("SubTag"))
         {
-            CanvasController.Instance.DisplayText("Not happening. not even with my sub.");
+            CanvasController.Instance.DisplayText("Not happening. not even with my sub.", true);
         }
     }
 }

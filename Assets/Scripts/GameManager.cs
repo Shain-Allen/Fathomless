@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
     public float isReloading;
     public uint DeathPenalty;
 
+    public float pressTimeThreshold = 0.5f;    // Time threshold for quick succession
+    public int requiredPressCount = 5;         // Number of presses required
+
+    private int pressCount = 0;
+    private float lastPressTime = 0f;
+    private Fathomless fathomlessInputActions;
+
     //for hatch fade transitions
     public bool isFading;
 
@@ -40,6 +47,14 @@ public class GameManager : MonoBehaviour
         {
             gminstance = this;
         }
+
+        fathomlessInputActions = new Fathomless();
+        fathomlessInputActions.Player_AMap.Enable();
+    }
+    private void OnEnable()
+    {
+        fathomlessInputActions.Player_AMap.StartGame.performed += OnStartGame;
+        fathomlessInputActions.Player_AMap.StartGame.canceled += OnStartGame;
     }
     private void Start()
     {
@@ -48,22 +63,35 @@ public class GameManager : MonoBehaviour
         playerHealth = 100;
         playerReloadPercentage = 100;
         playerOxygen = 100;
+
+
+        CanvasController.Instance.DisplayMoreText(introText, 2.5f, true);
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Escape))
+        
+
+    }
+    private void OnStartGame(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+
+        float currentTime = Time.time;
+
+        if (currentTime - lastPressTime > pressTimeThreshold)
         {
-            SceneManager.LoadScene("MainMenu");
+            pressCount = 1;
         }
-        if (Input.GetKey(KeyCode.K))
+        else
         {
-            Time.timeScale = 0.05f;
-        }
-        else if (Input.GetKey(KeyCode.L))
-        {
-            Time.timeScale = 1f;
+            pressCount++;
+            if (pressCount >= requiredPressCount)
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
         }
 
+        lastPressTime = currentTime;
     }
     private void FixedUpdate()
     {
@@ -140,4 +168,6 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Credits");
         }
     }
+
+    public string[] introText = { "I made it into the trench! But the sub took a hit on the way down.", "I saw some scrap on the seafloor.", "Maybe I can use them to patch the hole?" };
 }

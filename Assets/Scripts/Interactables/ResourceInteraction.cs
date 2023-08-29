@@ -17,7 +17,7 @@ public class ResourceInteraction : MonoBehaviour, IInteractable
         }
         else
         {
-            CanvasController.Instance.DisplayText("I can't carry any more.");
+            CanvasController.Instance.DisplayText("I can't carry any more.", true);
         }
     }
 

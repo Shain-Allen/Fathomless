@@ -50,7 +50,7 @@ public class AMCollisionDetector : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player") && !SubController.instance.follow)
         {
-            CanvasController.Instance.DisplayText("I'm not getting any closer to this cliff without my sub...");
+            CanvasController.Instance.DisplayText("I'm not getting any closer to this cliff without my sub...", true);
         }
     }
     void OnTriggerEnter(Collider collision)

@@ -116,7 +116,7 @@ Transform:
   - {fileID: 9152124075466635754}
   - {fileID: 3121894091975177312}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -3.558, y: 3.801, z: 1.304}
 --- !u!114 &5770449557594750305
 MonoBehaviour:
@@ -132,12 +132,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMan: {fileID: 0}
   subMan: {fileID: 0}
-  mineDamage: 10
+  mineDamage: 0
   mineMesh: {fileID: 4013960231255348651, guid: 67d2e9f9137f64d4fbf63a4d95c4415b,
     type: 3}
   explosion: {fileID: 4158996883258911287, guid: b73daf9e64ff8c44a8e07065a6c2ca59,
     type: 3}
   explosionPoint: {fileID: 3758327176882928912}
+  warningSound: {fileID: 0}
+  warningSound2: {fileID: 0}
 --- !u!136 &367052556080203715
 CapsuleCollider:
   m_ObjectHideFlags: 0

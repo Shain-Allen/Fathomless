@@ -62,14 +62,14 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
         }
         else
         {
-            CanvasController.Instance.DisplayText("I'm too far away from the seafloor.");
+            CanvasController.Instance.DisplayText("I'm too far away from the seafloor.", true);
             canLeave = false;
         }
 
         if (Physics.Raycast(detectionPoint.transform.position, detectionPoint.transform.TransformDirection(Vector3.down), out hit, tooCloseDistance))
         {
             Debug.Log("Too Close");
-            CanvasController.Instance.DisplayText("The sub is too close to the ground.");
+            CanvasController.Instance.DisplayText("The sub is too close to the ground.", true);
             canLeave = false;
         }
     }

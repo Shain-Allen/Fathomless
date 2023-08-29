@@ -21,6 +21,7 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
 
     public GameObject resetPoint;
     public GameObject InteractFob;
+    public GameObject BeepSound;
 
     private static PilotPanelInteractable instance;
     public static PilotPanelInteractable Instance => instance;
@@ -44,16 +45,15 @@ public class PilotPanelInteractable : MonoBehaviour, IInteractable
         print("Engaged pilot controls");
         //TODO: add logic for changing to sub pilot controls
 
-        if (canControl)
+        if (canControl && !tutorial)
         {
             controlSub = true; //turns on sub control when player presses e on control pannel
             player.GetComponent<PlayerScript>().frozen = true;
-            tutorial = false;
         }
 
-        if (canControl == false && tutorial == true)
+        if (tutorial == true)
         {
-            CanvasController.Instance.DisplayText("I should repair my ship first");
+            CanvasController.Instance.DisplayText("I should repair my ship first", true);
         }
     }
 

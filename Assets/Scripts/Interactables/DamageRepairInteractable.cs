@@ -26,11 +26,11 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
         {
             if (Random.value < 0.5)
             {
-                CanvasController.Instance.DisplayText("I hope I can find something to patch this up...");
+                CanvasController.Instance.DisplayText("I hope I can find some scrap to patch this up...", true);
             }
             else
             {
-                CanvasController.Instance.DisplayText("I've got nothing.");
+                CanvasController.Instance.DisplayText("I need scrap.", true);
             }
         }
     }
@@ -50,6 +50,7 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
         waterSound = GetComponent<AudioSource>();
         initialVolume = waterSound.volume;
         interactable = PilotPanelInteractable.Instance;
+
     }
 
     public void Update()
@@ -57,7 +58,8 @@ public class DamageRepairInteractable : MonoBehaviour, IInteractable
         if (repaired)
         {
             transform.localScale = transform.localScale / shrinkSpeed;
-            interactable.canControl = true;
+            if (interactable.tutorial == true)
+                interactable.tutorial = false;
             if (transform.localScale.x < 0.05f)
             {
                 if (makePlate)

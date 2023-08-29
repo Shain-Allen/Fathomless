@@ -32,4 +32,11 @@ public class Floater : MonoBehaviour
 
         transform.position = tempPos;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "harpoon")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

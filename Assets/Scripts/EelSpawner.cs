@@ -9,7 +9,7 @@ public class EelSpawner : MonoBehaviour
 
     public void ActivateEel()
     {
-        CanvasController.Instance.DisplayText("I sense a disturbance...");
+        CanvasController.Instance.DisplayText("I sense a disturbance...", true);
         Eel.SetActive(true);
     }
 }

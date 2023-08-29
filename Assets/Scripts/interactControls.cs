@@ -54,6 +54,10 @@ public class interactControls : MonoBehaviour
     {
         if(!context.performed) return;
         
+        
+    }
+    private void FixedUpdate()
+    {
         if (Physics.Raycast(MainCamera.transform.position, MainCamera.transform.forward, out raycast, raycastRange))
         {
             if (raycast.collider.gameObject.GetComponent<IInteractable>() != null)

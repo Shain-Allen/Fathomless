@@ -59,7 +59,6 @@ public class SubDamageManager : MonoBehaviour, IHit
     {
         while (true)
         {
-            interactable.canControl = false;
 
             UpdateSubHealth();
             if (currentlyDamaged >= DamagedSpots.Length)

@@ -235,8 +235,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.6875542, y: 1.3979193, z: 1.8390914}
+  m_Center: {x: -0.043680575, y: 0.77439183, z: -0.011412789}
 --- !u!114 &6048476204643264041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +256,7 @@ MonoBehaviour:
   DamageProtrusionIndex: 0
   repairPlate: {fileID: 2049755306758200032, guid: b715e0374b6d166428217586e86e3121,
     type: 3}
+  interactable: {fileID: 0}
 --- !u!82 &6065283553906568568
 AudioSource:
   m_ObjectHideFlags: 0

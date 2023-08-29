@@ -81,7 +81,7 @@ public class CreditsRoll : MonoBehaviour
             "We really hope you enjoyed the experience."
         };
         
-        CanvasController.Instance.DisplayMoreText(credits, 2.5f);
+        CanvasController.Instance.DisplayMoreText(credits, 2.5f,false);
         StartCoroutine(CreditsTimer());
     }
     public IEnumerator CreditsTimer()
