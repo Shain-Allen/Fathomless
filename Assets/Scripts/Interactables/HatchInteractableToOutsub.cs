@@ -95,6 +95,7 @@ public class HatchInteractableToOutsub : MonoBehaviour, IInteractable
         playerScript.transform.position = teleporter.transform.position; //takes player to this position
         playerScript.frozen = false; //to restore player control
         yield return new WaitForSeconds(fadeClip.length); //waits this long...
+        PlayerScript.instance.Feet.Stop();
         GameManager.Instance.isFading = false;
         //animBlock = false;
     }

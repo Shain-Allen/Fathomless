@@ -619,7 +619,7 @@ public partial class @Fathomless: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""583c5ad2-aa22-415a-9b52-de194082c08a"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

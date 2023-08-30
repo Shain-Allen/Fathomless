@@ -5595,7 +5595,7 @@ PrefabInstance:
     - target: {fileID: 988972036187256289, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
       propertyPath: enemyHealth
-      value: 65
+      value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 988972036187256290, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
@@ -51709,6 +51709,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 406553157}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5543005711379936896, guid: d8e53d1a2aa69224cbb5c1059f4026be,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1956269654}
     - targetCorrespondingSourceObject: {fileID: 5477839095430758713, guid: d8e53d1a2aa69224cbb5c1059f4026be,
         type: 3}
       insertIndex: -1
@@ -55043,7 +55047,7 @@ PrefabInstance:
     - target: {fileID: 988972036187256289, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
       propertyPath: enemyHealth
-      value: 80
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1933086885930978658, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
@@ -64367,6 +64371,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939099982}
   m_Mesh: {fileID: 8310067372295098587, guid: c1602ae6a2efc3c4abe44bd856d8c105, type: 3}
+--- !u!1 &1956269650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5543005711379936896, guid: d8e53d1a2aa69224cbb5c1059f4026be,
+    type: 3}
+  m_PrefabInstance: {fileID: 1553356723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1956269654
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956269650}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2479576541362453377, guid: 6144ab87d178a83409151e2318ad6221, type: 3}
 --- !u!1 &1957903172
 GameObject:
   m_ObjectHideFlags: 0
@@ -65168,7 +65200,7 @@ PrefabInstance:
     - target: {fileID: 988972036187256289, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}
       propertyPath: enemyHealth
-      value: 80
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 1933086885930978658, guid: b81933dc14f50ae47b574b121f989155,
         type: 3}

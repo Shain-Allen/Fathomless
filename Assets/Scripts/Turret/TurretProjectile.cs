@@ -33,7 +33,7 @@ public class TurretProjectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (test == false)
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "ColliderCheck" && other.gameObject.tag != "Unshootable" && other.gameObject.tag != "hatchTrigger")
         {
             GameObject collidedObject = other.gameObject;
             obj.transform.parent = collidedObject.transform;

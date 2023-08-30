@@ -19,7 +19,7 @@ public class BookInteractable : MonoBehaviour, IInteractable
     string[] manualLinesPC = new string[]
     {
     "It's a manual for operating the submarine",
-    "Page 1: E key to Interact, Esc to dismount station.",
+    "Page 1: E key to Interact, Q to dismount station.",
     "Page 2: W key to increase  thrust, S key for brakes",
     "Page 3: Move mouse to turn the sub left and right.",
     "Page 4: Shift key to ascend, Ctrl key to descend.",
