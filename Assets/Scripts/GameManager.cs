@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         else
         {
             playerOxygen += O2DepletionRate * Time.deltaTime * 10;
-            playerHealth += O2DepletionRate;
+            playerHealth += O2DepletionRate * Time.deltaTime * 4.5f;
         }
     }
 
