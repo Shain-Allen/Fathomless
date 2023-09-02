@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         playerOxygen = 100;
 
 
-        CanvasController.Instance.DisplayMoreText(introText, 2.5f, true);
+        CanvasController.Instance.DisplayMoreText(introText, 3f, true);
     }
     private void Update()
     {
@@ -169,5 +169,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public string[] introText = { "I made it into the trench! But the sub took a hit on the way down.", "I saw some scrap on the seafloor.", "Maybe I can use them to patch the hole?" };
+    private string[] introText = { "I made it into the trench! But the sub took a hit on the way down.", "maybe I should flip through the book on the table next time.", "I saw some scrap on the seafloor.", "Maybe I can use them to patch the hole?" };
 }
