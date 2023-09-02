@@ -31,7 +31,7 @@ public class BookInteractable : MonoBehaviour, IInteractable
     "Page 1: X button to Interact, B to dismount station.",
     "Page 2: Left Stick to increase thrust/reverse.",
     "Page 3: Right Stick turns the sub left and right.",
-    "Page 4: Left bumber to ascend, trigger to descend.",
+    "Page 4: Right trigger to ascend, Left trigger descend.",
     "The rest of the pages contain dense blueprints. Probably not important."
     };
     string[] manualLinesPS = new string[]
@@ -40,7 +40,7 @@ public class BookInteractable : MonoBehaviour, IInteractable
     "Page 1: Circle button to Interact, Square to dismount station.",
     "Page 2: Left Stick to increase thrust/reverse.",
     "Page 3: Right Stick turns the sub left and right.",
-    "Page 4: Left bumber to ascend, trigger to descend.",
+    "Page 4: Right trigger to ascend, Left trigger descend.",
     "The rest of the pages contain dense blueprints. Probably not important."
     };
     public void Interact(GameObject player)
