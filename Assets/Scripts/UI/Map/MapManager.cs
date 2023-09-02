@@ -50,8 +50,18 @@ public class MapManager : MonoBehaviour
             mapPoi.RegisterPOIIcon(newMapIconRect);
             pointsOfIntrestsRT.Add(newMapIconRect);
             mapPoi.POIDeleted += POIDeleted;
+
+            
         }
 
+        foreach (MapPOI mapPoi in pointsOfIntrestWT)
+        {
+            if (mapPoi.poiType == MapPOITypes.Tunnel)
+            {
+                pointsOfIntrestsRT[pointsOfIntrestWT.IndexOf(mapPoi)].transform.SetAsLastSibling();
+            }
+        }
+        
         pointsOfIntrestsRT[pointsOfIntrestWT.IndexOf(pointsOfIntrestWT.Find(poi => poi.poiType == MapPOITypes.Sub))].transform.SetAsLastSibling();
     }
 
