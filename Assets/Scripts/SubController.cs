@@ -121,10 +121,11 @@ public class SubController : MonoBehaviour
 
         rawVertInput = context.ReadValue<float>();
         
-        //Moves sub up
+        //Moves sub up or down
         moveUp = rawVertInput >= 0.1f;
+        moveDown = rawVertInput <= -0.1f;
 
-        if (moveUp)
+        if (moveUp || moveDown)
         {
             verMove = true;
         }
@@ -140,17 +141,6 @@ public class SubController : MonoBehaviour
             verMove = false;
         }
 
-        //Moves sub down
-        moveDown = rawVertInput <= -0.1f;
-
-        if (moveDown)
-        {
-            verMove = true;
-        }
-        else
-        {
-            verMove = false;
-        }
     }
 
     private void OnLeavePost(InputAction.CallbackContext context)
@@ -211,6 +201,10 @@ public class SubController : MonoBehaviour
                     verticalSpeed = 0;
                 }
             }
+        }
+        else
+        {
+            SlowSub();
         }
 
 
