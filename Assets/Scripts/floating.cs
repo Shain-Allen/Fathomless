@@ -9,6 +9,8 @@ public class Floater : MonoBehaviour
     public float amplitude = 0.5f;
     public float frequency = .3f;
 
+    public GameObject jellyParticles;
+
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
@@ -32,11 +34,10 @@ public class Floater : MonoBehaviour
 
         transform.position = tempPos;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag != "harpoon")
-        {
-            Destroy(gameObject);
-        }
+            GameObject particle = Instantiate(jellyParticles, null, true);
+            particle.transform.position = transform.position;
+            Destroy(this.gameObject);
     }
 }

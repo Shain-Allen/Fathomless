@@ -230,6 +230,7 @@ public class SubController : MonoBehaviour
         //this will ensure that the sub will always move forward. 0 speed will stop the throttle of the speed.
         subRigi.AddForce(transform.forward * speed);
 
+        verticalSpeed = Mathf.Clamp(verticalSpeed, -100f, 100f);
         subRigi.AddForce(transform.up * verticalSpeed);
         
         //Handle Sub rotation left right
